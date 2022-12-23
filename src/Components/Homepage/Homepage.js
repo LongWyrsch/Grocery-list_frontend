@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Homepage() {
+export const Homepage = () => {
   return (
     <div>Homepage</div>
   )

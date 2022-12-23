@@ -1,7 +1,13 @@
 import React from 'react'
+import styles from './Loginpage.module.css'
 
-export default function Loginpage() {
+export const Loginpage = () => {
   return (
-    <div>Loginpage</div>
+    <div>
+      Loginpage
+      <div className={styles.loginButton}>
+        <button>Login with Google</button>
+      </div>  
+    </div>
   )
 }
