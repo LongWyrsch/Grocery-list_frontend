@@ -7,6 +7,7 @@ export const Navbar = () => {
     <div>
         <ul className={styles.navbar}>
             <li><Link to='/'>Home</Link></li>
+            <li><Link to='/lists'>Lists</Link></li>
             <li><Link to='/login'>Login</Link></li>
         </ul>
     </div>

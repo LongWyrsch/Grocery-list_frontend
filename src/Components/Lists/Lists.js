@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const Listspage = () => {
+export const Lists = () => {
     const logout = () => { 
         window.open('http://localhost:3000/logout', '_self')
     }
 
     return (
     <div>
-        Listspage
+        <h1>Listspage</h1>
         <button onClick={logout}>Logout</button>
     </div>
     )
