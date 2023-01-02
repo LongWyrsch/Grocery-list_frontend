@@ -7,7 +7,7 @@ export const Lists = () => {
 
     return (
     <div>
-        <h1>Listspage</h1>
+        <h1>Lists</h1>
         <button onClick={logout}>Logout</button>
     </div>
     )

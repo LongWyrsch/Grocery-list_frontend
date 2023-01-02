@@ -1,12 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Homepage } from './Components/Homepage/Homepage';
-import { Login } from './Components/Login/Login';
-import { Navbar } from './Components/Navbar/Navbar';
-import { Lists } from './Components/Lists/Lists';
-import { LocalLogin } from './Components/LocalLogin/LocalLogin';
-import { LocalRegister } from './Components/LocalRegister.js/LocalRegister';
-import { Termsofservices } from './Components/Termsofservices/Termsofservices';
+import { Home } from './pages/home/Home';
+import { Login } from './pages/login/Login';
+import { Navbar } from './components/navbar/Navbar';
+import { Lists } from './pages/lists/Lists';
+import { Register } from './pages/register/Register';
+import { Termsofservices } from './pages/termsofservices/Termsofservices';
 
 function App() {
   return (
@@ -14,11 +13,10 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path='/' exact element={<Homepage/>}/>
+          <Route path='/' exact element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/lists' element={<Lists/>}/>
-          <Route path='/locallogin' element={<LocalLogin/>}/>
-          <Route path='/localregister' element={<LocalRegister/>}/>
+          <Route path='/register' element={<Register/>}/>
           <Route path='/tos' element={<Termsofservices/>}/>
         </Routes>
       </Router>

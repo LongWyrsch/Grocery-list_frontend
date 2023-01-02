@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import styles from './LoginLocal.module.css';
 
-export const LocalRegister = () => {
+export const Register = () => {
   const navigate = useNavigate()
 
 	const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ export const LocalRegister = () => {
 
 	return (
 		<div>
-			LocalRegister
+			Register
 			<form onSubmit={handleSubmit}>
 				<label>
 					Enter your email:

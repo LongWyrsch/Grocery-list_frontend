@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import styles from './LoginLocal.module.css';
 
-export const LocalLogin = () => {
+export const Login = () => {
 	const navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const googleLogin = () => {
+		window.open('http://localhost:3000/auth/google', '_self')
+	  } 
+
+	  const localRegister = () => {
+		navigate('/register')
+		// window.open('http://localhost:3001/loginlocal', '_self')
+	  } 
 
 	//Update search term as user types
 	function handleOnChangeEmail(e) {
@@ -36,17 +45,20 @@ export const LocalLogin = () => {
 	return (
 		<div>
 			LocalLogin
+			<button onClick={googleLogin}>Login with Google</button>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Enter your email:
 					<input type="email" name="email" onChange={handleOnChangeEmail} />
 				</label>
+				<br/>
 				<label>
 					Enter your password:
 					<input type="password" name="password" onChange={handleOnChangePassword} />
 				</label>
 				<button type="submit">Log in</button>
 			</form>
+        	<button onClick={localRegister}>Register with password</button>
 		</div>
 	);
 };
