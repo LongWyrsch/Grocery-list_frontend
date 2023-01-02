@@ -1,0 +1,10 @@
+{
+    "auth": {
+        "signUp": "Inscription",
+        "logIn": "Se connecter",
+        "creds": {
+            "email": "Email ou nom d'utilisateur",
+            "password": "Mot de passe"
+        }
+    }
+}
