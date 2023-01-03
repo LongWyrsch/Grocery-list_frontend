@@ -1,10 +1,24 @@
 {
     "auth": {
         "signUp": "Sign up",
-        "logIn": "Log in",
+        "signIn": "Sign in",
         "creds": {
             "email": "Email address or username",
-            "password": "Password"
-        }
+            "password": "Password",
+            "confirmPassword": "Confirm password"
+        },
+        "signInpage": {
+            "welcomeBack": "Welcome back!",
+            "newUser": "New user?",
+            "createAnAccount": "Create an account",
+            "forgotPassword": "Forgot your password?"
+        },
+        "signUppage": {
+            "welcome": "Welcome!",
+            "alreadyHaveAccount": "Already have an account?",
+            "createAccount": "Create account"
+        },
+        "continueGoogle": "Continue with Google",
+        "or": "or"
     }
 }

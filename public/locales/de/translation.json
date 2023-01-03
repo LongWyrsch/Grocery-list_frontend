@@ -1,10 +1,23 @@
 {
-    "auth": {
-        "signUp": "Registrieren",
-        "logIn": "Anmelden",
-        "creds": {
-            "email": "E-mail-Adresse oder Username",
-            "password": "Passwort"
-        }
-    }
+	"auth": {
+		"signUp": "Registrieren",
+		"signIn": "Anmelden",
+		"creds": {
+			"email": "E-mail-Adresse oder Username",
+			"password": "Passwort"
+		},
+		"signInpage": {
+			"welcomeBack": "Willkommen zurück!",
+			"newUser": "Sie haben noch kein Konto?",
+			"createAnAccount": "Melden Sie sich an",
+			"forgotPassword": "Ich habe mein Passwort vergessen"
+		},
+		"signUppage": {
+			"welcome": "Willkommen!",
+			"alreadyHaveAccount": "Sie haben bereits einen Account?",
+			"createAccount": "Account erstellen"
+		},
+		"continueGoogle": "Weiter mit Google",
+		"or": "oder"
+	}
 }

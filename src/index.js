@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
-import store from './app/store'
+import store from './store'
 
 // import i18n (needs to be bundled ;)) 
 import './features/languages/components/i18n';
