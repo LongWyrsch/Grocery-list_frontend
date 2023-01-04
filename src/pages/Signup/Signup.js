@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import styles from './LoginLocal.module.css';
 
-export const Register = () => {
+export const Signup = () => {
   const navigate = useNavigate()
 
 	const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ export const Register = () => {
 
 	const handleSubmit = (event) => {
     event.preventDefault()
-		fetch('http://localhost:3000/auth/local/register', {
+		fetch('http://localhost:3000/auth/local/signup', {
 			method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -28,7 +28,7 @@ export const Register = () => {
 		}).then((response) => response.json())
 		.then((data) => {
 			window.alert(data.user.email)
-			navigate('/locallogin')
+			navigate('/signin')
 		});
 	};
 

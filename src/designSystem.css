@@ -1,0 +1,426 @@
+
+/* 
+The below CSS variables were extracted from Figma plugin: Material theme builder
+using the plugin: Export styles to CSS variables
+https://www.figma.com/community/plugin/816737626312049592 
+*/
+
+
+:root {
+    /* Color styles */
+    --m3--white: hsla(0, 0%, 100%, 1);
+    --m3--black: hsla(0, 0%, 0%, 1);
+    
+    --m3--ref--primary--primary100: hsla(0, 0%, 100%, 1);
+    --m3--ref--primary--primary99: hsla(99, 100%, 97.3%, 1);
+    --m3--ref--primary--primary95: hsla(123, 100%, 88.6%, 1);
+    --m3--ref--primary--primary90: hsla(127, 82.4%, 80%, 1);
+    --m3--ref--primary--primary80: hsla(128, 51.9%, 69%, 1);
+    --m3--ref--primary--primary70: hsla(129, 38%, 58.2%, 1);
+    --m3--ref--primary--primary60: hsla(131, 33.1%, 47.5%, 1);
+    --m3--ref--primary--primary50: hsla(134, 42.6%, 36.9%, 1);
+    --m3--ref--primary--primary40: hsla(139, 65.2%, 25.9%, 1);
+    --m3--ref--primary--primary30: hsla(144, 100%, 16.3%, 1);
+    --m3--ref--primary--primary20: hsla(141, 100%, 11.2%, 1);
+    --m3--ref--primary--primary10: hsla(136, 100%, 6.5%, 1);
+    --m3--ref--primary--primary0: hsla(0, 0%, 0%, 1);
+    --m3--ref--primary--primary25: hsla(142, 100%, 13.7%, 1);
+    --m3--ref--primary--primary35: hsla(144, 100%, 18.8%, 1);
+    --m3--ref--primary--primary98: hsla(112, 100%, 95.5%, 1);
+    --m3--ref--secondary--secondary100: hsla(0, 0%, 100%, 1);
+    --m3--ref--secondary--secondary99: hsla(300, 100%, 99.2%, 1);
+    --m3--ref--secondary--secondary95: hsla(11, 100%, 95.7%, 1);
+    --m3--ref--secondary--secondary90: hsla(10, 100%, 91.4%, 1);
+    --m3--ref--secondary--secondary80: hsla(10, 100%, 82.4%, 1);
+    --m3--ref--secondary--secondary70: hsla(10, 94.3%, 72.5%, 1);
+    --m3--ref--secondary--secondary60: hsla(10, 63.3%, 61.6%, 1);
+    --m3--ref--secondary--secondary50: hsla(9, 45.8%, 50.8%, 1);
+    --m3--ref--secondary--secondary40: hsla(10, 51.5%, 40.4%, 1);
+    --m3--ref--secondary--secondary30: hsla(9, 62.3%, 30.2%, 1);
+    --m3--ref--secondary--secondary20: hsla(9, 82.7%, 20.4%, 1);
+    --m3--ref--secondary--secondary10: hsla(4, 100%, 12.4%, 1);
+    --m3--ref--secondary--secondary0: hsla(0, 0%, 0%, 1);
+    --m3--ref--secondary--secondary25: hsla(9, 70.5%, 25.3%, 1);
+    --m3--ref--secondary--secondary35: hsla(10, 56.4%, 35.1%, 1);
+    --m3--ref--secondary--secondary98: hsla(13, 100%, 98.2%, 1);
+    --m3--ref--tertiary--tertiary100: hsla(0, 0%, 100%, 1);
+    --m3--ref--tertiary--tertiary99: hsla(300, 100%, 99.2%, 1);
+    --m3--ref--tertiary--tertiary95: hsla(40, 100%, 90.6%, 1);
+    --m3--ref--tertiary--tertiary90: hsla(43, 100%, 78.4%, 1);
+    --m3--ref--tertiary--tertiary80: hsla(44, 81.2%, 60.4%, 1);
+    --m3--ref--tertiary--tertiary70: hsla(45, 63.6%, 49.6%, 1);
+    --m3--ref--tertiary--tertiary60: hsla(46, 85.4%, 37.6%, 1);
+    --m3--ref--tertiary--tertiary50: hsla(47, 100%, 28.8%, 1);
+    --m3--ref--tertiary--tertiary40: hsla(47, 100%, 22.9%, 1);
+    --m3--ref--tertiary--tertiary30: hsla(46, 100%, 17.5%, 1);
+    --m3--ref--tertiary--tertiary20: hsla(45, 100%, 12.2%, 1);
+    --m3--ref--tertiary--tertiary10: hsla(43, 100%, 7.1%, 1);
+    --m3--ref--tertiary--tertiary0: hsla(0, 0%, 0%, 1);
+    --m3--ref--tertiary--tertiary25: hsla(46, 100%, 14.7%, 1);
+    --m3--ref--tertiary--tertiary35: hsla(46, 100%, 20.2%, 1);
+    --m3--ref--tertiary--tertiary98: hsla(30, 100%, 97.3%, 1);
+    --m3--ref--neutral--neutral100: hsla(0, 0%, 100%, 1);
+    --m3--ref--neutral--neutral99: hsla(70, 60%, 98%, 1);
+    --m3--ref--neutral--neutral95: hsla(72, 15.2%, 93.5%, 1);
+    --m3--ref--neutral--neutral90: hsla(70, 9.7%, 87.8%, 1);
+    --m3--ref--neutral--neutral80: hsla(72, 4.3%, 77.1%, 1);
+    --m3--ref--neutral--neutral70: hsla(84, 2.9%, 66.5%, 1);
+    --m3--ref--neutral--neutral60: hsla(90, 1.8%, 56.1%, 1);
+    --m3--ref--neutral--neutral50: hsla(96, 2.1%, 46.1%, 1);
+    --m3--ref--neutral--neutral40: hsla(90, 2.2%, 36.5%, 1);
+    --m3--ref--neutral--neutral30: hsla(100, 2.2%, 27.3%, 1);
+    --m3--ref--neutral--neutral20: hsla(120, 3.2%, 18.6%, 1);
+    --m3--ref--neutral--neutral10: hsla(100, 5.7%, 10.4%, 1);
+    --m3--ref--neutral--neutral0: hsla(0, 0%, 0%, 1);
+    --m3--ref--neutral--neutral-na-n: hsla(0, 0%, 100%, 1);
+    --m3--ref--neutral--neutral25: hsla(105, 3.4%, 22.7%, 1);
+    --m3--ref--neutral--neutral35: hsla(90, 2.5%, 31.8%, 1);
+    --m3--ref--neutral--neutral98: hsla(70, 37.5%, 96.9%, 1);
+    --m3--ref--neutral-variant--neutral-variant100: hsla(0, 0%, 100%, 1);
+    --m3--ref--neutral-variant--neutral-variant99: hsla(98, 84.6%, 97.5%, 1);
+    --m3--ref--neutral-variant--neutral-variant95: hsla(98, 31.4%, 93.1%, 1);
+    --m3--ref--neutral-variant--neutral-variant90: hsla(100, 18.8%, 87.5%, 1);
+    --m3--ref--neutral-variant--neutral-variant80: hsla(104, 9.2%, 76.7%, 1);
+    --m3--ref--neutral-variant--neutral-variant70: hsla(102, 5.7%, 65.9%, 1);
+    --m3--ref--neutral-variant--neutral-variant60: hsla(108, 4.4%, 55.7%, 1);
+    --m3--ref--neutral-variant--neutral-variant50: hsla(107, 3.9%, 45.7%, 1);
+    --m3--ref--neutral-variant--neutral-variant40: hsla(113, 4.3%, 36.1%, 1);
+    --m3--ref--neutral-variant--neutral-variant30: hsla(120, 5.8%, 27.1%, 1);
+    --m3--ref--neutral-variant--neutral-variant20: hsla(120, 7.5%, 18.2%, 1);
+    --m3--ref--neutral-variant--neutral-variant10: hsla(120, 11.5%, 10.2%, 1);
+    --m3--ref--neutral-variant--neutral-variant0: hsla(0, 0%, 0%, 1);
+    --m3--ref--neutral-variant--neutral-variant25: hsla(113, 7%, 22.4%, 1);
+    --m3--ref--neutral-variant--neutral-variant35: hsla(113, 5%, 31.4%, 1);
+    --m3--ref--neutral-variant--neutral-variant98: hsla(100, 66.7%, 96.5%, 1);
+    --m3--ref--error--error100: hsla(0, 0%, 100%, 1);
+    --m3--ref--error--error99: hsla(300, 100%, 99.2%, 1);
+    --m3--ref--error--error95: hsla(9, 100%, 95.9%, 1);
+    --m3--ref--error--error90: hsla(6, 100%, 92%, 1);
+    --m3--ref--error--error80: hsla(6, 100%, 83.5%, 1);
+    --m3--ref--error--error70: hsla(6, 100%, 74.5%, 1);
+    --m3--ref--error--error60: hsla(4, 100%, 64.3%, 1);
+    --m3--ref--error--error50: hsla(2, 72.5%, 52.9%, 1);
+    --m3--ref--error--error40: hsla(0, 75.5%, 41.6%, 1);
+    --m3--ref--error--error30: hsla(356, 100%, 28.8%, 1);
+    --m3--ref--error--error20: hsla(357, 100%, 20.6%, 1);
+    --m3--ref--error--error10: hsla(358, 100%, 12.7%, 1);
+    --m3--ref--error--error0: hsla(0, 0%, 0%, 1);
+    --m3--ref--error--error25: hsla(357, 100%, 24.7%, 1);
+    --m3--ref--error--error35: hsla(357, 92%, 34.3%, 1);
+    --m3--ref--error--error98: hsla(7, 100%, 98.4%, 1);
+    --m3--source---seed: hsla(256, 34.4%, 47.8%, 1);
+    --m3--source---primary: hsla(256, 34.4%, 47.8%, 1);
+    --m3--source---secondary: hsla(259, 10.8%, 40%, 1);
+    --m3--source---tertiary: hsla(340, 20.8%, 40.6%, 1);
+    --m3--source---neutral: hsla(276, 2.6%, 37.5%, 1);
+    --m3--source---neutral--variant: hsla(260, 4.6%, 38.2%, 1);
+    --m3--source---error: hsla(3, 71.3%, 41%, 1);
+    --m3--source--seed: hsla(126, 38.8%, 66.7%, 1);
+    --m3--source--primary: hsla(126, 38.8%, 66.7%, 1);
+    --m3--source--tertiary: hsla(43, 93.9%, 74.1%, 1);
+    --m3--source--secondary: hsla(10, 80.7%, 83.7%, 1);
+    
+    --m3--key-colors--primary: hsla(126, 38.8%, 66.7%, 1);
+    --m3--key-colors--secondary: hsla(10, 80.7%, 83.7%, 1);
+    --m3--key-colors--tertiary: hsla(43, 93.9%, 74.1%, 1);
+    --m3--key-colors--error: hsla(0, 75.5%, 41.6%, 1);
+    --m3--key-colors--neutral: hsla(90, 2.2%, 36.5%, 1);
+    --m3--key-colors--neutral-variant: hsla(113, 4.3%, 36.1%, 1);
+    
+
+    /* Text-size styles */
+    /* base size: m3--title--medium (16px) */
+    --m3--display--large: 3.56rem;
+    --m3--display--medium: 2.81rem;
+    --m3--display--small: 2.25rem;
+    --m3--headline--large: 2rem;
+    --m3--headline--medium: 1.75rem;
+    --m3--headline--small: 1.5rem;
+    --m3--title--large: 1.38rem;
+    --m3--title--medium: 1rem;
+    --m3--title--small: 0.88rem;
+    --m3--label--large: 0.88rem;
+    --m3--label--medium: 0.75rem;
+    --m3--label--small: 0.69rem;
+    --m3--body--large: 1rem;
+    --m3--body--medium: 0.88rem;
+    --m3--body--small: 0.75rem;
+
+}
+
+#lightmode {
+    /* Color styles */
+
+    --m3--sys--primary: hsla(139, 65.2%, 25.9%, 1);
+    --m3--sys--on-primary: hsla(0, 0%, 100%, 1);
+    --m3--sys--primary-container: hsla(127, 82.4%, 80%, 1);
+    --m3--sys--on-primary-container: hsla(136, 100%, 6.5%, 1);
+    --m3--sys--secondary: hsla(10, 51.5%, 40.4%, 1);
+    --m3--sys--on-secondary: hsla(0, 0%, 100%, 1);
+    --m3--sys--secondary-container: hsla(10, 100%, 91.4%, 1);
+    --m3--sys--on-secondary-container: hsla(4, 100%, 12.4%, 1);
+    --m3--sys--tertiary: hsla(47, 100%, 22.9%, 1);
+    --m3--sys--on-tertiary: hsla(0, 0%, 100%, 1);
+    --m3--sys--tertiary-container: hsla(43, 100%, 78.4%, 1);
+    --m3--sys--on-tertiary-container: hsla(43, 100%, 7.1%, 1);
+    --m3--sys--error: hsla(0, 75.5%, 41.6%, 1);
+    --m3--sys--error-container: hsla(6, 100%, 92%, 1);
+    --m3--sys--on-error: hsla(0, 0%, 100%, 1);
+    --m3--sys--on-error-container: hsla(358, 100%, 12.7%, 1);
+    --m3--sys--background: hsla(70, 60%, 98%, 1);
+    --m3--sys--on-background: hsla(100, 5.7%, 10.4%, 1);
+    --m3--sys--surface: hsla(70, 60%, 98%, 1);
+    --m3--sys--on-surface: hsla(100, 5.7%, 10.4%, 1);
+    --m3--sys--surface-variant: hsla(100, 18.8%, 87.5%, 1);
+    --m3--sys--on-surface-variant: hsla(120, 5.8%, 27.1%, 1);
+    --m3--sys--outline: hsla(107, 3.9%, 45.7%, 1);
+    --m3--sys--outline-variant: hsl(270, 11%, 79%);
+    --m3--sys--inverse-on-surface: hsla(72, 15.2%, 93.5%, 1);
+    --m3--sys--inverse-surface: hsla(120, 3.2%, 18.6%, 1);
+    --m3--sys--surface-tint: hsla(139, 65.2%, 25.9%, 1);
+    --m3--sys--surface-tint-color: hsla(139, 65.2%, 25.9%, 1);
+    --m3--sys--shadow: hsla(0, 0%, 0%, 1);
+    --m3--sys--inverse-primary: hsla(128, 51.9%, 69%, 1);
+    
+    --m3--surfaces--surface1: hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface2: hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface3: hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface4: hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface5: hsla(70, 60%, 98%, 1);
+    
+    
+    --m3--state-layers--surface-tint--opacity-008: hsla(256, 34.4%, 47.8%, 0.07999999821186066);
+    --m3--state-layers--surface-tint--opacity-012: hsla(256, 34.4%, 47.8%, 0.11999999731779099);
+    --m3--state-layers--surface-tint--opacity-016: hsla(256, 34.4%, 47.8%, 0.1599999964237213);
+    --m3--state-layers--surface-tint-color--opacity-008: hsla(256, 34.4%, 47.8%, 0.07999999821186066);
+    --m3--state-layers--surface-tint-color--opacity-012: hsla(256, 34.4%, 47.8%, 0.11999999731779099);
+    --m3--state-layers--surface-tint-color--opacity-016: hsla(256, 34.4%, 47.8%, 0.1599999964237213);
+    --m3--state-layers--on-error-container--opacity-008: hsla(3, 71.1%, 14.9%, 0.07999999821186066);
+    --m3--state-layers--on-error-container--opacity-012: hsla(3, 71.1%, 14.9%, 0.11999999731779099);
+    --m3--state-layers--on-error-container--opacity-016: hsla(3, 71.1%, 14.9%, 0.1599999964237213);
+    --m3--state-layers--on-error--opacity-008: hsla(0, 0%, 100%, 0.07999999821186066);
+    --m3--state-layers--on-error--opacity-012: hsla(0, 0%, 100%, 0.11999999731779099);
+    --m3--state-layers--on-error--opacity-016: hsla(0, 0%, 100%, 0.1599999964237213);
+    --m3--state-layers--error-container--opacity-008: hsla(4, 70.7%, 92%, 0.07999999821186066);
+    --m3--state-layers--error-container--opacity-012: hsla(4, 70.7%, 92%, 0.11999999731779099);
+    --m3--state-layers--error-container--opacity-016: hsla(4, 70.7%, 92%, 0.1599999964237213);
+    --m3--state-layers--on-tertiary-container--opacity-008: hsla(338, 48.5%, 12.9%, 0.07999999821186066);
+    --m3--state-layers--on-tertiary-container--opacity-012: hsla(338, 48.5%, 12.9%, 0.11999999731779099);
+    --m3--state-layers--on-tertiary-container--opacity-016: hsla(338, 48.5%, 12.9%, 0.1599999964237213);
+    --m3--state-layers--on-tertiary--opacity-008: hsla(0, 0%, 100%, 0.07999999821186066);
+    --m3--state-layers--on-tertiary--opacity-012: hsla(0, 0%, 100%, 0.11999999731779099);
+    --m3--state-layers--on-tertiary--opacity-016: hsla(0, 0%, 100%, 0.1599999964237213);
+    --m3--state-layers--tertiary-container--opacity-008: hsla(342, 100%, 92.4%, 0.07999999821186066);
+    --m3--state-layers--tertiary-container--opacity-012: hsla(342, 100%, 92.4%, 0.11999999731779099);
+    --m3--state-layers--tertiary-container--opacity-016: hsla(342, 100%, 92.4%, 0.1599999964237213);
+    --m3--state-layers--tertiary--opacity-008: hsla(340, 20.8%, 40.6%, 0.07999999821186066);
+    --m3--state-layers--tertiary--opacity-012: hsla(340, 20.8%, 40.6%, 0.11999999731779099);
+    --m3--state-layers--tertiary--opacity-016: hsla(340, 20.8%, 40.6%, 0.1599999964237213);
+    --m3--state-layers--shadow--opacity-008: hsla(0, 0%, 0%, 0.07999999821186066);
+    --m3--state-layers--shadow--opacity-012: hsla(0, 0%, 0%, 0.11999999731779099);
+    --m3--state-layers--shadow--opacity-016: hsla(0, 0%, 0%, 0.1599999964237213);
+    --m3--state-layers--error--opacity-008: hsla(3, 71.3%, 41%, 0.07999999821186066);
+    --m3--state-layers--error--opacity-012: hsla(3, 71.3%, 41%, 0.11999999731779099);
+    --m3--state-layers--error--opacity-016: hsla(3, 71.3%, 41%, 0.1599999964237213);
+    --m3--state-layers--outline--opacity-008: hsla(270, 4.1%, 47.5%, 0.07999999821186066);
+    --m3--state-layers--outline--opacity-012: hsla(270, 4.1%, 47.5%, 0.11999999731779099);
+    --m3--state-layers--outline--opacity-016: hsla(270, 4.1%, 47.5%, 0.1599999964237213);
+    --m3--state-layers--on-background--opacity-008: hsla(255, 6.9%, 11.4%, 0.07999999821186066);
+    --m3--state-layers--on-background--opacity-012: hsla(255, 6.9%, 11.4%, 0.11999999731779099);
+    --m3--state-layers--on-background--opacity-016: hsla(255, 6.9%, 11.4%, 0.1599999964237213);
+    --m3--state-layers--background--opacity-008: hsla(315, 100%, 99.2%, 0.07999999821186066);
+    --m3--state-layers--background--opacity-012: hsla(315, 100%, 99.2%, 0.11999999731779099);
+    --m3--state-layers--background--opacity-016: hsla(315, 100%, 99.2%, 0.1599999964237213);
+    --m3--state-layers--inverse-on-surface--opacity-008: hsla(300, 18.5%, 94.7%, 0.07999999821186066);
+    --m3--state-layers--inverse-on-surface--opacity-012: hsla(300, 18.5%, 94.7%, 0.11999999731779099);
+    --m3--state-layers--inverse-on-surface--opacity-016: hsla(300, 18.5%, 94.7%, 0.1599999964237213);
+    --m3--state-layers--inverse-surface--opacity-008: hsla(260, 3%, 19.4%, 0.07999999821186066);
+    --m3--state-layers--inverse-surface--opacity-012: hsla(260, 3%, 19.4%, 0.11999999731779099);
+    --m3--state-layers--inverse-surface--opacity-016: hsla(260, 3%, 19.4%, 0.1599999964237213);
+    --m3--state-layers--on-surface-variant--opacity-008: hsla(264, 6.8%, 29%, 0.07999999821186066);
+    --m3--state-layers--on-surface-variant--opacity-012: hsla(264, 6.8%, 29%, 0.11999999731779099);
+    --m3--state-layers--on-surface-variant--opacity-016: hsla(264, 6.8%, 29%, 0.1599999964237213);
+    --m3--state-layers--on-surface--opacity-008: hsla(255, 6.9%, 11.4%, 0.07999999821186066);
+    --m3--state-layers--on-surface--opacity-012: hsla(255, 6.9%, 11.4%, 0.11999999731779099);
+    --m3--state-layers--on-surface--opacity-016: hsla(255, 6.9%, 11.4%, 0.1599999964237213);
+    --m3--state-layers--surface-variant--opacity-008: hsla(275, 24%, 90.2%, 0.07999999821186066);
+    --m3--state-layers--surface-variant--opacity-012: hsla(275, 24%, 90.2%, 0.11999999731779099);
+    --m3--state-layers--surface-variant--opacity-016: hsla(275, 24%, 90.2%, 0.1599999964237213);
+    --m3--state-layers--surface--opacity-008: hsla(315, 100%, 99.2%, 0.07999999821186066);
+    --m3--state-layers--surface--opacity-012: hsla(315, 100%, 99.2%, 0.11999999731779099);
+    --m3--state-layers--surface--opacity-016: hsla(315, 100%, 99.2%, 0.1599999964237213);
+    --m3--state-layers--on-secondary-container--opacity-008: hsla(253, 26.5%, 13.3%, 0.07999999821186066);
+    --m3--state-layers--on-secondary-container--opacity-012: hsla(253, 26.5%, 13.3%, 0.11999999731779099);
+    --m3--state-layers--on-secondary-container--opacity-016: hsla(253, 26.5%, 13.3%, 0.1599999964237213);
+    --m3--state-layers--on-secondary--opacity-008: hsla(0, 0%, 100%, 0.07999999821186066);
+    --m3--state-layers--on-secondary--opacity-012: hsla(0, 0%, 100%, 0.11999999731779099);
+    --m3--state-layers--on-secondary--opacity-016: hsla(0, 0%, 100%, 0.1599999964237213);
+    --m3--state-layers--secondary-container--opacity-008: hsla(263, 65%, 92.2%, 0.07999999821186066);
+    --m3--state-layers--secondary-container--opacity-012: hsla(263, 65%, 92.2%, 0.11999999731779099);
+    --m3--state-layers--secondary-container--opacity-016: hsla(263, 65%, 92.2%, 0.1599999964237213);
+    --m3--state-layers--secondary--opacity-008: hsla(259, 10.8%, 40%, 0.07999999821186066);
+    --m3--state-layers--secondary--opacity-012: hsla(259, 10.8%, 40%, 0.11999999731779099);
+    --m3--state-layers--secondary--opacity-016: hsla(259, 10.8%, 40%, 0.1599999964237213);
+    --m3--state-layers--inverse-primary--opacity-008: hsla(258, 100%, 86.9%, 0.07999999821186066);
+    --m3--state-layers--inverse-primary--opacity-012: hsla(258, 100%, 86.9%, 0.11999999731779099);
+    --m3--state-layers--inverse-primary--opacity-016: hsla(258, 100%, 86.9%, 0.1599999964237213);
+    --m3--state-layers--on-primary-container--opacity-008: hsla(261, 100%, 18.2%, 0.07999999821186066);
+    --m3--state-layers--on-primary-container--opacity-012: hsla(261, 100%, 18.2%, 0.11999999731779099);
+    --m3--state-layers--on-primary-container--opacity-016: hsla(261, 100%, 18.2%, 0.1599999964237213);
+    --m3--state-layers--on-primary--opacity-008: hsla(0, 0%, 100%, 0.07999999821186066);
+    --m3--state-layers--on-primary--opacity-012: hsla(0, 0%, 100%, 0.11999999731779099);
+    --m3--state-layers--on-primary--opacity-016: hsla(0, 0%, 100%, 0.1599999964237213);
+    --m3--state-layers--primary-container--opacity-008: hsla(263, 100%, 93.3%, 0.07999999821186066);
+    --m3--state-layers--primary-container--opacity-012: hsla(263, 100%, 93.3%, 0.11999999731779099);
+    --m3--state-layers--primary-container--opacity-016: hsla(263, 100%, 93.3%, 0.1599999964237213);
+    --m3--state-layers--primary--opacity-008: hsla(256, 34.4%, 47.8%, 0.07999999821186066);
+    --m3--state-layers--primary--opacity-012: hsla(256, 34.4%, 47.8%, 0.11999999731779099);
+    --m3--state-layers--primary--opacity-016: hsla(256, 34.4%, 47.8%, 0.1599999964237213);
+    
+
+    /* Effect styles */
+    --m3---elevation--1:  0px 1px 3px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3);
+    --m3---elevation--2:  0px 2px 6px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3);
+    --m3---elevation--3:  0px 1px 3px rgba(0, 0, 0, 0.3), 0px 4px 8px rgba(0, 0, 0, 0.15);
+    --m3---elevation--4:  0px 2px 3px rgba(0, 0, 0, 0.3), 0px 6px 10px rgba(0, 0, 0, 0.15);
+    --m3---elevation--5:  0px 4px 4px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+#darkmode {
+    /* Color styles */
+
+    
+    --m3--sys--primary: hsla(128, 51.9%, 69%, 1);
+    --m3--sys--on-primary: hsla(141, 100%, 11.2%, 1);
+    --m3--sys--primary-container: hsla(144, 100%, 16.3%, 1);
+    --m3--sys--on-primary-container: hsla(127, 82.4%, 80%, 1);
+    --m3--sys--secondary: hsla(10, 100%, 82.4%, 1);
+    --m3--sys--on-secondary: hsla(9, 82.7%, 20.4%, 1);
+    --m3--sys--secondary-container: hsla(9, 62.3%, 30.2%, 1);
+    --m3--sys--on-secondary-container: hsla(10, 100%, 91.4%, 1);
+    --m3--sys--tertiary: hsla(44, 81.2%, 60.4%, 1);
+    --m3--sys--on-tertiary: hsla(45, 100%, 12.2%, 1);
+    --m3--sys--tertiary-container: hsla(46, 100%, 17.5%, 1);
+    --m3--sys--on-tertiary-container: hsla(43, 100%, 78.4%, 1);
+    --m3--sys--error: hsla(6, 100%, 83.5%, 1);
+    --m3--sys--error-container: hsla(356, 100%, 28.8%, 1);
+    --m3--sys--on-error: hsla(357, 100%, 20.6%, 1);
+    --m3--sys--on-error-container: hsla(6, 100%, 92%, 1);
+    --m3--sys--background: hsla(100, 5.7%, 10.4%, 1);
+    --m3--sys--on-background: hsla(70, 9.7%, 87.8%, 1);
+    --m3--sys--surface: hsla(100, 5.7%, 10.4%, 1);
+    --m3--sys--on-surface: hsla(70, 9.7%, 87.8%, 1);
+    --m3--sys--surface-variant: hsla(120, 5.8%, 27.1%, 1);
+    --m3--sys--on-surface-variant: hsla(104, 9.2%, 76.7%, 1);
+    --m3--sys--outline: hsla(108, 4.4%, 55.7%, 1);
+    --m3--sys--outline-variant: hsla(264, 6.8%, 29%, 1);
+    --m3--sys--inverse-on-surface: hsla(100, 5.7%, 10.4%, 1);
+    --m3--sys--inverse-surface: hsla(70, 9.7%, 87.8%, 1);
+    --m3--sys--surface-tint: hsla(128, 51.9%, 69%, 1);
+    --m3--sys--surface-tint-color: hsla(128, 51.9%, 69%, 1);
+    --m3--sys--shadow: hsla(0, 0%, 0%, 1);
+    --m3--sys--inverse-primary: hsla(139, 65.2%, 25.9%, 1);
+    
+    --m3--surfaces--surface1: hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface2: hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface3: hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface4: hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface5: hsla(100, 5.7%, 10.4%, 1);
+    
+    --m3--state-layers--surface-tint--opacity-008: hsla(258, 100%, 86.9%, 0.07999999821186066);
+    --m3--state-layers--surface-tint--opacity-012: hsla(258, 100%, 86.9%, 0.11999999731779099);
+    --m3--state-layers--surface-tint--opacity-016: hsla(258, 100%, 86.9%, 0.1599999964237213);
+    --m3--state-layers--surface-tint-color--opacity-008: hsla(258, 100%, 86.9%, 0.07999999821186066);
+    --m3--state-layers--surface-tint-color--opacity-012: hsla(258, 100%, 86.9%, 0.11999999731779099);
+    --m3--state-layers--surface-tint-color--opacity-016: hsla(258, 100%, 86.9%, 0.1599999964237213);
+    --m3--state-layers--on-error-container--opacity-008: hsla(3, 70.1%, 82.9%, 0.07999999821186066);
+    --m3--state-layers--on-error-container--opacity-012: hsla(3, 70.1%, 82.9%, 0.11999999731779099);
+    --m3--state-layers--on-error-container--opacity-016: hsla(3, 70.1%, 82.9%, 0.1599999964237213);
+    --m3--state-layers--on-error--opacity-008: hsla(3, 71.4%, 22%, 0.07999999821186066);
+    --m3--state-layers--on-error--opacity-012: hsla(3, 71.4%, 22%, 0.11999999731779099);
+    --m3--state-layers--on-error--opacity-016: hsla(3, 71.4%, 22%, 0.1599999964237213);
+    --m3--state-layers--error-container--opacity-008: hsla(3, 70.7%, 32.2%, 0.07999999821186066);
+    --m3--state-layers--error-container--opacity-012: hsla(3, 70.7%, 32.2%, 0.11999999731779099);
+    --m3--state-layers--error-container--opacity-016: hsla(3, 70.7%, 32.2%, 0.1599999964237213);
+    --m3--state-layers--on-tertiary-container--opacity-008: hsla(342, 100%, 92.4%, 0.07999999821186066);
+    --m3--state-layers--on-tertiary-container--opacity-012: hsla(342, 100%, 92.4%, 0.11999999731779099);
+    --m3--state-layers--on-tertiary-container--opacity-016: hsla(342, 100%, 92.4%, 0.1599999964237213);
+    --m3--state-layers--on-tertiary--opacity-008: hsla(338, 32.7%, 21.6%, 0.07999999821186066);
+    --m3--state-layers--on-tertiary--opacity-012: hsla(338, 32.7%, 21.6%, 0.11999999731779099);
+    --m3--state-layers--on-tertiary--opacity-016: hsla(338, 32.7%, 21.6%, 0.1599999964237213);
+    --m3--state-layers--tertiary-container--opacity-008: hsla(341, 25.3%, 31%, 0.07999999821186066);
+    --m3--state-layers--tertiary-container--opacity-012: hsla(341, 25.3%, 31%, 0.11999999731779099);
+    --m3--state-layers--tertiary-container--opacity-016: hsla(341, 25.3%, 31%, 0.1599999964237213);
+    --m3--state-layers--tertiary--opacity-008: hsla(343, 63.2%, 82.9%, 0.07999999821186066);
+    --m3--state-layers--tertiary--opacity-012: hsla(343, 63.2%, 82.9%, 0.11999999731779099);
+    --m3--state-layers--tertiary--opacity-016: hsla(343, 63.2%, 82.9%, 0.1599999964237213);
+    --m3--state-layers--shadow--opacity-008: hsla(0, 0%, 0%, 0.07999999821186066);
+    --m3--state-layers--shadow--opacity-012: hsla(0, 0%, 0%, 0.11999999731779099);
+    --m3--state-layers--shadow--opacity-016: hsla(0, 0%, 0%, 0.1599999964237213);
+    --m3--state-layers--error--opacity-008: hsla(3, 70.1%, 82.9%, 0.07999999821186066);
+    --m3--state-layers--error--opacity-012: hsla(3, 70.1%, 82.9%, 0.11999999731779099);
+    --m3--state-layers--error--opacity-016: hsla(3, 70.1%, 82.9%, 0.1599999964237213);
+    --m3--state-layers--outline--opacity-008: hsla(264, 4.7%, 58%, 0.07999999821186066);
+    --m3--state-layers--outline--opacity-012: hsla(264, 4.7%, 58%, 0.11999999731779099);
+    --m3--state-layers--outline--opacity-016: hsla(264, 4.7%, 58%, 0.1599999964237213);
+    --m3--state-layers--on-background--opacity-008: hsla(312, 9.1%, 89.2%, 0.07999999821186066);
+    --m3--state-layers--on-background--opacity-012: hsla(312, 9.1%, 89.2%, 0.11999999731779099);
+    --m3--state-layers--on-background--opacity-016: hsla(312, 9.1%, 89.2%, 0.1599999964237213);
+    --m3--state-layers--background--opacity-008: hsla(255, 6.9%, 11.4%, 0.07999999821186066);
+    --m3--state-layers--background--opacity-012: hsla(255, 6.9%, 11.4%, 0.11999999731779099);
+    --m3--state-layers--background--opacity-016: hsla(255, 6.9%, 11.4%, 0.1599999964237213);
+    --m3--state-layers--inverse-on-surface--opacity-008: hsla(260, 3%, 19.4%, 0.07999999821186066);
+    --m3--state-layers--inverse-on-surface--opacity-012: hsla(260, 3%, 19.4%, 0.11999999731779099);
+    --m3--state-layers--inverse-on-surface--opacity-016: hsla(260, 3%, 19.4%, 0.1599999964237213);
+    --m3--state-layers--inverse-surface--opacity-008: hsla(312, 9.1%, 89.2%, 0.07999999821186066);
+    --m3--state-layers--inverse-surface--opacity-012: hsla(312, 9.1%, 89.2%, 0.11999999731779099);
+    --m3--state-layers--inverse-surface--opacity-016: hsla(312, 9.1%, 89.2%, 0.1599999964237213);
+    --m3--state-layers--on-surface-variant--opacity-008: hsla(270, 11.3%, 79.2%, 0.07999999821186066);
+    --m3--state-layers--on-surface-variant--opacity-012: hsla(270, 11.3%, 79.2%, 0.11999999731779099);
+    --m3--state-layers--on-surface-variant--opacity-016: hsla(270, 11.3%, 79.2%, 0.1599999964237213);
+    --m3--state-layers--on-surface--opacity-008: hsla(312, 9.1%, 89.2%, 0.07999999821186066);
+    --m3--state-layers--on-surface--opacity-012: hsla(312, 9.1%, 89.2%, 0.11999999731779099);
+    --m3--state-layers--on-surface--opacity-016: hsla(312, 9.1%, 89.2%, 0.1599999964237213);
+    --m3--state-layers--surface-variant--opacity-008: hsla(264, 6.8%, 29%, 0.07999999821186066);
+    --m3--state-layers--surface-variant--opacity-012: hsla(264, 6.8%, 29%, 0.11999999731779099);
+    --m3--state-layers--surface-variant--opacity-016: hsla(264, 6.8%, 29%, 0.1599999964237213);
+    --m3--state-layers--surface--opacity-008: hsla(255, 6.9%, 11.4%, 0.07999999821186066);
+    --m3--state-layers--surface--opacity-012: hsla(255, 6.9%, 11.4%, 0.11999999731779099);
+    --m3--state-layers--surface--opacity-016: hsla(255, 6.9%, 11.4%, 0.1599999964237213);
+    --m3--state-layers--on-secondary-container--opacity-008: hsla(263, 65%, 92.2%, 0.07999999821186066);
+    --m3--state-layers--on-secondary-container--opacity-012: hsla(263, 65%, 92.2%, 0.11999999731779099);
+    --m3--state-layers--on-secondary-container--opacity-016: hsla(263, 65%, 92.2%, 0.1599999964237213);
+    --m3--state-layers--on-secondary--opacity-008: hsla(258, 18.2%, 21.6%, 0.07999999821186066);
+    --m3--state-layers--on-secondary--opacity-012: hsla(258, 18.2%, 21.6%, 0.11999999731779099);
+    --m3--state-layers--on-secondary--opacity-016: hsla(258, 18.2%, 21.6%, 0.1599999964237213);
+    --m3--state-layers--secondary-container--opacity-008: hsla(258, 12.8%, 30.6%, 0.07999999821186066);
+    --m3--state-layers--secondary-container--opacity-012: hsla(258, 12.8%, 30.6%, 0.11999999731779099);
+    --m3--state-layers--secondary-container--opacity-016: hsla(258, 12.8%, 30.6%, 0.1599999964237213);
+    --m3--state-layers--secondary--opacity-008: hsla(263, 27.1%, 81.2%, 0.07999999821186066);
+    --m3--state-layers--secondary--opacity-012: hsla(263, 27.1%, 81.2%, 0.11999999731779099);
+    --m3--state-layers--secondary--opacity-016: hsla(263, 27.1%, 81.2%, 0.1599999964237213);
+    --m3--state-layers--inverse-primary--opacity-008: hsla(256, 34.4%, 47.8%, 0.07999999821186066);
+    --m3--state-layers--inverse-primary--opacity-012: hsla(256, 34.4%, 47.8%, 0.11999999731779099);
+    --m3--state-layers--inverse-primary--opacity-016: hsla(256, 34.4%, 47.8%, 0.1599999964237213);
+    --m3--state-layers--on-primary-container--opacity-008: hsla(263, 100%, 93.3%, 0.07999999821186066);
+    --m3--state-layers--on-primary-container--opacity-012: hsla(263, 100%, 93.3%, 0.11999999731779099);
+    --m3--state-layers--on-primary-container--opacity-016: hsla(263, 100%, 93.3%, 0.1599999964237213);
+    --m3--state-layers--on-primary--opacity-008: hsla(259, 58.3%, 28.2%, 0.07999999821186066);
+    --m3--state-layers--on-primary--opacity-012: hsla(259, 58.3%, 28.2%, 0.11999999731779099);
+    --m3--state-layers--on-primary--opacity-016: hsla(259, 58.3%, 28.2%, 0.1599999964237213);
+    --m3--state-layers--primary-container--opacity-008: hsla(257, 43.3%, 38%, 0.07999999821186066);
+    --m3--state-layers--primary-container--opacity-012: hsla(257, 43.3%, 38%, 0.11999999731779099);
+    --m3--state-layers--primary-container--opacity-016: hsla(257, 43.3%, 38%, 0.1599999964237213);
+    --m3--state-layers--primary--opacity-008: hsla(258, 100%, 86.9%, 0.07999999821186066);
+    --m3--state-layers--primary--opacity-012: hsla(258, 100%, 86.9%, 0.11999999731779099);
+    --m3--state-layers--primary--opacity-016: hsla(258, 100%, 86.9%, 0.1599999964237213);
+
+    /* Effect styles */
+
+    --m3---elevation--1:  0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    --m3---elevation--2:  0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px rgba(0, 0, 0, 0.15);
+    --m3---elevation--3:  0px 1px 3px rgba(0, 0, 0, 0.3), 0px 4px 8px rgba(0, 0, 0, 0.15);
+    --m3---elevation--4:  0px 2px 3px rgba(0, 0, 0, 0.3), 0px 6px 10px rgba(0, 0, 0, 0.15);
+    --m3---elevation--5:  0px 4px 4px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.15);
+}

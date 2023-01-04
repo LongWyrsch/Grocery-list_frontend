@@ -1,22 +1,22 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Home } from './pages/home/Home';
-import { Login } from './pages/login/Login';
-import { Navbar } from './Components/navbar/Navbar';
-import { Lists } from './pages/lists/Lists';
-import { Register } from './pages/register/Register';
+import { Home } from './pages/Home/Home';
+import { Signin } from './pages/Signin/Signin';
+import { Navbar } from './Components/Navbar/Navbar';
+import { Lists } from './pages/Lists/Lists';
+import { Signup } from './pages/Signup/Signup';
 import { Termsofservices } from './pages/termsofservices/Termsofservices';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id='lightmode'>
       <Router>
         <Navbar/>
         <Routes>
           <Route path='/' exact element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path='/signin' element={<Signin/>}/>
           <Route path='/lists' element={<Lists/>}/>
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/signup' element={<Signup/>}/>
           <Route path='/tos' element={<Termsofservices/>}/>
         </Routes>
       </Router>

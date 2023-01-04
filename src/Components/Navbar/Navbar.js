@@ -18,7 +18,7 @@ export const Navbar = () => {
         <ul className={styles.navbar}>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/lists'>Lists</Link></li>
-            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/signin'>Login</Link></li>
         </ul>
         <button onClick={() => pickLanguage('de')}>DEU</button>
         <button onClick={() => pickLanguage('en')}>ENG</button>

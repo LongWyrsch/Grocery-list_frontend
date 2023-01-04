@@ -4,8 +4,28 @@ html,
 body,
 #root,
 .app {
-    height: 100%;
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
 }
 
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.card-flat {
+	border-radius: 12px;
+    padding: 16px;
+	background-color: var(--m3--sys--surface);
+	border: 1px solid var(--m3--sys--outline-variant);
+}
+
+.card-elevated {
+	border-radius: 12px;
+    padding: 16px;
+	background-color: var(--m3--surfaces--surface1);
+	box-shadow: var(--m3---elevation--2);
+}

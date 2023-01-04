@@ -1,0 +1,77 @@
+.button {
+	background-color: transparent;
+    height: 40px;
+	border-radius: 100px;
+    transition: .4s; 
+    cursor: pointer;
+    overflow: hidden
+}
+
+.buttonOpacityLayer {
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 24px;
+    height: 100%;
+    width: 100%;
+}
+
+.icon {
+    margin: 0 10px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.filled {
+	background-color: var(--m3--sys--primary);
+	color: var(--m3--sys--on-primary);
+}
+.filled .buttonOpacityLayer:hover {
+    background-color: var(--m3--state-layers--on-primary--opacity-008);
+}
+.filled .buttonOpacityLayer:active {
+    background-color: var(--m3--state-layers--on-primary--opacity-012);
+}
+
+
+.outlined {
+	color: var(--m3--sys--primary);
+	border: 1px solid var(--m3--sys--outline);
+}
+.outlined .buttonOpacityLayer:hover {
+    background-color: var(--m3--state-layers--primary--opacity-008);
+}
+.outlined .buttonOpacityLayer:active {
+    background-color: var(--m3--state-layers--primary--opacity-012);
+}
+
+
+.text {
+	color: var(--m3--sys--primary);
+}
+.text .buttonOpacityLayer:hover {
+    background-color: var(--m3--state-layers--primary--opacity-008);
+}
+.text .buttonOpacityLayer:active {
+    background-color: var(--m3--state-layers--primary--opacity-012);
+}
+
+
+.elevated {
+	color: var(--m3--sys--primary);
+	background-color: var(--m3--surfaces--surface1);
+	box-shadow: var(--m3---elevation--1);
+}
+.elevated:hover {
+	background-color: var(--m3--surfaces--surface2);
+	box-shadow: var(--m3---elevation--2);
+}
+.elevated .buttonOpacityLayer:hover {
+    background-color: var(--m3--state-layers--primary--opacity-008);
+}
+.elevated .buttonOpacityLayer:active {
+    background-color: var(--m3--state-layers--primary--opacity-012);
+}
+
+

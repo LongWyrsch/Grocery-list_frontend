@@ -1,0 +1,107 @@
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            IN COMMON to filled and outlined textfields
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+
+.field {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	color: rgba(0, 0, 0, 0.6);
+	pointer-events: none;
+	margin-left: 10px;
+}
+
+.inputArea {
+	position: relative;
+	width: 100%;
+}
+
+.input {
+	width: 100%;
+	height: 3.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--m3--sys--on-surface);
+	outline: none;
+	padding: 0 1rem;
+	border: 0;
+	background: none;
+}
+
+.label {
+	font-size: 1rem;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.6);
+	pointer-events: none;
+	transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	position: absolute;
+	top: 1rem;
+	left: 0rem;
+	padding: 0 8px;
+}
+
+.input:focus ~ .label {
+	color: var(--m3--sys--primary);
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label {
+	left: 0px;
+	font-size: 12px;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            DIFFERENT between filled and outlined textfields
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+
+.filled {
+	border: 0;
+	border-bottom: 1px solid var(--m3--sys--primary);
+	border-radius: 4px 4px 0 0;
+	background: var(--m3--sys--surface-variant);
+}
+
+.outlined {
+	border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid var(--m3--sys--outline);
+}
+
+
+
+/* Where the placeholder moves when focused */
+.outlined .input:focus ~ .label,
+.outlined .input:valid ~ .label {
+    background: var(--m3--sys--surface);
+	top: -8px;
+}
+.filled .input:focus ~ .label,
+.filled .input:valid ~ .label {
+    top: 3px;
+}
+
+
+
+/* How the overall textfield looks when hovered */
+.outlined.field:hover {
+    border-color: var(--m3--sys--outline-variant);
+}
+.filled.field:hover {
+    /* background: #ececec; */
+	background-color: var(--m3--state-layers--on-surface--opacity-008);
+}
+
+
+
+/* How the overall textfield looks when focused */
+.outlined.field:has(.input:focus) {
+	border: 2px solid var(--m3--sys--primary);
+}
+.filled.field:has(.input:focus) {
+	background: var(--m3--state-layers--on-surface--opacity-008);
+	border-bottom: 2px solid var(--m3--sys--primary);
+}
