@@ -10,7 +10,7 @@ body,
 }
 
 * {
-	border: 0;
+    border: none;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -19,13 +19,13 @@ body,
 .card-flat {
 	border-radius: 12px;
     padding: 16px;
-	background-color: var(--m3--sys--surface);
+	background: var(--m3--sys--surface-variant);
 	border: 1px solid var(--m3--sys--outline-variant);
 }
 
 .card-elevated {
 	border-radius: 12px;
     padding: 16px;
-	background-color: var(--m3--surfaces--surface1);
+	background: var(--m3--surfaces--surface1);
 	box-shadow: var(--m3---elevation--2);
 }

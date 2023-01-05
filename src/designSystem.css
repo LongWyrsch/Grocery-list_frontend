@@ -182,13 +182,12 @@ https://www.figma.com/community/plugin/816737626312049592
     --m3--sys--shadow: hsla(0, 0%, 0%, 1);
     --m3--sys--inverse-primary: hsla(128, 51.9%, 69%, 1);
     
-    --m3--surfaces--surface1: hsla(70, 60%, 98%, 1);
-    --m3--surfaces--surface2: hsla(70, 60%, 98%, 1);
-    --m3--surfaces--surface3: hsla(70, 60%, 98%, 1);
-    --m3--surfaces--surface4: hsla(70, 60%, 98%, 1);
-    --m3--surfaces--surface5: hsla(70, 60%, 98%, 1);
-    
-    
+    --m3--surfaces--surface1: linear-gradient(0deg, hsla(139, 65%, 26%, 0.05), hsla(139, 65%, 26%, 0.05)), hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface2: linear-gradient(0deg, hsla(139, 65%, 26%, 0.08), hsla(139, 65%, 26%, 0.08)), hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface3: linear-gradient(0deg, hsla(139, 65%, 26%, 0.11), hsla(139, 65%, 26%, 0.11)), hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface4: linear-gradient(0deg, hsla(139, 65%, 26%, 0.12), hsla(139, 65%, 26%, 0.12)), hsla(70, 60%, 98%, 1);
+    --m3--surfaces--surface5: linear-gradient(0deg, hsla(139, 65%, 26%, 0.14), hsla(139, 65%, 26%, 0.14)), hsla(70, 60%, 98%, 1);
+        
     --m3--state-layers--surface-tint--opacity-008: hsla(256, 34.4%, 47.8%, 0.07999999821186066);
     --m3--state-layers--surface-tint--opacity-012: hsla(256, 34.4%, 47.8%, 0.11999999731779099);
     --m3--state-layers--surface-tint--opacity-016: hsla(256, 34.4%, 47.8%, 0.1599999964237213);
@@ -321,12 +320,12 @@ https://www.figma.com/community/plugin/816737626312049592
     --m3--sys--surface-tint-color: hsla(128, 51.9%, 69%, 1);
     --m3--sys--shadow: hsla(0, 0%, 0%, 1);
     --m3--sys--inverse-primary: hsla(139, 65.2%, 25.9%, 1);
-    
-    --m3--surfaces--surface1: hsla(100, 5.7%, 10.4%, 1);
-    --m3--surfaces--surface2: hsla(100, 5.7%, 10.4%, 1);
-    --m3--surfaces--surface3: hsla(100, 5.7%, 10.4%, 1);
-    --m3--surfaces--surface4: hsla(100, 5.7%, 10.4%, 1);
-    --m3--surfaces--surface5: hsla(100, 5.7%, 10.4%, 1);
+
+    --m3--surfaces--surface1: linear-gradient(0deg, hsla(128, 52%, 69%, 0.05), hsla(128, 52%, 69%, 0.05)), hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface2: linear-gradient(0deg, hsla(128, 52%, 69%, 0.08), hsla(128, 52%, 69%, 0.08)), hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface3: linear-gradient(0deg, hsla(128, 52%, 69%, 0.11), hsla(128, 52%, 69%, 0.11)), hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface4: linear-gradient(0deg, hsla(128, 52%, 69%, 0.12), hsla(128, 52%, 69%, 0.12)), hsla(100, 5.7%, 10.4%, 1);
+    --m3--surfaces--surface5: linear-gradient(0deg, hsla(128, 52%, 69%, 0.14), hsla(128, 52%, 69%, 0.14)), hsla(100, 5.7%, 10.4%, 1);
     
     --m3--state-layers--surface-tint--opacity-008: hsla(258, 100%, 86.9%, 0.07999999821186066);
     --m3--state-layers--surface-tint--opacity-012: hsla(258, 100%, 86.9%, 0.11999999731779099);

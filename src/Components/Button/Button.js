@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Button.module.css';
 import * as FCicons from 'react-icons/fc';
 
-export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {} }) => {
+export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {}, width = ''}) => {
 	// Add all imported React-icons library here.
 	const ReactIcons = { ...FCicons };
 
@@ -41,7 +41,7 @@ export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {} })
 	}
 
 	return (
-		<button onClick={handelOnClick} className={setUpClassNames}>
+		<button onClick={handelOnClick} className={setUpClassNames} style={{width: width}}>
 			<div className={styles.buttonOpacityLayer}>
 				{icondiv}
 				{text}

@@ -1,3 +1,12 @@
+/* For the moment, this trick set color of all text not part of a component like button or textfield. */
+div > * {
+    color: var(--m3--sys--on-surface);
+}
+
+.signinbox > * {
+    margin-bottom: 40px
+}
+
 .signinpage {
 	display: flex;
 	justify-content: center;
@@ -11,35 +20,39 @@
 	flex-direction: column;
 	align-items: center;
 	margin: auto;
+    min-width: 500px;
+}
+
+span {
+    font-size: 3rem;
 }
 
 .createAccount {
 	display: flex;
 }
 
+
+
 .orLine {
+    width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .hr {
-	flex-grow: 1;
+    flex-grow: 1;
+    /* border-color: red; */
+    height: 2px;
+    border: none;
+    color: black;
+    background-color: black;
 }
 
 .or {
-	background-color: white;
+	background-color: var(--m3--sys--surface-variant);
 	padding: 0 10px 0;
 }
-
-
-
-
-
-
-
-
-
 
 .btn.btn-primary {
     transition: .4s;
@@ -73,4 +86,16 @@
     text-align: center;
     position: relative;
     cursor: pointer;
+}
+
+.navlink1,
+.navlink2 {
+    display: block;
+    color: var(--m3--sys--primary);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.navlink2 {
+    margin-top: 10px;
 }

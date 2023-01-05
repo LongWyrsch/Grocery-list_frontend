@@ -9,6 +9,7 @@ export const Lists = () => {
     <div>
         <h1>Lists</h1>
         <button onClick={logout}>Logout</button>
+
     </div>
     )
 }

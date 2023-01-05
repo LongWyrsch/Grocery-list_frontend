@@ -2,14 +2,13 @@
             IN COMMON to filled and outlined textfields
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
-
 .field {
 	display: flex;
 	align-items: center;
 }
 
 .icon {
-	color: rgba(0, 0, 0, 0.6);
+	/* color: var(--m3--sys--on-surface); */
 	pointer-events: none;
 	margin-left: 10px;
 }
@@ -34,7 +33,7 @@
 .label {
 	font-size: 1rem;
 	font-weight: 500;
-	color: rgba(0, 0, 0, 0.6);
+	color: var(--m3--sys--on-surface);
 	pointer-events: none;
 	transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 	position: absolute;
@@ -53,10 +52,20 @@
 	font-size: 12px;
 }
 
+/* On failed data validation, error exclamation (!) */
+.error > * {
+	color: var(--m3--sys--error);
+	margin-right: 10px;
+}
+
+/* On failed data validation, div.error is inserted. Update border to red */
+.field:has(.error) {
+	border-color: var(--m3--sys--error) !important;
+}
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
             DIFFERENT between filled and outlined textfields
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
-
 
 .filled {
 	border: 0;
@@ -67,35 +76,28 @@
 
 .outlined {
 	border-radius: 4px;
-	border-radius: 4px;
 	border: 1px solid var(--m3--sys--outline);
 }
-
-
 
 /* Where the placeholder moves when focused */
 .outlined .input:focus ~ .label,
 .outlined .input:valid ~ .label {
-    background: var(--m3--sys--surface);
+	background: var(--m3--sys--surface-variant);
 	top: -8px;
 }
 .filled .input:focus ~ .label,
 .filled .input:valid ~ .label {
-    top: 3px;
+	top: 3px;
 }
-
-
 
 /* How the overall textfield looks when hovered */
 .outlined.field:hover {
-    border-color: var(--m3--sys--outline-variant);
+	border: 2px solid var(--m3--sys--on-surface-variant);
 }
 .filled.field:hover {
-    /* background: #ececec; */
-	background-color: var(--m3--state-layers--on-surface--opacity-008);
+	/* background: #ececec; */
+	background: var(--m3--state-layers--on-surface--opacity-008);
 }
-
-
 
 /* How the overall textfield looks when focused */
 .outlined.field:has(.input:focus) {

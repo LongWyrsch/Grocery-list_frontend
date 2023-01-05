@@ -3,8 +3,10 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './Signin.module.css';
 
 import { useTranslation } from 'react-i18next';
-import { Textfield } from '../../Components/Textfield/Textfield';
-import { Button } from '../../Components/Button/Button';
+import { Textfield } from '../../components/Textfield/Textfield';
+import { Button } from '../../components/Button/Button';
+
+import { emailValidation, passwordValidation } from '../../utils/validator';
 
 export const Signin = () => {
 	const navigate = useNavigate();
@@ -13,26 +15,34 @@ export const Signin = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [credError, setCredError] = useState(false);
 
 	const googleLogin = () => {
 		window.open('http://localhost:3000/auth/google', '_self');
-	};
-
-	const localRegister = () => {
-		navigate('/signin');
-		// window.open('http://localhost:3001/loginlocal', '_self')
 	};
 
 	//Update search term as user types
 	function handleOnChangeEmail(e) {
 		setEmail(e.target.value);
 	}
+
 	function handleOnChangePassword(e) {
 		setPassword(e.target.value);
 	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+
+		// Validate user input before calling server.
+		const checkEmail = emailValidation({email: email})
+		const checkpassword = passwordValidation({password: password})
+		//If invalid user input, skip server call. Will Rerender with error message.
+		if (checkEmail.error || checkpassword.error) {
+			setCredError(true)
+			return
+		}
+
+		// User input was validated. Call server.
 		fetch('http://localhost:3000/auth/local/signin', {
 			method: 'POST',
 			headers: {
@@ -48,24 +58,28 @@ export const Signin = () => {
 			});
 	};
 
-	let userIcon = {iconName:'AiOutlineUser', size:'1.5rem', color:''}
-	let lockIcon = {iconName:'AiOutlineLock', size:'1.5rem', color:''}
-	let googleIcon = {iconName:'FcGoogle', size:'1.5rem', color:''}
+	// Set icon for buttons and textfields
+	let googleIcon = { iconName: 'FcGoogle', size: '1.5rem', color: '' };
+	let userIcon = { iconName: 'AiOutlineUser', size: '1.5rem', color: '' };
+	let lockIcon = { iconName: 'AiOutlineLock', size: '1.5rem', color: '' };
 
 	return (
 		<div className={styles.signinpage}>
 			<div className={`card-flat ${styles.signinbox}`}>
-				<div>{t('auth.signInpage.welcomeBack')}</div>
+				<span>{t('auth.signInpage.welcomeBack')}</span>
 				<div className={styles.createAccount}>
 					<div>{t('auth.signInpage.newUser')}</div>
-					<NavLink to="/signup">{t('auth.signInpage.createAnAccount')}</NavLink>
+					<NavLink to="/signup" className={styles.navlink1}>
+						{t('auth.signInpage.createAnAccount')}
+					</NavLink>
 				</div>
 
-				<Button 
-					buttonStyle='elevated' 
+				<Button
+					buttonStyle="elevated"
 					text={t('auth.continueGoogle')}
-					// handelOnClick={googleLogin}  
+					handelOnClick={googleLogin}
 					iconInfo={googleIcon}
+					width="100%"
 				/>
 
 				<div className={styles.orLine}>
@@ -73,11 +87,33 @@ export const Signin = () => {
 					<div className={styles.or}>{t('auth.or')}</div>
 					<hr className={styles.hr} />
 				</div>
-				<form onSubmit={handleSubmit}>
-					<Textfield fieldStyle='outlined' placeholder="Username" handleOnChange={handleOnChangeEmail} iconInfo={userIcon}/>
-					<Textfield fieldStyle='outlined' placeholder="Password" handleOnChange={handleOnChangePassword} iconInfo={lockIcon} />
-					<button type="submit">Log in</button>
-				</form>
+
+				<Textfield
+					fieldStyle="outlined"
+					placeholder={t('auth.creds.email')}
+					handleOnChange={handleOnChangeEmail}
+					iconInfo={userIcon}
+					width="100%"
+				/>
+				<div style={{ width: '100%' }}>
+					<Textfield
+						fieldStyle="outlined"
+						fieldType="password"
+						placeholder={t('auth.creds.password')}
+						handleOnChange={handleOnChangePassword}
+						iconInfo={lockIcon}
+						width="100%"
+					/>
+					<NavLink to="/signup" className={styles.navlink2}>
+						{t('auth.signInpage.forgotPassword')}
+					</NavLink>
+				</div>
+				<div>
+					{credError && 
+						<div style={{marginBottom: '10px', color: 'var(--m3--sys--error)'}}>You have entered an invalid username/email or password</div>
+					}
+					<Button buttonStyle="filled" text={t('auth.signIn')} handelOnClick={handleSubmit} width="100%" />
+				</div>
 			</div>
 		</div>
 	);

@@ -1,10 +1,14 @@
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            IN COMMON to all button styles
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .button {
-	background-color: transparent;
+	background: transparent;
     height: 40px;
 	border-radius: 100px;
     transition: .4s; 
     cursor: pointer;
-    overflow: hidden
+    overflow: hidden;
+    border: 0;
 }
 
 .buttonOpacityLayer {
@@ -23,55 +27,65 @@
     flex-direction: row;
 }
 
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            SPECIFIC to filled buttons
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .filled {
-	background-color: var(--m3--sys--primary);
+	background: var(--m3--sys--primary);
 	color: var(--m3--sys--on-primary);
 }
 .filled .buttonOpacityLayer:hover {
-    background-color: var(--m3--state-layers--on-primary--opacity-008);
+    background: var(--m3--state-layers--on-primary--opacity-008);
 }
 .filled .buttonOpacityLayer:active {
-    background-color: var(--m3--state-layers--on-primary--opacity-012);
+    background: var(--m3--state-layers--on-primary--opacity-012);
 }
 
-
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            SPECIFIC to outlined buttons
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .outlined {
 	color: var(--m3--sys--primary);
 	border: 1px solid var(--m3--sys--outline);
 }
 .outlined .buttonOpacityLayer:hover {
-    background-color: var(--m3--state-layers--primary--opacity-008);
+    background: var(--m3--state-layers--primary--opacity-008);
 }
 .outlined .buttonOpacityLayer:active {
-    background-color: var(--m3--state-layers--primary--opacity-012);
+    background: var(--m3--state-layers--primary--opacity-012);
 }
 
-
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            SPECIFIC to text buttons
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .text {
 	color: var(--m3--sys--primary);
 }
 .text .buttonOpacityLayer:hover {
-    background-color: var(--m3--state-layers--primary--opacity-008);
+    background: var(--m3--state-layers--primary--opacity-008);
 }
 .text .buttonOpacityLayer:active {
-    background-color: var(--m3--state-layers--primary--opacity-012);
+    background: var(--m3--state-layers--primary--opacity-012);
 }
 
-
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  
+            SPECIFIC to elevated buttons
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .elevated {
 	color: var(--m3--sys--primary);
-	background-color: var(--m3--surfaces--surface1);
+	background: var(--m3--surfaces--surface1);
 	box-shadow: var(--m3---elevation--1);
 }
 .elevated:hover {
-	background-color: var(--m3--surfaces--surface2);
+	background: var(--m3--surfaces--surface2);
 	box-shadow: var(--m3---elevation--2);
 }
 .elevated .buttonOpacityLayer:hover {
-    background-color: var(--m3--state-layers--primary--opacity-008);
+    background: var(--m3--state-layers--primary--opacity-008);
 }
 .elevated .buttonOpacityLayer:active {
-    background-color: var(--m3--state-layers--primary--opacity-012);
+    background: var(--m3--state-layers--primary--opacity-012);
 }
 
 
