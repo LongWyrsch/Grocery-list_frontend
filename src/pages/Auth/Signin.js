@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import styles from './Signin.module.css';
+import styles from './auth.module.css';
 
 import { useTranslation } from 'react-i18next';
 import { Textfield } from '../../components/Textfield/Textfield';
@@ -35,9 +35,9 @@ export const Signin = () => {
 
 		// Validate user input before calling server.
 		const checkEmail = emailValidation({email: email})
-		const checkpassword = passwordValidation({password: password})
+		const checkPassword = passwordValidation({password: password})
 		//If invalid user input, skip server call. Will Rerender with error message.
-		if (checkEmail.error || checkpassword.error) {
+		if (checkEmail.error || checkPassword.error) {
 			setCredError(true)
 			return
 		}
@@ -58,19 +58,27 @@ export const Signin = () => {
 			});
 	};
 
+	function credErrorMessage(){
+		return (
+			<div style={{marginBottom: '10px', color: 'var(--m3--sys--error)'}}>
+				{t('auth.creds.emailPasswordError')}
+			</div>
+		)
+	}
+
 	// Set icon for buttons and textfields
 	let googleIcon = { iconName: 'FcGoogle', size: '1.5rem', color: '' };
 	let userIcon = { iconName: 'AiOutlineUser', size: '1.5rem', color: '' };
 	let lockIcon = { iconName: 'AiOutlineLock', size: '1.5rem', color: '' };
 
 	return (
-		<div className={styles.signinpage}>
-			<div className={`card-flat ${styles.signinbox}`}>
-				<span>{t('auth.signInpage.welcomeBack')}</span>
+		<div className={styles.signinPage}>
+			<div className={`card-flat ${styles.signinBox}`}>
+				<span>{t('auth.signinPage.welcomeBack')}</span>
 				<div className={styles.createAccount}>
-					<div>{t('auth.signInpage.newUser')}</div>
+					<div>{t('auth.signinPage.newUser')}</div>
 					<NavLink to="/signup" className={styles.navlink1}>
-						{t('auth.signInpage.createAnAccount')}
+						{t('auth.signinPage.createAnAccount')}
 					</NavLink>
 				</div>
 
@@ -105,14 +113,17 @@ export const Signin = () => {
 						width="100%"
 					/>
 					<NavLink to="/signup" className={styles.navlink2}>
-						{t('auth.signInpage.forgotPassword')}
+						{t('auth.signinPage.forgotPassword')}
 					</NavLink>
 				</div>
-				<div>
-					{credError && 
-						<div style={{marginBottom: '10px', color: 'var(--m3--sys--error)'}}>You have entered an invalid username/email or password</div>
-					}
-					<Button buttonStyle="filled" text={t('auth.signIn')} handelOnClick={handleSubmit} width="100%" />
+				<div style={{ width: '100%' }}>
+					{credError && credErrorMessage()}
+					<Button 
+						buttonStyle="filled" 
+						text={t('auth.signin')} 
+						handelOnClick={handleSubmit} 
+						width="100%" 
+					/>
 				</div>
 			</div>
 		</div>

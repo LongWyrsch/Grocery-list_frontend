@@ -1,21 +1,27 @@
 {
     "auth": {
-        "signUp": "Inscription",
-        "signIn": "Se connecter",
+        "signup": "Inscription",
+        "signin": "Se connecter",
         "creds": {
             "email": "Email ou nom d'utilisateur",
-            "password": "Mot de passe"
+            "password": "Mot de passe",
+            "emailPasswordError": "Nom d'utilisateur/e-mail ou mot de passe invalide"
         },
-        "signInpage": {
+        "signinPage": {
             "welcomeBack": "Content de vous revoir!",
             "newUser": "Vous n'avez pas de compte?",
             "createAnAccount": "Inscrivez-vous",
             "forgotPassword": "J'ai oublié mon mot de passe"
         },
-        "signUppage": {
+        "signupPage": {
             "welcome": "Bienvenue!",
             "alreadyHaveAccount": "Déjà un compte?",
-            "createAccount": "Créer un compte"
+            "createAccount": "Créer un compte",
+            "confirmPassword": "Confirmez le mot de passe",
+            "minimum": "La longueur minimale est de 6",
+            "required": "Ce champ est obligatoire",
+            "passwordPattern": "Utilisez des lettres, des chiffres et des caractères spéciaux sauf \\",
+            "passwordsDifferent": "Les mots de passe ne correspondent pas"
         },
         "continueGoogle": "Continuer avec Google",
         "or": "ou"

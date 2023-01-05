@@ -53,14 +53,19 @@
 }
 
 /* On failed data validation, error exclamation (!) */
-.error > * {
+.errorIcon > * {
 	color: var(--m3--sys--error);
 	margin-right: 10px;
 }
 
 /* On failed data validation, div.error is inserted. Update border to red */
-.field:has(.error) {
+.field:has(.errorIcon) {
 	border-color: var(--m3--sys--error) !important;
+}
+
+.errorMessage {
+	color: var(--m3--sys--error);
+	margin-left: 20px;
 }
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  

@@ -1,22 +1,27 @@
 {
     "auth": {
-        "signUp": "Sign up",
-        "signIn": "Sign in",
+        "signup": "Sign up",
+        "signin": "Sign in",
         "creds": {
             "email": "Email address or username",
             "password": "Password",
-            "confirmPassword": "Confirm password"
+            "emailPasswordError": "Invalid username or password"
         },
-        "signInpage": {
+        "signinPage": {
             "welcomeBack": "Welcome back!",
             "newUser": "New user?",
             "createAnAccount": "Create an account",
             "forgotPassword": "I forgot my password"
         },
-        "signUppage": {
+        "signupPage": {
             "welcome": "Welcome!",
             "alreadyHaveAccount": "Already have an account?",
-            "createAccount": "Create account"
+            "createAccount": "Create account",
+            "confirmPassword": "Confirm password",
+            "minimum": "Miminum length is 6",
+            "required": "This field is required",
+            "passwordPattern": "User letters, numbers and special characters except \\",
+            "passwordsDifferent": "Passwords don't match"
         },
         "continueGoogle": "Continue with Google",
         "or": "or"

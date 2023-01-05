@@ -1,21 +1,27 @@
 {
 	"auth": {
-		"signUp": "Registrieren",
-		"signIn": "Anmelden",
+		"signup": "Registrieren",
+		"signin": "Anmelden",
 		"creds": {
 			"email": "E-mail-Adresse oder Username",
-			"password": "Passwort"
+			"password": "Passwort",
+			"emailPasswordError": "Ungültiger Benutzername/E-Mail oder Passwort"
 		},
-		"signInpage": {
+		"signinPage": {
 			"welcomeBack": "Willkommen zurück!",
 			"newUser": "Sie haben noch kein Konto?",
 			"createAnAccount": "Melden Sie sich an",
 			"forgotPassword": "Ich habe mein Passwort vergessen"
 		},
-		"signUppage": {
+		"signupPage": {
 			"welcome": "Willkommen!",
 			"alreadyHaveAccount": "Sie haben bereits einen Account?",
-			"createAccount": "Account erstellen"
+			"createAccount": "Account erstellen",
+			"confirmPassword": "Bestätigen",
+			"minimum": "Maximale Länge ist 6",
+			"required": "Dieses Feld ist erforderlich",
+			"passwordPattern": "Verwenden Sie Buchstaben, Zahlen und Sonderzeichen außer \\",
+			"passwordsDifferent": "Passwörter stimmen nicht überein"
 		},
 		"continueGoogle": "Weiter mit Google",
 		"or": "oder"
