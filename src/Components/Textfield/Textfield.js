@@ -91,7 +91,7 @@ export const Textfield = ({
 
 	return (
 		<div style={{ width: width }}>
-			<div className={setUpClassNames} >
+			<div className={setUpClassNames}>
 				{icondiv()}
 				<div className={styles.inputArea}>
 					<input type={fieldType} className={styles.input} required onChange={validateInput} />

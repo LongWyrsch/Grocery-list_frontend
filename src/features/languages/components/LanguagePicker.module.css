@@ -1,0 +1,89 @@
+.dropdownContainer {
+    /* Fix overall width */
+    width: 70px; 
+}
+
+.button {
+    height: 3.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 5px;
+    color: var(--m3--sys--on-surface);
+    background: var(--m3--sys--surface);
+    border: 2px solid var(--m3--sys--primary);
+    border-radius: 4px;
+    padding: 0 1rem;
+    cursor: pointer;
+
+    /* Let translation icon absolut positioning */
+    position: relative;
+}
+
+.langIcon {
+    position: absolute;
+    top: -12px;
+    left: 9px;
+    background: var(--m3--sys--surface);
+}
+
+.downIcon {
+    transform: rotateX(0);
+    transition-duration: 500ms;
+}
+
+.upIcon {
+    transform: rotateX(180deg);
+    transition-duration: 500ms;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--m3--surfaces--surface2);
+    color: var(--m3--sys--on-surface);
+    box-shadow: var(--m3---elevation--2);
+    border-radius: 4px;
+}
+
+
+.option {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+hr {
+    border: 0.7px solid var(--m3--sys--on-surface);
+    width: 80%;
+}
+
+.activeOption {
+    font-weight: bold;
+}
+
+.option:hover {
+    background: var(--m3--surfaces--surface5);
+    font-size: 1.1rem;
+}
+
+.activeMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.inactiveMenu {
+    opacity: 0;   
+    visibility: hidden;
+    transform: translateY(-56px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}

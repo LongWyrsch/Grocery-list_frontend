@@ -9,9 +9,8 @@ import { Termsofservices } from './pages/termsofservices/Termsofservices';
 
 function App() {
 	return (
-		<div className="App" id="darkmode">
+		<div className="App" id="lightmode">
 			<Router>
-				<Navbar />
 				<Routes>
 					<Route path="/" exact element={<Home />} />
 					<Route path="/signin" element={<Signin />} />

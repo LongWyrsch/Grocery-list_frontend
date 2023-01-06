@@ -3,6 +3,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './auth.module.css';
 
 import { useTranslation } from 'react-i18next';
+
+import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
 import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
 
@@ -73,11 +75,13 @@ export const Signin = () => {
 
 	return (
 		<div className={styles.signinPage}>
+			<img src={require('../../assets/GroceryList_logo.png')} alt='logo'/>
+			<div className={styles.langPicker}><LanguagePicker /></div>
 			<div className={`card-flat ${styles.signinBox}`}>
-				<span>{t('auth.signinPage.welcomeBack')}</span>
+				<span className={styles.welcome}>{t('auth.signinPage.welcomeBack')}</span>
 				<div className={styles.createAccount}>
 					<div>{t('auth.signinPage.newUser')}</div>
-					<NavLink to="/signup" className={styles.navlink1}>
+					<NavLink to="/signup" className={styles.createAnAccount}>
 						{t('auth.signinPage.createAnAccount')}
 					</NavLink>
 				</div>
@@ -91,9 +95,9 @@ export const Signin = () => {
 				/>
 
 				<div className={styles.orLine}>
-					<hr className={styles.hr} />
+					<hr className={styles.horizontalLine} />
 					<div className={styles.or}>{t('auth.or')}</div>
-					<hr className={styles.hr} />
+					<hr className={styles.horizontalLine} />
 				</div>
 
 				<Textfield
@@ -112,7 +116,7 @@ export const Signin = () => {
 						iconInfo={lockIcon}
 						width="100%"
 					/>
-					<NavLink to="/signup" className={styles.navlink2}>
+					<NavLink to="/signup" className={styles.forgotPassword}>
 						{t('auth.signinPage.forgotPassword')}
 					</NavLink>
 				</div>

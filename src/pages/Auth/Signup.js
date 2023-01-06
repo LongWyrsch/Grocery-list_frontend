@@ -3,6 +3,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './auth.module.css';
 
 import { useTranslation } from 'react-i18next';
+
+import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
 import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
 
@@ -30,20 +32,20 @@ export const Signup = () => {
 
 	function handleOnChangePassword(e) {
 		if (e.target.value !== confirmPassword) {
-			setPasswordsDifferent(true)
-			setCredError(true)
+			setPasswordsDifferent(true);
+			setCredError(true);
 		} else {
-			setCredError(false)
+			setCredError(false);
 		}
 		setPassword(e.target.value);
 	}
 
 	function handleOnChangeConfirmPassword(e) {
 		if (password !== e.target.value) {
-			setPasswordsDifferent(true)
-			setCredError(true)
+			setPasswordsDifferent(true);
+			setCredError(true);
 		} else {
-			setCredError(false)
+			setCredError(false);
 		}
 		setConfirmPassword(e.target.value);
 	}
@@ -52,13 +54,18 @@ export const Signup = () => {
 		event.preventDefault();
 
 		// Validate user input before calling server.
-		const checkEmail = emailValidation({email: email}).error
-		const checkPassword = passwordValidation({password: password})
-		const checkConfirmPassword = passwordValidation({password: confirmPassword})
+		const checkEmail = emailValidation({ email: email }).error;
+		const checkPassword = passwordValidation({ password: password });
+		const checkConfirmPassword = passwordValidation({ password: confirmPassword });
 		//If invalid user input, skip server call. Will Rerender with error message.
-		if (checkEmail.error || checkPassword.error || checkConfirmPassword.error || checkPassword !== checkConfirmPassword) {
-			setCredError(true)
-			return
+		if (
+			checkEmail.error ||
+			checkPassword.error ||
+			checkConfirmPassword.error ||
+			checkPassword !== checkConfirmPassword
+		) {
+			setCredError(true);
+			return;
 		}
 
 		// User input was validated. Call server.
@@ -77,13 +84,12 @@ export const Signup = () => {
 			});
 	};
 
-
-	function credErrorMessage(){
+	function credErrorMessage() {
 		return (
-			<div style={{marginBottom: '10px', color: 'var(--m3--sys--error)', textAlign: 'center'}}>
-				{passwordsDifferent? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError') }
+			<div style={{ marginBottom: '10px', color: 'var(--m3--sys--error)', textAlign: 'center' }}>
+				{passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')}
 			</div>
-		)
+		);
 	}
 
 	// Set icon for buttons and textfields
@@ -93,11 +99,13 @@ export const Signup = () => {
 
 	return (
 		<div className={styles.signinPage}>
+			<img src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+			<div className={styles.langPicker}><LanguagePicker /></div>
 			<div className={`card-flat ${styles.signinBox}`}>
-				<span>{t('auth.signupPage.welcome')}</span>
+				<span className={styles.welcome}>{t('auth.signupPage.welcome')}</span>
 				<div className={styles.createAccount}>
 					<div>{t('auth.signupPage.alreadyHaveAccount')}</div>
-					<NavLink to="/signin" className={styles.navlink1}>
+					<NavLink to="/signin" className={styles.createAnAccount}>
 						{t('auth.signin')}
 					</NavLink>
 				</div>
@@ -111,9 +119,9 @@ export const Signup = () => {
 				/>
 
 				<div className={styles.orLine}>
-					<hr className={styles.hr} />
+					<hr className={styles.horizontalLine} />
 					<div className={styles.or}>{t('auth.or')}</div>
-					<hr className={styles.hr} />
+					<hr className={styles.horizontalLine} />
 				</div>
 
 				<Textfield
@@ -123,7 +131,7 @@ export const Signup = () => {
 					iconInfo={userIcon}
 					width="100%"
 					validator={emailValidation}
-					payloadKey='email'
+					payloadKey="email"
 				/>
 				<Textfield
 					fieldStyle="outlined"
@@ -133,8 +141,8 @@ export const Signup = () => {
 					iconInfo={lockIcon}
 					width="100%"
 					validator={passwordValidation}
-					payloadKey='password'
-					/>
+					payloadKey="password"
+				/>
 				<div style={{ width: '100%' }}>
 					<Textfield
 						fieldStyle="outlined"
@@ -144,17 +152,12 @@ export const Signup = () => {
 						iconInfo={lockIcon}
 						width="100%"
 						validator={passwordValidation}
-						payloadKey='password'
+						payloadKey="password"
 					/>
 				</div>
 				<div style={{ width: '100%' }}>
 					{credError && credErrorMessage()}
-					<Button 
-						buttonStyle="filled" 
-						text={t('auth.signup')} 
-						handelOnClick={handleSubmit} 
-						width="100%" 
-					/>
+					<Button buttonStyle="filled" text={t('auth.signup')} handelOnClick={handleSubmit} width="100%" />
 				</div>
 			</div>
 		</div>
