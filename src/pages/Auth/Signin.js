@@ -20,7 +20,7 @@ export const Signin = () => {
 	const [password, setPassword] = useState('');
 	const [credError, setCredError] = useState(false);
 
-	const googleLogin = () => {
+	const googleLogin = async () => {
 		window.open('http://localhost:3000/auth/google', '_self');
 	};
 
@@ -33,7 +33,7 @@ export const Signin = () => {
 		setPassword(e.target.value);
 	}
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		// Validate user input before calling server.
@@ -46,19 +46,16 @@ export const Signin = () => {
 		}
 
 		// User input was validated. Call server.
-		fetch('http://localhost:3000/auth/local/signin', {
+		const response = await fetch('http://localhost:3000/auth/local/signin', {
 			method: 'POST',
+			credentials: 'include',
 			headers: {
-				'Content-type': 'application/json',
+				'Content-type': 'application/json'
 			},
 			// We convert the React state to JSON and send it as the POST body
 			body: JSON.stringify({ email: email, password: password }),
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				window.alert(data.user.email);
-				navigate('/lists');
-			});
+		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
 	};
 
 	function credErrorMessage() {
@@ -105,7 +102,7 @@ export const Signin = () => {
 					<div className={`generalText ${styles.or}`}>{t('auth.or')}</div>
 					<hr className={styles.horizontalLine} />
 				</div>
-
+				long.nqw@gmail.com
 				<Textfield
 					fieldStyle="outlined"
 					placeholder={t('auth.creds.email')}
@@ -113,7 +110,7 @@ export const Signin = () => {
 					iconInfo={userIcon}
 					width="100%"
 				/>
-				<div style={{ width: '100%' }}>
+				<div style={{ width: '100%' }}>3213jhxcz89
 					<Textfield
 						fieldStyle="outlined"
 						fieldType="password"

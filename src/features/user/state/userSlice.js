@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 //Middleware fetches current user before saving it to the store
 export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
-	const response = await fetch('http://localhost:3000/users');
+	const response = await fetch('http://localhost:3000/users', {
+		credentials: 'include',
+	});
 	const json = await response.json();
 	return json;
 });
@@ -25,10 +27,12 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState: {
         user: {
-            email: '',
-            language: '',
+            email: null,
+            language: null,
             darktheme: false,
-            googleName: '',
+            googleName: null,
+			avatarVariant: null,
+			avatarColors: null
         },
         isLoading: false,
         hasError: false

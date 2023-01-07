@@ -5,6 +5,6 @@ import userReducer from '../features/user/state/userSlice';
 export default configureStore({
 	reducer: {
 		theme: themeReducer,
-		user: userReducer
+		user: userReducer,
 	},
 });

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './auth.module.css';
 
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../features/theme/state/themeSlice';
+
 import { useTranslation } from 'react-i18next';
 
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
@@ -11,11 +14,11 @@ import { Button } from '../../components/Button/Button';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 
-
 export const Signup = () => {
 	const navigate = useNavigate();
+	const theme = useSelector(selectTheme);
 
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -52,7 +55,7 @@ export const Signup = () => {
 		setConfirmPassword(e.target.value);
 	}
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		// Validate user input before calling server.
@@ -71,19 +74,25 @@ export const Signup = () => {
 		}
 
 		// User input was validated. Call server.
-		fetch('http://localhost:3000/auth/local/signup', {
+		const response = fetch('http://localhost:3000/auth/local/signup', {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
-			body: JSON.stringify({ email: email, password: password }),
+			body: JSON.stringify({ 
+				email: email, 
+				password: password, 
+				darktheme: theme==='dark', 
+				language: i18n.language 
+			}),
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				window.alert(data.user.email);
-				navigate('/signin');
-			});
+		if (response.status===201) navigate('/home/lists', { state: null, replace: true })
+			// .then((response) => response.json())
+			// .then((data) => {
+			// 	window.alert(data.user.email);
+			// 	navigate('/signin');
+			// });
 	};
 
 	function credErrorMessage() {

@@ -7,6 +7,7 @@ import { Home } from './pages/Home/Home';
 import { Signin } from './pages/Auth/Signin';
 import { Signup } from './pages/Auth/Signup';
 import { Termsofservices } from './pages/termsofservices/Termsofservices';
+import { Account } from './pages/Account/Account';
 
 function App() {
   const theme = useSelector(selectTheme);
@@ -17,8 +18,9 @@ function App() {
 				<Routes>
 					<Route path="/" exact element={<Home />} />
 					<Route path="/signin" element={<Signin />} />
-					<Route path="/home/:targetPage" element={<Home />} />
 					<Route path="/signup" element={<Signup />} />
+					<Route path="/home/:targetPage" element={<Home />} />
+					<Route path="/account" element={<Account />} />
 					<Route path="/tos" element={<Termsofservices />} />
 				</Routes>
 			</Router>

@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 
 import { Button } from '../Button/Button';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
-import { CornerAvatar } from '../../features/CornerAvatar/components/CornerAvatar';
+import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 
 export const Navbar = ({ page, setPage }) => {
 	const navigate = useNavigate();
