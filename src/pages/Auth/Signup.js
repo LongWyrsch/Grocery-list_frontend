@@ -9,6 +9,8 @@ import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
 
 import { emailValidation, passwordValidation } from '../../utils/validator';
+import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
+
 
 export const Signup = () => {
 	const navigate = useNavigate();
@@ -100,6 +102,9 @@ export const Signup = () => {
 	return (
 		<div className={styles.authPage}>
 			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+			<div className={styles.themeSwitch}>
+				<ThemeSwitch />
+			</div>
 			<div className={styles.langPicker}><LanguagePicker /></div>
 			<div className={`card-flat ${styles.signinBox}`}>
 				<span className={styles.welcome}>{t('auth.signupPage.welcome')}</span>

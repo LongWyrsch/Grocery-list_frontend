@@ -9,7 +9,7 @@ import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
 
 import { emailValidation, passwordValidation } from '../../utils/validator';
-import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch/ThemeSwitch';
+import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 
 export const Signin = () => {
 	const navigate = useNavigate();
@@ -37,12 +37,12 @@ export const Signin = () => {
 		event.preventDefault();
 
 		// Validate user input before calling server.
-		const checkEmail = emailValidation({email: email})
-		const checkPassword = passwordValidation({password: password})
+		const checkEmail = emailValidation({ email: email });
+		const checkPassword = passwordValidation({ password: password });
 		//If invalid user input, skip server call. Will Rerender with error message.
 		if (checkEmail.error || checkPassword.error) {
-			setCredError(true)
-			return
+			setCredError(true);
+			return;
 		}
 
 		// User input was validated. Call server.
@@ -61,12 +61,12 @@ export const Signin = () => {
 			});
 	};
 
-	function credErrorMessage(){
+	function credErrorMessage() {
 		return (
-			<div style={{marginBottom: '10px', color: 'var(--m3--sys--error)'}}>
+			<div style={{ marginBottom: '10px', color: 'var(--m3--sys--error)' }}>
 				{t('auth.creds.emailPasswordError')}
 			</div>
-		)
+		);
 	}
 
 	// Set icon for buttons and textfields
@@ -76,13 +76,17 @@ export const Signin = () => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt='logo'/>
-			<div className={styles.themeSwitch}><ThemeSwitch /></div>
-			<div className={styles.langPicker}><LanguagePicker /></div>
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+			<div className={styles.themeSwitch}>
+				<ThemeSwitch />
+			</div>
+			<div className={styles.langPicker}>
+				<LanguagePicker />
+			</div>
 			<div className={`card-flat ${styles.signinBox}`}>
 				<span className={`generalText ${styles.welcome}`}>{t('auth.signinPage.welcomeBack')}</span>
 				<div className={styles.createAccount}>
-					<div className='generalText'>{t('auth.signinPage.newUser')}</div>
+					<div className="generalText">{t('auth.signinPage.newUser')}</div>
 					<NavLink to="/signup" className={styles.createAnAccount}>
 						{t('auth.signinPage.createAnAccount')}
 					</NavLink>
@@ -124,12 +128,7 @@ export const Signin = () => {
 				</div>
 				<div style={{ width: '100%' }}>
 					{credError && credErrorMessage()}
-					<Button 
-						buttonStyle="filled" 
-						text={t('auth.signin')} 
-						onClick={handleSubmit} 
-						width="100%" 
-					/>
+					<Button buttonStyle="filled" text={t('auth.signin')} onClick={handleSubmit} width="100%" />
 				</div>
 			</div>
 		</div>

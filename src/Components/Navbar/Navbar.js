@@ -1,23 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTheme, toggleTheme } from '../../features/theme/state/themeSlice';
 
 import styles from './Navbar.module.css';
 
 import { Button } from '../Button/Button';
-import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch/ThemeSwitch';
-
+import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
+import { CornerAvatar } from '../../features/CornerAvatar/components/CornerAvatar';
 
 export const Navbar = ({ page, setPage }) => {
-	const theme = useSelector(selectTheme);
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	//Toggle app theme
-	function handleOnClickTheme(e) {
-		dispatch(toggleTheme());
-	}
 
 	return (
 		<div className={styles.navbar}>
@@ -30,7 +21,7 @@ export const Navbar = ({ page, setPage }) => {
 					text="Grocery lists"
 					onClick={() => {
 						// setPage('lists');
-            navigate('/home/lists')
+						navigate('/home/lists');
 					}}
 				/>
 				<Button
@@ -38,7 +29,7 @@ export const Navbar = ({ page, setPage }) => {
 					text="Recipes"
 					onClick={() => {
 						// setPage('recipes');
-            navigate('/home/recipes')
+						navigate('/home/recipes');
 					}}
 				/>
 			</div>
@@ -54,8 +45,9 @@ export const Navbar = ({ page, setPage }) => {
 					width="100%"
 				/>
 			</div>
-			<div className={styles.buttonGroup}>
-          <ThemeSwitch />
+			<div className={styles.buttonGroup} style={{ justifyContent: 'right' }}>
+				<ThemeSwitch />
+				<CornerAvatar />
 			</div>
 		</div>
 	);
