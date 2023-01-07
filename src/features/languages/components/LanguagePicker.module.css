@@ -1,6 +1,7 @@
 .dropdownContainer {
     /* Fix overall width */
-    width: 70px; 
+    width: 70px;
+    color: var(); 
 }
 
 .button {

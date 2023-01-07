@@ -98,8 +98,8 @@ export const Signup = () => {
 	let lockIcon = { iconName: 'AiOutlineLock', size: '1.5rem', color: '' };
 
 	return (
-		<div className={styles.signinPage}>
-			<img src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+		<div className={styles.authPage}>
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 			<div className={styles.langPicker}><LanguagePicker /></div>
 			<div className={`card-flat ${styles.signinBox}`}>
 				<span className={styles.welcome}>{t('auth.signupPage.welcome')}</span>
@@ -113,7 +113,7 @@ export const Signup = () => {
 				<Button
 					buttonStyle="elevated"
 					text={t('auth.continueGoogle')}
-					handelOnClick={googleLogin}
+					onClick={googleLogin}
 					iconInfo={googleIcon}
 					width="100%"
 				/>
@@ -157,7 +157,7 @@ export const Signup = () => {
 				</div>
 				<div style={{ width: '100%' }}>
 					{credError && credErrorMessage()}
-					<Button buttonStyle="filled" text={t('auth.signup')} handelOnClick={handleSubmit} width="100%" />
+					<Button buttonStyle="filled" text={t('auth.signup')} onClick={handleSubmit} width="100%" />
 				</div>
 			</div>
 		</div>

@@ -14,18 +14,28 @@ body,
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	--transition: 300ms; /* Manage light/dark theme transition speed. Leave at 300ms */
 }
 
 .card-flat {
 	border-radius: 12px;
     padding: 16px;
-	background: var(--m3--sys--surface-variant);
 	border: 1px solid var(--m3--sys--outline-variant);
+	background: var(--m3--sys--surface-variant);
+	transition: background-color var(--transition), border var(--transition);
 }
 
 .card-elevated {
 	border-radius: 12px;
     padding: 16px;
-	background: var(--m3--surfaces--surface1);
 	box-shadow: var(--m3---elevation--2);
+	background: var(--m3--surfaces--surface1);
+	transition: background-color var(--transition), border var(--transition);
 }
+
+/* Adapt all text not part of a material design component to light dark mode */
+.generalText {
+	color: var(--m3--sys--on-surface);
+	transition: color var(--transition);
+}
+

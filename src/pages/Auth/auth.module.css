@@ -1,23 +1,29 @@
-/* For the moment, this trick set color of all text not part of a component like button or textfield. */
-div > * {
-	color: var(--m3--sys--on-surface);
-}
-
-.signinPage {
+.authPage {
+    background: var(--m3--sys--surface);
+    min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	transition: background-color var(--transition), color var(--transition);
 }
 
-img {
+.logo {
 	aspect-ratio: 0.7;
 	height: 80px;
 	margin: 30px;
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+.themeSwitch {
+	align-self: flex-end;
+	margin: 30px;
+	position: absolute;
+	right: 120px;
+	top: 0;
 }
 
 .langPicker {
@@ -42,6 +48,7 @@ img {
 
 .welcome {
 	font-size: 3rem;
+	transition: color var(--transition);
 }
 
 .createAccount {
@@ -59,12 +66,13 @@ img {
 	flex-grow: 1;
 	height: 2px;
 	border: none;
-	color: black;
-	background-color: black;
+	color: var(--m3--sys--on-surface);
+	background: var(--m3--sys--on-surface);
+	transition: background-color var(--transition), color var(--transition);
 }
 
 .or {
-	background-color: var(--m3--sys--surface-variant);
+	transition: background-color var(--transition), color var(--transition);
 	padding: 0 10px 0;
 }
 
@@ -72,6 +80,7 @@ img {
 .forgotPassword {
 	display: block;
 	color: var(--m3--sys--primary);
+	transition: color var(--transition);
 	text-decoration: none;
 	margin-left: 10px;
 }

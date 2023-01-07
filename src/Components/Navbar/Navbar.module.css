@@ -1,5 +1,24 @@
 .navbar {
-    background-color: antiquewhite;
+    height: 5rem;
+    background: var(--m3--surfaces--surface2);
+    transition: background-color var(--transition);
     display: flex;
-    justify-content: space-around;
+    padding: 15px 15px;
 }
+
+.buttonGroup {
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 20px;
+}
+
+.imgContainer {
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
+}
+

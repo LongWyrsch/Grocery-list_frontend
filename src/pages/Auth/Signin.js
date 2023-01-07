@@ -9,6 +9,7 @@ import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
 
 import { emailValidation, passwordValidation } from '../../utils/validator';
+import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch/ThemeSwitch';
 
 export const Signin = () => {
 	const navigate = useNavigate();
@@ -74,13 +75,14 @@ export const Signin = () => {
 	let lockIcon = { iconName: 'AiOutlineLock', size: '1.5rem', color: '' };
 
 	return (
-		<div className={styles.signinPage}>
-			<img src={require('../../assets/GroceryList_logo.png')} alt='logo'/>
+		<div className={styles.authPage}>
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt='logo'/>
+			<div className={styles.themeSwitch}><ThemeSwitch /></div>
 			<div className={styles.langPicker}><LanguagePicker /></div>
 			<div className={`card-flat ${styles.signinBox}`}>
-				<span className={styles.welcome}>{t('auth.signinPage.welcomeBack')}</span>
+				<span className={`generalText ${styles.welcome}`}>{t('auth.signinPage.welcomeBack')}</span>
 				<div className={styles.createAccount}>
-					<div>{t('auth.signinPage.newUser')}</div>
+					<div className='generalText'>{t('auth.signinPage.newUser')}</div>
 					<NavLink to="/signup" className={styles.createAnAccount}>
 						{t('auth.signinPage.createAnAccount')}
 					</NavLink>
@@ -89,14 +91,14 @@ export const Signin = () => {
 				<Button
 					buttonStyle="elevated"
 					text={t('auth.continueGoogle')}
-					handelOnClick={googleLogin}
+					onClick={googleLogin}
 					iconInfo={googleIcon}
 					width="100%"
 				/>
 
 				<div className={styles.orLine}>
 					<hr className={styles.horizontalLine} />
-					<div className={styles.or}>{t('auth.or')}</div>
+					<div className={`generalText ${styles.or}`}>{t('auth.or')}</div>
 					<hr className={styles.horizontalLine} />
 				</div>
 
@@ -125,7 +127,7 @@ export const Signin = () => {
 					<Button 
 						buttonStyle="filled" 
 						text={t('auth.signin')} 
-						handelOnClick={handleSubmit} 
+						onClick={handleSubmit} 
 						width="100%" 
 					/>
 				</div>

@@ -1,0 +1,5 @@
+.homePage {
+    background: var(--m3--sys--surface);
+    transition: background-color var(--transition);
+    min-height: 100vh;
+}

@@ -5,7 +5,7 @@
 	background: transparent;
     height: 40px;
 	border-radius: 100px;
-    transition: .4s; 
+    transition: background-color var(--transition), color var(--transition);  
     cursor: pointer;
     overflow: hidden;
     border: 0;
@@ -19,6 +19,7 @@
 	padding: 10px 24px;
     height: 100%;
     width: 100%;
+    /* transition: background-color 5000ms, color 5000ms;   */
 }
 
 .icon {
@@ -32,9 +33,10 @@
             SPECIFIC to filled buttons
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .filled {
+    color: var(--m3--sys--on-primary);
 	background: var(--m3--sys--primary);
-	color: var(--m3--sys--on-primary);
 }
+
 .filled .buttonOpacityLayer:hover {
     background: var(--m3--state-layers--on-primary--opacity-008);
 }
@@ -86,6 +88,10 @@
 }
 .elevated .buttonOpacityLayer:active {
     background: var(--m3--state-layers--primary--opacity-012);
+}
+
+.elevated:active {
+    box-shadow: none;
 }
 
 

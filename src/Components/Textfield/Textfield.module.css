@@ -7,8 +7,13 @@
 	align-items: center;
 }
 
+.label,
+.field * {
+	transition: background-color var(--transition), color var(--transition);
+}
+
 .icon {
-	/* color: var(--m3--sys--on-surface); */
+	color: var(--m3--sys--on-surface);
 	pointer-events: none;
 	margin-left: 10px;
 }
@@ -35,7 +40,7 @@
 	font-weight: 500;
 	color: var(--m3--sys--on-surface);
 	pointer-events: none;
-	transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
 	position: absolute;
 	top: 1rem;
 	left: 0rem;

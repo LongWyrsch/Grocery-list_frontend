@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './Button.module.css';
 import * as FCicons from 'react-icons/fc';
+import * as BSicons from 'react-icons/bs';
 
-export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {}, width = ''}) => {
+export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = ''}) => {
 	// Add all imported React-icons library here.
-	const ReactIcons = { ...FCicons };
+	const ReactIcons = { ...FCicons, ...BSicons};
 
 	// Check if parent component passed a icon object to include in the textfield.
-	const iconExists = Object.keys(iconInfo).length === 0 && iconInfo.constructor === Object ? false : true;
+	// const iconExists = Object.keys(iconInfo).length === 0 && iconInfo.constructor === Object ? false : true;
+	const iconExists = iconInfo.iconName === '' ?  false : true;
 
 	// Define icon <div> if an icon was provided.
 	let icon;
@@ -16,7 +18,7 @@ export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {}, w
 	if (iconExists) {
 		icon = React.createElement(ReactIcons[iconInfo.iconName]);
 		icondiv = (
-			<div style={{ fontSize: iconInfo.size, color: iconInfo.color }} className={styles.icon} >
+			<div style={{ fontSize: iconInfo.size }} className={styles.icon} >
 				{icon}
 			</div>
 		);
@@ -41,7 +43,7 @@ export const Button = ({ buttonStyle, text = '', handelOnClick, iconInfo = {}, w
 	}
 
 	return (
-		<button onClick={handelOnClick} className={setUpClassNames} style={{width: width}}>
+		<button onClick={onClick} className={setUpClassNames} style={{width: width}}>
 			<div className={styles.buttonOpacityLayer}>
 				{icondiv}
 				{text}
