@@ -59,23 +59,20 @@ export const Signup = () => {
 		event.preventDefault();
 
 		// Validate user input before calling server.
-		const checkEmail = emailValidation({ email: email }).error;
+		const checkEmail = emailValidation({ email: email });
 		const checkPassword = passwordValidation({ password: password });
 		const checkConfirmPassword = passwordValidation({ password: confirmPassword });
+
 		//If invalid user input, skip server call. Will Rerender with error message.
-		if (
-			checkEmail.error ||
-			checkPassword.error ||
-			checkConfirmPassword.error ||
-			checkPassword !== checkConfirmPassword
-		) {
+		let isInvalid = !checkEmail.error && !checkPassword.error && !checkConfirmPassword.error && checkPassword === checkConfirmPassword
+		if (isInvalid) {
 			setCredError(true);
 			return;
 		}
-
 		// User input was validated. Call server.
-		const response = fetch('http://localhost:3000/auth/local/signup', {
+		const response = await fetch('http://localhost:3000/auth/local/signup', {
 			method: 'POST',
+			credentials: 'include',
 			headers: {
 				'Content-type': 'application/json',
 			},
@@ -87,17 +84,18 @@ export const Signup = () => {
 				language: i18n.language 
 			}),
 		})
-		if (response.status===201) navigate('/home/lists', { state: null, replace: true })
-			// .then((response) => response.json())
-			// .then((data) => {
-			// 	window.alert(data.user.email);
-			// 	navigate('/signin');
-			// });
+		if (response.status===201) {
+			navigate('/signin', { state: null, replace: true })
+		} else if (response.status===403) {
+			setCredError(true)
+		} else {
+			window.alert('Server error')
+		}
 	};
 
 	function credErrorMessage() {
 		return (
-			<div style={{ marginBottom: '10px', color: 'var(--m3--sys--error)', textAlign: 'center' }}>
+			<div className={styles.errorMessage}>
 				{passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')}
 			</div>
 		);

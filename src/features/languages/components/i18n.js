@@ -20,9 +20,9 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'EN',
     debug: true,
-    whitelist: ['de', 'en', 'fr'],
+    whitelist: ['DE', 'EN', 'FR'],
     detection: {
         order: ['queryString', 'cookie'],
         cache: ['cookie']

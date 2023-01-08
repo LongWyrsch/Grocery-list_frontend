@@ -3,7 +3,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //Middleware fetches current user before saving it to the store
 export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
 	const response = await fetch('http://localhost:3000/users', {
-		credentials: 'include',
+		//This allows client to send the session cookie with request. 
+		// Without it, CORS will block the request. The request won't make it to deserializeUser().
+		credentials: 'include', 
 	});
 	const json = await response.json();
 	return json;
@@ -17,7 +19,7 @@ export const updateUser = createAsyncThunk('user/updateUser', async (updatedUser
 			'Content-type': 'application/json',
 		},
 		// We convert the React state to JSON and send it as the POST body
-		body: JSON.stringify(updateUser),
+		body: JSON.stringify(updatedUser),
 	});
 	const json = await response.json();
 	return json;

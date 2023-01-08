@@ -25,9 +25,9 @@ export const CornerAvatar = () => {
 
 	const logout = () => {
 		window.open('http://localhost:3000/logout', '_self');
-		fetch('http://localhost:3000/logout').then((response) => { 
-			if (response.status) navigate('/signin')
-		 })
+		// fetch('http://localhost:3000/logout').then((response) => { 
+		// 	if (response.status===200) navigate('/signin')
+		//  })
 	};
 
 	function openMenu() {

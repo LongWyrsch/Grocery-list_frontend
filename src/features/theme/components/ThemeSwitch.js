@@ -23,8 +23,8 @@ export const ThemeSwitch = () => {
 
 	return (
 		<div>
-			<button className={`${themeClass} ${styles.switch}`} onClick={handleOnClickTheme}>
-				<div className={styles.switchCircle}>{themeIcon}</div>
+			<button className={styles.switch} onClick={handleOnClickTheme}>
+				<div className={`${themeClass} ${styles.switchCircle}`}>{themeIcon}</div>
 			</button>
 		</div>
 	);

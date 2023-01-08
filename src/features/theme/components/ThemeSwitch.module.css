@@ -1,5 +1,6 @@
 .switch {
     display: flex;
+    position: relative;
     align-items: center;
     height: 2rem;
     width: 3.25rem;
@@ -12,6 +13,7 @@
 
 .switchCircle {
     display: flex;
+    position: absolute;
     align-items: center;
     justify-content: center;
     height: 1.5rem;
@@ -21,8 +23,10 @@
 }
 
 .light {
-    justify-content: left;
+    left: 0.25rem;
+    transition: 500ms;
 }
 .dark {
-    justify-content: right;
+    left: 1.5rem;
+    transition: 500ms;
 }

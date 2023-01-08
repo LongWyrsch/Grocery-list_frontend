@@ -6,15 +6,15 @@ import userSlice, { selectUser, getUser, updateUser } from '../../features/user/
 
 import styles from './Home.module.css';
 import { Navbar } from '../../components/Navbar/Navbar';
-import { Lists } from '../Lists/Lists';
-import { Recipes } from '../Recipes/Recipes';
+import { Lists } from '../../features/Lists/components/Lists';
+import { Recipes } from '../../features/Recipes/components/Recipes';
 
 export const Home = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	
 	let { targetPage } = useParams();
-	const displayPage = targetPage === 'lists' ?  <Lists /> : <Recipes />
+	let displayPage = targetPage === 'lists' ?  <Lists /> : <Recipes />
 
 	useEffect(() => {
 		dispatch((getUser()));
@@ -24,8 +24,8 @@ export const Home = () => {
 
 	return (
 		<div className={styles.homePage}>
+			<h1>Hello {user.email} {user.googleName}</h1>
 			{isAuthenticated && <Navbar page={targetPage} />}
-			<h1>{user.email}{user.googleName}</h1>
 			{isAuthenticated && displayPage}
 		</div>
 	);

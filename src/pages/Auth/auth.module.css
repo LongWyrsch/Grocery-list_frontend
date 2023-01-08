@@ -88,3 +88,9 @@
 .forgotPassword {
 	margin-top: 10px;
 }
+
+.errorMessage {
+	margin-bottom: 10px;
+	text-align: center;
+	color: var(--m3--sys--error);
+}

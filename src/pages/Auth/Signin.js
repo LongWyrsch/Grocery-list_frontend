@@ -55,12 +55,14 @@ export const Signin = () => {
 			// We convert the React state to JSON and send it as the POST body
 			body: JSON.stringify({ email: email, password: password }),
 		})
+		if (response.status===401) window.alert('Server error')
+		if (response.status===403) setCredError(true)
 		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
 	};
 
 	function credErrorMessage() {
 		return (
-			<div style={{ marginBottom: '10px', color: 'var(--m3--sys--error)' }}>
+			<div className={styles.errorMessage}>
 				{t('auth.creds.emailPasswordError')}
 			</div>
 		);
@@ -102,7 +104,6 @@ export const Signin = () => {
 					<div className={`generalText ${styles.or}`}>{t('auth.or')}</div>
 					<hr className={styles.horizontalLine} />
 				</div>
-				long.nqw@gmail.com
 				<Textfield
 					fieldStyle="outlined"
 					placeholder={t('auth.creds.email')}
@@ -110,7 +111,7 @@ export const Signin = () => {
 					iconInfo={userIcon}
 					width="100%"
 				/>
-				<div style={{ width: '100%' }}>3213jhxcz89
+				<div style={{ width: '100%' }}>
 					<Textfield
 						fieldStyle="outlined"
 						fieldType="password"

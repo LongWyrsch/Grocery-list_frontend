@@ -94,8 +94,8 @@ export const Textfield = ({
 			<div className={setUpClassNames}>
 				{icondiv()}
 				<div className={styles.inputArea}>
-					<input type={fieldType} className={styles.input} required onChange={validateInput} />
-					<label for="" className={styles.label}>
+					<input type={fieldType} className={styles.input} required onChange={validateInput}/>
+					<label htmlFor="" className={styles.label}>
 						{placeholder}
 					</label>
 				</div>
