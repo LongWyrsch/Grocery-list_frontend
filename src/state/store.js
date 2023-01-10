@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from '../features/theme/state/themeSlice';
 import userReducer from '../features/user/state/userSlice';
-import recipesReducer from '../features/Recipes/state/recipesSlice';
+import recipesReducer from '../features/recipes/state/recipesSlice';
 
 export default configureStore({
 	reducer: {

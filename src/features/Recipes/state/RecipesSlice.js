@@ -31,6 +31,11 @@ const recipesSlice = createSlice({
         isLoading: false,
         hasError: false
 	},
+	reducers:{
+		deleteRecipeFromState: (state, action) => {
+            state.recipes = state.recipes.filter((recipe) => recipe[0].card.uuid !== action.payload)
+        }
+	},
 	extraReducers: {
 		[getRecipes.pending]: (state, action) => {
 			state.isLoading = true;
@@ -64,4 +69,5 @@ const recipesSlice = createSlice({
 
 export const selectRecipes = (state) => state.recipes.recipes;
 export const isLoadingRecipes = (state) => state.recipes.isLoading;
+export const {deleteRecipeFromState} = recipesSlice.actions;
 export default recipesSlice.reducer;

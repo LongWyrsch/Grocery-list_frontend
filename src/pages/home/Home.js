@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import userSlice, { selectUser, getUser, updateUser } from '../../features/user/state/userSlice';
 // import listsSlice, { selectLists, getLists, updateList } from '../../features/user/state/userSlice';
-import recipesSlice, { selectRecipes, getRecipes, updateRecipe } from '../../features/Recipes/state/recipesSlice';
+import recipesSlice, { selectRecipes, getRecipes, updateRecipe } from '../../features/recipes/state/recipesSlice';
 
 import styles from './Home.module.css';
 import { Navbar } from '../../components/Navbar/Navbar';
@@ -12,7 +12,6 @@ import { Navbar } from '../../components/Navbar/Navbar';
 // import { Recipes } from '../../features/Recipes/components/Recipes';
 
 import { Grid } from '../../components/Grid/Grid';
-// import Grid from '../../components/Grid/Grid';
 
 export const Home = () => {
 	const dispatch = useDispatch();
@@ -28,7 +27,7 @@ export const Home = () => {
 		dispatch(getRecipes());
 	}, [dispatch]);
 
-	const isAuthenticated = user.email || user.googleName ? true : false;
+	const isAuthenticated = user.email || user.google_name ? true : false;
 
 	// const [layout, setLayout] = useState([]);
 	// const onLayoutChange = (layout) => {
@@ -38,11 +37,10 @@ export const Home = () => {
 	return (
 		<div className={styles.homePage}>
 			
-			{isAuthenticated && <Navbar page={targetPage} />}
+			{isAuthenticated && <Navbar tagetPage={targetPage} />}
 
 			{/* {isAuthenticated && <Grid page={targetPage} onLayoutChange={onLayoutChange} />} */}
-			{isAuthenticated && <Grid page={targetPage} />}
-
+			{isAuthenticated && <Grid tagetPage={targetPage} />}
 		</div>
 	);
 };

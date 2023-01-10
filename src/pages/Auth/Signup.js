@@ -64,7 +64,11 @@ export const Signup = () => {
 		const checkConfirmPassword = passwordValidation({ password: confirmPassword });
 
 		//If invalid user input, skip server call. Will Rerender with error message.
-		let isInvalid = !checkEmail.error && !checkPassword.error && !checkConfirmPassword.error && checkPassword === checkConfirmPassword
+		let isInvalid =
+			!checkEmail.error &&
+			!checkPassword.error &&
+			!checkConfirmPassword.error &&
+			checkPassword === checkConfirmPassword;
 		if (isInvalid) {
 			setCredError(true);
 			return;
@@ -77,19 +81,19 @@ export const Signup = () => {
 				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
-			body: JSON.stringify({ 
-				email: email, 
-				password: password, 
-				darktheme: theme==='dark', 
-				language: i18n.language 
+			body: JSON.stringify({
+				email: email,
+				password: password,
+				dark_theme: theme === 'dark',
+				language: i18n.language,
 			}),
-		})
-		if (response.status===201) {
-			navigate('/signin', { state: null, replace: true })
-		} else if (response.status===403) {
-			setCredError(true)
+		});
+		if (response.status === 201) {
+			navigate('/signin', { state: null, replace: true });
+		} else if (response.status === 403) {
+			setCredError(true);
 		} else {
-			window.alert('Server error')
+			window.alert('Server error');
 		}
 	};
 
@@ -112,7 +116,9 @@ export const Signup = () => {
 			<div className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>
-			<div className={styles.langPicker}><LanguagePicker /></div>
+			<div className={styles.langPicker}>
+				<LanguagePicker />
+			</div>
 			<div className={`card-flat ${styles.signinBox}`}>
 				<span className={styles.welcome}>{t('auth.signupPage.welcome')}</span>
 				<div className={styles.createAccount}>

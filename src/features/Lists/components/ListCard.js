@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Lists = () => {
+export const ListCard = () => {
   return (
     <div>Lists</div>
   )
