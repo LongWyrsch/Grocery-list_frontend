@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //Middleware fetches all lists before saving it to the store
 export const getLists = createAsyncThunk('lists/getLists', async (thunkAPI) => {
 	const response = await fetch('http://localhost:3000/lists', {
+		method: 'GET',
 		credentials: 'include',
 	});
 	const json = await response.json();
@@ -26,14 +27,7 @@ export const updateList = createAsyncThunk('lists/updateList', async (updatedLis
 const listsSlice = createSlice({
 	name: 'lists',
 	initialState: {
-        lists: {
-            email: null,
-            language: null,
-            darktheme: false,
-            googleName: null,
-			avatarVariant: null,
-			avatarColors: null
-        },
+        lists: [],
         isLoading: false,
         hasError: false
 	},
@@ -51,16 +45,16 @@ const listsSlice = createSlice({
 			state.isLoading = false;
 			state.hasError = true;
 		},
-        [updateLists.pending]: (state, action) => {
+        [updateList.pending]: (state, action) => {
 			state.isLoading = true;
 			state.hasError = false;
 		},
-		[updateLists.fulfilled]: (state, action) => {
+		[updateList.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = false;
-			state.lists = {...state, ...action.payload}
+			state.lists = [...state, ...action.payload]
 		},
-		[updateLists.rejected]: (state, action) => {
+		[updateList.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
 		}

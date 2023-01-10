@@ -33,6 +33,18 @@ export const Signin = () => {
 		setPassword(e.target.value);
 	}
 
+	const quicklogin = async() => {
+		const response = await fetch('http://localhost:3000/auth/local/signin', {
+			method: 'POST',
+			credentials: 'include',
+			headers: {'Content-type': 'application/json'},
+			body: JSON.stringify({ email: process.env.REACT_APP_ADMINEMAIL, password: process.env.REACT_APP_ADMINPASSWORD }),
+		})
+		if (response.status===401) window.alert('Server error')
+		if (response.status===403) setCredError(true)
+		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
+	}
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -127,6 +139,7 @@ export const Signin = () => {
 				<div style={{ width: '100%' }}>
 					{credError && credErrorMessage()}
 					<Button buttonStyle="filled" text={t('auth.signin')} onClick={handleSubmit} width="100%" />
+					<button onClick={quicklogin} >DEV BUTTON</button>
 				</div>
 			</div>
 		</div>
