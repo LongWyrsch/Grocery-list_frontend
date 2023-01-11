@@ -1,0 +1,50 @@
+/* .miniCardWrapper {
+    overflow: hidden;
+} */
+
+.titleAndDelete {
+	position: relative;
+}
+
+.title {
+	text-align: center;
+	font-size: 2rem;
+}
+
+.deleteButton {
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	cursor: pointer;
+}
+
+.row {
+	width: 100%;
+	margin: 10px 0 0;
+}
+
+.row,
+.quantityAndUnit,
+.extraRow {
+	display: flex;
+	align-items: center;
+}
+
+.ingredient {
+	flex-grow: 1;
+    flex-basis: 0;
+	white-space: nowrap;
+	overflow: hidden;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+}
+
+.ellipsis.row {
+    display: flex;
+	justify-content: space-between;
+}
+
+.ellipsis {
+	/* width: 100px; */
+    margin-right: 20px;
+}

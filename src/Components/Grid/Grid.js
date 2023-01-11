@@ -16,6 +16,8 @@ import recipesSlice, {
 	deleteRecipeFromState,
 	addRecipeToState,
 } from '../../features/recipes/state/recipesSlice';
+import { MiniCardRecipe } from '../MiniCardRecipe/MiniCardRecipe';
+import { MiniCardList } from '../MiniCardList/MiniCardList';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -32,6 +34,7 @@ export const Grid = (props) => {
 		className: className,
 		cols: cols,
 		rowHeight: rowHeight,
+		isResizable: false,
 		...others,
 	};
 
@@ -53,39 +56,37 @@ export const Grid = (props) => {
 	const [breakpoint, setBreakpoint] = useState({});
 	const [newItemCol, setNewItemCol] = useState();
 
-	const createElement = (recipe) => {
-		const removeStyle = {
-			position: 'absolute',
-			right: '2px',
-			top: 0,
-			cursor: 'pointer',
-		};
-		let card_uuid = recipe[0].card_uuid
-		let grid_position = recipe[0].grid_position
+	const createElement = (card) => {
 		return (
-			<div key={card_uuid} data-grid={grid_position} className={styles.testItemContainer}>
-				<span className="text">{recipe[0].title}</span>
-				<span className="remove" style={removeStyle} onClick={() => onRemoveItem(card_uuid)}>
-					x
-				</span>
+			<div key={card[0].card_uuid} data-grid={card[0].grid_position} className={styles.cardContainer}>
+				<MiniCardRecipe card={card} targetPage={targetPage} handleOnClick={() => onRemoveItem(card[0].card_uuid)}/>
 			</div>
 		);
 	};
 
 	const onAddItem = (newRecipe) => {
 		// /*eslint no-console: 0*/
-
+			let cardHeight = 0
+			if (newRecipe.length <= 3) {
+				cardHeight = 2
+			} else if (newRecipe.length <= 7) {
+				cardHeight = 3
+			} else if (newRecipe.length <= 11) {
+				cardHeight = 4
+			} else {
+				cardHeight = 5
+			} 
 		// newRecipe.forEach((ingredient) => {
 		// 	let grid_position = {
 		// 		i: ingredient.card_uuid,
 		// 		x: (recipes.length*2) % (newItemCol || 12),
 		// 		y: Infinity,  // puts it at the bottom
 		// 		w: 2,
-		// 		h: 6,
+		// 		h: cardHeight,
 		// 		minW: 2,
 		// 		maxW: 2,
-		// 		minH: 1,
-		// 		maxH: 40,
+		// 		minH: 2,
+		// 		maxH: 5,
 		// 		isBounded: true,
 		// 	};
 		// 	ingredient.grid_position = JSON.stringify(grid_position);
@@ -119,7 +120,7 @@ export const Grid = (props) => {
 	const recipes = useSelector(selectRecipes);
 
 	return (
-		<div>
+		<div className={styles.gridWrapper}>
 			<button onClick={onAddItem}>Add Item</button>
 			<ResponsiveReactGridLayout onBreakpointChange={onBreakpointChange} {...nextProps}>
 				{recipes.map((recipe) => createElement(recipe))}

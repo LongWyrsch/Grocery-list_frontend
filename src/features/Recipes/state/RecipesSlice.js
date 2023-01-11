@@ -33,7 +33,7 @@ const recipesSlice = createSlice({
 	},
 	reducers:{
 		deleteRecipeFromState: (state, action) => {
-            state.recipes = state.recipes.filter((recipe) => recipe[0].card.uuid !== action.payload)
+            state.recipes = state.recipes.filter((recipe) => recipe[0].card_uuid !== action.payload)
         }
 	},
 	extraReducers: {

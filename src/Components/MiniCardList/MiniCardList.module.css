@@ -1,0 +1,27 @@
+.title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.row {
+    width: 100%;
+}
+
+.row,
+.quantityAndUnit,
+.extraRow {
+    display: flex;
+    align-items: center;
+}
+
+.ingredient {
+    flex-grow: 1;
+}
+
+.extraRow{
+    justify-content: space-between;
+}
+
+.ellipsis {
+    width: 200px;
+}
