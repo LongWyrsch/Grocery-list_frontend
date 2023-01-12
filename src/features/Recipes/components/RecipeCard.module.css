@@ -1,0 +1,39 @@
+.cardWrapper {
+	position: fixed;
+    width: 60%;
+    max-width: 770px;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 4;
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(100px, 300px) minmax(40px, 60px) minmax(80px, 150px) minmax(100px, 120px) minmax(70px, 80px);
+    gap: 5px;
+    justify-content: stretch;
+    overflow: hidden;
+}
+
+.gridItemContainer {
+    width: 100%;
+}
+
+.deleteButton *  {
+    padding: 0;
+    border-radius: 0;
+    align-items: flex-end;
+}
+
+.deleteButton *:hover {
+    background: none !important;
+}

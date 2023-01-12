@@ -2,4 +2,26 @@
     padding: 20px;
     background-color: aquamarine;
     border-radius: 10px;
+    height: 100%;
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px) brightness(20%);
+    pointer-events: none;
+    opacity: 0;
+    transition: 300;
+    /* display:none; */
+}
+
+.blur[data-show=true] {
+    opacity: 1;
+    pointer-events:all;
+    transition: 300ms;
+    z-index: 3;
+    /* display: block; */
 }

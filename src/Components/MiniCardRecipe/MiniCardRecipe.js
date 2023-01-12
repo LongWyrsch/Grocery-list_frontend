@@ -1,18 +1,20 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './MiniCardRecipe.module.css';
 
-export const MiniCardRecipe = ({ targetPage, card, handleOnClick }) => {
+export const MiniCardRecipe = ({ targetPage, card, handleOnRemove }) => {
+	
 
 	return (
-		<div className={styles.miniCardWrapper}>
+		<div className={styles.miniCardWrapper} > 
 			<div className={styles.titleAndDelete}>
 				<div className={styles.title}>{card[0].title}</div>
-				<span className={styles.deleteButton} onClick={handleOnClick}>
+				<span className={styles.deleteButton} onClick={handleOnRemove}>
 					x
 				</span>
 			</div>
 			<ul>
-				{card.slice(0, 15).map((ingredient) => { // Show at most 16 ingredients
+				{card.slice(0, 15).map((ingredient) => {
+					// Show at most 16 ingredients
 					let quantity = ingredient.quantity ? ingredient.quantity : '';
 					let unit = ingredient.unit ? ingredient.unit : '';
 					return (

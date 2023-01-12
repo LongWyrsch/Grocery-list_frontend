@@ -5,6 +5,7 @@
 .field {
 	display: flex;
 	align-items: center;
+	width: 100%;
 }
 
 .label,
@@ -12,11 +13,11 @@
 	transition: background-color var(--transition), color var(--transition);
 }
 
-.icon {
+/* .icon {
 	color: var(--m3--sys--on-surface);
 	pointer-events: none;
 	margin-left: 10px;
-}
+} */
 
 .inputArea {
 	position: relative;
@@ -31,9 +32,10 @@
 	font-weight: 500;
 	color: var(--m3--sys--on-surface);
 	outline: none;
-	padding: 0 1rem;
+	/* padding: 0 1rem; */
 	border: 0;
 	background: none;
+	text-overflow: ellipsis;
 }
 
 .label {
@@ -79,10 +81,10 @@
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 .filled {
-	border: 0;
-	border-bottom: 1px solid var(--m3--sys--primary);
+	/* border: 0; */
+	/* border-bottom: 1px solid var(--m3--sys--primary); */
 	border-radius: 4px 4px 0 0;
-	background: var(--m3--sys--surface-variant);
+	/* background: var(--m3--sys--surface-variant); */
 }
 
 .outlined {
@@ -108,6 +110,8 @@
 .filled.field:hover {
 	/* background: #ececec; */
 	background: var(--m3--state-layers--on-surface--opacity-008);
+	border: 0;
+	border-bottom: 1px solid var(--m3--sys--primary);
 }
 
 /* How the overall textfield looks when focused */

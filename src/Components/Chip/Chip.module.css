@@ -1,0 +1,24 @@
+.chip {
+    border: 1px solid var(--m3--sys--outline);
+    color: var(--m3--sys--on-surface-variant);
+    height: 2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: transparent;
+}
+
+.icon {
+    color: var(--m3--system--on-surface);
+}
+
+.chip:focus {
+    outline-color: var(--m3--system--on-surface);
+    background: var(--m3--state-layers--on-surface-variant--opacity-012);
+}
+
+.chip:hover {
+    outline-color: var(--m3--system--outline);
+    background: var(--m3--state-layers--on-surface-variant--opacity-008);
+}

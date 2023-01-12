@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styles from './Textfield.module.css';
+import materialdesign from './Textfield.module.css';
+import card from './TextfieldCard.module.css';
 import { useTranslation } from 'react-i18next';
 
 import { IconContext } from 'react-icons';
@@ -10,15 +11,21 @@ import * as FIicons from 'react-icons/fi';
 
 export const Textfield = ({
 	fieldStyle,
+	cssStyle = 'materialdesign',
 	fieldType = 'text',
 	placeholder = '',
+	value,
 	handleOnChange,
 	iconInfo = {},
 	width = '',
+	height = '3.5rem',
 	validator,
 	payloadKey,
+	textAlign='left',
 }) => {
 		
+	const styles = cssStyle==='card'? card : materialdesign
+
 	const [inputIsInvalid, setInputIsInvalid] = useState(false);
 	const [inputErrorMessage, setInputErrorMessage] = useState(false);
 	
@@ -91,10 +98,10 @@ export const Textfield = ({
 
 	return (
 		<div style={{ width: width }}>
-			<div className={setUpClassNames}>
+			<div className={setUpClassNames} style={{height: height}}>
 				{icondiv()}
 				<div className={styles.inputArea}>
-					<input type={fieldType} className={styles.input} required onChange={validateInput}/>
+					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value} style={{textAlign:textAlign}}/>
 					<label htmlFor="" className={styles.label}>
 						{placeholder}
 					</label>

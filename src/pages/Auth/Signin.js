@@ -117,6 +117,7 @@ export const Signin = () => {
 					<hr className={styles.horizontalLine} />
 				</div>
 				<Textfield
+					value={email}
 					fieldStyle="outlined"
 					placeholder={t('auth.creds.email')}
 					handleOnChange={handleOnChangeEmail}
@@ -125,6 +126,7 @@ export const Signin = () => {
 				/>
 				<div style={{ width: '100%' }}>
 					<Textfield
+						value={password}
 						fieldStyle="outlined"
 						fieldType="password"
 						placeholder={t('auth.creds.password')}
