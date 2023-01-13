@@ -2,9 +2,9 @@
 	position: fixed;
     width: 60%;
     max-width: 770px;
-	top: 40%;
+	top: 10%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%);
 	z-index: 4;
     margin: 0px;
 }
@@ -36,4 +36,5 @@
 
 .deleteButton *:hover {
     background: none !important;
+    color: var(--m3--sys--error);
 }

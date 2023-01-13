@@ -14,7 +14,7 @@ export const Textfield = ({
 	cssStyle = 'materialdesign',
 	fieldType = 'text',
 	placeholder = '',
-	value,
+	value = '',
 	handleOnChange,
 	iconInfo = {},
 	width = '',
@@ -101,7 +101,7 @@ export const Textfield = ({
 			<div className={setUpClassNames} style={{height: height}}>
 				{icondiv()}
 				<div className={styles.inputArea}>
-					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value} style={{textAlign:textAlign}}/>
+					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign}}/>
 					<label htmlFor="" className={styles.label}>
 						{placeholder}
 					</label>

@@ -14,11 +14,27 @@ export const getRecipes = createAsyncThunk('recipes/getRecipes', async (thunkAPI
 export const updateRecipe = createAsyncThunk('recipes/updateRecipe', async (updatedRecipe, thunkAPI) => {
 	const response = fetch('http://localhost:3000/recipes', {
 		method: 'POST',
+		credentials: 'include',
 		headers: {
 			'Content-type': 'application/json',
 		},
 		// We convert the React state to JSON and send it as the POST body
 		body: JSON.stringify(updatedRecipe),
+	});
+	// const json = await response.json();
+    if (response.status===200) return updateRecipe;
+});
+
+//Middleware deletes recipe from database and confirms if successfull.
+export const deleteRecipeFromDatabase = createAsyncThunk('recipes/deleteRecipeFromDatabase', async (card_uuid, thunkAPI) => {
+	const response = fetch('http://localhost:3000/recipes', {
+		method: 'DELETE',
+		credentials: 'include',
+		headers: {
+			'Content-type': 'application/json',
+		},
+		// We convert the React state to JSON and send it as the POST body
+		body: JSON.stringify({uuid: null, recipe: card_uuid}),
 	});
 	// const json = await response.json();
     if (response.status===200) return updateRecipe;

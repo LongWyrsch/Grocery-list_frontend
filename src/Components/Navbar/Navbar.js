@@ -7,9 +7,8 @@ import { Button } from '../Button/Button';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 
-export const Navbar = ({ page, setPage }) => {
+export const Navbar = ({ targetPage, setPage }) => {
 	const navigate = useNavigate();
-
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.buttonGroup}>
@@ -17,7 +16,7 @@ export const Navbar = ({ page, setPage }) => {
 					<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 				</div>
 				<Button
-					buttonStyle={page === 'lists' ? 'filled' : 'outlined'}
+					buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
 					text="Grocery lists"
 					onClick={() => {
 						// setPage('lists');
@@ -25,7 +24,7 @@ export const Navbar = ({ page, setPage }) => {
 					}}
 				/>
 				<Button
-					buttonStyle={page === 'recipes' ? 'filled' : 'outlined'}
+					buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
 					text="Recipes"
 					onClick={() => {
 						// setPage('recipes');
@@ -36,7 +35,7 @@ export const Navbar = ({ page, setPage }) => {
 			<div className={styles.buttonGroup}>
 				<Button
 					buttonStyle="elevated"
-					text={page === 'lists' ? 'New list' : 'New recipe'}
+					text={targetPage === 'lists' ? 'New list' : 'New recipe'}
 					onClick={() => {}}
 					iconInfo={{
 						iconName: 'BsPlusLg',

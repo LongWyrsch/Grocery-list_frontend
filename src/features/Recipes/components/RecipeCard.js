@@ -8,7 +8,7 @@ import { Textfield } from '../../../components/Textfield/Textfield';
 import { Chip } from '../../../components/Chip/Chip';
 import { Button } from '../../../components/Button/Button';
 
-export const RecipeCard = ({ card_uuid, closeCard, deleteCard }) => {
+export const RecipeCard = ({ card_uuid, closeCard, deleteWarning }) => {
 	const dispatch = useDispatch();
 	const recipes = useSelector(selectRecipes);
 	const [recipe, setRecipe] = useState(recipes.filter((recipe) => recipe[0].card_uuid === card_uuid)[0]);
@@ -38,7 +38,7 @@ export const RecipeCard = ({ card_uuid, closeCard, deleteCard }) => {
 					fieldType="text"
 					handleOnChange={(e) => updatefield(index, 'ingredient', e.target.value)}
 					height="2rem"
-          width='100%'
+					width="100%"
 				/>
 			</div>,
 			<div key={index * recipe.length + 2} className={styles.gridItemContainer}>
@@ -49,7 +49,7 @@ export const RecipeCard = ({ card_uuid, closeCard, deleteCard }) => {
 					fieldType="text"
 					handleOnChange={(e) => updatefield(index, 'quantity', e.target.value)}
 					height="2rem"
-          textAlign='right'
+					textAlign="right"
 				/>
 			</div>,
 			<div key={index * recipe.length + 3} className={styles.gridItemContainer}>
@@ -77,7 +77,7 @@ export const RecipeCard = ({ card_uuid, closeCard, deleteCard }) => {
 					fieldType="number"
 					handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)}
 					height="2rem"
-          textAlign='right'
+					textAlign="right"
 				/>
 			</div>,
 		]);
@@ -85,13 +85,13 @@ export const RecipeCard = ({ card_uuid, closeCard, deleteCard }) => {
 
 	return (
 		<div className={`card-elevated  ${styles.cardWrapper}`}>
-      <div className={styles.header}>
-        <h2 className='generalText'>{recipe[0].title}</h2>
-        <Button buttonStyle="text" text="Close" onClick={closeCard} />
-      </div>
+			<div className={styles.header}>
+				<h2 className="generalText">{recipe[0].title}</h2>
+				<Button buttonStyle="text" text="Close" onClick={closeCard} />
+			</div>
 			<div className={styles.grid}>{fieldArray.map((field, i) => field)}</div>
 			<div className={styles.deleteButton}>
-				<Button buttonStyle="text" text="Delete" onClick={deleteCard} />
+				<Button buttonStyle="text" text="Delete" onClick={deleteWarning} />
 			</div>
 		</div>
 	);

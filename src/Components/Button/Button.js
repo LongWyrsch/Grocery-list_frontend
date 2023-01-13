@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './Button.module.css';
 import * as FCicons from 'react-icons/fc';
 import * as BSicons from 'react-icons/bs';
+import * as MDicons from 'react-icons/md';
 
 export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = ''}) => {
 	// Add all imported React-icons library here.
-	const ReactIcons = { ...FCicons, ...BSicons};
+	const ReactIcons = { ...FCicons, ...BSicons, ...MDicons};
 
 	// Check if parent component passed a icon object to include in the textfield.
 	// const iconExists = Object.keys(iconInfo).length === 0 && iconInfo.constructor === Object ? false : true;

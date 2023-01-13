@@ -1,17 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './MiniCardRecipe.module.css';
 
-export const MiniCardRecipe = ({ targetPage, card, handleOnRemove }) => {
-	
+import { IoMdClose } from 'react-icons/io';
 
+export const MiniCardRecipe = ({ targetPage, card }) => {
 	return (
-		<div className={styles.miniCardWrapper} > 
-			<div className={styles.titleAndDelete}>
-				<div className={styles.title}>{card[0].title}</div>
-				<span className={styles.deleteButton} onClick={handleOnRemove}>
-					x
-				</span>
-			</div>
+		<div className={styles.miniCardWrapper}>
+			<div className={styles.title}>{card[0].title}</div>
 			<ul>
 				{card.slice(0, 15).map((ingredient) => {
 					// Show at most 16 ingredients

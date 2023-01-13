@@ -18,9 +18,7 @@ export const Home = () => {
 	const user = useSelector(selectUser);
 	// const lists = useSelector(selectLists);
 	// const recipes = useSelector(selectRecipes);
-
 	let { targetPage } = useParams();
-
 	useEffect(() => {
 		dispatch(getUser());
 		// dispatch(getLists());
@@ -37,10 +35,10 @@ export const Home = () => {
 	return (
 		<div className={styles.homePage}>
 			
-			{isAuthenticated && <Navbar tagetPage={targetPage} />}
+			{isAuthenticated && <Navbar targetPage={targetPage} />}
 
 			{/* {isAuthenticated && <Grid page={targetPage} onLayoutChange={onLayoutChange} />} */}
-			{isAuthenticated && <Grid tagetPage={targetPage} />}
+			{isAuthenticated && <Grid targetPage={targetPage} />}
 		</div>
 	);
 };

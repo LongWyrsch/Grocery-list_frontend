@@ -1,0 +1,29 @@
+@keyframes slideInFromTop {
+    0% {
+    translate: 0 0;
+    }
+    100% {
+      translate:0 40%;
+    }
+  }
+
+.warningwindow {
+	position: fixed;
+	/* width: 400px; */
+    height: 80px;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%);
+    z-index: 5;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    /* translate: 0 400px 3000ms; */
+    /* transi  */
+    /* transform: translateY(30%); */
+    /* transition-duration: translate 3000ms; */
+    animation: 200ms 0s 1 slideInFromTop;
+    animation-fill-mode: forwards;
+}

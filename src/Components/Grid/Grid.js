@@ -9,19 +9,17 @@ import styles from './Grid.module.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 // import listsSlice, { selectLists, getLists, updateList } from '../../features/lists/state/listsSlice';
-import recipesSlice, {
-	selectRecipes,
-	updateRecipe,
-	deleteRecipeFromState,
-	addRecipeToState,
-} from '../../features/recipes/state/recipesSlice';
+import recipesSlice, { selectRecipes, getRecipes, updateRecipe, deleteRecipeFromState, deleteRecipeFromDatabase, addRecipeToState} from '../../features/recipes/state/recipesSlice';
 import { MiniCardRecipe } from '../MiniCardRecipe/MiniCardRecipe';
 import { MiniCardList } from '../MiniCardList/MiniCardList';
 import { RecipeCard } from '../../features/recipes/components/RecipeCard';
+import { ActionWarning } from '../ActionWarning/ActionWarning';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const Grid = (props) => {
+	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const recipes = useSelector(selectRecipes); //Hook 3
 
@@ -37,7 +35,8 @@ export const Grid = (props) => {
 	const [breakpoint, setBreakpoint] = useState({}); //Hook 8
 	const [newItemCol, setNewItemCol] = useState(); // Hook 7
 	const [openCardId, setOpenCardId] = useState(null);
-	const [focusCardUuid, setfocusCardUuid] = useState(null);
+	const [focusCard, setFocusCard] = useState(null);
+	const [showWarning, setShowWarning] = useState(false)
 
 	let blurRef = useRef();
 	const movedRef = useRef(true);
@@ -52,9 +51,9 @@ export const Grid = (props) => {
 	const blurElement = blurRef.current;
 	let downListener = () => (movedRef.current = false);
 	let moveListener = () => (movedRef.current = true);
-	let upListener = (card_uuid) => {
+	let upListener = (card) => {
 		if (movedRef.current === false) {
-			setfocusCardUuid(card_uuid);
+			setFocusCard(card);
 			blurElement.dataset.show = true;
 		}
 	};
@@ -65,14 +64,12 @@ export const Grid = (props) => {
 				<div
 					onMouseDown={downListener}
 					onMouseMove={moveListener}
-					onMouseUp={() => upListener(card[0].card_uuid)}
+					onMouseUp={() => upListener(card)}
 					className={styles.cardContainer}
 				>
 					<MiniCardRecipe
 						card={card}
 						targetPage={props.targetPage}
-						// handleOnClick={() => {handleOnClick(card[0].card_uuid)}}
-						handleOnRemove={() => onRemoveItem(card[0].card_uuid)}
 					/>
 				</div>
 			</div>
@@ -124,30 +121,62 @@ export const Grid = (props) => {
 	// 	this.setState({ layout: layout });
 	// }
 
-	const onRemoveItem = (card_uuid) => {
-		console.log('removing card with uuid:', card_uuid);
+	const closeCard = () => {
+		blurElement.dataset.show = false;
+		setFocusCard(false);
+		setShowWarning(false)
+
+	};
+
+	const deleteCard = async(card_uuid) => {
+		closeCard()
 		dispatch(deleteRecipeFromState(card_uuid));
 		// dispatch(deleteRecipeFromDatabase(card_uuid))
+		const response = await fetch('http://localhost:3000/recipes', {
+			method: 'DELETE',
+			credentials: 'include',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			// We convert the React state to JSON and send it as the POST body
+			body: JSON.stringify({uuid: null, recipe: card_uuid}),
+		});
+		if (response.status===200) {
+			dispatch(getRecipes());
+		} else if (response.status === 401) {
+			window.alert('Failed to authenticate')
+			navigate('/signin')
+		} else {
+			dispatch(getRecipes());
+			window.alert('Server error. Please try again.')
+		}
+
+
+
+
+
 		// The card will be removed from the layout. Then dispatch the action to the server.
 		// If there is an error, the card will reappear on next refresh. All cards will be at their original position.
 	};
 
-	const closeCard = () => {
-		blurElement.dataset.show = false;
-		setfocusCardUuid(false);
-	};
 
-	const deleteCard = (card_uuid) => { 
-		
-	 }
+
 
 	return (
 		<div className={styles.gridWrapper}>
+			{showWarning && 
+				<ActionWarning 
+					action='Delete' 
+					message={`Delete recipe ${focusCard[0].title}?`} 
+					handleOnClick={() => deleteCard(focusCard[0].card_uuid)} 
+					handleCancel={() => setShowWarning(false)}
+					iconName='MdDeleteOutline'
+				/>}
 			<ResponsiveReactGridLayout onBreakpointChange={onBreakpointChange} {...nextProps}>
 				{recipes.map((recipe) => createElement(recipe))}
 			</ResponsiveReactGridLayout>
 			<div className={styles.blur} data-show={false} ref={blurRef} onClick={closeCard} />
-			{focusCardUuid && <RecipeCard card_uuid={focusCardUuid} closeCard={closeCard} deleteCard={deleteCard(focusCardUuid)}/>}
+			{focusCard && <RecipeCard card_uuid={focusCard[0].card_uuid} closeCard={closeCard} deleteWarning={() => setShowWarning(true)}/>}
 		</div>
 	);
 };
