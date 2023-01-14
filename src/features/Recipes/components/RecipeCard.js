@@ -92,7 +92,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 
 
 	const makeRows = (row, index) => (
-		<div className={styles.row}>
+		<div className={styles.row} key={index}>
 			<div className={styles.ingredient}>
 				<Textfield
 					fieldStyle="small"

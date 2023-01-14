@@ -133,7 +133,13 @@ export const Grid = (props) => {
 			// Add new recipe
 			dispatch(createRecipeInState(focusCard))
 		} else {
-			// Update existing recipe
+			// If there was no change, do nothing. Stringify array to compare them.
+			let recipeFromCard = JSON.stringify(focusCard)
+			let recipeFromSlice = JSON.stringify(...recipes.filter( recipe => recipe[0].card_uuid === focusCard[0].card_uuid))
+			if ( recipeFromCard === recipeFromSlice ) {
+				return
+			}
+			// If there was a change, continue to update state, then database
 			dispatch(updateRecipeInState(focusCard))
 		}
 
