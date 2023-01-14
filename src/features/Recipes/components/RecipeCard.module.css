@@ -7,16 +7,21 @@
 	transform: translate(-50%);
 	z-index: 4;
     margin: 0px;
+    padding: 20px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 0 0 20px 10px;
 }
 
-.grid {
+.header > h1{
+    margin: 0;
+}
+
+/* .grid {
     display: grid;
     grid-template-columns: minmax(100px, 300px) minmax(40px, 60px) minmax(80px, 150px) minmax(100px, 120px) minmax(70px, 80px);
     gap: 5px;
@@ -26,12 +31,59 @@
 
 .gridItemContainer {
     width: 100%;
+} */
+
+.colHeaders,
+.row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 10px 0;
 }
 
-.deleteButton *  {
-    padding: 0;
-    border-radius: 0;
-    align-items: flex-end;
+.colHeaders > h4 {
+    text-decoration: underline;
+}
+
+.ingredient {
+    width: 100px;
+    flex-grow: 3;
+}
+.quantity {
+    width: 60px;
+    direction: rtl;
+}
+.unit {
+    width: 80px;
+    flex-grow: 1;
+}
+.section {
+    width: 120px;
+}
+.kcal {
+    width: 70px;
+    direction: rtl;
+}
+
+.addIngredient {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 0 10px;
+}
+
+.smallButton > button > div {
+    padding: 10px;
+}
+
+.smallButton > button {
+    height: 1.5rem;
+    border-radius: 50px;
+}
+
+.deleteButton {
+    display: flex;
+    justify-content: right;
 }
 
 .deleteButton *:hover {

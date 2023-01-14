@@ -32,13 +32,14 @@ export const Home = () => {
 	// 	setLayout(layout);
 	// };
 
+	const [showNewCard, setShowNewCard] = useState(false)
+
 	return (
 		<div className={styles.homePage}>
-			
-			{isAuthenticated && <Navbar targetPage={targetPage} />}
 
+			{isAuthenticated && <Navbar targetPage={targetPage} setShowNewCard={() => setShowNewCard(true) }/>}
 			{/* {isAuthenticated && <Grid page={targetPage} onLayoutChange={onLayoutChange} />} */}
-			{isAuthenticated && <Grid targetPage={targetPage} />}
+			{isAuthenticated && <Grid targetPage={targetPage} showNewCard={showNewCard} setShowNewCard={setShowNewCard}/>}
 		</div>
 	);
 };

@@ -22,35 +22,34 @@ export const updateRecipe = createAsyncThunk('recipes/updateRecipe', async (upda
 		body: JSON.stringify(updatedRecipe),
 	});
 	// const json = await response.json();
-    if (response.status===200) return updateRecipe;
-});
-
-//Middleware deletes recipe from database and confirms if successfull.
-export const deleteRecipeFromDatabase = createAsyncThunk('recipes/deleteRecipeFromDatabase', async (card_uuid, thunkAPI) => {
-	const response = fetch('http://localhost:3000/recipes', {
-		method: 'DELETE',
-		credentials: 'include',
-		headers: {
-			'Content-type': 'application/json',
-		},
-		// We convert the React state to JSON and send it as the POST body
-		body: JSON.stringify({uuid: null, recipe: card_uuid}),
-	});
-	// const json = await response.json();
-    if (response.status===200) return updateRecipe;
+	if (response.status === 200) return updateRecipe;
 });
 
 const recipesSlice = createSlice({
 	name: 'recipes',
 	initialState: {
-        recipes: [],
-        isLoading: false,
-        hasError: false
+		recipes: [],
+		isLoading: false,
+		hasError: false,
 	},
-	reducers:{
-		deleteRecipeFromState: (state, action) => {
-            state.recipes = state.recipes.filter((recipe) => recipe[0].card_uuid !== action.payload)
-        }
+	reducers: {
+		deleteRecipeInState: (state, action) => {
+			state.recipes = state.recipes.filter((recipe) => recipe[0].card_uuid !== action.payload);
+		},
+		updateRecipeInState: (state, action) => {
+			let updatedRecipe = action.payload;
+			state.recipes.map((recipe) => {
+				if (recipe[0].card_uuid === updatedRecipe[0].card_uuid) {
+					return updateRecipe;
+				} else {
+					return recipe;
+				}
+			});
+		},
+		createRecipeInState: (state, action) => { 
+			let newRecipe = action.payload
+			state.recipes = state.recipes.push(newRecipe)
+		}
 	},
 	extraReducers: {
 		[getRecipes.pending]: (state, action) => {
@@ -60,30 +59,32 @@ const recipesSlice = createSlice({
 		[getRecipes.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = false;
-			state.recipes = action.payload
+			state.recipes = action.payload;
 		},
 		[getRecipes.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
 		},
-        [updateRecipe.pending]: (state, action) => {
+		[updateRecipe.pending]: (state, action) => {
 			state.isLoading = true;
 			state.hasError = false;
 		},
 		[updateRecipe.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = false;
-            
-			state.recipes = [...state, ...action.payload]
+
+			state.recipes = [...state, ...action.payload];
 		},
 		[updateRecipe.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-		}
-	}
+		},
+	},
 });
 
 export const selectRecipes = (state) => state.recipes.recipes;
 export const isLoadingRecipes = (state) => state.recipes.isLoading;
-export const {deleteRecipeFromState} = recipesSlice.actions;
+export const { deleteRecipeInState } = recipesSlice.actions;
+export const { updateRecipeInState } = recipesSlice.actions;
+export const { createRecipeInState } = recipesSlice.actions;
 export default recipesSlice.reducer;

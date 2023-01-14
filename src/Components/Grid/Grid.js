@@ -9,12 +9,14 @@ import styles from './Grid.module.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 // import listsSlice, { selectLists, getLists, updateList } from '../../features/lists/state/listsSlice';
-import recipesSlice, { selectRecipes, getRecipes, updateRecipe, deleteRecipeFromState, deleteRecipeFromDatabase, addRecipeToState} from '../../features/recipes/state/recipesSlice';
+import recipesSlice, { selectRecipes, getRecipes, updateRecipeInState, deleteRecipeInState, createRecipeInState} from '../../features/recipes/state/recipesSlice';
 import { MiniCardRecipe } from '../MiniCardRecipe/MiniCardRecipe';
 import { MiniCardList } from '../MiniCardList/MiniCardList';
 import { RecipeCard } from '../../features/recipes/components/RecipeCard';
 import { ActionWarning } from '../ActionWarning/ActionWarning';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { RecipeCardNew } from '../../features/recipes/components/RecipeCardNew';
+import { ListCardNew } from '../../features/lists/components/ListCardNew';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -35,18 +37,14 @@ export const Grid = (props) => {
 	const [breakpoint, setBreakpoint] = useState({}); //Hook 8
 	const [newItemCol, setNewItemCol] = useState(); // Hook 7
 	const [openCardId, setOpenCardId] = useState(null);
-	const [focusCard, setFocusCard] = useState(null);
+	const [focusCard, setFocusCard] = useState(null); //recipe object [{},{},...]
 	const [showWarning, setShowWarning] = useState(false)
+	const [newCard, setNewCard] = useState(null)
+
 
 	let blurRef = useRef();
 	const movedRef = useRef(true);
 
-	// useEffect(() => {
-	// 	setNextProps((prev) => ({
-	// 		...prev,
-	// 		...props,
-	// 	}));
-	// }, []);
 
 	const blurElement = blurRef.current;
 	let downListener = () => (movedRef.current = false);
@@ -76,18 +74,18 @@ export const Grid = (props) => {
 		);
 	};
 
-	const onAddItem = (newRecipe) => {
-		// /*eslint no-console: 0*/
-		let cardHeight = 0;
-		if (newRecipe.length <= 3) {
-			cardHeight = 2;
-		} else if (newRecipe.length <= 7) {
-			cardHeight = 3;
-		} else if (newRecipe.length <= 11) {
-			cardHeight = 4;
-		} else {
-			cardHeight = 5;
-		}
+	const createCard = (newCard) => {
+		// // /*eslint no-console: 0*/
+		// let cardHeight = 0;
+		// if (newRecipe.length <= 3) {
+		// 	cardHeight = 2;
+		// } else if (newRecipe.length <= 7) {
+		// 	cardHeight = 3;
+		// } else if (newRecipe.length <= 11) {
+		// 	cardHeight = 4;
+		// } else {
+		// 	cardHeight = 5;
+		// }
 		// newRecipe.forEach((ingredient) => {
 		// 	let grid_position = {
 		// 		i: ingredient.card_uuid,
@@ -125,13 +123,54 @@ export const Grid = (props) => {
 		blurElement.dataset.show = false;
 		setFocusCard(false);
 		setShowWarning(false)
-
 	};
+
+	const updateCard = async() => { 
+		closeCard()
+
+		if (props.showNewCard) {
+			props.setShowNewCard(false)
+			// Add new recipe
+			dispatch(createRecipeInState(focusCard))
+		} else {
+			// Update existing recipe
+			dispatch(updateRecipeInState(focusCard))
+		}
+
+		const response = await fetch('http://localhost:3000/recipes', {
+			method: 'PUT',
+			credentials: 'include',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			// We convert the React state to JSON and send it as the POST body
+			body: JSON.stringify(focusCard),
+		});
+		if (response.status===200) {
+			// Not need to do anything. Slice equals database.
+			// Go back to grid view.
+		} else if (response.status === 401) {
+			window.alert('Failed to authenticate')
+			navigate('/signin')
+		} else {
+			// Preserve user's modifications. Give user 2nd chance. Don't close the card.
+			window.alert('Server error. Please try again.')
+			setFocusCard(focusCard);
+			blurElement.dataset.show = true;
+		}
+	}
 
 	const deleteCard = async(card_uuid) => {
 		closeCard()
-		dispatch(deleteRecipeFromState(card_uuid));
-		// dispatch(deleteRecipeFromDatabase(card_uuid))
+
+		if (props.showNewCard) {
+			props.setShowNewCard(false)
+		} else {
+			// Delete existing recipe
+			dispatch(deleteRecipeInState(card_uuid));
+		}
+
+		// dispatch(deleteRecipeInDatabase(card_uuid))
 		const response = await fetch('http://localhost:3000/recipes', {
 			method: 'DELETE',
 			credentials: 'include',
@@ -142,7 +181,8 @@ export const Grid = (props) => {
 			body: JSON.stringify({uuid: null, recipe: card_uuid}),
 		});
 		if (response.status===200) {
-			dispatch(getRecipes());
+			// Not need to do anything. Slice equals databaase.
+			// dispatch(getRecipes());
 		} else if (response.status === 401) {
 			window.alert('Failed to authenticate')
 			navigate('/signin')
@@ -150,17 +190,11 @@ export const Grid = (props) => {
 			dispatch(getRecipes());
 			window.alert('Server error. Please try again.')
 		}
-
-
-
-
-
-		// The card will be removed from the layout. Then dispatch the action to the server.
-		// If there is an error, the card will reappear on next refresh. All cards will be at their original position.
 	};
 
-
-
+	// let newCardType = props.targetPage === 'recipes'
+	// ? <RecipeCardNew recipe={focusCard} setRecipe={setFocusCard}  closeCard={closeCard} deleteWarning={() => setShowWarning(true)}/> 
+	// : <ListCardNew list={focusCard} setList={setFocusCard}  closeCard={closeCard} deleteWarning={() => setShowWarning(true)}/>
 
 	return (
 		<div className={styles.gridWrapper}>
@@ -175,8 +209,8 @@ export const Grid = (props) => {
 			<ResponsiveReactGridLayout onBreakpointChange={onBreakpointChange} {...nextProps}>
 				{recipes.map((recipe) => createElement(recipe))}
 			</ResponsiveReactGridLayout>
-			<div className={styles.blur} data-show={false} ref={blurRef} onClick={closeCard} />
-			{focusCard && <RecipeCard card_uuid={focusCard[0].card_uuid} closeCard={closeCard} deleteWarning={() => setShowWarning(true)}/>}
+			<div className={styles.blur} data-show={false} ref={blurRef} onClick={updateCard} />
+			{(focusCard || props.showNewCard) && <RecipeCard recipe={props.showNewCard?[]:focusCard} setRecipe={setFocusCard}  updateCard={updateCard} deleteWarning={() => setShowWarning(true)}/>}
 		</div>
 	);
 };

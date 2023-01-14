@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import materialdesign from './Textfield.module.css';
-import card from './TextfieldCard.module.css';
+import styles from './Textfield.module.css';
 import { useTranslation } from 'react-i18next';
 
 import { IconContext } from 'react-icons';
@@ -24,8 +23,6 @@ export const Textfield = ({
 	textAlign='left',
 }) => {
 		
-	const styles = cssStyle==='card'? card : materialdesign
-
 	const [inputIsInvalid, setInputIsInvalid] = useState(false);
 	const [inputErrorMessage, setInputErrorMessage] = useState(false);
 	
@@ -93,7 +90,7 @@ export const Textfield = ({
 	}
 
 	let setUpClassNames = `validation-feedback ${styles.field} ${
-		fieldStyle === 'outlined' ? styles.outlined : styles.filled
+		fieldStyle === 'outlined' ? styles.outlined : fieldStyle === 'filled' ? styles.filled : `${styles.filled} ${styles.small}`
 	}`;
 
 	return (

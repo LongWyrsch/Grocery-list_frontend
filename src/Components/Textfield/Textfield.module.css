@@ -7,6 +7,10 @@
 	align-items: center;
 }
 
+.small.field {
+	width: 100%;
+}
+
 .label,
 .field * {
 	transition: background-color var(--transition), color var(--transition);
@@ -34,6 +38,11 @@
 	padding: 0 1rem;
 	border: 0;
 	background: none;
+	text-overflow:ellipsis
+}
+
+.small input {
+	padding: 0;
 }
 
 .label {
@@ -90,6 +99,12 @@
 	border: 1px solid var(--m3--sys--outline);
 }
 
+/* Small filled textfield in card grid display. Override .filled border and background */
+.small {
+	border-bottom: none;
+	background: none;
+}
+
 /* Where the placeholder moves when focused */
 .outlined .input:focus ~ .label,
 .outlined .input:valid ~ .label {
@@ -108,6 +123,10 @@
 .filled.field:hover {
 	/* background: #ececec; */
 	background: var(--m3--state-layers--on-surface--opacity-008);
+}
+
+.small.field:hover {
+	border-bottom: 1px solid var(--m3--sys--primary);
 }
 
 /* How the overall textfield looks when focused */

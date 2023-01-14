@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Chip.module.css';
 // import { BsFillCaretDownFill } from 'react-icons/bs';
 
-export const Chip = ({ text, handleChange, value, height = '2rem' }) => {
+export const Chip = ({ handleChange, value, height = '2rem' }) => {
 	
 
 
