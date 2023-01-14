@@ -11,17 +11,18 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     backdrop-filter: blur(6px) brightness(20%);
     pointer-events: none;
     opacity: 0;
     transition: 300;
-    /* display:none; */
 }
 
 .blur[data-show=true] {
-    opacity: 1;
     pointer-events:all;
+    opacity: 1;
     transition: 300ms;
     z-index: 3;
-    /* display: block; */
 }

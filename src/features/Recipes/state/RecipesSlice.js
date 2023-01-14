@@ -38,13 +38,12 @@ const recipesSlice = createSlice({
 		},
 		updateRecipeInState: (state, action) => {
 			let updatedRecipe = action.payload;
-			state.recipes.map((recipe) => {
-				if (recipe[0].card_uuid === updatedRecipe[0].card_uuid) {
-					return updateRecipe;
-				} else {
-					return recipe;
-				}
-			});
+			console.log(updatedRecipe)
+			// Find index of recipe
+			let recipeIndex = state.recipes.findIndex(recipe => recipe[0].card_uuid === updatedRecipe[0].card_uuid)
+
+			// Replace with updatedRecipe at recipeIndex
+			state.recipes.splice(recipeIndex,1,updatedRecipe)
 		},
 		createRecipeInState: (state, action) => { 
 			let newRecipe = action.payload

@@ -2,11 +2,8 @@
 	position: fixed;
     width: 60%;
     max-width: 770px;
-	top: 10%;
-	left: 50%;
-	transform: translate(-50%);
+    margin-top: 10%;
 	z-index: 4;
-    margin: 0px;
     padding: 20px;
 }
 
@@ -21,28 +18,22 @@
     margin: 0;
 }
 
-/* .grid {
-    display: grid;
-    grid-template-columns: minmax(100px, 300px) minmax(40px, 60px) minmax(80px, 150px) minmax(100px, 120px) minmax(70px, 80px);
-    gap: 5px;
-    justify-content: stretch;
-    overflow: hidden;
-}
-
-.gridItemContainer {
-    width: 100%;
-} */
-
 .colHeaders,
 .row {
     display: flex;
     align-items: center;
     gap: 5px;
     margin: 10px 10px 0;
+    background: var(--m3--surfaces--surface1);
+    border-radius: 5px;
 }
 
 .colHeaders > h4 {
     text-decoration: underline;
+}
+
+.handleIcon {
+    color: var(--m3--sys--on-surface);
 }
 
 .ingredient {
@@ -78,7 +69,7 @@
 
 .smallButton > button {
     height: 1.5rem;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 .deleteButton {
@@ -90,3 +81,4 @@
     background: none !important;
     color: var(--m3--sys--error);
 }
+

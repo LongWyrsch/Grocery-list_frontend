@@ -41,7 +41,6 @@ export const Grid = (props) => {
 	const [showWarning, setShowWarning] = useState(false)
 	const [newCard, setNewCard] = useState(null)
 
-
 	let blurRef = useRef();
 	const movedRef = useRef(true);
 
@@ -215,8 +214,9 @@ export const Grid = (props) => {
 			<ResponsiveReactGridLayout onBreakpointChange={onBreakpointChange} {...nextProps}>
 				{recipes.map((recipe) => createElement(recipe))}
 			</ResponsiveReactGridLayout>
-			<div className={styles.blur} data-show={false} ref={blurRef} onClick={updateCard} />
-			{(focusCard || props.showNewCard) && <RecipeCard recipe={props.showNewCard?[]:focusCard} setRecipe={setFocusCard}  updateCard={updateCard} deleteWarning={() => setShowWarning(true)}/>}
+			<div className={styles.blur} data-show={false} ref={blurRef} onClick={updateCard}>
+				{(focusCard || props.showNewCard) && <RecipeCard recipe={props.showNewCard?[]:focusCard} setRecipe={setFocusCard}  updateCard={updateCard} deleteWarning={() => setShowWarning(true)}/>}
+			</div>
 		</div>
 	);
 };

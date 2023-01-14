@@ -29,6 +29,10 @@
     text-overflow: ellipsis;
 }
 
+.quantity {
+	font-weight: bold;
+}
+
 .ellipsis.row {
     display: flex;
 	justify-content: space-between;
