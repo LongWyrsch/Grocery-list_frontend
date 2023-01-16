@@ -21,6 +21,7 @@ export const Textfield = ({
 	validator,
 	payloadKey,
 	textAlign='left',
+	fontSize = '1rem'
 }) => {
 		
 	const [inputIsInvalid, setInputIsInvalid] = useState(false);
@@ -90,7 +91,7 @@ export const Textfield = ({
 	}
 
 	let setUpClassNames = `validation-feedback ${styles.field} ${
-		fieldStyle === 'outlined' ? styles.outlined : fieldStyle === 'filled' ? styles.filled : `${styles.filled} ${styles.small}`
+		fieldStyle === 'outlined' ? styles.outlined : fieldStyle === 'filled' ? styles.filled : `${styles.filled} ${styles.card}`
 	}`;
 
 	return (
@@ -99,7 +100,7 @@ export const Textfield = ({
 				{icondiv()}
 				<div className={styles.inputArea}>
 					{/* Below input has a blank placeholder to taget empty inputs with CSS */}
-					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign}} placeholder={placeholder}/>
+					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign, fontSize:fontSize}} placeholder={placeholder}/>
 					<label htmlFor="" className={styles.label}>
 						{label}
 					</label>

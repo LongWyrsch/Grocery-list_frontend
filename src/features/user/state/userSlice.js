@@ -29,6 +29,7 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState: {
 		user: {
+			uuid: null,
 			email: null,
 			language: null,
 			dark_theme: false,

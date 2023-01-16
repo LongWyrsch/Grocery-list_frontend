@@ -65,7 +65,25 @@ export const Grid = (props) => {
 		setNewItemCol(newCol);
 	};
 
-	const createCard = (newCard) => {
+	const createCard = () => {
+		
+		let newCard = [{
+			uuid: uuidv4(),
+			user_uuid: user.uuid,
+			card_uuid: uuidv4(),
+			title: `Recipe ${new Date().toLocaleDateString()}`,
+			index: focusCard.length,
+			ingredient: '',
+			quantity: null,
+			unit: null,
+			section: 'other',
+			last_modified: focusCard[0].last_modified,
+		}]
+
+		newCard[0] = targetPage==='recipes' 
+			? { ...newCard[0], kcal: null} 
+			: { ...newCard[0], checked: false, recipes: focusCard[0].recipies}
+		
 		// // /*eslint no-console: 0*/
 		// let cardHeight = 0;
 		// if (newRecipe.length <= 3) {
@@ -101,10 +119,13 @@ export const Grid = (props) => {
 		setShowWarning(false);
 	};
 
+	const updateTitle = (e) => { 
+		const updatedTitle = e.target.value
+		setFocusCard( prev => prev.map( ingredient => ({...ingredient, title: updatedTitle}) ))
+	}
+
 	const updateCard = async () => {
 		console.log('updateCard called')
-
-		closeCard();
 
 		// If there was no change, do nothing. Stringify array to compare them.
 		let cardFromSlice = cards.current.filter((card) => card[0].card_uuid === focusCard[0].card_uuid)[0];
@@ -123,19 +144,23 @@ export const Grid = (props) => {
 			dispatch(updateUser(updatedUser))
 		}
 
+		let updatedCard = focusCard.map( ingredient => ({...ingredient, last_modified: new Date().toJSON()}) )
+
 		targetPage==='recipes'
-			?dispatch(updateRecipe(focusCard))
-			:dispatch(updateList(focusCard))
+			?dispatch(updateRecipe(updatedCard))
+			:dispatch(updateList(updatedCard))
 
 		
-		const failureAction = () => setFocusCard(focusCard)
+		const failureAction = () => setFocusCard(updatedCard)
 
-		serverRequests(`/${targetPage}`, 'PUT', focusCard, () => { navigate('/signin')}, failureAction)
+		serverRequests(`/${targetPage}`, 'PUT', updatedCard, () => { navigate('/signin')}, failureAction)
 		
 		if (deletedRows.current.length>0) {
 			serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: deletedRows.current, card_uuid: null }, () => { navigate('/signin')}, failureAction)
 			deletedRows.current.length = 0 // clear array
 		}
+
+		closeCard();
 	};
 
 	const deleteCard = async (card_uuid) => {
@@ -155,18 +180,6 @@ export const Grid = (props) => {
 
 	const addIngredient = () => {
 		console.log('addIngredient called')
-
-		// const newGridPosition = {
-		// 	...focusCard[0].grid_position,
-		// 	h: adjustCardHeight(focusCard.length + 1),
-		// };
-		// const newLayouts = {
-		// 	...focusCard[0].grid_position,
-		// 	...user[`layouts_${targetPage}`]
-		// 	h: adjustCardHeight(focusCard.length + 1),
-		// };
-
-
 
 		let newIngredient = {
 				uuid: uuidv4(),
@@ -228,13 +241,12 @@ export const Grid = (props) => {
 		</div>
 	)
 
-
 	return (
 		<div className={styles.gridWrapper} id='gridWrapper'>
 			{showWarning && (
 				<ActionWarning
 					action="Delete"
-					message={`Delete recipe ${focusCard[0].title}?`}
+					message={<div>Delete  <b>{focusCard[0].title}</b> ?</div>}
 					handleOnClick={() => deleteCard(focusCard[0].card_uuid)}
 					handleCancel={() => setShowWarning(false)}
 					iconName="MdDeleteOutline"
@@ -258,6 +270,7 @@ export const Grid = (props) => {
 					<RecipeCard
 						recipe={focusCard}
 						setRecipe={setFocusCard}
+						updateTitle={updateTitle}
 						updateCard={updateCard}
 						addIngredient={addIngredient}
 						deleteWarning={() => setShowWarning(true)}

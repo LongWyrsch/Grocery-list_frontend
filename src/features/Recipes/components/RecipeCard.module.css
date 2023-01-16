@@ -97,15 +97,15 @@
 }
 
 .smallButton > button > div {
-    padding: 10px;
+    padding: 10px 24px;
 }
 
 .smallButton > button {
-    height: 1.5rem;
-    border-radius: 10px;
+    height: 2rem;
+    border-radius: 15px;
 }
 
-.deleteCrad {
+.deleteCard {
     display: flex;
     justify-content: right;
 }

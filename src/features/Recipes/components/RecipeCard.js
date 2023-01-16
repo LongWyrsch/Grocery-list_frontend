@@ -13,7 +13,7 @@ import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
 
-export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, deleteWarning, deleteIngredient }) => {
+export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngredient, deleteWarning, deleteIngredient }) => {
 
 	// // Ingredients should be properly indexed, but for good measure, they are reindexed.
 	// recipe.forEach((ingredient, i) => ingredient.index = i);
@@ -59,7 +59,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 						</IconContext.Provider>
 						<div className={styles.ingredient}>
 							<Textfield
-								fieldStyle="small"
+								fieldStyle="card"
 								value={row.ingredient}
 								placeholder=' ' // This shows if input is empty. Shouldn't be empty. CSS picks it up and warns user to fill.
 								fieldType="text"
@@ -69,7 +69,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 						</div>
 						<div className={styles.quantity}>
 							<Textfield
-								fieldStyle="small"
+								fieldStyle="card"
 								value={row.quantity}
 								fieldType="text"
 								handleOnChange={(e) => updatefield(index, 'quantity', e.target.value)}
@@ -79,7 +79,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 						</div>
 						<div className={styles.unit}>
 							<Textfield
-								fieldStyle="small"
+								fieldStyle="card"
 								value={row.unit}
 								fieldType="text"
 								handleOnChange={(e) => updatefield(index, 'unit', e.target.value)}
@@ -95,7 +95,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 						</div>
 						<div className={styles.kcal}>
 							<Textfield
-								fieldStyle="small"
+								fieldStyle="card"
 								value={Math.trunc(row.kcal)}
 								fieldType="number"
 								handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)}
@@ -134,7 +134,15 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 	return (
 		<div className={`card-elevated  ${styles.cardWrapper}`} onClick={stopPropagation}>
 			<div className={styles.header}>
-				<h1 className="generalText">{recipe[0].title}</h1>
+				<Textfield 
+					fieldStyle='card'
+					fieldType = 'text'
+					value = {recipe[0].title}
+					handleOnChange={updateTitle}
+					width = '100%'
+					height = '3.5rem'
+					fontSize='1.5rem'
+				/>	
 				<Button buttonStyle="text" text="Close" onClick={updateCard} />
 			</div>
 			{/* <div className={styles.grid}>
