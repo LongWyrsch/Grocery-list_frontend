@@ -47,8 +47,8 @@ const recipesSlice = createSlice({
 			state.recipes.splice(recipeIndex,1,updatedRecipe)
 		},
 		createRecipe: (state, action) => { 
-			let newRecipe = action.payload
-			state.recipes = state.recipes.push(newRecipe)
+			let updatedRecipes = [...state.recipes, action.payload]
+			state.recipes = updatedRecipes
 		}
 	},
 	extraReducers: {

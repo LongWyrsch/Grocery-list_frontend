@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
 
 // Other libs
@@ -42,28 +42,41 @@ export const Grid = (props) => {
 	const lists = useSelector(selectLists);
 	
 	const [focusCard, setFocusCard] = useState(null); // card object [{},{},...]
-	let deletedRows = useRef([])
+	let deletedRowsRef = useRef([])
 	const [showWarning, setShowWarning] = useState(false);
 	
 	let layoutsQueueRef = useRef([]) // Queue array to limit layout update server requests
 	
-	const [newItemCol, setNewItemCol] = useState(); // Hook 7
-	let cards = useRef([])
-	let layouts = useRef({})
-	let prevPage = useRef('')
+	let breakpointRef = useRef('')
+	let newItemColRef = useRef('')
+
+	let cardsRef = useRef([])
+	let layoutsRef = useRef({})
+	let prevPageRef = useRef('')
 	
 	// If user toggle between lists or recipes, update cards and layouts accordingly
 	// Also, check recipes and lists since they might be empty in the first renders while data is being fetched.
 	if (targetPage && recipes.length > 0 && lists.length > 0 && user)  {
-		cards.current = targetPage==='recipes'? recipes : lists
-		prevPage.current = targetPage
-		layouts.current = JSON.parse(targetPage==='recipes'? user.layouts_recipes : user.layouts_lists)
+		cardsRef.current = targetPage==='recipes'? recipes : lists
+		prevPageRef.current = targetPage
+		layoutsRef.current = JSON.parse(targetPage==='recipes'? user.layouts_recipes : user.layouts_lists)
 	}
 
 	// We're using the cols coming back from this to calculate where to add new items.
 	const onBreakpointChange = (breakpoint, newCol) => {
-		setNewItemCol(newCol);
+		breakpointRef.current = breakpoint
+		newItemColRef.current = newCol
 	};
+
+	const gridWrapperRef = useRef()
+	// useLayoutEffect(() => {
+	// 	currentWidth = gridWrapperRef.current.offsetWidth;
+	//   }, []);
+
+	const openCard = (card) => { 
+		setFocusCard(card)
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
 
 	const createCard = () => {
 		
@@ -72,50 +85,54 @@ export const Grid = (props) => {
 			user_uuid: user.uuid,
 			card_uuid: uuidv4(),
 			title: `Recipe ${new Date().toLocaleDateString()}`,
-			index: focusCard.length,
+			index: 0,
 			ingredient: '',
 			quantity: null,
 			unit: null,
 			section: 'other',
-			last_modified: focusCard[0].last_modified,
+			last_modified: new Date().toJSON(),
 		}]
 
 		newCard[0] = targetPage==='recipes' 
 			? { ...newCard[0], kcal: null} 
-			: { ...newCard[0], checked: false, recipes: focusCard[0].recipies}
+			: { ...newCard[0], checked: false, recipes: []}
 		
-		// // /*eslint no-console: 0*/
-		// let cardHeight = 0;
-		// if (newRecipe.length <= 3) {
-		// 	cardHeight = 2;
-		// } else if (newRecipe.length <= 7) {
-		// 	cardHeight = 3;
-		// } else if (newRecipe.length <= 11) {
-		// 	cardHeight = 4;
-		// } else {
-		// 	cardHeight = 5;
-		// }
-		// newRecipe.forEach((ingredient) => {
-		// 	let grid_position = {
-		// 		i: ingredient.card_uuid,
-		// 		x: (recipes.length*2) % (newItemCol || 12),
-		// 		y: Infinity,  // puts it at the bottom
-		// 		w: 2,
-		// 		h: cardHeight,
-		// 		minW: 2,
-		// 		maxW: 2,
-		// 		minH: 2,
-		// 		maxH: 5,
-		// 		isBounded: true,
-		// 	};
-		// 	ingredient.grid_position = JSON.stringify(grid_position);
-		// 	ingredient.card_uuid = uuidv4();
-		// });
-		// dispatch(addRecipeToState(newRecipe));
+
+		const grid_position = {
+			i: newCard[0].card_uuid,
+			// x: (recipes.length*2) % (newItemCol || 12),
+			// y: Infinity,  // puts it at the bottom
+			x: 0,
+			y: 0,
+			w: 2,
+			h: 2,
+			minW: 2,
+			maxW: 2,
+			minH: 2,
+			maxH: 5,
+			isBounded: true
+		};
+
+		let updatedLayouts = {}
+		for (const [key, value] of Object.entries(layoutsRef.current)) {
+			updatedLayouts[key] = [...value.map(grid_position => ({...grid_position, y: grid_position.y+1}) ), grid_position]
+		}
+		layoutsRef.current = updatedLayouts
+
+		// const currentBreakpoint = Responsive.utils.getBreakpointFromWidth({ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }, gridWrapperRef.current.offsetWidth)
+		// let updatedLayouts = {...layoutsRef.current}
+		// updatedLayouts[currentBreakpoint].push(grid_position)
+
+
+		const updatedUser = {...user, [`layouts_${targetPage}`]: JSON.stringify(layoutsRef.current)}
+		
+		dispatch(updateUser(updatedUser))
+		dispatch(createRecipe(newCard))
+		setFocusCard(newCard)
 	};
 
 	const closeCard = () => {
-		setFocusCard(false);
+		setFocusCard(null);
 		setShowWarning(false);
 	};
 
@@ -128,20 +145,26 @@ export const Grid = (props) => {
 		console.log('updateCard called')
 
 		// If there was no change, do nothing. Stringify array to compare them.
-		let cardFromSlice = cards.current.filter((card) => card[0].card_uuid === focusCard[0].card_uuid)[0];
-		if (JSON.stringify(focusCard) === JSON.stringify(cardFromSlice)) return;
+		let cardFromSlice = cardsRef.current.filter((card) => card[0].card_uuid === focusCard[0].card_uuid)[0];
+		if (JSON.stringify(focusCard) === JSON.stringify(cardFromSlice)) {
+			closeCard()
+			return
+		};
 
 		// If number of ingredients changed, update card height
+
 		if (focusCard.length !== cardFromSlice.length) {
 			// Updating card height in user.layouts_recipes or user.layouts_lists 
 			const adjustedHeight = adjustCardHeight(focusCard.length)
-			let updatedLayouts = {...layouts.current}
+			let updatedLayouts = {...layoutsRef.current}
 			for (const [key, value] of Object.entries(updatedLayouts)) {
-				var cardIndex = value.findIndex((layout) => layout.i === focusCard[0].card_uuid) 
-				updatedLayouts[key][cardIndex].h = adjustedHeight
+				var cardIndex = value.findIndex((layout) => layout.i === focusCard[0].card_uuid)
+				// When updating a new card, only the layout at the current breakpoint contains the card. Therefore check cardIndex. 
+				if (cardIndex !== -1) updatedLayouts[key][cardIndex].h = adjustedHeight
 			}
 			const updatedUser = {...user, [`layouts_${targetPage}`]: JSON.stringify(updatedLayouts)}
 			dispatch(updateUser(updatedUser))
+			serverRequests('/users', 'PUT', updatedUser, () => { navigate('/signin') }, () => { dispatch(getUser()) })
 		}
 
 		let updatedCard = focusCard.map( ingredient => ({...ingredient, last_modified: new Date().toJSON()}) )
@@ -155,9 +178,9 @@ export const Grid = (props) => {
 
 		serverRequests(`/${targetPage}`, 'PUT', updatedCard, () => { navigate('/signin')}, failureAction)
 		
-		if (deletedRows.current.length>0) {
-			serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: deletedRows.current, card_uuid: null }, () => { navigate('/signin')}, failureAction)
-			deletedRows.current.length = 0 // clear array
+		if (deletedRowsRef.current.length>0) {
+			serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: deletedRowsRef.current, card_uuid: null }, () => { navigate('/signin')}, failureAction)
+			deletedRowsRef.current.length = 0 // clear array
 		}
 
 		closeCard();
@@ -166,16 +189,15 @@ export const Grid = (props) => {
 	const deleteCard = async (card_uuid) => {
 		console.log('deleteCard called')
 
-		closeCard();
-		setFocusCard(null)
-		
 		targetPage==='recipes'
 			?dispatch(deleteRecipe(card_uuid))
 			:dispatch(deleteList(card_uuid))
+
 		targetPage==='recipes'
 			?serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: null, card_uuid: card_uuid }, () => {navigate('/signin')}, () => {dispatch(getRecipes())})
 			:serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: null, card_uuid: card_uuid }, () => {navigate('/signin')}, () => {dispatch(getLists())})
-
+		
+		closeCard();
 	};
 
 	const addIngredient = () => {
@@ -206,16 +228,16 @@ export const Grid = (props) => {
 
 	const deleteIngredient = (row_uuid) => { 
 		setFocusCard( prev => prev.filter(ingredient => ingredient.uuid !== row_uuid) )	
-		deletedRows.current.push(row_uuid)
+		deletedRowsRef.current.push(row_uuid)
 	}
 
 	const onLayoutChange = (layout, newlayouts) => {
-		const updatedLayouts = {...layouts.current, ...newlayouts}
+		const updatedLayouts = {...layoutsRef.current, ...newlayouts}
 		
 		// If no change in layouts, do nothing
-		if (_.isEqual(layouts.current, updatedLayouts)) return
+		if (_.isEqual(layoutsRef.current, updatedLayouts)) return
 
-		layouts.current = updatedLayouts 
+		layoutsRef.current = updatedLayouts 
 
 		const updatedUser = targetPage==='recipes'
 			? {...user, layouts_recipes: JSON.stringify(updatedLayouts)}
@@ -235,14 +257,14 @@ export const Grid = (props) => {
 	const createMiniCard = (card) => (
 		<div key={card[0].card_uuid} >  
 			{targetPage==='recipes'
-				? <MiniCardRecipe card={card} setFocusCard={setFocusCard}/> 
-				: <MiniCardList card={card}	setFocusCard={setFocusCard}/> 
+				? <MiniCardRecipe card={card} openCard={openCard}/> 
+				: <MiniCardList card={card}	openCard={openCard}/> 
 			}
 		</div>
 	)
 
 	return (
-		<div className={styles.gridWrapper} id='gridWrapper'>
+		<div className={styles.gridWrapper} id='gridWrapper' ref={gridWrapperRef}>
 			{showWarning && (
 				<ActionWarning
 					action="Delete"
@@ -252,10 +274,10 @@ export const Grid = (props) => {
 					iconName="MdDeleteOutline"
 				/>
 			)}
-			{cards.current.length > 0 && <ResponsiveReactGridLayout
+			{cardsRef.current.length > 0 && <ResponsiveReactGridLayout
 					onBreakpointChange={onBreakpointChange}
-					onLayoutChange={(layout, layouts) =>  onLayoutChange(layout, layouts)}
-					layouts={layouts.current}
+					onLayoutChange={(layout, newlayouts) =>  onLayoutChange(layout, newlayouts)}
+					layouts={layoutsRef.current}
 					rowHeight= {100}
 					isResizable= {false}
 					isBounded= {true}
@@ -263,7 +285,7 @@ export const Grid = (props) => {
 					// cols= {{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
 					// breakpoints= {{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
 				>
-					{cards.current.map((card) => createMiniCard(card))}
+					{cardsRef.current.map((card) => createMiniCard(card))}
 			</ResponsiveReactGridLayout>}
 			<div className={styles.blur} data-show={focusCard? true : false} onClick={updateCard}>
 				{focusCard && (

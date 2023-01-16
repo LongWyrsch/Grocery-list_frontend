@@ -10,7 +10,7 @@
     /* height: 100vh; */
     /* height: 100%; */
     min-height: 120vh;
-    /* bottom: 0; */
+    bottom: 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
