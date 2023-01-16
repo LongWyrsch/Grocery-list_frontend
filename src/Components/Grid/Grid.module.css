@@ -1,16 +1,16 @@
-.cardContainer {
-    padding: 20px;
-    background-color: aquamarine;
-    border-radius: 10px;
-    height: 100%;
+.gridWrapper {
+    position: relative;
 }
 
 .blur {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: -5rem;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
+    /* height: 100%; */
+    min-height: 120vh;
+    /* bottom: 0; */
     display: flex;
     align-items: flex-start;
     justify-content: center;

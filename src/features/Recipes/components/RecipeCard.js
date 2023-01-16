@@ -11,8 +11,13 @@ import { Button } from '../../../components/Button/Button';
 
 import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
+import { IoMdClose } from 'react-icons/io';
 
-export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, deleteWarning }) => {
+export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, deleteWarning, deleteIngredient }) => {
+
+	// // Ingredients should be properly indexed, but for good measure, they are reindexed.
+	// recipe.forEach((ingredient, i) => ingredient.index = i);
+
 	const updatefield = (index, col, newValue) => {
 		setRecipe((prev) => {
 			let updatedRecipe = [...prev];
@@ -21,78 +26,23 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 		});
 	};
 
-	const ingredientStyle = {
-		justifySelf: 'start',
-	};
-
-	if (recipe.length === 0) {
-		// CREATE 1 ROW {} WITH ALL COLUMN SET TO EMPTY VALUES.
-		// HOW TO DEAL WITH GRID_POSITION...?
-		recipe.push({
-			user_uuid: null,
-			card_uuid: null,
-			title: null,
-			index: null,
-			ingredient: null,
-			quantity: null,
-			unit: null,
-			section: null,
-			kcal: null,
-			last_modified: null,
-			grid_position: null,
-		});
-	}
-	// 1D array of all field to iterate over. Ex: [<div>salt</div>, <div>1</div>, <div>tsp</div>, ...]
-	// let fieldArray = recipe.reduce((acc, curr, index) => {
-	// 	return acc.concat([
-	// 		<div key={index * recipe.length + 1} className={styles.gridItemContainer}>
-	// 			<Textfield
-	// 				fieldStyle="small"
-	// 				value={curr.ingredient}
-	// 				fieldType="text"
-	// 				handleOnChange={(e) => updatefield(index, 'ingredient', e.target.value)}
-	// 				height="2rem"
-	// 				width="100%"
-	// 			/>
-	// 		</div>,
-	// 		<div key={index * recipe.length + 2} className={styles.gridItemContainer}>
-	// 			<Textfield
-	// 				fieldStyle="small"
-	// 				value={curr.quantity}
-	// 				fieldType="text"
-	// 				handleOnChange={(e) => updatefield(index, 'quantity', e.target.value)}
-	// 				height="2rem"
-	// 				textAlign="right"
-	// 			/>
-	// 		</div>,
-	// 		<div key={index * recipe.length + 3} className={styles.gridItemContainer}>
-	// 			<Textfield
-	// 				fieldStyle="small"
-	// 				value={curr.unit}
-	// 				fieldType="text"
-	// 				handleOnChange={(e) => updatefield(index, 'unit', e.target.value)}
-	// 				height="2rem"
-	// 			/>
-	// 		</div>,
-	// 		<div key={index * recipe.length + 4} className={styles.gridItemContainer}>
-	// 			<Chip
-	// 				fieldStyle="filled"
-	// 				value={curr.section}
-	// 				handleChange={(e) => updatefield(index, 'section', e.target.value)}
-	// 			/>
-	// 		</div>,
-	// 		<div key={index * recipe.length + 5} className={styles.gridItemContainer}>
-	// 			<Textfield
-	// 				fieldStyle="small"
-	// 				value={Math.trunc(curr.kcal)}
-	// 				fieldType="number"
-	// 				handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)}
-	// 				height="2rem"
-	// 				textAlign="right"
-	// 			/>
-	// 		</div>,
-	// 	]);
-	// }, []);
+	// if (recipe.length === 0) {
+	// 	// CREATE 1 ROW {} WITH ALL COLUMN SET TO EMPTY VALUES.
+	// 	// HOW TO DEAL WITH GRID_POSITION...?
+	// 	recipe.push({
+	// 		user_uuid: null,
+	// 		card_uuid: null,
+	// 		title: null,
+	// 		index: null,
+	// 		ingredient: null,
+	// 		quantity: null,
+	// 		unit: null,
+	// 		section: null,
+	// 		kcal: null,
+	// 		last_modified: null,
+	// 		grid_position: null,
+	// 	});
+	// }
 
 	const makeRows = (row, index) => (
 		<Draggable key={row.uuid} draggableId={row.uuid} index={index}>
@@ -111,6 +61,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 							<Textfield
 								fieldStyle="small"
 								value={row.ingredient}
+								placeholder=' ' // This shows if input is empty. Shouldn't be empty. CSS picks it up and warns user to fill.
 								fieldType="text"
 								handleOnChange={(e) => updatefield(index, 'ingredient', e.target.value)}
 								height="2rem"
@@ -152,6 +103,9 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 								textAlign="right"
 							/>
 						</div>
+						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
+							<IoMdClose className={styles.deleteRow}/>
+						</div>
 					</div>
 				);
 			}}
@@ -192,6 +146,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 				<h4 className={`generalText ${styles.unit}`}>Unit</h4>
 				<h4 className={`generalText ${styles.section}`}>Section</h4>
 				<h4 className={`generalText ${styles.kcal}`}>kCal</h4>
+				<div className={styles.deleteRowContainer}></div>
 			</div>
 			<DragDropContext onDragEnd={handleOnDragEnd}>
 				<Droppable droppableId="ingredientRows">
@@ -211,7 +166,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateCard, addIngredient, delet
 					onClick={addIngredient}
 				/>
 			</div>
-			<div className={`${styles.smallButton} ${styles.deleteButton}`}>
+			<div className={`${styles.smallButton} ${styles.deleteCard}`}>
 				<Button buttonStyle="text" text="Delete" onClick={deleteWarning} />
 			</div>
 		</div>

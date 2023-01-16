@@ -1,6 +1,10 @@
-/* .miniCardWrapper {
-    overflow: hidden;
-} */
+.cardContainer {
+    padding: 20px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    height: 100%;
+    cursor: pointer;
+}
 
 .title {
 	text-align: center;

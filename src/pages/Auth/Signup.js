@@ -144,7 +144,7 @@ export const Signup = () => {
 
 				<Textfield
 					fieldStyle="outlined"
-					placeholder={t('auth.creds.email')}
+					label={t('auth.creds.email')}
 					handleOnChange={handleOnChangeEmail}
 					iconInfo={userIcon}
 					width="100%"
@@ -154,7 +154,7 @@ export const Signup = () => {
 				<Textfield
 					fieldStyle="outlined"
 					fieldType="password"
-					placeholder={t('auth.creds.password')}
+					label={t('auth.creds.password')}
 					handleOnChange={handleOnChangePassword}
 					iconInfo={lockIcon}
 					width="100%"
@@ -165,7 +165,7 @@ export const Signup = () => {
 					<Textfield
 						fieldStyle="outlined"
 						fieldType="password"
-						placeholder={t('auth.signupPage.confirmPassword')}
+						label={t('auth.signupPage.confirmPassword')}
 						handleOnChange={handleOnChangeConfirmPassword}
 						iconInfo={lockIcon}
 						width="100%"

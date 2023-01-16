@@ -41,9 +41,15 @@
 	text-overflow:ellipsis
 }
 
-.small input {
+.small .input {
 	padding: 0;
 }
+
+/* Alert user to fill empty 'ingredient' input fields */
+.small:has(.input:placeholder-shown) {
+	border-bottom: 2px solid var(--m3--sys--error);
+	background: var(--m3--sys--surface-variant);
+  }
 
 .label {
 	font-size: 1rem;
@@ -137,3 +143,5 @@
 	background: var(--m3--state-layers--on-surface--opacity-008);
 	border-bottom: 2px solid var(--m3--sys--primary);
 }
+
+

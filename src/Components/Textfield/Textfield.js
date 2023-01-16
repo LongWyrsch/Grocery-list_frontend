@@ -10,9 +10,9 @@ import * as FIicons from 'react-icons/fi';
 
 export const Textfield = ({
 	fieldStyle,
-	cssStyle = 'materialdesign',
 	fieldType = 'text',
-	placeholder = '',
+	label = '',
+	placeholder='',
 	value = '',
 	handleOnChange,
 	iconInfo = {},
@@ -98,9 +98,10 @@ export const Textfield = ({
 			<div className={setUpClassNames} style={{height: height}}>
 				{icondiv()}
 				<div className={styles.inputArea}>
-					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign}}/>
+					{/* Below input has a blank placeholder to taget empty inputs with CSS */}
+					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign}} placeholder={placeholder}/>
 					<label htmlFor="" className={styles.label}>
-						{placeholder}
+						{label}
 					</label>
 				</div>
 				{inputIsInvalid && errorIcon()}

@@ -7,7 +7,7 @@ import { Button } from '../Button/Button';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 
-export const Navbar = ({ targetPage, setShowNewCard }) => {
+export const Navbar = ({ targetPage }) => {
 	const navigate = useNavigate();
 	return (
 		<div className={styles.navbar}>
@@ -32,11 +32,10 @@ export const Navbar = ({ targetPage, setShowNewCard }) => {
 					}}
 				/>
 			</div>
-			<div className={styles.buttonGroup}>
+			<div className={styles.buttonGroup} id='buttonParent'>
 				<Button
 					buttonStyle="elevated"
 					text={targetPage === 'lists' ? 'New list' : 'New recipe'}
-					onClick={setShowNewCard}
 					iconInfo={{
 						iconName: 'BsPlusLg',
 						size: '1rem',

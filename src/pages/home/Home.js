@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import userSlice, { selectUser, getUser, updateUser } from '../../features/user/state/userSlice';
-// import listsSlice, { selectLists, getLists, updateList } from '../../features/user/state/userSlice';
+import listsSlice, { selectLists, getLists, updateList } from '../../features/lists/state/listsSlice';
 import recipesSlice, { selectRecipes, getRecipes, updateRecipe } from '../../features/recipes/state/recipesSlice';
 
 import styles from './Home.module.css';
@@ -18,10 +18,10 @@ export const Home = () => {
 	const user = useSelector(selectUser);
 	// const lists = useSelector(selectLists);
 	// const recipes = useSelector(selectRecipes);
-	let { targetPage } = useParams();
+
 	useEffect(() => {
 		dispatch(getUser());
-		// dispatch(getLists());
+		dispatch(getLists());
 		dispatch(getRecipes());
 	}, [dispatch]);
 
@@ -32,14 +32,13 @@ export const Home = () => {
 	// 	setLayout(layout);
 	// };
 
-	const [showNewCard, setShowNewCard] = useState(false)
-
+	
 	return (
 		<div className={styles.homePage}>
 
-			{isAuthenticated && <Navbar targetPage={targetPage} setShowNewCard={() => setShowNewCard(true) }/>}
+			{isAuthenticated && <Navbar/>}
 			{/* {isAuthenticated && <Grid page={targetPage} onLayoutChange={onLayoutChange} />} */}
-			{isAuthenticated && <Grid targetPage={targetPage} showNewCard={showNewCard} setShowNewCard={setShowNewCard}/>}
+			{isAuthenticated && <Grid/>}
 		</div>
 	);
 };

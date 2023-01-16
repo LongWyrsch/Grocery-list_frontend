@@ -42,7 +42,7 @@ export const Signin = () => {
 		})
 		if (response.status===401) window.alert('Server error')
 		if (response.status===403) setCredError(true)
-		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
+		if (response.status===200) navigate('/home/recipes', { state: null, replace: true })
 	}
 
 	const handleSubmit = async (event) => {
@@ -119,7 +119,7 @@ export const Signin = () => {
 				<Textfield
 					value={email}
 					fieldStyle="outlined"
-					placeholder={t('auth.creds.email')}
+					label={t('auth.creds.email')}
 					handleOnChange={handleOnChangeEmail}
 					iconInfo={userIcon}
 					width="100%"
@@ -129,7 +129,7 @@ export const Signin = () => {
 						value={password}
 						fieldStyle="outlined"
 						fieldType="password"
-						placeholder={t('auth.creds.password')}
+						label={t('auth.creds.password')}
 						handleOnChange={handleOnChangePassword}
 						iconInfo={lockIcon}
 						width="100%"
