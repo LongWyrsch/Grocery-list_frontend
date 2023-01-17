@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './MiniCardRecipe.module.css';
+import React from 'react';
+import styles from './MiniCard.module.css';
 
-import { IoMdClose } from 'react-icons/io';
-
-export const MiniCardRecipe = ({ card, openCard }) => {
+export const MiniCardList = ({ card, focusOnCard }) => {
 	// onMouse actions only work in on separate div than the one used by react-grid-layout since it uses them for drag drop actions.
 	let cursorMoved = true;
 	let downListener = () => (cursorMoved = false);
 	let moveListener = () => (cursorMoved = true);
 	let upListener = () => {
 		if (cursorMoved === false) {
-			openCard(card);
+			focusOnCard(card);
 		}
 	};
 

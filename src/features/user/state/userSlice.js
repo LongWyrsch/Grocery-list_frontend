@@ -7,23 +7,9 @@ export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
 		// Without it, CORS will block the request. The request won't make it to deserializeUser().
 		credentials: 'include',
 	});
-	const json = await response.json();
-	return json;
+	let user = await response.json();
+	return user;
 });
-
-//Middleware updates current user before updating it in the store
-// export const updateUser = createAsyncThunk('user/updateUser', async (updatedUser, thunkAPI) => {
-// 	const response = fetch('http://localhost:3000/users', {
-// 		method: 'POST',
-// 		headers: {
-// 			'Content-type': 'application/json',
-// 		},
-// 		// We convert the React state to JSON and send it as the POST body
-// 		body: JSON.stringify(updatedUser),
-// 	});
-// 	const json = await response.json();
-// 	return json;
-// });
 
 const userSlice = createSlice({
 	name: 'user',
@@ -44,6 +30,7 @@ const userSlice = createSlice({
 	},
 	reducers: {
 		updateUser: (state, action) => {
+			console.log('userSlice updating user')
 			state.user = action.payload;
 		},
 	},

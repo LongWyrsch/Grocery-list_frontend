@@ -10,21 +10,6 @@ export const getRecipes = createAsyncThunk('recipes/getRecipes', async (thunkAPI
 	return json;
 });
 
-//Middleware updates recipe before updating it in the store
-// export const updateRecipe = createAsyncThunk('recipes/updateRecipe', async (updatedRecipe, thunkAPI) => {
-// 	const response = fetch('http://localhost:3000/recipes', {
-// 		method: 'POST',
-// 		credentials: 'include',
-// 		headers: {
-// 			'Content-type': 'application/json',
-// 		},
-// 		// We convert the React state to JSON and send it as the POST body
-// 		body: JSON.stringify(updatedRecipe),
-// 	});
-// 	// const json = await response.json();
-// 	if (response.status === 200) return updateRecipe;
-// });
-
 const recipesSlice = createSlice({
 	name: 'recipes',
 	initialState: {
@@ -64,21 +49,7 @@ const recipesSlice = createSlice({
 		[getRecipes.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-		},
-		// [updateRecipe.pending]: (state, action) => {
-		// 	state.isLoading = true;
-		// 	state.hasError = false;
-		// },
-		// [updateRecipe.fulfilled]: (state, action) => {
-		// 	state.isLoading = false;
-		// 	state.hasError = false;
-
-		// 	state.recipes = [...state, ...action.payload];
-		// },
-		// [updateRecipe.rejected]: (state, action) => {
-		// 	state.isLoading = false;
-		// 	state.hasError = true;
-		// },
+		}
 	},
 });
 

@@ -1,48 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import styles from './RecipeCard.module.css';
+import React from 'react';
+import styles from './Card.module.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { selectRecipes } from '../state/recipesSlice';
-
-import { Textfield } from '../../../components/Textfield/Textfield';
-import { Chip } from '../../../components/Chip/Chip';
-import { Button } from '../../../components/Button/Button';
+import { Textfield } from '../Textfield/Textfield';
+import { Chip } from '../Chip/Chip';
+import { Button } from '../Button/Button';
 
 import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
 
-export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngredient, deleteWarning, deleteIngredient }) => {
-
-	// // Ingredients should be properly indexed, but for good measure, they are reindexed.
-	// recipe.forEach((ingredient, i) => ingredient.index = i);
-
+export const CardList = ({
+	list,
+	setList,
+	updateTitle,
+	updateCard,
+	addIngredient,
+	deleteWarning,
+	deleteIngredient,
+}) => {
+	// When typing in a field, update focusCard variable in <Grid/>
 	const updatefield = (index, col, newValue) => {
-		setRecipe((prev) => {
-			let updatedRecipe = [...prev];
-			updatedRecipe[index] = { ...updatedRecipe[index], [col]: newValue };
-			return updatedRecipe;
+		setList((prev) => {
+			let updatedList = [...prev];
+			updatedList[index] = { ...updatedList[index], [col]: newValue };
+			return updatedList;
 		});
 	};
-
-	// if (recipe.length === 0) {
-	// 	// CREATE 1 ROW {} WITH ALL COLUMN SET TO EMPTY VALUES.
-	// 	// HOW TO DEAL WITH GRID_POSITION...?
-	// 	recipe.push({
-	// 		user_uuid: null,
-	// 		card_uuid: null,
-	// 		title: null,
-	// 		index: null,
-	// 		ingredient: null,
-	// 		quantity: null,
-	// 		unit: null,
-	// 		section: null,
-	// 		kcal: null,
-	// 		last_modified: null,
-	// 		grid_position: null,
-	// 	});
-	// }
 
 	const makeRows = (row, index) => (
 		<Draggable key={row.uuid} draggableId={row.uuid} index={index}>
@@ -61,7 +45,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngr
 							<Textfield
 								fieldStyle="card"
 								value={row.ingredient}
-								placeholder=' ' // This shows if input is empty. Shouldn't be empty. CSS picks it up and warns user to fill.
+								placeholder=" " // This shows if input is empty. Shouldn't be empty. CSS picks it up and warns user to fill.
 								fieldType="text"
 								handleOnChange={(e) => updatefield(index, 'ingredient', e.target.value)}
 								height="2rem"
@@ -93,18 +77,8 @@ export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngr
 								handleChange={(e) => updatefield(index, 'section', e.target.value)}
 							/>
 						</div>
-						<div className={styles.kcal}>
-							<Textfield
-								fieldStyle="card"
-								value={Math.trunc(row.kcal)}
-								fieldType="number"
-								handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)}
-								height="2rem"
-								textAlign="right"
-							/>
-						</div>
 						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
-							<IoMdClose className={styles.deleteRow}/>
+							<IoMdClose className={styles.deleteRow} />
 						</div>
 					</div>
 				);
@@ -114,35 +88,34 @@ export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngr
 
 	const stopPropagation = (e) => {
 		// Clicking on .blur element triggers updateCard() in <Grid/> component.
-		// Since <RecipeCard/> is a child of the .blur element, any click on <RecipeCard> will bubble up to .blur and  trigger updateCard().
+		// Since <ListCard/> is a child of the .blur element, any click on <ListCard> will bubble up to .blur and  trigger updateCard().
 		// Need to stop this propagation.
 		e.stopPropagation();
 	};
 
+	// Update position of dragged item
 	const handleOnDragEnd = (result) => {
-		
-		// If droping out of the droppable area, then ignore.
-		if (!result.destination) return 
-		let items = Array.from(recipe);
-		const [movedItem] = items.splice(result.source.index, 1);
-		items.splice(result.destination.index, 0, movedItem);
+		if (!result.destination) return; // If droping out of the droppable area, then ignore.
+		let items = Array.from(list); // temp array
+		const [movedItem] = items.splice(result.source.index, 1); // remove dragger item from array
+		items.splice(result.destination.index, 0, movedItem); // place item in its new position (where dropped)
 		// Loop over each row and reassign them an index in ascending order
-		items = items.map((item, i) => ({...item, index: i}))
-		setRecipe(items)
+		items = items.map((item, i) => ({ ...item, index: i }));
+		setList(items);
 	};
 
 	return (
 		<div className={`card-elevated  ${styles.cardWrapper}`} onClick={stopPropagation}>
 			<div className={styles.header}>
-				<Textfield 
-					fieldStyle='card'
-					fieldType = 'text'
-					value = {recipe[0].title}
+				<Textfield
+					fieldStyle="card"
+					fieldType="text"
+					value={list[0].title}
 					handleOnChange={updateTitle}
-					width = '100%'
-					height = '3.5rem'
-					fontSize='1.5rem'
-				/>	
+					width="100%"
+					height="3.5rem"
+					fontSize="1.5rem"
+				/>
 				<Button buttonStyle="text" text="Close" onClick={updateCard} />
 			</div>
 			{/* <div className={styles.grid}>
@@ -160,7 +133,7 @@ export const RecipeCard = ({ recipe, setRecipe, updateTitle, updateCard, addIngr
 				<Droppable droppableId="ingredientRows">
 					{(provided) => (
 						<div className={styles.table} {...provided.droppableProps} ref={provided.innerRef}>
-							{recipe.map((row, i) => makeRows(row, i))}
+							{list.map((row, i) => makeRows(row, i))}
 							{provided.placeholder}
 						</div>
 					)}
