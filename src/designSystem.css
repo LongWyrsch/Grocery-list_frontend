@@ -5,6 +5,9 @@ using the plugin: Export styles to CSS variables
 https://www.figma.com/community/plugin/816737626312049592 
 */
 
+#done {
+    --m3--sys--on-surface: var(--m3--sys--outline-variant);
+}
 
 :root {
     /* Color styles */
@@ -422,3 +425,4 @@ https://www.figma.com/community/plugin/816737626312049592
     --m3---elevation--4:  0px 2px 3px rgba(0, 0, 0, 0.3), 0px 6px 10px rgba(0, 0, 0, 0.15);
     --m3---elevation--5:  0px 4px 4px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.15);
 }
+

@@ -16,23 +16,18 @@ import { Grid } from '../../components/Grid/Grid';
 export const Home = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
-	// const lists = useSelector(selectLists);
-	// const recipes = useSelector(selectRecipes);
 
 	useEffect(() => {
+		console.log('Dispatching getUser, getLists, getRecipes')
 		dispatch(getUser());
 		dispatch(getLists());
 		dispatch(getRecipes());
 	}, [dispatch]);
 
+
+
 	const isAuthenticated = user.email || user.google_name ? true : false;
 
-	// const [layout, setLayout] = useState([]);
-	// const onLayoutChange = (layout) => {
-	// 	setLayout(layout);
-	// };
-
-	
 	return (
 		<div className={styles.homePage}>
 

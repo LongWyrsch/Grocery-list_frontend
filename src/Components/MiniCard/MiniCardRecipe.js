@@ -13,7 +13,7 @@ export const MiniCardRecipe = ({ card, focusOnCard }) => {
 	};
 
 	return (
-		<div className={styles.cardContainer} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
+		<div className={`card-elevated ${styles.cardContainer}`} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
 			<div className={styles.title}>{card[0].title}</div>
 			<ul>
 				{card.slice(0, 15).map((ingredient) => {

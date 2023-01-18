@@ -1,20 +1,22 @@
 .cardContainer {
     padding: 20px;
-    background-color: aquamarine;
     border-radius: 10px;
     height: 100%;
     cursor: pointer;
+	background: var(--m3--sys--surface-variant);
 }
 
 .title {
 	text-align: center;
 	font-size: 1.5rem;
 	margin-bottom: 20px;
+	color: var(--m3--sys--on-surface);
 }
 
 .row {
 	width: 100%;
 	margin: 8px 0 0;
+	color: var(--m3--sys--on-surface);
 }
 
 .row,

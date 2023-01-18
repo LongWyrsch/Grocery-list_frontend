@@ -1,4 +1,4 @@
-export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, path, serverFailureAction) => {
+export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, navPath, serverFailureAction) => {
 	let response
 	try {
 		response = await fetch(`http://localhost:3000${reqPath}`, {
@@ -18,7 +18,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, path
 		return response.json()
 	} else if (response.status === 401) {
 		window.alert('Failed to authenticate');
-		navigate(path);
+		navigate(navPath);
 		console.log('failed')
 	} else {
 		serverFailureAction();

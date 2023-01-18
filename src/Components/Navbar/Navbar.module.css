@@ -12,6 +12,7 @@
     align-items: center;
     padding: 0 10px;
     gap: 20px;
+    position: relative;
 }
 
 .imgContainer {
@@ -22,3 +23,14 @@
     height: 100%;
 }
 
+.buttonGroup>[data-show=true] {
+    position: absolute;
+    width: 100%;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.buttonGroup>[data-show=false] {
+    visibility: hidden;
+    pointer-events: none;
+}

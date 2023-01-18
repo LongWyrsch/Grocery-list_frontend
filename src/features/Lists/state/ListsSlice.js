@@ -31,9 +31,10 @@ const listsSlice = createSlice({
 			// Replace with updatedList at listIndex
 			state.lists.splice(listIndex,1,updatedList)
 		},
-		createList: (state, action) => { 
+		addList: (state, action) => { 
+			console.log('listsSlice, addList called')
 			let updatedLists = [...state.lists, action.payload]
-			state.recipes = updatedLists
+			state.lists = updatedLists
 		}
 	},
 	extraReducers: {
@@ -55,5 +56,5 @@ const listsSlice = createSlice({
 
 export const selectLists = (state) => state.lists.lists;
 export const isLoadingLists = (state) => state.lists.isLoading;
-export const { deleteList, updateList, createList } = listsSlice.actions;
+export const { deleteList, updateList, addList } = listsSlice.actions;
 export default listsSlice.reducer;

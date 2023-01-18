@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Card.module.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -9,27 +9,49 @@ import { Button } from '../Button/Button';
 import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
+import { Checkbox } from '../Checkbox/Checkbox';
 
 export const CardList = ({
-	list,
-	setList,
+	focusCard,
+	setFocusCard,
 	updateTitle,
 	updateCard,
 	addIngredient,
 	deleteWarning,
 	deleteIngredient,
+	stopPropagation
 }) => {
 	// When typing in a field, update focusCard variable in <Grid/>
 	const updatefield = (index, col, newValue) => {
-		setList((prev) => {
+		setFocusCard((prev) => {
 			let updatedList = [...prev];
 			updatedList[index] = { ...updatedList[index], [col]: newValue };
 			return updatedList;
 		});
 	};
 
+	const checkedUpdateAndMove = (index) => { 
+		let updatedList = Array.from(focusCard); // temp array
+
+		// Toggle checked column
+		updatedList[index] = { ...focusCard[index], checked: !focusCard[index].checked };
+
+		const [movedItem] = updatedList.splice(index, 1); // item from array
+		if (movedItem.checked) {
+			// Move to bottom
+			updatedList.push(movedItem); 
+		} else {
+			// Move to top
+			updatedList.unshift(movedItem); 
+		}
+		
+		// Loop over each row and reassign them an index in ascending order
+		updatedList = updatedList.map((item, i) => ({ ...item, index: i }));
+		setFocusCard(updatedList)	
+	}
+
 	const makeRows = (row, index) => (
-		<Draggable key={row.uuid} draggableId={row.uuid} index={index}>
+		<Draggable key={row.uuid} draggableId={row.uuid} index={index} className={styles.draggable}>
 			{(provided) => {
 				return (
 					<div
@@ -37,10 +59,12 @@ export const CardList = ({
 						{...provided.draggableProps}
 						{...provided.dragHandleProps}
 						ref={provided.innerRef}
+						id={row.checked? 'done' : 'notDone'}
 					>
 						<IconContext.Provider value={{ className: styles.handleIcon }}>
 							<RxDragHandleDots2 />
 						</IconContext.Provider>
+						<Checkbox checked={row.checked} handleChange={()=>checkedUpdateAndMove(index)}/>
 						<div className={styles.ingredient}>
 							<Textfield
 								fieldStyle="card"
@@ -70,13 +94,6 @@ export const CardList = ({
 								height="2rem"
 							/>
 						</div>
-						<div className={styles.section}>
-							<Chip
-								fieldStyle="filled"
-								value={row.section}
-								handleChange={(e) => updatefield(index, 'section', e.target.value)}
-							/>
-						</div>
 						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
 							<IoMdClose className={styles.deleteRow} />
 						</div>
@@ -86,22 +103,15 @@ export const CardList = ({
 		</Draggable>
 	);
 
-	const stopPropagation = (e) => {
-		// Clicking on .blur element triggers updateCard() in <Grid/> component.
-		// Since <ListCard/> is a child of the .blur element, any click on <ListCard> will bubble up to .blur and  trigger updateCard().
-		// Need to stop this propagation.
-		e.stopPropagation();
-	};
-
-	// Update position of dragged item
+	// Drag and drop: update position of dragged item
 	const handleOnDragEnd = (result) => {
 		if (!result.destination) return; // If droping out of the droppable area, then ignore.
-		let items = Array.from(list); // temp array
+		let items = Array.from(focusCard); // temp array
 		const [movedItem] = items.splice(result.source.index, 1); // remove dragger item from array
 		items.splice(result.destination.index, 0, movedItem); // place item in its new position (where dropped)
 		// Loop over each row and reassign them an index in ascending order
 		items = items.map((item, i) => ({ ...item, index: i }));
-		setList(items);
+		setFocusCard(items);
 	};
 
 	return (
@@ -110,7 +120,7 @@ export const CardList = ({
 				<Textfield
 					fieldStyle="card"
 					fieldType="text"
-					value={list[0].title}
+					value={focusCard[0].title}
 					handleOnChange={updateTitle}
 					width="100%"
 					height="3.5rem"
@@ -118,22 +128,21 @@ export const CardList = ({
 				/>
 				<Button buttonStyle="text" text="Close" onClick={updateCard} />
 			</div>
-			{/* <div className={styles.grid}>
-				{fieldArray.map((field, i) => field)}
-			</div> */}
+			<div className={styles.recipeNames}>
+				{focusCard[0].recipes.map( r => <div>{r}</div>)}
+			</div>
 			<div className={styles.colHeaders}>
+				<h4 className={`generalText ${styles.checked}`}></h4>
 				<h4 className={`generalText ${styles.ingredient}`}>Ingredients</h4>
 				<h4 className={`generalText ${styles.quantity}`}>Quantity</h4>
 				<h4 className={`generalText ${styles.unit}`}>Unit</h4>
-				<h4 className={`generalText ${styles.section}`}>Section</h4>
-				<h4 className={`generalText ${styles.kcal}`}>kCal</h4>
 				<div className={styles.deleteRowContainer}></div>
 			</div>
 			<DragDropContext onDragEnd={handleOnDragEnd}>
-				<Droppable droppableId="ingredientRows">
+				<Droppable droppableId="ingredientRows" >
 					{(provided) => (
 						<div className={styles.table} {...provided.droppableProps} ref={provided.innerRef}>
-							{list.map((row, i) => makeRows(row, i))}
+							{focusCard.map((row, i) => makeRows(row, i))}
 							{provided.placeholder}
 						</div>
 					)}

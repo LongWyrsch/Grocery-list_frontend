@@ -1,19 +1,31 @@
 .cardWrapper {
-    width: 60%;
-    margin: 5% 0 10%;
-	z-index: 4;
+    width: 100%;
+    margin: 5% 20% 10%;
+	/* z-index: 4; */
     padding: 20px;
+    /* height: 90vh; */
+    /* overflow: hidden; */
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 20px 10px;
+    margin: 0 0 0px 10px;
 }
 
-.header > h1{
-    margin: 0;
+.recipeNames{
+    margin-left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.recipeNames>div {
+    color: var(--m3--sys--primary);
+    border: 1px solid var(--m3--sys--primary);
+    border-radius: 0.5rem;
+    padding: 5px;
+    opacity: 0.4;
 }
 
 .colHeaders,
@@ -27,13 +39,28 @@
     border-radius: 5px;
 }
 
+/* Without this, the draggables are offset when dragging while scrolled down */
+.row {
+    top: auto !important;
+    left: auto !important;
+}
+
 .colHeaders > h4 {
     text-decoration: underline;
+    margin-top: 20px;
 }
 
 .handleIcon {
+    visibility:hidden;
+}
+.row:hover .handleIcon {
+    visibility: visible;
     color: var(--m3--sys--on-surface);
     cursor: move;
+}
+
+.checked {
+    width: 4rem;
 }
 
 .ingredient {
@@ -51,6 +78,7 @@
 .unit {
     width: 80px;
     flex-grow: 1;
+    margin-left: 10px;
 }
 .section {
     width: 120px;
@@ -79,11 +107,11 @@
 
 .deleteRow {
     font-size: 1.5rem;
-    display: none;
+    visibility: hidden;
 }
 
 .row:hover .deleteRow {
-    display: block;
+    visibility: visible;
 }
 
 .row:has(.deleteRow:active) {

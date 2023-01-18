@@ -19,7 +19,7 @@ body,
 
 .card-flat {
 	border-radius: 12px;
-    padding: 16px;
+    padding: 1rem;
 	border: 1px solid var(--m3--sys--outline-variant);
 	background: var(--m3--sys--surface-variant);
 	transition: background-color var(--transition), border var(--transition);
@@ -27,7 +27,7 @@ body,
 
 .card-elevated {
 	border-radius: 12px;
-    padding: 16px;
+    padding: 1rem;
 	box-shadow: var(--m3---elevation--2);
 	background: var(--m3--surfaces--surface1);
 	transition: background-color var(--transition), border var(--transition);

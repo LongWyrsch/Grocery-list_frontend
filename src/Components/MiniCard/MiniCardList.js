@@ -1,4 +1,5 @@
 import React from 'react';
+import { Checkbox } from '../Checkbox/Checkbox';
 import styles from './MiniCard.module.css';
 
 export const MiniCardList = ({ card, focusOnCard }) => {
@@ -13,17 +14,15 @@ export const MiniCardList = ({ card, focusOnCard }) => {
 	};
 
 	return (
-		<div className={styles.cardContainer} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
+		<div className={`card-elevated ${styles.cardContainer}`} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
 			<div className={styles.title}>{card[0].title}</div>
 			<ul>
 				{card.slice(0, 15).map((ingredient) => {
 					// Show at most 16 ingredients
-					let quantity = ingredient.quantity ? ingredient.quantity : '';
-					let unit = ingredient.unit ? ingredient.unit : '';
 					return (
 						<div key={ingredient.uuid} className={styles.row}>
+							<Checkbox checked={ingredient.checked} wrapperSize='1rem' boxSize='1rem' checkSize='1rem' disabled={true}/>
 							<div className={styles.ingredient}>{ingredient.ingredient}</div>
-							<div className={styles.quantityAndUnit}>{`${quantity} ${unit}`}</div>
 						</div>
 					);
 				})}

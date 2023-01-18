@@ -19,9 +19,12 @@ const recipesSlice = createSlice({
 	},
 	reducers: {
 		deleteRecipe: (state, action) => {
+			console.log('recipesSlice, deleteRecipe called')
 			state.recipes = state.recipes.filter((recipe) => recipe[0].card_uuid !== action.payload);
 		},
 		updateRecipe: (state, action) => {
+			console.log('recipesSlice, updateRecipe called')
+
 			let updatedRecipe = action.payload;
 			console.log('recipesSlice/updatedRecipe')
 
@@ -31,7 +34,8 @@ const recipesSlice = createSlice({
 			// Replace with updatedRecipe at recipeIndex
 			state.recipes.splice(recipeIndex,1,updatedRecipe)
 		},
-		createRecipe: (state, action) => { 
+		addRecipe: (state, action) => { 
+			console.log('recipesSlice, addRecipe called')
 			let updatedRecipes = [...state.recipes, action.payload]
 			state.recipes = updatedRecipes
 		}
@@ -42,6 +46,7 @@ const recipesSlice = createSlice({
 			state.hasError = false;
 		},
 		[getRecipes.fulfilled]: (state, action) => {
+			console.log('recipesSlice, getRecipes called')
 			state.isLoading = false;
 			state.hasError = false;
 			state.recipes = action.payload;
@@ -55,5 +60,5 @@ const recipesSlice = createSlice({
 
 export const selectRecipes = (state) => state.recipes.recipes;
 export const isLoadingRecipes = (state) => state.recipes.isLoading;
-export const { deleteRecipe, updateRecipe, createRecipe } = recipesSlice.actions;
+export const { deleteRecipe, updateRecipe, addRecipe } = recipesSlice.actions;
 export default recipesSlice.reducer;

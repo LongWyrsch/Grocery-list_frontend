@@ -20,6 +20,7 @@
     height: 100%;
     width: 100%;
     /* transition: background-color 5000ms, color 5000ms;   */
+    white-space: nowrap;
 }
 
 .icon {

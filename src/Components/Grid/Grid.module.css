@@ -1,20 +1,18 @@
 .gridWrapper {
-    position: relative;
+    height: calc(100vh - 5rem);    
+    overflow: auto;
 }
 
 .blur {
-    position: absolute;
-    top: -5rem;
-    left: 0;
-    width: 100vw;
-    /* height: 100vh; */
-    /* height: 100%; */
-    min-height: 120vh;
-    bottom: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    overflow: auto;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    backdrop-filter: blur(6px) brightness(20%);
+    backdrop-filter: blur(4px) brightness(40%);
     pointer-events: none;
     opacity: 0;
     transition: 300;
