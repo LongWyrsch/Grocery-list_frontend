@@ -18,7 +18,7 @@ const userSlice = createSlice({
 			uuid: null,
 			email: null,
 			language: null,
-			dark_theme: false,
+			theme: 'light',
 			google_name: null,
 			avatar_variant: null,
 			avatar_colors: null,
@@ -30,9 +30,22 @@ const userSlice = createSlice({
 	},
 	reducers: {
 		updateUser: (state, action) => {
-			console.log('userSlice updating user')
+			console.log('userSlice updating user');
 			state.user = action.payload;
 		},
+		clearUser: (state) => {
+			state.user = {
+				uuid: null,
+				email: null,
+				language: null,
+				theme: 'light',
+				google_name: null,
+				avatar_variant: null,
+				avatar_colors: null,
+				layouts_recipes: null,
+				layouts_lists: null,
+			}
+		}
 	},
 	extraReducers: {
 		[getUser.pending]: (state, action) => {
@@ -66,5 +79,5 @@ const userSlice = createSlice({
 
 export const selectUser = (state) => state.user.user;
 export const userHasError = (state) => state.user.hasError;
-export const { updateUser } = userSlice.actions;
+export const { updateUser, clearUser } = userSlice.actions;
 export default userSlice.reducer;

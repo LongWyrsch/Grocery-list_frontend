@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
@@ -9,19 +9,16 @@ import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 
 export const Navbar = () => {
 	const navigate = useNavigate();
-	let {targetPage} = useParams()
-	let recipeButtonRef = useRef()
-	let listButtonRef = useRef()
+	let { targetPage } = useParams();
+	let recipeButtonRef = useRef();
+	let listButtonRef = useRef();
 
-	useEffect(() => { 
-		if (targetPage==='recipes') {
-			recipeButtonRef.current.dataset.show = true
-			listButtonRef.current.dataset.show = false
-		} else {
-			recipeButtonRef.current.dataset.show = false
-			listButtonRef.current.dataset.show = true
-		}
-	})
+	useEffect(() => {
+			// recipeButtonRef.current.dataset.show = targetPage === 'recipes' ? true : false;
+			// listButtonRef.current.dataset.show = targetPage === 'lists' ? true : false;
+	});
+
+	let homePage = targetPage !== 'account'
 
 	return (
 		<div className={styles.navbar}>
@@ -29,39 +26,43 @@ export const Navbar = () => {
 				<div className={styles.imgContainer}>
 					<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 				</div>
-				<Button
-					buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
-					text="Grocery lists"
-					onClick={() => {
-						// setPage('lists');
-						navigate('/home/lists');
-					}}
-				/>
-				<Button
-					buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
-					text="Recipes"
-					onClick={() => {
-						// setPage('recipes');
-						navigate('/home/recipes');
-					}}
-				/>
+				{homePage && (
+					<Button
+						buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
+						text="Grocery lists"
+						onClick={() => {
+							navigate('/home/lists');
+						}}
+					/>
+				)}
+				{homePage && (
+					<Button
+						buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
+						text="Recipes"
+						onClick={() => {
+							navigate('/home/recipes');
+						}}
+					/>
+				)}
 			</div>
 			<div className={styles.buttonGroup}>
-				<div id='recipeButton' data-show ref={recipeButtonRef}>
-					<Button
-						buttonStyle="elevated"
-						text='New recipe'
-						iconInfo={{
-							iconName: 'BsPlusLg',
-							size: '1rem',
-						}}
-						width="100%"
-					/>
+				<div id="recipeButton" data-show ref={recipeButtonRef}>
+					{homePage && (
+						<Button
+							buttonStyle="elevated"
+							text="New recipe"
+							iconInfo={{
+								iconName: 'BsPlusLg',
+								size: '1rem',
+							}}
+							width="100%"
+						/>
+					)}
 				</div>
-				<div id='listButton' data-show ref={listButtonRef}>
+				<div id="listButton" data-show ref={listButtonRef}>
 					<Button
 						buttonStyle="elevated"
-						text='New list'
+						text="New list"
 						iconInfo={{
 							iconName: 'BsPlusLg',
 							size: '1rem',

@@ -84,7 +84,7 @@ export const Signup = () => {
 			body: JSON.stringify({
 				email: email,
 				password: password,
-				dark_theme: theme === 'dark',
+				theme: theme === 'dark',
 				language: i18n.language,
 			}),
 		});

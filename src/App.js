@@ -1,8 +1,9 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectTheme } from './features/theme/state/themeSlice';
+import { selectUser } from './features/user/state/userSlice';
 
 import { Home } from './pages/Home/Home';
 import { Signin } from './pages/Auth/Signin';
@@ -12,19 +13,19 @@ import { Account } from './pages/Account/Account';
 import { ErrorMessage } from './pages/Error/ErrorMessage';
 
 function App() {
-  const theme = useSelector(selectTheme);
+	const user = useSelector(selectUser)
 
 	return (
-		<div className="App" id={theme}>
+		<div className="App" id={user.theme}>
 			<Router>
 				<Routes>
-					<Route path="/" exact element={<Home />} />
+					<Route path="/account" element={<Account />} />
+					{/* <Route path="/" exact element={<Home />} /> */}
 					<Route path="/signin" element={<Signin />} />
 					<Route path="/signup" element={<Signup />} />
-					<Route path="/home/:targetPage" element={<Home />} />
-					<Route path="/account" element={<Account />} />
+					<Route path="/home/:targetPage" element={<Home/>} />
 					<Route path="/tos" element={<Termsofservices />} />
-					<Route path="/error" element={<ErrorMessage/>} />
+					<Route path="/error" element={<ErrorMessage />} />
 				</Routes>
 			</Router>
 		</div>

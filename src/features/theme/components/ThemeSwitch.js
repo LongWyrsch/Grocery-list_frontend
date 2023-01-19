@@ -1,25 +1,40 @@
+// React
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// CSS
 import styles from './ThemeSwitch.module.css';
 
+// Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTheme, toggleTheme } from '../state/themeSlice';
+import { selectUser, updateUser } from '../../user/state/userSlice';
+// import { selectTheme, toggleTheme } from '../state/themeSlice';
 
+// React-icons
 import { RiMoonClearFill } from 'react-icons/ri';
 import { FaSun } from 'react-icons/fa';
 
+// Utils
+import { serverRequests } from '../../../utils/serverRequests';
+
 export const ThemeSwitch = () => {
-	const theme = useSelector(selectTheme);
 	const dispatch = useDispatch();
+	const navigate = useNavigate;
+	const user = useSelector(selectUser);
+
+	const toggleTheme = () => user.theme === 'light' ? 'dark' : 'light'
 
 	//Toggle app theme
 	function handleOnClickTheme(e) {
-		dispatch(toggleTheme());
+		const updatedUser = { ...user, theme: toggleTheme() };
+		dispatch(updateUser(updatedUser));
+		serverRequests('/users', 'PUT', updatedUser, navigate, '/signin', () => {});
 	}
 
 	const moonIcon = React.createElement(RiMoonClearFill);
 	const sunIcon = React.createElement(FaSun);
-	let themeIcon = theme === 'light' ? sunIcon : moonIcon;
-	let themeClass = theme === 'light' ? styles.light : styles.dark;
+	let themeIcon = user.theme === 'light' ? sunIcon : moonIcon;
+	let themeClass = user.theme === 'light' ? styles.light : styles.dark;
 
 	return (
 		<div>

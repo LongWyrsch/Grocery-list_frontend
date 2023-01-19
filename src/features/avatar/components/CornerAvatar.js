@@ -1,36 +1,48 @@
+// React
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// CSS
 import styles from './CornerAvatar.module.css';
-import { useTranslation } from 'react-i18next';
 
+// Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, getUser, updateUser } from '../../user/state/userSlice';
+import { selectUser, getUser, updateUser, clearUser } from '../../user/state/userSlice';
+import { clearRecipes, updateRecipe } from '../../recipes/state/recipesSlice';
+import { clearLists } from '../../lists/state/listsSlice';
 
+// React-icons
 import { BsFillGearFill } from 'react-icons/bs';
 import { MdOutlineLogout } from 'react-icons/md';
 
+// libs
 import Avatar from 'boring-avatars';
+import { useTranslation } from 'react-i18next';
 
 export const CornerAvatar = () => {
-	const menuRef = useRef();
-	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const dispatch = useDispatch()
+	const { t } = useTranslation();
 
-	const [open, setOpen] = useState(false);
 	const user = useSelector(selectUser);
+	const menuRef = useRef();
+	const [open, setOpen] = useState(false);
 
 	const gearIcon = React.createElement(BsFillGearFill);
 	const logoutIcon = React.createElement(MdOutlineLogout);
 
 	const logout = async () => {
-		 const response = await fetch('http://localhost:3000/users/logout', {
+		let response = await fetch('http://localhost:3000/users/logout', {
 			method: 'GET',
 			credentials: 'include',
-		})
-		if (response.status===200) {
-			navigate('/signin')
+		});
+		if (response.status === 200) {
+			dispatch(clearUser())
+			dispatch(clearRecipes())
+			dispatch(clearLists())
+			navigate('/signin');
 		} else {
-			window.alert('Failed to logout. Please try again...')
+			window.alert('Failed to logout. Please try again...');
 		}
 	};
 
@@ -54,11 +66,11 @@ export const CornerAvatar = () => {
 					name={user.email || user.google_name}
 					variant={user.avatar_variant}
 					colors={user.avatar_colors}
+					// colors={["#92A1C6","#146A7C","#F0AB3D","#C271B4","#C20D90"]}  //{user.avatar_colors}
 				/>
 			</button>
 
 			<div className={`${open ? styles.activeMenu : styles.inactiveMenu} ${styles.menu}`} ref={menuRef}>
-				{/* <div className={styles.menu}> */}
 				<MenuOption
 					option="Settings"
 					icon={gearIcon}

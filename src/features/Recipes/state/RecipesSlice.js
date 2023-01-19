@@ -19,25 +19,28 @@ const recipesSlice = createSlice({
 	},
 	reducers: {
 		deleteRecipe: (state, action) => {
-			console.log('recipesSlice, deleteRecipe called')
+			console.log('recipesSlice, deleteRecipe called');
 			state.recipes = state.recipes.filter((recipe) => recipe[0].card_uuid !== action.payload);
 		},
 		updateRecipe: (state, action) => {
-			console.log('recipesSlice, updateRecipe called')
+			console.log('recipesSlice, updateRecipe called');
 
 			let updatedRecipe = action.payload;
-			console.log('recipesSlice/updatedRecipe')
+			console.log('recipesSlice/updatedRecipe');
 
 			// Find index of recipe
-			let recipeIndex = state.recipes.findIndex(recipe => recipe[0].card_uuid === updatedRecipe[0].card_uuid)
+			let recipeIndex = state.recipes.findIndex((recipe) => recipe[0].card_uuid === updatedRecipe[0].card_uuid);
 
 			// Replace with updatedRecipe at recipeIndex
-			state.recipes.splice(recipeIndex,1,updatedRecipe)
+			state.recipes.splice(recipeIndex, 1, updatedRecipe);
 		},
-		addRecipe: (state, action) => { 
-			console.log('recipesSlice, addRecipe called')
-			let updatedRecipes = [...state.recipes, action.payload]
-			state.recipes = updatedRecipes
+		addRecipe: (state, action) => {
+			console.log('recipesSlice, addRecipe called');
+			let updatedRecipes = [...state.recipes, action.payload];
+			state.recipes = updatedRecipes;
+		},
+		clearRecipes: (state) => {
+			state.recipes = []
 		}
 	},
 	extraReducers: {
@@ -46,7 +49,7 @@ const recipesSlice = createSlice({
 			state.hasError = false;
 		},
 		[getRecipes.fulfilled]: (state, action) => {
-			console.log('recipesSlice, getRecipes called')
+			console.log('recipesSlice, getRecipes called');
 			state.isLoading = false;
 			state.hasError = false;
 			state.recipes = action.payload;
@@ -54,11 +57,11 @@ const recipesSlice = createSlice({
 		[getRecipes.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-		}
+		},
 	},
 });
 
 export const selectRecipes = (state) => state.recipes.recipes;
 export const isLoadingRecipes = (state) => state.recipes.isLoading;
-export const { deleteRecipe, updateRecipe, addRecipe } = recipesSlice.actions;
+export const { deleteRecipe, updateRecipe, addRecipe, clearRecipes } = recipesSlice.actions;
 export default recipesSlice.reducer;

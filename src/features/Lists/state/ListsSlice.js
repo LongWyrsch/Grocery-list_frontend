@@ -35,6 +35,9 @@ const listsSlice = createSlice({
 			console.log('listsSlice, addList called')
 			let updatedLists = [...state.lists, action.payload]
 			state.lists = updatedLists
+		},
+		clearLists: (state) => {
+			state.lists = []
 		}
 	},
 	extraReducers: {
@@ -56,5 +59,5 @@ const listsSlice = createSlice({
 
 export const selectLists = (state) => state.lists.lists;
 export const isLoadingLists = (state) => state.lists.isLoading;
-export const { deleteList, updateList, addList } = listsSlice.actions;
+export const { deleteList, updateList, addList, clearLists } = listsSlice.actions;
 export default listsSlice.reducer;
