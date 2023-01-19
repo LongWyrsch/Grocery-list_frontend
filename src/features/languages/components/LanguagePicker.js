@@ -11,12 +11,12 @@ export const LanguagePicker = () => {
 
 	const { i18n } = useTranslation();
 
-	function pickLanguage(lang) {
+	const pickLanguage = (lang) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
 	}
 
-    function handleOnClick() {
+    const handleOnClick = () => {
         setOpen((prev) => !prev);
 	}
 
@@ -71,7 +71,7 @@ export const LanguagePicker = () => {
 	);
 };
 
-function LanguageOption ({option, handleClick}) {
+const LanguageOption =  ({option, handleClick}) => {
     return (
         <div onClick={()=>handleClick(option)}  data-option={option} className={styles.option}>
             {option}

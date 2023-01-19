@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(2px) brightness(40%);
+    backdrop-filter: blur(10px) brightness(40%);
 }
 .messageBox{
     display: flex;

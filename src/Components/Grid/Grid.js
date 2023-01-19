@@ -36,7 +36,7 @@ import { serverRequests } from '../../utils/serverRequests';
 import { queueTask } from '../../utils/queueTask';
 import { adjustCardHeight } from '../../utils/adjustCardHeight';
 import { generateLayouts } from '../../utils/generateLayouts';
-import { NetworkError } from '../../pages/Error/NetworkError';
+import { ErrorMessage } from '../../pages/Error/ErrorMessage';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -466,7 +466,7 @@ console.log('updateduser: ', updatedUser)
 				)}
 			</div>
 			{targetPage==='error' && 
-				<NetworkError/>
+				<ErrorMessage title='Network error !' message='Please check your connection and reload the browser.'/>
 			}
 		</div>
 	);

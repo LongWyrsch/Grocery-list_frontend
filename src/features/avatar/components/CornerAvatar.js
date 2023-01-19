@@ -22,11 +22,16 @@ export const CornerAvatar = () => {
 	const gearIcon = React.createElement(BsFillGearFill);
 	const logoutIcon = React.createElement(MdOutlineLogout);
 
-	const logout = () => {
-		window.open('http://localhost:3000/logout', '_self');
-		// fetch('http://localhost:3000/logout').then((response) => {
-		// 	if (response.status===200) navigate('/signin')
-		//  })
+	const logout = async () => {
+		 const response = await fetch('http://localhost:3000/users/logout', {
+			method: 'GET',
+			credentials: 'include',
+		})
+		if (response.status===200) {
+			navigate('/signin')
+		} else {
+			window.alert('Failed to logout. Please try again...')
+		}
 	};
 
 	function openMenu() {
@@ -54,7 +59,7 @@ export const CornerAvatar = () => {
 
 			<div className={`${open ? styles.activeMenu : styles.inactiveMenu} ${styles.menu}`} ref={menuRef}>
 				{/* <div className={styles.menu}> */}
-				<LanguageOption
+				<MenuOption
 					option="Settings"
 					icon={gearIcon}
 					handleClick={() => {
@@ -62,13 +67,13 @@ export const CornerAvatar = () => {
 					}}
 				/>
 				<hr />
-				<LanguageOption option="Logout" icon={logoutIcon} handleClick={logout} />
+				<MenuOption option="Logout" icon={logoutIcon} handleClick={logout} />
 			</div>
 		</div>
 	);
 };
 
-function LanguageOption({ option, icon, handleClick }) {
+function MenuOption({ option, icon, handleClick }) {
 	return (
 		<div onClick={handleClick} data-option={option} className={styles.option}>
 			{icon}

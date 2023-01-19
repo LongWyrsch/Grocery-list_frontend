@@ -11,7 +11,7 @@
 
 .menu {
     position: absolute;
-    top: 70px;
+    top: 50px;
     left: -60px;
     display: flex;
     flex-direction: column;
@@ -20,10 +20,11 @@
     color: var(--m3--sys--on-surface);
     box-shadow: var(--m3---elevation--2);
     border-radius: 4px;
+    z-index: 1;
 }
 
 .option {
-    width: 100%;
+    width: 7rem;
     height: 3rem;
     display: flex;
     align-items: center;
@@ -35,6 +36,7 @@
 
 .option:hover {
     background: var(--m3--surfaces--surface5);
+    font-weight: 700;
 }
 
 hr {

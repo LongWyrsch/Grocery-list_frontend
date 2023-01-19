@@ -17,7 +17,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, navP
 	if (response.status === 200) {
 		return response.json()
 	} else if (response.status === 401) {
-		window.alert('Failed to authenticate');
+		window.alert('We couldn\' identify you. Please sign in again.');
 		navigate(navPath);
 		console.log('failed')
 	} else {

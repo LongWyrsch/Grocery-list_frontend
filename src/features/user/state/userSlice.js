@@ -65,6 +65,6 @@ const userSlice = createSlice({
 });
 
 export const selectUser = (state) => state.user.user;
-export const isLoadingUser = (state) => state.user.isLoading;
+export const userHasError = (state) => state.user.hasError;
 export const { updateUser } = userSlice.actions;
 export default userSlice.reducer;

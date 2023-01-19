@@ -9,7 +9,7 @@ import { Signin } from './pages/Auth/Signin';
 import { Signup } from './pages/Auth/Signup';
 import { Termsofservices } from './pages/termsofservices/Termsofservices';
 import { Account } from './pages/Account/Account';
-import { NetworkError } from './pages/Error/NetworkError';
+import { ErrorMessage } from './pages/Error/ErrorMessage';
 
 function App() {
   const theme = useSelector(selectTheme);
@@ -24,7 +24,7 @@ function App() {
 					<Route path="/home/:targetPage" element={<Home />} />
 					<Route path="/account" element={<Account />} />
 					<Route path="/tos" element={<Termsofservices />} />
-					<Route path="/error" element={<NetworkError/>} />
+					<Route path="/error" element={<ErrorMessage/>} />
 				</Routes>
 			</Router>
 		</div>

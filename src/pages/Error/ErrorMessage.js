@@ -1,15 +1,15 @@
 import React from 'react'
-import styles from './NetworkError.module.css'
+import styles from './ErrorMessage.module.css'
 
-export const NetworkError = () => {
+export const ErrorMessage = ({title, message}) => {
   return (
     <div className={styles.errorPage}>
         <div className={`card-flat ${styles.messageBox}`}>
             <div className={styles.title}>
-                Network Error !
+                {title}
             </div>
             <div className={styles.message}>
-                Please check your connection and reload the browser.
+                {message}
             </div>
         </div>
     </div>
