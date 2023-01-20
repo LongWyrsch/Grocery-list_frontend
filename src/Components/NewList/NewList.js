@@ -3,6 +3,7 @@ import styles from './NewList.module.css'
 
 import { Button } from '../Button/Button';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { t } from 'i18next';
 
 export const NewList = ({ newList, setNewList, createList, stopPropagation }) => {
 
@@ -14,7 +15,7 @@ export const NewList = ({ newList, setNewList, createList, stopPropagation }) =>
 
 	return (
 		<div className={`card-flat ${styles.newListWrapper}`} onClick={stopPropagation}>
-			<h3 className={styles.heading}>Choose some recipes to add to your list.</h3>
+			<h3 className={styles.heading}>{t('home.NewListMessage')}</h3>
 			{newList.map((recipe, index) => (
 				<div key={index} className={styles.row}>
 					<Checkbox checked={recipe.checked} handleChange={() => toggleRecipe(index)} />
@@ -24,12 +25,12 @@ export const NewList = ({ newList, setNewList, createList, stopPropagation }) =>
             <div className={styles.buttonRow}>
                 <Button
                     buttonStyle="outlined"
-                    text="Cancel"
+                    text={t('general.Cancel')}
                     onClick={() => { setNewList(null) }}
                 />
                 <Button
                     buttonStyle="filled"
-                    text="Create"
+                    text={t('home.Create')}
                     onClick={createList}
                     iconInfo={{ iconName: 'BsPlusLg', size: '1rem' }}
                 />

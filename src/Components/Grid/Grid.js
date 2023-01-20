@@ -3,6 +3,7 @@ import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
 
 // Other libs
 import { v4 as uuidv4 } from 'uuid';
+import { t } from 'i18next'
 
 // react-grid-layout
 import { WidthProvider, Responsive } from 'react-grid-layout';
@@ -94,7 +95,6 @@ export const Grid = ({ targetPage, user }) => {
 	};
 
 	const settingNewList = () => {
-		console.log('from settingNewList, recipes: ', recipes);
 		setNewList(
 			recipes.map((recipe) => ({
 				card_uuid: recipe[0].card_uuid,
@@ -102,7 +102,6 @@ export const Grid = ({ targetPage, user }) => {
 				checked: false,
 			}))
 		);
-		console.log('from settingNewList, newList: ', newList);
 	};
 
 	const createRecipe = () => {
@@ -394,11 +393,10 @@ export const Grid = ({ targetPage, user }) => {
 		<div className={styles.gridWrapper} id="gridWrapper">
 			{showWarning && (
 				<ActionWarning
-					action="Delete"
-					message={
-						<div>
-							Delete <b>{focusCard[0].title}</b> ?
-						</div>
+					action={t('general.Delete')}
+					message={ user.language === 'DE'
+							? <div><b>{focusCard[0].title}</b> {t('general.Delete')} ?</div>
+							: <div>{t('general.Delete')} <b>{focusCard[0].title}</b> ?</div>
 					}
 					handleOnClick={() => deleteCard(focusCard[0].card_uuid)}
 					handleCancel={() => setShowWarning(false)}
@@ -456,7 +454,7 @@ export const Grid = ({ targetPage, user }) => {
 				)}
 			</div>
 			{targetPage === 'error' && (
-				<ErrorMessage title="Network error !" message="Please check your connection and reload the browser." />
+				<ErrorMessage title={t('warnings.NetworkTitle')} message={t('warnings.NetworkMessage')} />
 			)}
 		</div>
 	);

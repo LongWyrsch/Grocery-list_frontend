@@ -19,6 +19,7 @@ import { ActionWarning } from '../../components/ActionWarning/ActionWarning';
 // libs
 import Avatar from 'boring-avatars';
 import { Button } from '../../components/Button/Button';
+import { t } from 'i18next';
 
 // utils
 import { randomColorsArray } from '../../utils/randomColorsArray';
@@ -35,27 +36,27 @@ export const Account = ({ user }) => {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [passwordsDifferent, setPasswordsDifferent] = useState(false);
-	
-  const [credError, setCredError] = useState(false);
-	
-  const [confirmDelete, setConfirmDelete] = useState(false);
 
-  // Language is updated in slice as soon as user changes it. 
-  // Therefore an initial copy is required to check for changes.
+	const [credError, setCredError] = useState(false);
+
+	const [confirmDelete, setConfirmDelete] = useState(false);
+
+	// Language is updated in slice as soon as user changes it.
+	// Therefore an initial copy is required to check for changes.
 	useEffect(() => {
 		setLanguage(user.language);
 	}, []);
 
-  // Check if any changes were made. Save button becomes filled when true.
+	// Check if any changes were made. Save button becomes filled when true.
 	let modifiedRef = useRef(false);
-  if (
-		avatar_variant !== user.avatar_variant
-		|| avatar_colors !== user.avatar_colors
-		|| language !== user.language
-		|| email !== user.email
-		|| password !== ''
+	if (
+		avatar_variant !== user.avatar_variant ||
+		avatar_colors !== user.avatar_colors ||
+		language !== user.language ||
+		email !== user.email ||
+		password !== ''
 	) {
-    modifiedRef.current = true;
+		modifiedRef.current = true;
 	} else {
 		modifiedRef.current = false;
 	}
@@ -120,43 +121,43 @@ export const Account = ({ user }) => {
 			email: email,
 		};
 
-    if (password!=='') updatedUser = {...updatedUser, hashed_password: password} 
+		if (password !== '') updatedUser = { ...updatedUser, hashed_password: password };
 
 		dispatch(updateUser(updatedUser));
 		serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
 
-    // If you don't clear passwords textfield, modifiedRef will detect a "change".
-    setPassword('')
-    setConfirmPassword('')
-    // Reset language initial value
-    setLanguage(user.language)
+		// If you don't clear passwords textfield, modifiedRef will detect a "change".
+		setPassword('');
+		setConfirmPassword('');
+		// Reset language initial value
+		setLanguage(user.language);
 		modifiedRef.current = false;
 	};
 
 	const deleteAccount = async () => {
-    // Delete user on database
-		let response = await serverRequests('/users', 'DELETE', {delete: 'delete'}, () => {
+		// Delete user on database
+		let response = await serverRequests('/users', 'DELETE', { delete: 'delete' }, () => {
 			dispatch(getUser());
 		});
 
-    // Log user out
+		// Log user out
 		if (response.status === 200) {
-      response = await fetch('http://localhost:3000/users/logout', {
-			method: 'GET',
-			credentials: 'include',
-		  });
+			response = await fetch('http://localhost:3000/users/logout', {
+				method: 'GET',
+				credentials: 'include',
+			});
 
-      // Clear state and redirect to signup
-      if (response.status === 200) {
-        dispatch(clearUser());
-        dispatch(clearRecipes());
-        dispatch(clearLists());
-        navigate('/signup');
-        return
-      }
-    }
+			// Clear state and redirect to signup
+			if (response.status === 200) {
+				dispatch(clearUser());
+				dispatch(clearRecipes());
+				dispatch(clearLists());
+				navigate('/signup');
+				return;
+			}
+		}
 
-    window.alert('Failed to logout. Please try again...');
+		window.alert('Failed to logout. Please try again...');
 	};
 
 	let userIcon = { iconName: 'AiOutlineUser', size: '1.5rem', color: '' };
@@ -167,18 +168,18 @@ export const Account = ({ user }) => {
 	return (
 		<div className={styles.accountWrapper}>
 			<div className={styles.saveDelete}>
-        <Button
-          buttonStyle="filled"
-          text="Save changes"
-          onClick={saveChanges}
-          width="200px"
-          addclass={!modifiedRef.current && styles.disabled}
-        />
+				<Button
+					buttonStyle="filled"
+					text={t('account.SaveChanges')}
+					onClick={saveChanges}
+					width="200px"
+					addclass={!modifiedRef.current && styles.disabled}
+				/>
 			</div>
 			<div className={styles.avatarWrapper}>
 				<div className={styles.avatarSettingsWrapper}>
 					<div className={styles.avatarSettings}>
-						<div className={`generalText ${styles.text}`}>Choose your avatar's variant</div>
+						<div className={`generalText ${styles.text}`}>{t('account.AvatarVariantMessage')}</div>
 						<div className={styles.variantButtons}>
 							{variants.map((variant, i) => (
 								<Button
@@ -192,18 +193,18 @@ export const Account = ({ user }) => {
 						</div>
 					</div>
 					<div className={styles.avatarSettings}>
-						<div className={`generalText ${styles.text}`}>Change your avatar's colors</div>
+						<div className={`generalText ${styles.text}`}>{t('account.AvatarColorsMessage')}</div>
 						<div className={styles.colorsButtons}>
 							<div>
 								<Button
 									buttonStyle="elevated"
-									text="new colors!"
+									text={t('account.NewColors')}
 									onClick={getNewColors}
 									width="140px"
 								/>
 								<Button
 									buttonStyle="elevated"
-									text="Reset"
+									text={t('account.Reset')}
 									onClick={() => setAvatar_colors(user.avatar_colors)}
 									width="140px"
 								/>
@@ -226,12 +227,12 @@ export const Account = ({ user }) => {
 				/>
 			</div>
 			<div className={styles.languageWrapper}>
-				<div className={`generalText ${styles.text}`}>Language</div>
+				<div className={`generalText ${styles.text}`}>{t('account.Language')}</div>
 				<LanguagePicker user={user} />
 			</div>
 			<div className={styles.credentials}>
 				<div className={styles.fieldWrapper}>
-					<div className={`generalText ${styles.text}`}>Username</div>
+					<div className={`generalText ${styles.text}`}>{t('auth.creds.email')}</div>
 					<Textfield
 						fieldStyle="filled"
 						fieldType="text"
@@ -245,7 +246,7 @@ export const Account = ({ user }) => {
 					/>
 				</div>
 				<div className={styles.fieldWrapper}>
-					<div className={`generalText ${styles.text}`}>Password</div>
+					<div className={`generalText ${styles.text}`}>{t('auth.creds.password')}</div>
 					<Textfield
 						fieldStyle="filled"
 						fieldType="password"
@@ -260,7 +261,7 @@ export const Account = ({ user }) => {
 				</div>
 				{password !== '' && (
 					<div className={styles.fieldWrapper}>
-						<div className={`generalText ${styles.text}`}>Confirm password</div>
+						<div className={`generalText ${styles.text}`}>{t('auth.signupPage.confirmPassword')}</div>
 						<Textfield
 							fieldStyle="filled"
 							fieldType="password"
@@ -275,8 +276,7 @@ export const Account = ({ user }) => {
 						/>
 						{credError && (
 							<div className={styles.errorMessage}>
-								{/* {passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')} */}
-								{passwordsDifferent ? 'passwords are diff' : 'wrong creds'}
+								{passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')}
 							</div>
 						)}
 					</div>
@@ -285,7 +285,7 @@ export const Account = ({ user }) => {
 			<div className={styles.saveDelete}>
 				<Button
 					buttonStyle="filled"
-					text="Save changes"
+					text={t('account.SaveChanges')}
 					onClick={saveChanges}
 					width="200px"
 					addclass={!modifiedRef.current && styles.disabled}
@@ -293,7 +293,7 @@ export const Account = ({ user }) => {
 				<hr />
 				<Button
 					buttonStyle="outlined"
-					text="Delete account"
+					text={t('account.DeleteAccount')}
 					onClick={() => setConfirmDelete(true)}
 					width="200px"
 					addclass={styles.deleteAccount}
@@ -302,12 +302,12 @@ export const Account = ({ user }) => {
 			{confirmDelete && (
 				<ActionWarning
 					action="Delete"
-					message={<div>Delete your account forever?</div>}
+					message={<div>{t('account.ConfirmDelete')}</div>}
 					handleOnClick={deleteAccount}
 					handleCancel={() => setConfirmDelete(false)}
 					iconName="MdDeleteOutline"
 				/>
 			)}
 		</div>
-	);
+	)
 };

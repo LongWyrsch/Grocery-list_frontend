@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import styles from './Card.module.css';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+// React
+import React from 'react';
 
+// CSS
+import styles from './Card.module.css';
+
+// components
 import { Textfield } from '../Textfield/Textfield';
 import { Chip } from '../Chip/Chip';
 import { Button } from '../Button/Button';
+import { Checkbox } from '../Checkbox/Checkbox';
 
+// libs
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { t } from 'i18next';
 import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
-import { Checkbox } from '../Checkbox/Checkbox';
 
 export const CardList = ({
 	focusCard,
@@ -94,6 +100,13 @@ export const CardList = ({
 								height="2rem"
 							/>
 						</div>
+						<div className={styles.section}>
+							<Chip
+								fieldStyle="filled"
+								value={row.section}
+								handleChange={(e) => updatefield(index, 'section', e.target.value)}
+							/>
+						</div>
 						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
 							<IoMdClose className={styles.deleteRow} />
 						</div>
@@ -126,16 +139,17 @@ export const CardList = ({
 					height="3.5rem"
 					fontSize="1.5rem"
 				/>
-				<Button buttonStyle="text" text="Close" onClick={updateCard} />
+				<Button buttonStyle="text" text={t('general.Close')} onClick={updateCard} />
 			</div>
 			<div className={styles.recipeNames}>
-				{focusCard[0].recipes.map( (r) => <div>{r}</div>)}
+				{focusCard[0].recipes.map( (r, i) => <div key={i}>{r}</div>)}
 			</div>
 			<div className={styles.colHeaders}>
 				<h4 className={`generalText ${styles.checked}`}> </h4>
-				<h4 className={`generalText ${styles.ingredient}`}>Ingredients</h4>
-				<h4 className={`generalText ${styles.quantity}`}>Quantity</h4>
-				<h4 className={`generalText ${styles.unit}`}>Unit</h4>
+				<h4 className={`generalText ${styles.ingredient}`}>{t('home.Ingredients')}</h4>
+				<h4 className={`generalText ${styles.quantity}`}>{t('home.Quantity')}</h4>
+				<h4 className={`generalText ${styles.unit}`}>{t('home.Unit')}</h4>
+				<h4 className={`generalText ${styles.section}`}>{t('home.Section')}</h4>
 				<div className={styles.deleteRowContainer}></div>
 			</div>
 			<DragDropContext onDragEnd={handleOnDragEnd}>
@@ -151,13 +165,13 @@ export const CardList = ({
 			<div className={`${styles.smallButton} ${styles.addIngredient}`}>
 				<Button
 					buttonStyle="elevated"
-					text="Add ingredient"
+					text={t('home.AddIngredients')}
 					iconInfo={{ iconName: 'BsPlusLg', size: '' }}
 					onClick={addIngredient}
 				/>
 			</div>
 			<div className={`${styles.smallButton} ${styles.deleteCard}`}>
-				<Button buttonStyle="text" text="Delete" onClick={deleteWarning} />
+				<Button buttonStyle="text" text={t('general.Delete')} onClick={deleteWarning} />
 			</div>
 		</div>
 	);

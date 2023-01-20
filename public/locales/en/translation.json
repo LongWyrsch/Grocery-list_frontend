@@ -1,4 +1,9 @@
 {
+    "general": {
+        "Close": "Close",
+        "Delete": "Delete",
+        "Cancel": "Cancel"
+    },
     "auth": {
         "signup": "Sign up",
         "signin": "Sign in",
@@ -25,5 +30,41 @@
         },
         "continueGoogle": "Continue with Google",
         "or": "or"
+    },
+    "home": {
+        "Recipes": "Recipes",
+        "GroceryLists": "Grocery lists",
+        "NewRecipe": "New recipe",
+        "NewList": "New list",
+        "AddIngredients": "Add ingredients",
+        "Ingredients": "Ingredients",
+        "Quantity": "Quantity",
+        "Unit": "Unit",
+        "Section": "Section",
+        "kCal": "kCal",
+        "NewListMessage": "Choose some recipes to add to your list",
+        "Create": "Create"
+    },
+    "cornerAvatar" : {
+        "Account": "Account",
+        "LogOut": "Log out"
+    },
+    "account" : {
+        "AvatarVariantMessage": "Choose your avatar's variant",
+        "AvatarColorsMessage": "Choose your avatar's colors",
+        "NewColors": "New colors!",
+        "Reset": "Reset",
+        "Language": "Language",
+        "SaveChanges": "Save changes",
+        "DeleteAccount": "Delete account",
+        "ConfirmDelete": "Delete your account forever?"
+    },
+    "warnings": {
+        "NetworkTitle": "Network error!",
+        "NetworkMessage": "Please check your connection and reload the browser.",
+        "ServerError": "Server error. Please try again.",
+        "AuthError": "We couldn't identify you. Please sign in again.",
+        "SignedOut": "Signed out",
+        "TryAgain": "Please try signing in again."
     }
 }

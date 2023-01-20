@@ -27,7 +27,7 @@ export const Home = () => {
 
 	const isAuthenticated = user.email || user.google_name ? true : false;
 	
-	const { i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 	
 	useEffect(() => {
 		console.log('Dispatching getUser, getLists, getRecipes')
@@ -45,7 +45,7 @@ export const Home = () => {
 			{isAuthenticated && <Navbar targetPage={targetPage} user={user}/>}
 			{isAuthenticated && !accountPage && <Grid targetPage={targetPage} user={user}/>}
 			{isAuthenticated && accountPage && <Account targetPage={targetPage} user={user}/>}
-			{userAuthError && <ErrorMessage title='Signed out' message='Please try signing in again.'/>}
+			{userAuthError && <ErrorMessage title={t('warnings.SignedOut')} message={t('warning.TryAgain')}/>}
 		</div>
 	);
 };

@@ -1,3 +1,5 @@
+import { t } from "i18next";
+
 export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureAction) => {
 	let response
 	try {
@@ -17,10 +19,10 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 	if (response.status === 200) {
 		return response
 	} else if (response.status === 401) {
-		window.alert('We couldn\' identify you. Please sign in again.');
+		window.alert(t('warnings.AuthError'));
 		window.location.href = 'http://localhost:3001/signin'
 	} else {
 		serverFailureAction();
-		window.alert('Server error. Please try again.');
+		window.alert(t('warnings.ServerError'));
 	}
 };

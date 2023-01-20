@@ -17,12 +17,11 @@ import { MdOutlineLogout } from 'react-icons/md';
 
 // libs
 import Avatar from 'boring-avatars';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 export const CornerAvatar = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch()
-	const { t } = useTranslation();
 
 	dispatch(getUser)
 	const user = useSelector(selectUser);
@@ -71,7 +70,7 @@ export const CornerAvatar = () => {
 			</button>
 			<div className={`${open ? styles.activeMenu : styles.inactiveMenu} ${styles.menu}`} ref={menuRef}>
 				<MenuOption
-					option="Settings"
+					option={t('cornerAvatar.Account')}
 					icon={gearIcon}
 					handleClick={() => {
 						toggleMenu()
@@ -79,7 +78,7 @@ export const CornerAvatar = () => {
 					}}
 				/>
 				<hr />
-				<MenuOption option="Logout" icon={logoutIcon} handleClick={logout} />
+				<MenuOption option={t('cornerAvatar.LogOut')} icon={logoutIcon} handleClick={logout} />
 			</div>
 		</div>
 	);

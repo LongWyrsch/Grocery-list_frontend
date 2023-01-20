@@ -1,4 +1,9 @@
 {
+	"general": {
+        "Close": "Schließen",
+        "Delete": "Löschen",
+        "Cancel": "Abbrechen"
+    },
 	"auth": {
 		"signup": "Registrieren",
 		"signin": "Anmelden",
@@ -25,5 +30,43 @@
 		},
 		"continueGoogle": "Weiter mit Google",
 		"or": "oder"
-	}
+	},
+	"home": {
+        "Recipes": "Rezepte",
+        "GroceryLists": "Einkaufsliste",
+        "NewRecipe": "Neues Rezept",
+        "NewList": "Neue Liste",
+        "AddIngredients": "Zutaten hinzufügen",
+        "Ingredients": "Zutaten",
+        "Quantity": "Menge",
+        "Unit": "Einheit",
+        "Section": "Abschnitt",
+        "kCal": "kCal",
+        "NewListMessage": "Wählen Sie einige Rezepte aus für Ihre Liste",
+		"Create": "Erstellen"
+    },
+    "cornerAvatar" : {
+        "Account": "Konto",
+        "LogOut": "Abmelden"
+    },
+    "account" : {
+        "AvatarVariantMessage": "Wählen Sie die Variante Ihres Avatars",
+        "AvatarColorsMessage": "Wähle die Farben deines Avatars",
+        "NewColors": "Neue Farben!",
+        "Reset": "Zurücksetzen",
+        "Language": "Sprache",
+        "SaveChanges": "Änderungen speichern",
+        "DeleteAccount": "Konto Löschen",
+        "ConfirmDelete": "Ihr Konto für immer löschen?"
+    },
+	"warnings": {
+        "NetworkTitle": "Netzwerkfehler!",
+        "NetworkMessage": "Bitte überprüfen Sie Ihre Verbindung und laden Sie den Browser neu.",
+        "ServerError": "Serverfehler. Bitte versuchen Sie es erneut.",
+        "AuthError": "Wir konnten Sie nicht identifizieren. Bitte melden Sie sich erneut an.",
+        "SignedOut": "Abgemeldet",
+        "TryAgain": "Bitte versuchen Sie erneut, sich anzumelden."
+    }
 }
+
+

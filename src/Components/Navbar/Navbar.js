@@ -1,11 +1,17 @@
+// React
 import React, { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+// CSS
 import styles from './Navbar.module.css';
 
+// components
 import { Button } from '../Button/Button';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
+
+// libs
+import { t } from 'i18next';
 
 export const Navbar = () => {
 	const navigate = useNavigate();
@@ -28,14 +34,14 @@ export const Navbar = () => {
 				</div>
 					<Button
 						buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
-						text="Grocery lists"
+						text={t('home.GroceryLists')}
 						onClick={() => {
 							navigate('/home/lists');
 						}}
 					/>
 					<Button
 						buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
-						text="Recipes"
+						text={t('home.Recipes')}
 						onClick={() => {
 							navigate('/home/recipes');
 						}}
@@ -46,7 +52,7 @@ export const Navbar = () => {
 					{homePage && (
 						<Button
 							buttonStyle="elevated"
-							text="New recipe"
+							text={t('home.NewRecipe')}
 							iconInfo={{
 								iconName: 'BsPlusLg',
 								size: '1rem',
@@ -58,7 +64,7 @@ export const Navbar = () => {
 				<div id="listButton" data-show ref={listButtonRef}>
 					<Button
 						buttonStyle="elevated"
-						text="New list"
+						text={t('home.NewList')}
 						iconInfo={{
 							iconName: 'BsPlusLg',
 							size: '1rem',

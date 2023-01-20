@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React from 'react'
 import { Button } from '../Button/Button'
 import styles from './ActionWarning.module.css'
@@ -8,7 +9,7 @@ export const ActionWarning = ({action, message, handleOnClick, handleCancel, ico
         <div className={`generalText ${styles.message}`}>{message}</div>
           <Button 
               buttonStyle = 'filled'
-              text = 'Cancel'
+              text = {t('general.Cancel')}
               onClick={handleCancel}
               width = '120px'
           />

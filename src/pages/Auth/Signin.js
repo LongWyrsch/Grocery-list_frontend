@@ -1,15 +1,21 @@
+// React
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
+
+// CSS
 import styles from './auth.module.css';
 
+// libs
 import { useTranslation } from 'react-i18next';
 
+// components
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
 import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
-
-import { emailValidation, passwordValidation } from '../../utils/validator';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
+
+// utils
+import { emailValidation, passwordValidation } from '../../utils/validator';
 
 export const Signin = () => {
 	const navigate = useNavigate();
@@ -40,7 +46,7 @@ export const Signin = () => {
 			headers: {'Content-type': 'application/json'},
 			body: JSON.stringify({ email: process.env.REACT_APP_ADMINEMAIL, password: process.env.REACT_APP_ADMINPASSWORD }),
 		})
-		if (response.status===401) window.alert('Server error')
+		if (response.status===401) window.alert(t('warnings.ServerError'))
 		if (response.status===403) setCredError(true)
 		if (response.status===200) navigate('/home/recipes', { state: null, replace: true })
 	}
@@ -67,7 +73,7 @@ export const Signin = () => {
 			// We convert the React state to JSON and send it as the POST body
 			body: JSON.stringify({ email: email, password: password }),
 		})
-		if (response.status===401) window.alert('Server error')
+		if (response.status===401) window.alert(t('warnings.ServerError'))
 		if (response.status===403) setCredError(true)
 		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
 	};

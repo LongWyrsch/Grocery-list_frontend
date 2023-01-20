@@ -89,7 +89,7 @@ export const Signup = ({user}) => {
 		} else if (response.status === 403) {
 			setCredError(true);
 		} else {
-			window.alert('Server error');
+			window.alert(t('warnings.ServerError'));
 		}
 	};
 
