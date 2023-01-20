@@ -1,13 +1,24 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
+import { getKcal } from '../../../utils/getKcal';
 //Middleware fetches all recipes before saving it to the store
 export const getRecipes = createAsyncThunk('recipes/getRecipes', async (thunkAPI) => {
 	const response = await fetch('http://localhost:3000/recipes', {
 		method: 'GET',
 		credentials: 'include',
 	});
-	const json = await response.json();
-	return json;
+	const recipes = await response.json();
+
+	const asyncRecipes = await recipes.map(async(recipe) => {
+		let asyncRows = recipe.map(async(row) => {
+			const kcal = await getKcal(row.ingredient, row.quantity, row.unit)
+			return row.kcal ? row : { ...row, kcal: kcal };
+		});
+		return await Promise.all(asyncRows)
+	});
+
+	const updatedRecipes = await Promise.all(asyncRecipes)
+
+	return updatedRecipes;
 });
 
 const recipesSlice = createSlice({
@@ -40,8 +51,8 @@ const recipesSlice = createSlice({
 			state.recipes = updatedRecipes;
 		},
 		clearRecipes: (state) => {
-			state.recipes = []
-		}
+			state.recipes = [];
+		},
 	},
 	extraReducers: {
 		[getRecipes.pending]: (state, action) => {

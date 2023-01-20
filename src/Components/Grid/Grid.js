@@ -39,6 +39,7 @@ import { adjustCardHeight } from '../../utils/adjustCardHeight';
 import { generateLayouts } from '../../utils/generateLayouts';
 import { ErrorMessage } from '../../pages/Error/ErrorMessage';
 import { checkDimension } from '../../utils/checkDimension';
+import { getKcal } from '../../utils/getKcal';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -71,8 +72,8 @@ export const Grid = ({ targetPage, user }) => {
 		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
 
 		// Check if any cards have 1x1 dimensions. If so, clear the object = {}.
-		if (targetLayouts) targetLayouts = checkDimension(targetLayouts)
-		
+		if (targetLayouts) targetLayouts = checkDimension(targetLayouts);
+
 		if (targetLayouts && Object.keys(targetLayouts).length === 0) {
 			// If empty object, generate layouts
 			layoutsRef.current = generateLayouts(cardsRef.current);
@@ -158,9 +159,9 @@ export const Grid = ({ targetPage, user }) => {
 		setFocusCard(newCard); // Open newly create card for editing
 
 		const failureAction = () => setFocusCard(null);
-		console.log('createRecipes, tagerPage: ', targetPage)
+		console.log('createRecipes, tagerPage: ', targetPage);
 		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
-	}
+	};
 
 	const createList = async () => {
 		console.log('createList called');
@@ -180,7 +181,7 @@ export const Grid = ({ targetPage, user }) => {
 			'/signin',
 			() => {}
 		);
-		
+
 		const card_uuid = uuidv4();
 		let newCard = response.map((row, index) => ({
 			...row,
@@ -387,7 +388,8 @@ export const Grid = ({ targetPage, user }) => {
 	}, [settingNewList]);
 
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
-	const createMiniCard = (card) => (
+	const createMiniCard = (card) => {
+		return (
 		<div key={card[0].card_uuid}>
 			{targetPage === 'recipes' ? (
 				<MiniCardRecipe card={card} focusOnCard={focusOnCard} />
@@ -395,7 +397,8 @@ export const Grid = ({ targetPage, user }) => {
 				<MiniCardList card={card} focusOnCard={focusOnCard} />
 			)}
 		</div>
-	);
+		
+	)}
 
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
@@ -437,8 +440,8 @@ export const Grid = ({ targetPage, user }) => {
 			<div className={styles.blur} data-show={focusCard || newList ? true : false} onClick={updateCard}>
 				{focusCard && targetPage === 'recipes' && (
 					<CardRecipe
-						recipe={focusCard}
-						setRecipe={setFocusCard}
+						focusCard={focusCard}
+						setFocusCard={setFocusCard}
 						updateTitle={updateTitle}
 						updateCard={updateCard}
 						addIngredient={addIngredient}
