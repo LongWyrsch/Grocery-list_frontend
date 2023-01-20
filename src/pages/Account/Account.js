@@ -172,7 +172,7 @@ export const Account = ({ user }) => {
 					buttonStyle="filled"
 					text={t('account.SaveChanges')}
 					onClick={saveChanges}
-					width="200px"
+					// width="	200px"
 					addclass={!modifiedRef.current && styles.disabled}
 				/>
 			</div>
@@ -200,13 +200,13 @@ export const Account = ({ user }) => {
 									buttonStyle="elevated"
 									text={t('account.NewColors')}
 									onClick={getNewColors}
-									width="140px"
+									// width="140px"
 								/>
 								<Button
 									buttonStyle="elevated"
 									text={t('account.Reset')}
 									onClick={() => setAvatar_colors(user.avatar_colors)}
-									width="140px"
+									// width="140px"
 								/>
 							</div>
 							<div className={styles.palette}>
@@ -287,7 +287,7 @@ export const Account = ({ user }) => {
 					buttonStyle="filled"
 					text={t('account.SaveChanges')}
 					onClick={saveChanges}
-					width="200px"
+					// width="200px"
 					addclass={!modifiedRef.current && styles.disabled}
 				/>
 				<hr />

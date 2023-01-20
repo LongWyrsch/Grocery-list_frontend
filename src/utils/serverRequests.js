@@ -17,7 +17,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 		serverFailureAction();
 	} 
 	if (response.status === 200) {
-		return response
+		try {return response.json()} catch(e) { return }
 	} else if (response.status === 401) {
 		window.alert(t('warnings.AuthError'));
 		window.location.href = 'http://localhost:3001/signin'

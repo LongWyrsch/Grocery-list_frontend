@@ -131,12 +131,13 @@ export const CardRecipe = ({ recipe, setRecipe, updateTitle, updateCard, addIngr
 				{fieldArray.map((field, i) => field)}
 			</div> */}
 			<div className={styles.colHeaders}>
+				<h4 className={`generalText ${styles.handleHeader}`}>{t('home.Ingredients')}</h4>
 				<h4 className={`generalText ${styles.ingredient}`}>{t('home.Ingredients')}</h4>
 				<h4 className={`generalText ${styles.quantity}`}>{t('home.Quantity')}</h4>
 				<h4 className={`generalText ${styles.unit}`}>{t('home.Unit')}</h4>
 				<h4 className={`generalText ${styles.section}`}>{t('home.Section')}</h4>
 				<h4 className={`generalText ${styles.kcal}`}>{t('home.kCal')}</h4>
-				<div className={styles.deleteRowContainer}></div>
+				<div className={styles.deleteRowHeader}></div>
 			</div>
 			<DragDropContext onDragEnd={handleOnDragEnd}>
 				<Droppable droppableId="ingredientRows">

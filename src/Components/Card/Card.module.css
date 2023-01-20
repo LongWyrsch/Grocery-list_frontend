@@ -50,6 +50,14 @@
     margin-top: 20px;
 }
 
+.handleHeader {
+    width: 1rem;
+}
+
+.deleteRowHeader {
+    width: 2rem;
+}
+
 .handleIcon {
     visibility:hidden;
 }

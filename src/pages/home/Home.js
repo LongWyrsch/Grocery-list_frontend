@@ -32,8 +32,12 @@ export const Home = () => {
 	useEffect(() => {
 		console.log('Dispatching getUser, getLists, getRecipes')
 		dispatch(getUser());
-		i18n.changeLanguage(user.language);
 	}, [dispatch]);
+	
+	useEffect(() => { 
+		console.log(user.language)
+		i18n.changeLanguage(user.language);
+	 }, [user.language])
 
 	let { targetPage } = useParams();
 	let accountPage = targetPage === 'account'
@@ -45,7 +49,7 @@ export const Home = () => {
 			{isAuthenticated && <Navbar targetPage={targetPage} user={user}/>}
 			{isAuthenticated && !accountPage && <Grid targetPage={targetPage} user={user}/>}
 			{isAuthenticated && accountPage && <Account targetPage={targetPage} user={user}/>}
-			{userAuthError && <ErrorMessage title={t('warnings.SignedOut')} message={t('warning.TryAgain')}/>}
+			{userAuthError && <ErrorMessage title={t('warnings.SignedOut')} message={t('warnings.TryAgain')}/>}
 		</div>
 	);
 };

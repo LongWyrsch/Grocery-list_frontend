@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
 
 // Other libs
 import { v4 as uuidv4 } from 'uuid';
-import { t } from 'i18next'
+import { t } from 'i18next';
 
 // react-grid-layout
 import { WidthProvider, Responsive } from 'react-grid-layout';
@@ -38,6 +38,7 @@ import { queueTask } from '../../utils/queueTask';
 import { adjustCardHeight } from '../../utils/adjustCardHeight';
 import { generateLayouts } from '../../utils/generateLayouts';
 import { ErrorMessage } from '../../pages/Error/ErrorMessage';
+import { checkDimension } from '../../utils/checkDimension';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -67,7 +68,11 @@ export const Grid = ({ targetPage, user }) => {
 	// "cards" is used to abstract from recipes or lists.
 	if (targetPage && Array.isArray(recipes) && Array.isArray(lists) && user) {
 		cardsRef.current = targetPage === 'recipes' ? recipes : lists;
-		const targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
+		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
+
+		// Check if any cards have 1x1 dimensions. If so, clear the object = {}.
+		if (targetLayouts) targetLayouts = checkDimension(targetLayouts)
+		
 		if (targetLayouts && Object.keys(targetLayouts).length === 0) {
 			// If empty object, generate layouts
 			layoutsRef.current = generateLayouts(cardsRef.current);
@@ -94,7 +99,9 @@ export const Grid = ({ targetPage, user }) => {
 		setShowWarning(false);
 	};
 
-	const settingNewList = () => {
+	const settingNewList = useCallback(() => {
+		console.log('settingNewList called');
+		console.log('within settingNewList, recipes: ', recipes);
 		setNewList(
 			recipes.map((recipe) => ({
 				card_uuid: recipe[0].card_uuid,
@@ -102,7 +109,7 @@ export const Grid = ({ targetPage, user }) => {
 				checked: false,
 			}))
 		);
-	};
+	}, [recipes]);
 
 	const createRecipe = () => {
 		console.log('createCard called');
@@ -151,10 +158,11 @@ export const Grid = ({ targetPage, user }) => {
 		setFocusCard(newCard); // Open newly create card for editing
 
 		const failureAction = () => setFocusCard(null);
+		console.log('createRecipes, tagerPage: ', targetPage)
 		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
-	};
+	}
 
-	const createList = async (first) => {
+	const createList = async () => {
 		console.log('createList called');
 
 		if (newList.length === 0) {
@@ -172,11 +180,9 @@ export const Grid = ({ targetPage, user }) => {
 			'/signin',
 			() => {}
 		);
-
+		
 		const card_uuid = uuidv4();
-
-		// uuid card_uuid title index     checked recipes last_modified
-		let newCard = response.json().map((row, index) => ({
+		let newCard = response.map((row, index) => ({
 			...row,
 			uuid: uuidv4(),
 			card_uuid: card_uuid,
@@ -366,17 +372,19 @@ export const Grid = ({ targetPage, user }) => {
 	};
 
 	useEffect(() => {
-		console.log('useEffect');
-
+		console.log('useEffect to dispatch');
 		dispatch(getLists());
 		dispatch(getRecipes());
+	}, []);
 
+	useEffect(() => {
+		console.log('useEffect to bind add button');
 		const recipeButton = document.querySelector('#recipeButton>Button');
 		recipeButton.onclick = createRecipe;
 
 		const listButton = document.querySelector('#listButton>button');
 		listButton.onclick = settingNewList;
-	}, []);
+	}, [settingNewList]);
 
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
 	const createMiniCard = (card) => (
@@ -394,9 +402,16 @@ export const Grid = ({ targetPage, user }) => {
 			{showWarning && (
 				<ActionWarning
 					action={t('general.Delete')}
-					message={ user.language === 'DE'
-							? <div><b>{focusCard[0].title}</b> {t('general.Delete')} ?</div>
-							: <div>{t('general.Delete')} <b>{focusCard[0].title}</b> ?</div>
+					message={
+						user.language === 'DE' ? (
+							<div>
+								<b>{focusCard[0].title}</b> {t('general.Delete')} ?
+							</div>
+						) : (
+							<div>
+								{t('general.Delete')} <b>{focusCard[0].title}</b> ?
+							</div>
+						)
 					}
 					handleOnClick={() => deleteCard(focusCard[0].card_uuid)}
 					handleCancel={() => setShowWarning(false)}
