@@ -60,7 +60,7 @@ export const Signin = () => {
 		// User input was validated. Call server.
 		const response = await fetch('http://localhost:3000/auth/local/signin', {
 			method: 'POST',
-			// credentials: 'include',
+			credentials: 'include',
 			headers: {
 				'Content-type': 'application/json'
 			},

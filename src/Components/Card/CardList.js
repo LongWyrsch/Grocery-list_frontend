@@ -129,10 +129,10 @@ export const CardList = ({
 				<Button buttonStyle="text" text="Close" onClick={updateCard} />
 			</div>
 			<div className={styles.recipeNames}>
-				{focusCard[0].recipes.map( r => <div>{r}</div>)}
+				{focusCard[0].recipes.map( (r) => <div>{r}</div>)}
 			</div>
 			<div className={styles.colHeaders}>
-				<h4 className={`generalText ${styles.checked}`}></h4>
+				<h4 className={`generalText ${styles.checked}`}> </h4>
 				<h4 className={`generalText ${styles.ingredient}`}>Ingredients</h4>
 				<h4 className={`generalText ${styles.quantity}`}>Quantity</h4>
 				<h4 className={`generalText ${styles.unit}`}>Unit</h4>

@@ -40,11 +40,9 @@ import { ErrorMessage } from '../../pages/Error/ErrorMessage';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const Grid = (props) => {
+export const Grid = ({ targetPage, user }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	let { targetPage } = useParams();
-	const user = useSelector(selectUser);
 	const recipes = useSelector(selectRecipes); //Hook 3
 	const lists = useSelector(selectLists);
 
@@ -66,11 +64,10 @@ export const Grid = (props) => {
 	//     - Slice value of user, recipes or lists might have changed
 	// Also, check recipes and lists since they might be empty in the first renders while data is being fetched.
 	// "cards" is used to abstract from recipes or lists.
-	console.log('rendering');
 	if (targetPage && Array.isArray(recipes) && Array.isArray(lists) && user) {
 		cardsRef.current = targetPage === 'recipes' ? recipes : lists;
 		const targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
-		if (Object.keys(targetLayouts).length === 0) {
+		if (targetLayouts && Object.keys(targetLayouts).length === 0) {
 			// If empty object, generate layouts
 			layoutsRef.current = generateLayouts(cardsRef.current);
 		} else {
@@ -97,7 +94,7 @@ export const Grid = (props) => {
 	};
 
 	const settingNewList = () => {
-		console.log('from settingNewList, recipes: ', recipes)
+		console.log('from settingNewList, recipes: ', recipes);
 		setNewList(
 			recipes.map((recipe) => ({
 				card_uuid: recipe[0].card_uuid,
@@ -105,8 +102,8 @@ export const Grid = (props) => {
 				checked: false,
 			}))
 		);
-		console.log('from settingNewList, newList: ', newList)
-	}
+		console.log('from settingNewList, newList: ', newList);
+	};
 
 	const createRecipe = () => {
 		console.log('createCard called');
@@ -155,7 +152,7 @@ export const Grid = (props) => {
 		setFocusCard(newCard); // Open newly create card for editing
 
 		const failureAction = () => setFocusCard(null);
-		serverRequests(`/${targetPage}`, 'PUT', newCard, navigate, '/signin', failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
 	};
 
 	const createList = async (first) => {
@@ -163,24 +160,24 @@ export const Grid = (props) => {
 
 		if (newList.length === 0) {
 			setNewList(null); // Close <NewList/>
-			return
+			return;
 		}
 
-		let selectedRecipes = newList.filter( r => r.checked).map( r => r.card_uuid )
-		const recipeNames = newList.filter( r => r.checked).map((r) => r.title);
+		let selectedRecipes = newList.filter((r) => r.checked).map((r) => r.card_uuid);
+		const recipeNames = newList.filter((r) => r.checked).map((r) => r.title);
 		const response = await serverRequests(
 			'/recipes/join',
 			'POST',
-			{selectedRecipes: selectedRecipes},
+			{ selectedRecipes: selectedRecipes },
 			navigate,
 			'/signin',
 			() => {}
 		);
 
-		const card_uuid = uuidv4()
+		const card_uuid = uuidv4();
 
 		// uuid card_uuid title index     checked recipes last_modified
-		let newCard = response.map((row, index) => ({
+		let newCard = response.json().map((row, index) => ({
 			...row,
 			uuid: uuidv4(),
 			card_uuid: card_uuid,
@@ -205,8 +202,8 @@ export const Grid = (props) => {
 		};
 
 		// Update layouts with new card's grid position
-		console.log('targetPage: ', targetPage)
-		console.log('layoutsRef.current: ', layoutsRef.current)
+		console.log('targetPage: ', targetPage);
+		console.log('layoutsRef.current: ', layoutsRef.current);
 		let updatedLayouts = {};
 		for (const [key, value] of Object.entries(layoutsRef.current)) {
 			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
@@ -216,7 +213,7 @@ export const Grid = (props) => {
 
 		const updatedUser = { ...user, [`layouts_${targetPage}`]: layoutsRef.current };
 
-console.log('updateduser: ', updatedUser)
+		console.log('updateduser: ', updatedUser);
 
 		dispatch(updateUser(updatedUser));
 
@@ -226,7 +223,7 @@ console.log('updateduser: ', updatedUser)
 		setNewList(null); // Close <NewList/>
 
 		const failureAction = () => settingNewList();
-		serverRequests(`/${targetPage}`, 'PUT', newCard, navigate, '/signin', failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
 	};
 
 	const updateTitle = (e) => {
@@ -266,14 +263,7 @@ console.log('updateduser: ', updatedUser)
 
 			const updatedUser = { ...user, [`layouts_${targetPage}`]: updatedLayouts };
 			dispatch(updateUser(updatedUser));
-			serverRequests(
-				'/users',
-				'PUT',
-				updatedUser,
-				navigate,
-				'/signin',
-				() => dispatch(getUser())
-			);
+			serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
 		}
 
 		// Update last_modified column
@@ -281,7 +271,7 @@ console.log('updateduser: ', updatedUser)
 		targetPage === 'recipes' ? dispatch(updateRecipe(updatedCard)) : dispatch(updateList(updatedCard));
 
 		const failureAction = () => setFocusCard(updatedCard);
-		serverRequests(`/${targetPage}`, 'PUT', updatedCard, navigate, '/signin', failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', updatedCard, failureAction);
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {
@@ -365,15 +355,7 @@ console.log('updateduser: ', updatedUser)
 
 		dispatch(updateUser(updatedUser));
 
-		const task = () =>
-			serverRequests(
-				'/users',
-				'PUT',
-				updatedUser,
-				navigate,
-				'/signin',
-				() => dispatch(getUser())
-			);
+		const task = () => serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
 		queueTask(layoutsQueueRef.current, task, 3000);
 	};
 
@@ -385,14 +367,17 @@ console.log('updateduser: ', updatedUser)
 	};
 
 	useEffect(() => {
-		console.log('useEffect, ADDING eventListener');
+		console.log('useEffect');
 
-		const recipeButton = document.querySelector('#recipeButton>Button')
-		recipeButton.onclick = createRecipe
+		dispatch(getLists());
+		dispatch(getRecipes());
 
-		const listButton = document.querySelector('#listButton>button')
-		listButton.onclick = settingNewList 
-	}, [recipes]);
+		const recipeButton = document.querySelector('#recipeButton>Button');
+		recipeButton.onclick = createRecipe;
+
+		const listButton = document.querySelector('#listButton>button');
+		listButton.onclick = settingNewList;
+	}, []);
 
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
 	const createMiniCard = (card) => (
@@ -462,12 +447,17 @@ console.log('updateduser: ', updatedUser)
 					/>
 				)}
 				{newList && targetPage === 'lists' && (
-					<NewList newList={newList} setNewList={setNewList} createList={createList} stopPropagation={stopPropagation}/>
+					<NewList
+						newList={newList}
+						setNewList={setNewList}
+						createList={createList}
+						stopPropagation={stopPropagation}
+					/>
 				)}
 			</div>
-			{targetPage==='error' && 
-				<ErrorMessage title='Network error !' message='Please check your connection and reload the browser.'/>
-			}
+			{targetPage === 'error' && (
+				<ErrorMessage title="Network error !" message="Please check your connection and reload the browser." />
+			)}
 		</div>
 	);
 };

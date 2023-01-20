@@ -1,10 +1,9 @@
 .cardWrapper {
     width: 100%;
-    margin: 5% 20% 10%;
-	/* z-index: 4; */
+    min-width: 500px;
+    max-width: 900px;
     padding: 20px;
-    /* height: 90vh; */
-    /* overflow: hidden; */
+    margin: 0 auto;
 }
 
 .header {
@@ -38,6 +37,7 @@
     background: var(--m3--surfaces--surface1);
     border-radius: 5px;
 }
+
 
 /* Without this, the draggables are offset when dragging while scrolled down */
 .row {

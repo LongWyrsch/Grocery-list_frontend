@@ -14,8 +14,8 @@ export const Navbar = () => {
 	let listButtonRef = useRef();
 
 	useEffect(() => {
-			// recipeButtonRef.current.dataset.show = targetPage === 'recipes' ? true : false;
-			// listButtonRef.current.dataset.show = targetPage === 'lists' ? true : false;
+			recipeButtonRef.current.dataset.show = targetPage === 'recipes' ? true : false;
+			listButtonRef.current.dataset.show = targetPage === 'lists' ? true : false;
 	});
 
 	let homePage = targetPage !== 'account'
@@ -26,7 +26,6 @@ export const Navbar = () => {
 				<div className={styles.imgContainer}>
 					<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 				</div>
-				{homePage && (
 					<Button
 						buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
 						text="Grocery lists"
@@ -34,8 +33,6 @@ export const Navbar = () => {
 							navigate('/home/lists');
 						}}
 					/>
-				)}
-				{homePage && (
 					<Button
 						buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
 						text="Recipes"
@@ -43,7 +40,6 @@ export const Navbar = () => {
 							navigate('/home/recipes');
 						}}
 					/>
-				)}
 			</div>
 			<div className={styles.buttonGroup}>
 				<div id="recipeButton" data-show ref={recipeButtonRef}>

@@ -1,0 +1,135 @@
+.accountWrapper {
+    /* background-color: orange; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    min-width: 500px;
+    /* max-width: 900px; */
+    padding: 5% 10%;
+    overflow: auto;
+}
+
+.avatarSettings,
+.languageWrapper,
+.credentials {
+    border-radius: 12px;
+    padding: 1rem;
+	box-shadow: var(--m3---elevation--2);
+	background: var(--m3--surfaces--surface1);
+	/* transition: background-color var(--transition), border var(--transition); */
+}
+
+.text{
+    font-size: 1.3rem;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ AVATAR ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+
+.avatarWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    -webkit-flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.avatarSettingsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.avatarSettings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.variantButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.colorsButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.colorsButtons > * {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.palette > div {
+    height: 2rem;
+    /* width: 4rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    opacity: 50%;
+    color: hsl(0, 0%, 50%);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ LANGUAGE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+.languageWrapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ EMAIL PASSWORD ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+.credentials {
+    width: 500px;
+}
+
+.fieldWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 5px;
+}
+
+.errorMessage{
+    color: var(--m3--sys--error);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ SAVE DELETE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
+.saveDelete {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+}
+
+.saveDelete > button:nth-child(1){
+    align-self: flex-end;
+}
+
+.saveDelete >hr {
+    width: 100%;
+    color: var(--m3--sys--on-surface);
+}
+
+.disabled{
+    color: var(--m3--sys--on-surface) !important;
+	background: var(--m3--state-layers--on-surface--opacity-012) !important;
+    cursor: default !important;
+}
+
+.deleteAccount {
+    color: var(--m3--sys--error);
+    border: 2px solid var(--m3--sys--error);
+}

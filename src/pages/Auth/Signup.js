@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './auth.module.css';
 
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../features/theme/state/themeSlice';
-
 import { useTranslation } from 'react-i18next';
 
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
@@ -14,9 +11,8 @@ import { Button } from '../../components/Button/Button';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 
-export const Signup = () => {
+export const Signup = ({user}) => {
 	const navigate = useNavigate();
-	const theme = useSelector(selectTheme);
 
 	const { t, i18n } = useTranslation();
 
@@ -65,10 +61,10 @@ export const Signup = () => {
 
 		//If invalid user input, skip server call. Will Rerender with error message.
 		let isInvalid =
-			!checkEmail.error &&
-			!checkPassword.error &&
-			!checkConfirmPassword.error &&
-			checkPassword === checkConfirmPassword;
+			checkEmail.error
+			|| checkPassword.error
+			|| checkConfirmPassword.error
+			|| password !== confirmPassword;
 		if (isInvalid) {
 			setCredError(true);
 			return;
@@ -84,7 +80,7 @@ export const Signup = () => {
 			body: JSON.stringify({
 				email: email,
 				password: password,
-				theme: theme === 'dark',
+				theme: user.theme,
 				language: i18n.language,
 			}),
 		});
@@ -141,36 +137,41 @@ export const Signup = () => {
 					<div className={styles.or}>{t('auth.or')}</div>
 					<hr className={styles.horizontalLine} />
 				</div>
-
 				<Textfield
 					fieldStyle="outlined"
 					label={t('auth.creds.email')}
+					value={email}
 					handleOnChange={handleOnChangeEmail}
 					iconInfo={userIcon}
 					width="100%"
 					validator={emailValidation}
 					payloadKey="email"
+					required={true}
 				/>
 				<Textfield
 					fieldStyle="outlined"
 					fieldType="password"
 					label={t('auth.creds.password')}
+					value={password}
 					handleOnChange={handleOnChangePassword}
 					iconInfo={lockIcon}
 					width="100%"
 					validator={passwordValidation}
 					payloadKey="password"
+					required={true}
 				/>
 				<div style={{ width: '100%' }}>
 					<Textfield
 						fieldStyle="outlined"
 						fieldType="password"
 						label={t('auth.signupPage.confirmPassword')}
+						value={confirmPassword}
 						handleOnChange={handleOnChangeConfirmPassword}
 						iconInfo={lockIcon}
 						width="100%"
 						validator={passwordValidation}
 						payloadKey="password"
+					required={true}
 					/>
 				</div>
 				<div style={{ width: '100%' }}>

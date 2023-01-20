@@ -38,7 +38,7 @@ const userSlice = createSlice({
 				uuid: null,
 				email: null,
 				language: null,
-				theme: 'light',
+				theme: state.user.theme,
 				google_name: null,
 				avatar_variant: null,
 				avatar_colors: null,
@@ -60,20 +60,7 @@ const userSlice = createSlice({
 		[getUser.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-		},
-		// [updateUser.pending]: (state, action) => {
-		// 	state.isLoading = true;
-		// 	state.hasError = false;
-		// },
-		// [updateUser.fulfilled]: (state, action) => {
-		// 	state.isLoading = false;
-		// 	state.hasError = false;
-		// 	state.user = { ...state, ...action.payload };
-		// },
-		// [updateUser.rejected]: (state, action) => {
-		// 	state.isLoading = false;
-		// 	state.hasError = true;
-		// },
+		}
 	},
 });
 

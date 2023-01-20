@@ -1,18 +1,15 @@
 const Joi = require('joi');
 
 const validator = (schema) => (payload) => {
-	return schema.validate(payload, {abortEarly: false});
+	return schema.validate(payload, { abortEarly: false });
 };
 
 const emailSchema = Joi.object({
-	email: Joi.string()
-		.min(6)
-		.required()
-		.messages({
-			// 'string.base': `"email" should be a type of 'text'`,
-			'string.min': `minimum`,
-			// 'any.required': `Username or email is required` 
-		  })
+	email: Joi.string().min(6).required().messages({
+		// 'string.base': `"email" should be a type of 'text'`,
+		'string.min': `minimum`,
+		// 'any.required': `Username or email is required`
+	}),
 });
 
 const passwordSchema = Joi.object({
@@ -25,8 +22,8 @@ const passwordSchema = Joi.object({
 			'string.min': `minimum`,
 			'string.pattern.base': `pattern`,
 			// 'any.required': `Password is required`
-		  })
-})
+		}),
+});
 
 exports.emailValidation = validator(emailSchema);
 exports.passwordValidation = validator(passwordSchema);

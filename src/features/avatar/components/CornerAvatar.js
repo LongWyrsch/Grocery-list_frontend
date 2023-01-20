@@ -24,6 +24,7 @@ export const CornerAvatar = () => {
 	const dispatch = useDispatch()
 	const { t } = useTranslation();
 
+	dispatch(getUser)
 	const user = useSelector(selectUser);
 	const menuRef = useRef();
 	const [open, setOpen] = useState(false);
@@ -46,7 +47,7 @@ export const CornerAvatar = () => {
 		}
 	};
 
-	function openMenu() {
+	function toggleMenu() {
 		setOpen((prev) => !prev);
 	}
 
@@ -60,22 +61,21 @@ export const CornerAvatar = () => {
 
 	return (
 		<div className={styles.dropdownContainer}>
-			<button onClick={openMenu} className={styles.avatar}>
+			<button onClick={toggleMenu} className={styles.avatar}>
 				<Avatar
 					size={40}
-					name={user.email || user.google_name}
+					name= {user.email || user.google_name}
 					variant={user.avatar_variant}
 					colors={user.avatar_colors}
-					// colors={["#92A1C6","#146A7C","#F0AB3D","#C271B4","#C20D90"]}  //{user.avatar_colors}
 				/>
 			</button>
-
 			<div className={`${open ? styles.activeMenu : styles.inactiveMenu} ${styles.menu}`} ref={menuRef}>
 				<MenuOption
 					option="Settings"
 					icon={gearIcon}
 					handleClick={() => {
-						navigate('/account');
+						toggleMenu()
+						navigate('/home/account');
 					}}
 				/>
 				<hr />

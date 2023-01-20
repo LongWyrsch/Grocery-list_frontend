@@ -24,7 +24,7 @@ i18n
     debug: true,
     whitelist: ['DE', 'EN', 'FR'],
     detection: {
-        order: ['queryString', 'cookie'],
+        order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
         cache: ['cookie']
     },
 

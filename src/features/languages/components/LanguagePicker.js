@@ -1,19 +1,37 @@
+// React
 import React, { useState, useEffect, useRef } from 'react';
+
+// Redux
+import { useDispatch } from 'react-redux';
+
+// Css
 import styles from './LanguagePicker.module.css';
+
+// libs
 import { useTranslation } from 'react-i18next';
+
+// React-icons
 import { IconContext } from 'react-icons';
 import { MdTranslate } from 'react-icons/md';
 import { FaChevronDown } from 'react-icons/fa';
+import { updateUser } from '../../user/state/userSlice';
+import { serverRequests } from '../../../utils/serverRequests';
 
-export const LanguagePicker = () => {
-	const [language, setLanguage] = useState('EN');
+export const LanguagePicker = ({user}) => {
+	const dispatch = useDispatch()
+	const { i18n } = useTranslation();
+
+	const [language, setLanguage] = useState(i18n.language.substring(0,2).toUpperCase());
 	const [open, setOpen] = useState(false);
 
-	const { i18n } = useTranslation();
 
 	const pickLanguage = (lang) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
+		if (user) {
+			let updatedUser = {...user, language: lang}
+			dispatch(updateUser(updatedUser))
+		}
 	}
 
     const handleOnClick = () => {

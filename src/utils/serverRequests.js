@@ -1,4 +1,4 @@
-export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, navPath, serverFailureAction) => {
+export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureAction) => {
 	let response
 	try {
 		response = await fetch(`http://localhost:3000${reqPath}`, {
@@ -11,15 +11,14 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, navigate, navP
 			body: JSON.stringify(reqBody),
 		});
 	} catch (error) {
-		navigate('/home/error')
+		window.location.href = 'http://localhost:3001/home/error'
 		serverFailureAction();
 	} 
 	if (response.status === 200) {
-		return response.json()
+		return response
 	} else if (response.status === 401) {
 		window.alert('We couldn\' identify you. Please sign in again.');
-		navigate(navPath);
-		console.log('failed')
+		window.location.href = 'http://localhost:3001/signin'
 	} else {
 		serverFailureAction();
 		window.alert('Server error. Please try again.');

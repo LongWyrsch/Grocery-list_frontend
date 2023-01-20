@@ -9,6 +9,11 @@
     transition: background-color var(--transition);
 }
 
+/* Click on avatar when menu is open closes the menu */
+.dropdownContainer:has(.activeMenu) > button {
+    pointer-events: none;
+}
+
 .menu {
     position: absolute;
     top: 50px;
@@ -21,6 +26,7 @@
     box-shadow: var(--m3---elevation--2);
     border-radius: 4px;
     z-index: 1;
+    transition: 200ms;
 }
 
 .option {
@@ -47,13 +53,11 @@ hr {
 .activeMenu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    top: 50px;
 }
 
 .inactiveMenu {
     opacity: 0;   
     visibility: hidden;
-    transform: translateY(-30px);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    top: 20px
 }

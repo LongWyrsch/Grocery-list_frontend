@@ -21,7 +21,8 @@ export const Textfield = ({
 	validator,
 	payloadKey,
 	textAlign='left',
-	fontSize = '1rem'
+	fontSize = '1rem',
+	required = false
 }) => {
 		
 	const [inputIsInvalid, setInputIsInvalid] = useState(false);
@@ -57,19 +58,19 @@ export const Textfield = ({
 	function validateInput(e) {
 		if (payloadKey) {
 			let { error } = validator({ [payloadKey]: e.target.value });
-			if (error) {
-				if (error.message.includes('pattern')) {
-					setInputErrorMessage(t('auth.signupPage.passwordPattern'))
-				} else if (error.message.includes('empty')) {
-					setInputErrorMessage(t('auth.signupPage.required'))
-				} else if (error.message.includes('minimum')) {
-					setInputErrorMessage(t('auth.signupPage.minimum'))
-				}
+			if (error && error.message.includes('pattern')) {
+				setInputErrorMessage(t('auth.signupPage.passwordPattern'))
 				setInputIsInvalid(true);
-				return;
+			} else if (error && error.message.includes('empty') && required) {
+				setInputErrorMessage(t('auth.signupPage.required'))
+				setInputIsInvalid(true);
+			} else if (error && error.message.includes('minimum') && e.target.value!=='') {
+				setInputErrorMessage(t('auth.signupPage.minimum'))
+				setInputIsInvalid(true);
 			} else {
+				setInputErrorMessage('')
 				setInputIsInvalid(false);
-			}
+			} 
 		}
 		handleOnChange(e);
 	}

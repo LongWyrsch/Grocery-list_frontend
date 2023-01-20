@@ -8,7 +8,6 @@ import styles from './ThemeSwitch.module.css';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, updateUser } from '../../user/state/userSlice';
-// import { selectTheme, toggleTheme } from '../state/themeSlice';
 
 // React-icons
 import { RiMoonClearFill } from 'react-icons/ri';
@@ -25,10 +24,11 @@ export const ThemeSwitch = () => {
 	const toggleTheme = () => user.theme === 'light' ? 'dark' : 'light'
 
 	//Toggle app theme
-	function handleOnClickTheme(e) {
+	function handleToggle(e) {
 		const updatedUser = { ...user, theme: toggleTheme() };
 		dispatch(updateUser(updatedUser));
-		serverRequests('/users', 'PUT', updatedUser, navigate, '/signin', () => {});
+		let isAuthenticated = (user.email || user.google_name) ? true : false;
+		isAuthenticated && serverRequests('/users', 'PUT', updatedUser, () => {});
 	}
 
 	const moonIcon = React.createElement(RiMoonClearFill);
@@ -38,7 +38,7 @@ export const ThemeSwitch = () => {
 
 	return (
 		<div>
-			<button className={styles.switch} onClick={handleOnClickTheme}>
+			<button className={styles.switch} onClick={handleToggle}>
 				<div className={`${themeClass} ${styles.switchCircle}`}>{themeIcon}</div>
 			</button>
 		</div>

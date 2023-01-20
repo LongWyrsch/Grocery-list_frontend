@@ -4,7 +4,7 @@ import * as FCicons from 'react-icons/fc';
 import * as BSicons from 'react-icons/bs';
 import * as MDicons from 'react-icons/md';
 
-export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = ''}) => {
+export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = '', addclass=''}) => {
 	// Add all imported React-icons library here.
 	const ReactIcons = { ...FCicons, ...BSicons, ...MDicons};
 
@@ -30,16 +30,16 @@ export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: 
 	let setUpClassNames;
 	switch (buttonStyle) {
 		case 'filled':
-			setUpClassNames = `${styles.button} ${styles.filled}`;
+			setUpClassNames = `${styles.button} ${styles.filled} ${addclass}`;
 			break;
 		case 'outlined':
-			setUpClassNames = `${styles.button} ${styles.outlined}`;
+			setUpClassNames = `${styles.button} ${styles.outlined} ${addclass}`;
 			break;
 		case 'text':
-			setUpClassNames = `${styles.button} ${styles.text}`;
+			setUpClassNames = `${styles.button} ${styles.text} ${addclass}`;
 			break;
 		default:
-			setUpClassNames = `${styles.button} ${styles.elevated}`;
+			setUpClassNames = `${styles.button} ${styles.elevated} ${addclass}`;
 			break;
 	}
 
