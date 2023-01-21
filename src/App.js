@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from './features/user/state/userSlice';
 
 import { Home } from './pages/Home/Home';
+import { HomeDemo } from './pages/Home/HomeDemo';
 import { Signin } from './pages/Auth/Signin';
 import { Signup } from './pages/Auth/Signup';
 import { Termsofservices } from './pages/termsofservices/Termsofservices';
@@ -22,6 +23,7 @@ function App() {
 					<Route path="/signin" element={<Signin />} />
 					<Route path="/signup" element={<Signup user={user}/>} />
 					<Route path="/home/:targetPage" element={<Home />} />
+					<Route path="/demo/:targetPage" element={<HomeDemo />} />
 					<Route path="/tos" element={<Termsofservices />} />
 					<Route path="/error" element={<ErrorMessage />} />
 				</Routes>

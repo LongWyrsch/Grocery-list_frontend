@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { listsDemo } from './listsDemo'
 
 //Middleware fetches all lists before saving it to the store
 export const getLists = createAsyncThunk('lists/getLists', async (thunkAPI) => {
@@ -38,7 +39,10 @@ const listsSlice = createSlice({
 		},
 		clearLists: (state) => {
 			state.lists = []
-		}
+		},
+		initializeListsDemo: (state) => { 
+			state.lists = listsDemo
+		 }
 	},
 	extraReducers: {
 		[getLists.pending]: (state, action) => {
@@ -59,5 +63,5 @@ const listsSlice = createSlice({
 
 export const selectLists = (state) => state.lists.lists;
 export const isLoadingLists = (state) => state.lists.isLoading;
-export const { deleteList, updateList, addList, clearLists } = listsSlice.actions;
+export const { deleteList, updateList, addList, clearLists, initializeListsDemo } = listsSlice.actions;
 export default listsSlice.reducer;

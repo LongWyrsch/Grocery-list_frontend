@@ -65,7 +65,7 @@
         "ServerError": "Serverfehler. Bitte versuchen Sie es erneut.",
         "AuthError": "Wir konnten Sie nicht identifizieren. Bitte melden Sie sich erneut an.",
         "SignedOut": "Abgemeldet",
-        "TryAgain": "Bitte versuchen Sie erneut, sich anzumelden."
+        "TryAgain": "Bitte versuchen Sie erneut, sich anzumelden.",
     }
 }
 

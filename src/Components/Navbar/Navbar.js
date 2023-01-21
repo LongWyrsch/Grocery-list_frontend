@@ -13,9 +13,8 @@ import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 // libs
 import { t } from 'i18next';
 
-export const Navbar = () => {
+export const Navbar = ({targetPage, user}) => {
 	const navigate = useNavigate();
-	let { targetPage } = useParams();
 	let recipeButtonRef = useRef();
 	let listButtonRef = useRef();
 
@@ -26,6 +25,9 @@ export const Navbar = () => {
 
 	let homePage = targetPage !== 'account';
 
+	// Check if demo account is being used
+	let path = user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633' ? 'demo' : 'home'
+
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.buttonGroup}>
@@ -33,9 +35,9 @@ export const Navbar = () => {
 					<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 				</div>
 				<div className={styles.tabs}>
-					<div className={`${styles.tabLists} ${targetPage==='lists' && styles.activeTab}`} onClick={() => {navigate('/home/lists')}}>
+					<div className={`${styles.tabLists} ${targetPage==='lists' && styles.activeTab}`} onClick={() => {navigate(`/${path}/lists`)}}>
 						<svg preserveAspectRatio="none" viewBox="0 0 37 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g id="tab" clip-path="url(#clip0_53299_28585)">
+							<g id="tab">
 								<path
 									id="tabPath"
 									d="M9 0C4.73077 -0.000487574 4.26923 9.00049 0 9.00049H37C32.7308 9.00049 32.2692 0.000488449 28 0.000488449L9 0Z"
@@ -44,9 +46,9 @@ export const Navbar = () => {
 						</svg>
 						<p>{t('home.GroceryLists')}</p>
 					</div>
-					<div className={`${styles.tabRecipes} ${targetPage==='recipes' && styles.activeTab}`} onClick={() => {navigate('/home/recipes')}}>
+					<div className={`${styles.tabRecipes} ${targetPage==='recipes' && styles.activeTab}`} onClick={() => {navigate(`/${path}/recipes`)}}>
 						<svg preserveAspectRatio="none" viewBox="0 0 37 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g id="tab" clip-path="url(#clip0_53299_28585)">
+							<g id="tab">
 								<path
 									id="tabPath"
 									d="M9 0C4.73077 -0.000487574 4.26923 9.00049 0 9.00049H37C32.7308 9.00049 32.2692 0.000488449 28 0.000488449L9 0Z"
@@ -87,7 +89,7 @@ export const Navbar = () => {
 			</div>
 			<div className={styles.buttonGroup} style={{ justifyContent: 'right' }}>
 				<ThemeSwitch />
-				<CornerAvatar />
+				<CornerAvatar user={user}/>
 			</div>
 		</div>
 	);

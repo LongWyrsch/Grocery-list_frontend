@@ -19,12 +19,10 @@ import { MdOutlineLogout } from 'react-icons/md';
 import Avatar from 'boring-avatars';
 import { t } from 'i18next';
 
-export const CornerAvatar = () => {
+export const CornerAvatar = ({user}) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch()
 
-	dispatch(getUser)
-	const user = useSelector(selectUser);
 	const menuRef = useRef();
 	const [open, setOpen] = useState(false);
 
@@ -32,6 +30,12 @@ export const CornerAvatar = () => {
 	const logoutIcon = React.createElement(MdOutlineLogout);
 
 	const logout = async () => {
+		// If demo account, return to homepage
+		if (user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633') {
+			navigate('/')
+			return
+		}
+
 		let response = await fetch('http://localhost:3000/users/logout', {
 			method: 'GET',
 			credentials: 'include',
@@ -74,7 +78,11 @@ export const CornerAvatar = () => {
 					icon={gearIcon}
 					handleClick={() => {
 						toggleMenu()
-						navigate('/home/account');
+						if (user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633') {
+							navigate('/demo/account')
+						} else {
+							navigate('/home/account');
+						}
 					}}
 				/>
 				<hr />

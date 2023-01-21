@@ -1,0 +1,222 @@
+export const layoutsListsDemo = {
+    "lg": [
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 0,
+            "i": "7baacff4-a4d2-4bab-baf4-328708709ba3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 2,
+            "y": 0,
+            "i": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 4,
+            "y": 0,
+            "i": "3e6a2e85-c202-44fd-a466-561f9cd5e5d0",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        }
+    ],
+    "md": [
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 0,
+            "i": "7baacff4-a4d2-4bab-baf4-328708709ba3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 5,
+            "y": 0,
+            "i": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 3,
+            "y": 0,
+            "i": "3e6a2e85-c202-44fd-a466-561f9cd5e5d0",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        }
+    ],
+    "sm": [
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 0,
+            "i": "7baacff4-a4d2-4bab-baf4-328708709ba3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 4,
+            "y": 0,
+            "i": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 2,
+            "y": 0,
+            "i": "3e6a2e85-c202-44fd-a466-561f9cd5e5d0",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        }
+    ],
+    "xs": [
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 0,
+            "i": "7baacff4-a4d2-4bab-baf4-328708709ba3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 2,
+            "y": 0,
+            "i": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 5,
+            "i": "3e6a2e85-c202-44fd-a466-561f9cd5e5d0",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        }
+    ],
+    "xxs": [
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 0,
+            "i": "7baacff4-a4d2-4bab-baf4-328708709ba3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 5,
+            "i": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        },
+        {
+            "w": 2,
+            "h": 5,
+            "x": 0,
+            "y": 10,
+            "i": "3e6a2e85-c202-44fd-a466-561f9cd5e5d0",
+            "minW": 2,
+            "maxW": 2,
+            "minH": 2,
+            "maxH": 5,
+            "moved": false,
+            "static": false,
+            "isBounded": true
+        }
+    ]
+}

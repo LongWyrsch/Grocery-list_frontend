@@ -13,18 +13,24 @@ import '/node_modules/react-resizable/css/styles.css';
 
 // CSS
 import styles from './Grid.module.css';
-import './cardShadow.css'
+import './cardShadow.css';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, getUser, updateUser } from '../../features/user/state/userSlice';
-import { selectLists, getLists, updateList, deleteList, addList } from '../../features/lists/state/listsSlice';
+import { selectUser, updateUser } from '../../features/user/state/userSlice';
+import {
+	selectLists,
+	updateList,
+	deleteList,
+	addList,
+	initializeListsDemo,
+} from '../../features/lists/state/listsSlice';
 import {
 	selectRecipes,
-	getRecipes,
 	updateRecipe,
 	deleteRecipe,
 	addRecipe,
+	initializeRecipesDemo,
 } from '../../features/recipes/state/recipesSlice';
 
 // Components
@@ -44,9 +50,12 @@ import { ErrorMessage } from '../../pages/Error/ErrorMessage';
 import { checkDimension } from '../../utils/checkDimension';
 import { getKcal } from '../../utils/getKcal';
 
+// demo
+import { groupBy } from '../../utils/groupBy';
+
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const Grid = ({ targetPage, user }) => {
+export const GridDemo = ({ targetPage, user }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const recipes = useSelector(selectRecipes); //Hook 3
@@ -65,8 +74,8 @@ export const Grid = ({ targetPage, user }) => {
 	let cardsRef = useRef([]);
 	let layoutsRef = useRef({});
 
-	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR'
-	let dateOptions ={ year: "numeric", month: "short", day: "numeric" }
+	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR';
+	let dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
 
 	// On reach render, update cards and layouts because:
 	//     - User might have toggled between lists or recipes
@@ -75,7 +84,7 @@ export const Grid = ({ targetPage, user }) => {
 	// "cards" is used to abstract from recipes or lists.
 	if (targetPage && Array.isArray(recipes) && Array.isArray(lists) && user) {
 		cardsRef.current = targetPage === 'recipes' ? recipes : lists;
-		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
+		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists; 
 
 		// Check if any cards have 1x1 dimensions. If so, clear the object = {}.
 		if (targetLayouts) targetLayouts = checkDimension(targetLayouts);
@@ -163,9 +172,6 @@ export const Grid = ({ targetPage, user }) => {
 		dispatch(addRecipe(newCard));
 
 		setFocusCard(newCard); // Open newly create card for editing
-
-		const failureAction = () => setFocusCard(null);
-		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
 	};
 
 	const createList = async () => {
@@ -178,14 +184,10 @@ export const Grid = ({ targetPage, user }) => {
 
 		let selectedRecipes = newList.filter((r) => r.checked).map((r) => r.card_uuid);
 		const recipeNames = newList.filter((r) => r.checked).map((r) => r.title);
-		const response = await serverRequests(
-			'/recipes/join',
-			'POST',
-			{ selectedRecipes: selectedRecipes },
-			navigate,
-			'/signin',
-			() => {}
-			);
+
+		// List of ingredients grouped and sumed by quantity
+		let chosenRecipes = recipes.filter((recipe) => selectedRecipes.includes(recipe[0].card_uuid) )
+		const response = groupBy(chosenRecipes)
 
 		const card_uuid = uuidv4();
 		let newCard = response.map((row, index) => ({
@@ -213,6 +215,8 @@ export const Grid = ({ targetPage, user }) => {
 		};
 
 		// Update layouts with new card's grid position
+		console.log('targetPage: ', targetPage);
+		console.log('layoutsRef.current: ', layoutsRef.current);
 		let updatedLayouts = {};
 		for (const [key, value] of Object.entries(layoutsRef.current)) {
 			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
@@ -222,17 +226,12 @@ export const Grid = ({ targetPage, user }) => {
 
 		const updatedUser = { ...user, [`layouts_${targetPage}`]: layoutsRef.current };
 
-		console.log('updateduser: ', updatedUser);
-
 		dispatch(updateUser(updatedUser));
 
 		dispatch(addList(newCard));
 
 		setFocusCard(newCard); // Open newly create card for editing
 		setNewList(null); // Close <NewList/>
-
-		const failureAction = () => settingNewList();
-		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
 	};
 
 	const updateTitle = (e) => {
@@ -272,7 +271,6 @@ export const Grid = ({ targetPage, user }) => {
 
 			const updatedUser = { ...user, [`layouts_${targetPage}`]: updatedLayouts };
 			dispatch(updateUser(updatedUser));
-			serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
 		}
 
 		// Update last_modified column
@@ -280,30 +278,11 @@ export const Grid = ({ targetPage, user }) => {
 		targetPage === 'recipes' ? dispatch(updateRecipe(updatedCard)) : dispatch(updateList(updatedCard));
 
 		// Fetch kcal from USDA API before sending to database
-		if (targetPage==='recipes') {
-			let promiseUpdatedCard = updatedCard.map(async(row) => {
-				const kcal = await getKcal(row.ingredient, row.quantity, row.unit)
-				return row.kcal ? row : { ...row, kcal: kcal };
-			});
-			updatedCard = await Promise.all(promiseUpdatedCard) // return await Promise.all(promiseUpdatedCard)
-		}
-
-		// Send card to database
-		const failureAction = () => setFocusCard(updatedCard);
-		serverRequests(`/${targetPage}`, 'PUT', updatedCard, failureAction);
-
-		// If some rows were delete, update database
-		if (deletedRowsRef.current.length > 0) {
-			serverRequests(
-				`/${targetPage}`,
-				'DELETE',
-				{ row_uuid: deletedRowsRef.current, card_uuid: null },
-				navigate,
-				'/signin',
-				failureAction
-			);
-			deletedRowsRef.current.length = 0; // clear array
-		}
+		let promiseUpdatedCard = updatedCard.map(async (row) => {
+			const kcal = await getKcal(row.ingredient, row.quantity, row.unit);
+			return row.kcal ? row : { ...row, kcal: kcal };
+		});
+		updatedCard = await Promise.all(promiseUpdatedCard); // return await Promise.all(promiseUpdatedCard)
 
 		closeCard();
 	};
@@ -312,18 +291,6 @@ export const Grid = ({ targetPage, user }) => {
 		console.log('deleteCard called');
 
 		targetPage === 'recipes' ? dispatch(deleteRecipe(card_uuid)) : dispatch(deleteList(card_uuid));
-
-		// Wrap dispatch in arrow function, otherwise they will trigger automatically
-		const failureAction = targetPage === 'recipes' ? () => dispatch(getRecipes()) : () => dispatch(getLists());
-
-		serverRequests(
-			`/${targetPage}`,
-			'DELETE',
-			{ row_uuid: null, card_uuid: card_uuid },
-			navigate,
-			'/signin',
-			() => failureAction
-		);
 
 		closeCard();
 	};
@@ -373,9 +340,6 @@ export const Grid = ({ targetPage, user }) => {
 		const updatedUser = { ...user, [`layouts_${targetPage}`]: updatedLayouts };
 
 		dispatch(updateUser(updatedUser));
-
-		const task = () => serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
-		queueTask(layoutsQueueRef.current, task, 3000);
 	};
 
 	const stopPropagation = (e) => {
@@ -387,8 +351,8 @@ export const Grid = ({ targetPage, user }) => {
 
 	useEffect(() => {
 		console.log('useEffect to dispatch');
-		dispatch(getLists());
-		dispatch(getRecipes());
+		dispatch(initializeListsDemo());
+		dispatch(initializeRecipesDemo());
 	}, []);
 
 	useEffect(() => {
@@ -403,15 +367,15 @@ export const Grid = ({ targetPage, user }) => {
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
 	const createMiniCard = (card) => {
 		return (
-		<div key={card[0].card_uuid}>
-			{targetPage === 'recipes' ? (
-				<MiniCardRecipe card={card} focusOnCard={focusOnCard} />
-			) : (
-				<MiniCardList card={card} focusOnCard={focusOnCard} />
-			)}
-		</div>
-		
-	)}
+			<div key={card[0].card_uuid}>
+				{targetPage === 'recipes' ? (
+					<MiniCardRecipe card={card} focusOnCard={focusOnCard} />
+				) : (
+					<MiniCardList card={card} focusOnCard={focusOnCard} />
+				)}
+			</div>
+		);
+	};
 
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
