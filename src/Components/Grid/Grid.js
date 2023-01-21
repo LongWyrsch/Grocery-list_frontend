@@ -279,6 +279,14 @@ export const Grid = ({ targetPage, user }) => {
 		let updatedCard = focusCard.map((ingredient) => ({ ...ingredient, last_modified: new Date().toJSON() }));
 		targetPage === 'recipes' ? dispatch(updateRecipe(updatedCard)) : dispatch(updateList(updatedCard));
 
+		// Fetch kcal from USDA API before sending to database
+		let promiseUpdatedCard = updatedCard.map(async(row) => {
+			const kcal = await getKcal(row.ingredient, row.quantity, row.unit)
+			return row.kcal ? row : { ...row, kcal: kcal };
+		});
+		updatedCard = await Promise.all(promiseUpdatedCard) // return await Promise.all(promiseUpdatedCard)
+
+		// Send card to database
 		const failureAction = () => setFocusCard(updatedCard);
 		serverRequests(`/${targetPage}`, 'PUT', updatedCard, failureAction);
 
