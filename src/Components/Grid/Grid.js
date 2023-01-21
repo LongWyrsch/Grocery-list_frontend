@@ -62,6 +62,9 @@ export const Grid = ({ targetPage, user }) => {
 	let cardsRef = useRef([]);
 	let layoutsRef = useRef({});
 
+	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR'
+	let dateOptions ={ year: "numeric", month: "short", day: "numeric" }
+
 	// On reach render, update cards and layouts because:
 	//     - User might have toggled between lists or recipes
 	//     - Slice value of user, recipes or lists might have changed
@@ -119,7 +122,7 @@ export const Grid = ({ targetPage, user }) => {
 				uuid: uuidv4(),
 				user_uuid: user.uuid,
 				card_uuid: uuidv4(),
-				title: `New recipe ${new Date().toLocaleDateString()}`,
+				title: `${t('home.NewRecipe')} (${new Date().toLocaleDateString(dateFormat, dateOptions)})`,
 				index: 0,
 				ingredient: '',
 				quantity: null,
@@ -187,7 +190,7 @@ export const Grid = ({ targetPage, user }) => {
 			...row,
 			uuid: uuidv4(),
 			card_uuid: card_uuid,
-			title: `New list ${new Date().toLocaleDateString()}`,
+			title: `${t('home.NewList')} (${new Date().toLocaleDateString(dateFormat, dateOptions)})`,
 			index: index,
 			checked: false,
 			recipes: recipeNames,

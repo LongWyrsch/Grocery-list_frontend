@@ -11,14 +11,14 @@ export const ActionWarning = ({action, message, handleOnClick, handleCancel, ico
               buttonStyle = 'filled'
               text = {t('general.Cancel')}
               onClick={handleCancel}
-              width = '120px'
+              width = '100%'
           />
             <Button 
                 buttonStyle = 'text'
                 text = {action}
                 onClick={handleOnClick}
                 iconInfo = {{iconName: iconName, size:'1.5rem'}}
-                width = '120px'
+                width = '100%'
             />
     </div>
   )

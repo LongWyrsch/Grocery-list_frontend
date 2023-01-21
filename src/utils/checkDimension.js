@@ -1,5 +1,7 @@
 export const checkDimension = (layouts) => {
-	let checkedLayouts = {};
+	console.log('checkDimension called')
+
+	let checkedLayouts = layouts;
 
 	const checkPosition = (position) => {
 		if (position.w === 1 || position.h === 1) {
