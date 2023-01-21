@@ -4,7 +4,7 @@ import * as FCicons from 'react-icons/fc';
 import * as BSicons from 'react-icons/bs';
 import * as MDicons from 'react-icons/md';
 
-export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = '', addclass=''}) => {
+export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = '', addclass='', borderRadius='100px'}) => {
 	// Add all imported React-icons library here.
 	const ReactIcons = { ...FCicons, ...BSicons, ...MDicons};
 
@@ -44,7 +44,7 @@ export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: 
 	}
 
 	return (
-		<button onClick={onClick} className={setUpClassNames} style={{width: width}}>
+		<button onClick={onClick} className={setUpClassNames} style={{width: width, borderRadius: borderRadius}}>
 			<div className={styles.buttonOpacityLayer}>
 				{icondiv}
 				{text}

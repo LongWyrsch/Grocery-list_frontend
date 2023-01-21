@@ -4,7 +4,6 @@
 .button {
 	background: transparent;
     height: 40px;
-	border-radius: 100px;
     transition: background-color var(--transition), color var(--transition);  
     cursor: pointer;
     overflow: hidden;

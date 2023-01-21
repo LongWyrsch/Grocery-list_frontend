@@ -20,11 +20,11 @@ export const Navbar = () => {
 	let listButtonRef = useRef();
 
 	useEffect(() => {
-			recipeButtonRef.current.dataset.show = targetPage === 'recipes' ? true : false;
-			listButtonRef.current.dataset.show = targetPage === 'lists' ? true : false;
+		recipeButtonRef.current.dataset.show = targetPage === 'recipes' ? true : false;
+		listButtonRef.current.dataset.show = targetPage === 'lists' ? true : false;
 	});
 
-	let homePage = targetPage !== 'account'
+	let homePage = targetPage !== 'account';
 
 	return (
 		<div className={styles.navbar}>
@@ -32,20 +32,30 @@ export const Navbar = () => {
 				<div className={styles.imgContainer}>
 					<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 				</div>
-					<Button
-						buttonStyle={targetPage === 'lists' ? 'filled' : 'outlined'}
-						text={t('home.GroceryLists')}
-						onClick={() => {
-							navigate('/home/lists');
-						}}
-					/>
-					<Button
-						buttonStyle={targetPage === 'recipes' ? 'filled' : 'outlined'}
-						text={t('home.Recipes')}
-						onClick={() => {
-							navigate('/home/recipes');
-						}}
-					/>
+				<div className={styles.tabs}>
+					<div className={`${styles.tabLists} ${targetPage==='lists' && styles.activeTab}`} onClick={() => {navigate('/home/lists')}}>
+						<svg preserveAspectRatio="none" viewBox="0 0 37 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="tab" clip-path="url(#clip0_53299_28585)">
+								<path
+									id="tabPath"
+									d="M9 0C4.73077 -0.000487574 4.26923 9.00049 0 9.00049H37C32.7308 9.00049 32.2692 0.000488449 28 0.000488449L9 0Z"
+								/>
+							</g>
+						</svg>
+						<p>{t('home.GroceryLists')}</p>
+					</div>
+					<div className={`${styles.tabRecipes} ${targetPage==='recipes' && styles.activeTab}`} onClick={() => {navigate('/home/recipes')}}>
+						<svg preserveAspectRatio="none" viewBox="0 0 37 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="tab" clip-path="url(#clip0_53299_28585)">
+								<path
+									id="tabPath"
+									d="M9 0C4.73077 -0.000487574 4.26923 9.00049 0 9.00049H37C32.7308 9.00049 32.2692 0.000488449 28 0.000488449L9 0Z"
+								/>
+							</g>
+						</svg>
+						<p>{t('home.Recipes')}</p>
+					</div>
+				</div>
 			</div>
 			<div className={styles.buttonGroup}>
 				<div id="recipeButton" data-show ref={recipeButtonRef}>
@@ -58,6 +68,7 @@ export const Navbar = () => {
 								size: '1rem',
 							}}
 							width="100%"
+							borderRadius="1rem"
 						/>
 					)}
 				</div>
@@ -70,6 +81,7 @@ export const Navbar = () => {
 							size: '1rem',
 						}}
 						width="100%"
+						borderRadius="1rem"
 					/>
 				</div>
 			</div>
