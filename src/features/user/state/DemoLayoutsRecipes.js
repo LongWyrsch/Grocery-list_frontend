@@ -1,4 +1,4 @@
-export const layoutsRecipesDemo = {
+export const DemoLayoutsRecipes = {
     "lg": [
         {
             "w": 2,

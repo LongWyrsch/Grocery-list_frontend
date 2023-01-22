@@ -26,7 +26,7 @@ import { randomColorsArray } from '../../utils/randomColorsArray';
 import { serverRequests } from '../../utils/serverRequests';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 
-export const AccountDemo = ({ user }) => {
+export const DemoAccount = ({ user }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [avatar_variant, setAvatar_variant] = useState(user.avatar_variant);

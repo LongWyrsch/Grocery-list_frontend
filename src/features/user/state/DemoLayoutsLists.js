@@ -1,4 +1,4 @@
-export const layoutsListsDemo = {
+export const DemoLayoutsLists = {
     "lg": [
         {
             "w": 2,

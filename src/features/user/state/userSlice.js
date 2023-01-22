@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { userDemo } from './userDemo';
+import { DemoUser } from './DemoUser';
 
 //Middleware fetches current user before saving it to the store
 export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
@@ -47,8 +47,8 @@ const userSlice = createSlice({
 				layouts_lists: null,
 			};
 		},
-		initializeUserDemo: (state) => {
-			state.user = userDemo;
+		initializeDemoUser: (state) => {
+			state.user = DemoUser;
 		},
 	},
 	extraReducers: {
@@ -70,5 +70,5 @@ const userSlice = createSlice({
 
 export const selectUser = (state) => state.user.user;
 export const userHasError = (state) => state.user.hasError;
-export const { updateUser, clearUser, initializeUserDemo } = userSlice.actions;
+export const { updateUser, clearUser, initializeDemoUser } = userSlice.actions;
 export default userSlice.reducer;

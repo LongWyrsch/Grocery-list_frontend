@@ -1,4 +1,4 @@
-export const recipesDemo = [
+export const DemoRecipes = [
     [
         {
             "uuid": "d6573e1f-9ed9-41a8-9944-c4ae0bfba288",

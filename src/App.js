@@ -1,15 +1,14 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from './features/user/state/userSlice';
 
 import { Home } from './pages/Home/Home';
-import { HomeDemo } from './pages/Home/HomeDemo';
+import { DemoHome } from './pages/Home/DemoHome';
 import { Signin } from './pages/Auth/Signin';
 import { Signup } from './pages/Auth/Signup';
 import { Termsofservices } from './pages/termsofservices/Termsofservices';
-import { Account } from './pages/Account/Account';
 import { ErrorMessage } from './pages/Error/ErrorMessage';
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
 					<Route path="/signin" element={<Signin />} />
 					<Route path="/signup" element={<Signup user={user}/>} />
 					<Route path="/home/:targetPage" element={<Home />} />
-					<Route path="/demo/:targetPage" element={<HomeDemo />} />
+					<Route path="/demo/:targetPage" element={<DemoHome />} />
 					<Route path="/tos" element={<Termsofservices />} />
 					<Route path="/error" element={<ErrorMessage />} />
 				</Routes>

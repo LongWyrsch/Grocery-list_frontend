@@ -7,3 +7,29 @@
     flex-direction: column;
 }
 
+.tourBackground {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: brightness(20%);
+    opacity: 1;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.tourArrow {
+    position: fixed;
+}
+
+.tourMessage {
+    position: fixed;
+    color: white;
+    font-family: 'Indie Flower';
+    font-size: 2rem;
+}
+
+.tourMessage > p {
+    font-size: 1rem;
+    margin-top: 10px;
+}

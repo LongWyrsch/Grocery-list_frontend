@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {recipesDemo} from './recipesDemo'
+import {DemoRecipes} from './DemoRecipes'
 
 //Middleware fetches all recipes before saving it to the store
 export const getRecipes = createAsyncThunk('recipes/getRecipes', async (thunkAPI) => {
@@ -44,8 +44,8 @@ const recipesSlice = createSlice({
 		clearRecipes: (state) => {
 			state.recipes = [];
 		},
-		initializeRecipesDemo: (state) => {
-			state.recipes = recipesDemo;
+		initializeDemoRecipes: (state) => {
+			state.recipes = DemoRecipes;
 		},
 	},
 	extraReducers: {
@@ -68,5 +68,5 @@ const recipesSlice = createSlice({
 
 export const selectRecipes = (state) => state.recipes.recipes;
 export const isLoadingRecipes = (state) => state.recipes.isLoading;
-export const { deleteRecipe, updateRecipe, addRecipe, clearRecipes, initializeRecipesDemo } = recipesSlice.actions;
+export const { deleteRecipe, updateRecipe, addRecipe, clearRecipes, initializeDemoRecipes } = recipesSlice.actions;
 export default recipesSlice.reducer;

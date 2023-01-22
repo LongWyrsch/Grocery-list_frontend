@@ -12,21 +12,22 @@
 	align-items: center;
 	padding: 0 10px;
 	gap: 20px;
-	position: relative;
+	/* position: relative; */
 }
 
 .imgContainer {
 	height: 100%;
-	padding: 15px;
+	padding: 15px 0;
 }
 
 .logo {
 	height: 100%;
+	max-width: 40px;
 }
 
 .buttonGroup > [data-show='true'] {
 	position: absolute;
-	width: 100%;
+	width: 33.33%;
 	visibility: visible;
 	pointer-events: all;
 }

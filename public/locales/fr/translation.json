@@ -1,70 +1,78 @@
 {
-    "general": {
-        "Close": "Fermer",
-        "Delete": "Supprimer",
-        "Cancel": "Annuler"
-    },
-    "auth": {
-        "signup": "Inscription",
-        "signin": "Se connecter",
-        "creds": {
-            "email": "Email ou nom d'utilisateur",
-            "password": "Mot de passe",
-            "emailPasswordError": "Nom d'utilisateur/e-mail ou mot de passe invalide"
-        },
-        "signinPage": {
-            "welcomeBack": "Content de vous revoir!",
-            "newUser": "Vous n'avez pas de compte?",
-            "createAnAccount": "Inscrivez-vous",
-            "forgotPassword": "J'ai oublié mon mot de passe"
-        },
-        "signupPage": {
-            "welcome": "Bienvenue!",
-            "alreadyHaveAccount": "Déjà un compte?",
-            "createAccount": "Créer un compte",
-            "confirmPassword": "Confirmez le mot de passe",
-            "minimum": "La longueur minimale est de 6",
-            "required": "Ce champ est obligatoire",
-            "passwordPattern": "Utilisez des lettres, des chiffres et des caractères spéciaux sauf \\",
-            "passwordsDifferent": "Les mots de passe ne correspondent pas"
-        },
-        "continueGoogle": "Continuer avec Google",
-        "or": "ou"
-    },
-    "home": {
-        "Recipes": "Recettes",
-        "GroceryLists": "Listes d'épicerie",
-        "NewRecipe": "Nouvelle recette",
-        "NewList": "Nouvelle liste",
-        "AddIngredients": "Ajouter un ingrédients",
-        "Ingredients": "Ingredients",
-        "Quantity": "Quantité",
-        "Unit": "Unité",
-        "Section": "Section",
-        "kCal": "kCal",
-        "NewListMessage": "Choisissez quelques recettes à ajouter à votre liste",
-        "Create": "Créer"
-    },
-    "cornerAvatar" : {
-        "Account": "Compte",
-        "LogOut": "Se déconnecter"
-    },
-    "account" : {
-        "AvatarVariantMessage": "Choisissez la variante de votre avatar",
-        "AvatarColorsMessage": "Choisissez les couleurs de votre avatar",
-        "NewColors": "Nouvelles couleurs!",
-        "Reset": "Réinitialiser",
-        "Language": "Langue",
-        "SaveChanges": "Enregistrer les changements",
-        "DeleteAccount": "Supprimer mon compte",
-        "ConfirmDelete": "Supprimer définitivement votre compte?"
-    },
-    "warnings": {
-        "NetworkTitle": "Erreur réseau!",
-        "NetworkMessage": "Veuillez vérifier votre connexion et recharger le navigateur.",
-        "ServerError": "Erreur de serveur. Veuillez réessayer.",
-        "AuthError": "Nous n'avons pas pu vous identifier. Veuillez vous reconnecter.",
-        "SignedOut": "Déconnecter",
-        "TryAgain": "Veuillez réessayer de vous connecter."
-    }
+	"general": {
+		"Close": "Fermer",
+		"Delete": "Supprimer",
+		"Cancel": "Annuler"
+	},
+	"auth": {
+		"signup": "Inscription",
+		"signin": "Se connecter",
+		"creds": {
+			"email": "Email ou nom d'utilisateur",
+			"password": "Mot de passe",
+			"emailPasswordError": "Nom d'utilisateur/e-mail ou mot de passe invalide"
+		},
+		"signinPage": {
+			"welcomeBack": "Content de vous revoir!",
+			"newUser": "Vous n'avez pas de compte?",
+			"createAnAccount": "Inscrivez-vous",
+			"forgotPassword": "J'ai oublié mon mot de passe"
+		},
+		"signupPage": {
+			"welcome": "Bienvenue!",
+			"alreadyHaveAccount": "Déjà un compte?",
+			"createAccount": "Créer un compte",
+			"confirmPassword": "Confirmez le mot de passe",
+			"minimum": "La longueur minimale est de 6",
+			"required": "Ce champ est obligatoire",
+			"passwordPattern": "Utilisez des lettres, des chiffres et des caractères spéciaux sauf \\",
+			"passwordsDifferent": "Les mots de passe ne correspondent pas"
+		},
+		"continueGoogle": "Continuer avec Google",
+		"or": "ou"
+	},
+	"home": {
+		"Recipes": "Recettes",
+		"GroceryLists": "Listes d'épicerie",
+		"NewRecipe": "Nouvelle recette",
+		"NewList": "Nouvelle liste",
+		"AddIngredients": "Ajouter un ingrédients",
+		"Ingredients": "Ingredients",
+		"Quantity": "Quantité",
+		"Unit": "Unité",
+		"Section": "Section",
+		"kCal": "kCal",
+		"NewListMessage": "Choisissez quelques recettes à ajouter à votre liste",
+		"Create": "Créer"
+	},
+	"cornerAvatar": {
+		"Account": "Compte",
+		"LogOut": "Se déconnecter"
+	},
+	"account": {
+		"AvatarVariantMessage": "Choisissez la variante de votre avatar",
+		"AvatarColorsMessage": "Choisissez les couleurs de votre avatar",
+		"NewColors": "Nouvelles couleurs!",
+		"Reset": "Réinitialiser",
+		"Language": "Langue",
+		"SaveChanges": "Enregistrer les changements",
+		"DeleteAccount": "Supprimer mon compte",
+		"ConfirmDelete": "Supprimer définitivement votre compte?"
+	},
+	"warnings": {
+		"NetworkTitle": "Erreur réseau!",
+		"NetworkMessage": "Veuillez vérifier votre connexion et recharger le navigateur.",
+		"ServerError": "Erreur de serveur. Veuillez réessayer.",
+		"AuthError": "Nous n'avons pas pu vous identifier. Veuillez vous reconnecter.",
+		"SignedOut": "Déconnecter",
+		"TryAgain": "Veuillez réessayer de vous connecter."
+	},
+	"quickTour": {
+		"tab": "Alternez entre vos recettes et vos listes d'épicerie.",
+		"card": "Glissez pour déplacer et cliquez pour modifier.",
+		"add": "Ajouter de nouvelles recettes ou créer de nouvelles listes.",
+		"theme": "Alternez le thème",
+		"account": "Déconnectez-vous ou accédez aux détails de votre compte",
+		"clickContinue": "Cliquez sur la page pour continuer."
+	}
 }

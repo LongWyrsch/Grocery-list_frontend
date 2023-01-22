@@ -23,14 +23,14 @@ import {
 	updateList,
 	deleteList,
 	addList,
-	initializeListsDemo,
+	initializeDemoLists,
 } from '../../features/lists/state/listsSlice';
 import {
 	selectRecipes,
 	updateRecipe,
 	deleteRecipe,
 	addRecipe,
-	initializeRecipesDemo,
+	initializeDemoRecipes,
 } from '../../features/recipes/state/recipesSlice';
 
 // Components
@@ -55,7 +55,7 @@ import { groupBy } from '../../utils/groupBy';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export const GridDemo = ({ targetPage, user }) => {
+export const DemoGrid = ({ targetPage, user }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const recipes = useSelector(selectRecipes); //Hook 3
@@ -351,8 +351,8 @@ export const GridDemo = ({ targetPage, user }) => {
 
 	useEffect(() => {
 		console.log('useEffect to dispatch');
-		dispatch(initializeListsDemo());
-		dispatch(initializeRecipesDemo());
+		dispatch(initializeDemoLists());
+		dispatch(initializeDemoRecipes());
 	}, []);
 
 	useEffect(() => {
