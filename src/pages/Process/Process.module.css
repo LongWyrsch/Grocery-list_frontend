@@ -1,0 +1,57 @@
+.processWrapper {
+    /* position: relative; */
+}
+
+.language {
+    position: fixed;
+    top: 3rem;
+    right: 4rem;
+}
+
+.textWrapper {
+    max-width: 1000px;
+    margin: 3rem auto;
+}
+
+.welcome {
+    font-size: 4rem;
+    padding-top: 4rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: 4rem 0 1rem;
+}
+
+ul {
+    margin-left: 2rem;
+}
+
+ul > ul {
+    margin-left: 1rem;
+}
+
+li {
+    margin: 0.7rem 0;
+    display: flex;
+    list-style-type: none;
+}
+
+a {
+    white-space: nowrap;
+}
+
+p {
+    margin-left: 0.2rem;
+}
+
+.gantt {
+    margin: 1rem 3rem 0;
+}
+
+.breakdownDescription {
+    line-height: 2rem;
+}

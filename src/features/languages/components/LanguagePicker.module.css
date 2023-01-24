@@ -76,7 +76,7 @@ hr {
 
 .option:hover {
     background: var(--m3--surfaces--surface5);
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
 }
 
 .activeMenu {

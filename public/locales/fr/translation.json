@@ -74,5 +74,53 @@
 		"theme": "Alternez le thème",
 		"account": "Déconnectez-vous ou accédez aux détails de votre compte",
 		"clickContinue": "Cliquez sur la page pour continuer."
+	},
+	"homepage" : {
+		"madeEasy": "rendue facile.",
+		"checkoutthe": "Vérifiez",
+		"demoAccount": "Compte démo",
+		"title1": "Écrivez vos ingrédients",
+		"subtitle1": "Nous calculerons les calories pour vous.",
+		"title2": "Créez des listes de courses en un instant",
+		"subtitle2": "Les ingrédients en double sont combinés !",
+		"havealook": "Jetez un oeil au",
+		"designprocess": "processus de conceptions",
+		"listTitle": "Repas du week-end"
+	},
+	"section" : {
+		"veggies": "légumes",
+		"bread": "pains",
+		"dairies": "produits laitiers",
+		"seasonings": "assaisonnements",
+		"grains": "céréales",
+		"meat": "viandes",
+		"other": "autre"
+	},
+	"process": {
+		"welcome": "Bienvenue sur ma première application Web",
+		"thanks": "Merci à l'incroyable communauté des bibliothèques",
+		"iconify": "fournit quelques icônes utilisées dans l'application.",
+		"avatar": "génère des avatars uniques pour les utilisateurs.",
+		"i18next": "simplifie la traduction de l'application en anglais, allemand et français.",
+		"kute": "gère les animations de morphing sur la page d'accueil.",
+		"mermaid": "affiche le diagramme de Gantt ci-dessous.",
+		"dnd": "gère l'action glisser-déposer sur les ingrédients.",
+		"grid": "Gère la grille des cartes.",
+		"icon": "fournit quelques icônes utilisées dans l'application.",
+		"observer": "détecte quand les éléments DOM sont à l'écran pour permettre l'animation lors du défilement.",
+		"parallax": "gère les animations de défilement.",
+		"uuid": "génère un uuid aléatoire.",
+		"joi": "valide l'entrée de l'utilisateur.",
+		"cors": "configurer les paramètres CORS pour le backend.",
+		"bcrypt": "gère le cryptage des mots de passe des utilisateurs",
+		"env": "gère les variables d'environnements.",
+		"tools": "Outils et tiers",
+		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
+		"supabase": "héberge la base de données.",
+		"git": "CLI a été utilisé pour le contrôle de version.",
+		"github": "héberge le frontend via les pages GitHub.",
+		"netlify": "héberge le serveur principal.",
+		"breakdown": "Répartition du projet",
+		"text": "Après avoir suivi un cours d'ingénierie full-stack en ligne en novembre 2022, et avoir déclaré travailler sur mon premier projet full-stack. Je ne savais pas par où commencer. J'avais une idée claire de ce que je voulais que l'application fasse, mais je ne savais pas à quoi elle devrait ressembler. J'ai donc commencé à travailler sur la base de données. Au fur et à mesure que l'application prenait certaines fonctionnalités, je suis devenu plus confiant avec sa direction d'interface utilisateur."
 	}
 }

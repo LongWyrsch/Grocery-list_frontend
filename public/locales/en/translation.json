@@ -74,5 +74,58 @@
 		"theme": "Toggle the theme",
 		"account": "Log out, or access your accout's details",
 		"clickContinue": "Click anywhere to continue."
+	},
+	"homepage" : {
+		"madeEasy": "made easy.",
+		"checkoutthe": "Check out the",
+		"demoAccount": "Demo account",
+		"title1": "Write your ingredients",
+		"subtitle1": "We'll search the calories for you.",
+		"title2": "Create grocery lists in an instant",
+		"subtitle2": "Duplicate ingredients are combined!",
+		"havealook": "Have a look at the",
+		"designprocess": "design process",
+		"listTitle": "Weekend's meals"
+	},
+	"section" : {
+		"veggies": "veggies",
+		"bread": "bread",
+		"dairies": "dairy",
+		"seasonings": "seasonings",
+		"grains": "grains",
+		"meat": "meat",
+		"other": "other"
+	},
+	"process": {
+		"welcome": "Welcome to my first web app",
+		"thanks": "Thanks to the amazing community for the libraries",
+		"iconify": "provides some icons used throughout the app.",
+		"avatar": "generates unique avatars for the users.",
+		"i18next": "simplifies translating the app to English, German and French.",
+		"kute": "manages morphing animations on the homepage.",
+		"mermaid": "renders the below Gantt chart.",
+		"dnd": "manages drag and drop action on ingredients.",
+		"grid": "Manages the card grid.",
+		"icon": "provides some icons used throughout the app.",
+		"observer": "detects when DOM elements are on screen to allows animation on scroll.",
+		"parallax": "manages scroll animations.",
+		"uuid": "generates random uuid.",
+		"joi": "validates user input.",
+		"cors": "configure CORS settings for the backend.",
+		"bcrypt": "manages users' password encryption",
+		"env": "manages environments variables.",
+		"tools": "Tools and third parties",
+		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
+		"supabase": "hosts the database.",
+		"git": "CLI was used for version control.",
+		"github": "hosts the frontend via GitHub pages.",
+		"netlify": "hosts the backend server.",
+		"breakdown": "Project breakdown",
+		"text": "After completing an online full-stack engineering course in November 2022, and stated working on my first full-stack project. I wasn't sure where to begin. I had a clear idea of what I, wanted the app to do, but I didn't know how it should look like. Therefore I started to work on the database. As the app took on some funcitonalities, I got more confident with its UI direction."
 	}
 }
+
+
+
+
+

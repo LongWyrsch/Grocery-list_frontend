@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Chip.module.css';
-// import { BsFillCaretDownFill } from 'react-icons/bs';
+
+import { useTranslation } from 'react-i18next';
 
 export const Chip = ({ handleChange, value, height = '2rem' }) => {
 	
-
+	const { t } = useTranslation();
 
     return (
 		// <div className={styles.chipWrapper}>
@@ -15,13 +16,13 @@ export const Chip = ({ handleChange, value, height = '2rem' }) => {
 		<div className={styles.chipWrapper}>
 			{/* <form> */}
 				<select id="section" name="section" value={value} onChange={handleChange} className={styles.chip} style={{height: height}}>
-					<option value="veggies">veggies</option>
-					<option value="bread">bread</option>
-					<option value="dairies">dairies</option>
-					<option value="seasonings">seasonings</option>
-					<option value="grains">grains</option>
-					<option value="meat">meat</option>
-					<option value="other">other</option>
+					<option value={t('section.veggies')}>{t('section.veggies')}</option>
+					<option value={t('section.bread')}>{t('section.bread')}</option>
+					<option value={t('section.dairies')}>{t('section.dairies')}</option>
+					<option value={t('section.seasonings')}>{t('section.seasonings')}</option>
+					<option value={t('section.grains')}>{t('section.grains')}</option>
+					<option value={t('section.meat')}>{t('section.meat')}</option>
+					<option value={t('section.other')}>{t('section.other')}</option>
 				</select>
 			{/* </form> */}
 		</div>

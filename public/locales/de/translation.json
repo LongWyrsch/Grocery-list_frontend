@@ -74,5 +74,56 @@
 		"theme": "Thema umschalten",
 		"account": "Abmelden oder auf die Details Ihres Kontos zugreifen",
 		"clickContinue": "Irgendwo klicken, um fortzufahren."
+	},
+	"homepage" : {
+		"madeEasy": "einfach gemacht.",
+		"checkoutthe": "Probier das aus",
+		"demoAccount": "Demokonto",
+		"title1": "Schreibe deine Zutaten auf",
+		"subtitle1": "Wir besorgen dir die Kalorien.",
+		"title2": "Erstellen Sie im Handumdrehen Einkaufslisten",
+		"subtitle2": "Doppelte Zutaten werden kombiniert!",
+		"havealook": "Schauen Sie sich die an",
+		"designprocess": "Designprozesses",
+		"listTitle": "Mahlzeiten am Wochenende"
+	},
+	"section" : {
+		"veggies": "Gemüse",
+		"bread": "Brot",
+		"dairies": "Molkereien",
+		"seasonings": "Gewürze",
+		"grains": "Körner",
+		"meat": "Fleisch",
+		"other": "andere"
+	},
+	"process": {
+		"welcome": "Willkommen zu meiner ersten Web-App",
+		"thanks": "Danke an die großartige Community für die Bibliotheken",
+		"iconify": "bietet einige Symbole, die in der gesamten App verwendet werden.",
+		"avatar": "generiert einzigartige Avatare für die Benutzer.",
+		"i18next": "vereinfacht die Übersetzung der App ins Englische, Deutsche und Französische.",
+		"kute": "verwaltet Morphing-Animationen auf der Homepage.",
+		"mermaid": "rendert das folgende Gantt-Diagramm.",
+		"dnd": "verwaltet Drag-and-Drop-Aktionen für Zutaten.",
+		"grid": "Verwaltet das Kartenraster.",
+		"icon": "bietet einige Symbole, die in der gesamten App verwendet werden.",
+		"observer": "erkennt, wenn DOM-Elemente auf dem Bildschirm angezeigt werden, um Animationen beim Scrollen zu ermöglichen.",
+		"parallax": "verwaltet Scroll-Animationen.",
+		"uuid": "generiert eine zufällige uuid.",
+		"joi": "validiert Benutzereingaben.",
+		"cors": "CORS-Einstellungen für das Back-End konfigurieren.",
+		"bcrypt": "verwaltet die Kennwortverschlüsselung der Benutzer",
+		"env": "verwaltet Umgebungsvariablen.",
+		"tools": "Tools und Drittanbieter",
+		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
+		"supabase": "hostet die Datenbank.",
+		"git": "CLI wurde für die Versionskontrolle verwendet.",
+		"github": "hostet das Frontend über GitHub-Seiten.",
+		"netlify": "hostet den Backend-Server.",
+		"breakdown": "Projektzusammenbruch",
+		"text": "Nachdem ich im November 2022 einen Online-Full-Stack-Engineering-Kurs abgeschlossen und erklärt hatte, an meinem ersten Full-Stack-Projekt zu arbeiten. Ich war mir nicht sicher, wo ich anfangen sollte. Ich hatte eine klare Vorstellung davon, was ich mit der App machen wollte, aber ich wusste nicht, wie sie aussehen sollte. Deshalb habe ich begonnen, an der Datenbank zu arbeiten. Als die App einige Funktionen übernahm, wurde ich sicherer mit ihrer UI-Richtung."
 	}
 }
+
+
+
