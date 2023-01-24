@@ -44,7 +44,8 @@
 
 .option:hover {
     background: var(--m3--surfaces--surface5);
-    font-weight: 700;
+    /* font-weight: 700; */
+    text-shadow:0px 0px 1px black
 }
 
 hr {

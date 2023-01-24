@@ -10,14 +10,18 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
-			body: JSON.stringify(reqBody),
+			body: reqMethod==='DELETE'? '' : JSON.stringify(reqBody),
 		});
 	} catch (error) {
 		window.location.href = 'http://localhost:3001/home/error'
 		serverFailureAction();
 	} 
 	if (response.status === 200) {
-		try {return response.json()} catch(e) { return }
+		if (reqMethod!=='DELETE') {
+			try {return response.json()} catch(e) { return }
+		} else {
+			return response
+		}
 	} else if (response.status === 401) {
 		window.alert(t('warnings.AuthError'));
 		window.location.href = 'http://localhost:3001/signin'

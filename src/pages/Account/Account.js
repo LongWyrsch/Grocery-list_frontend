@@ -136,17 +136,12 @@ export const Account = ({ user }) => {
 
 	const deleteAccount = async () => {
 		// Delete user on database
-		let response = await serverRequests('/users', 'DELETE', { delete: 'delete' }, () => {
+		let response = await serverRequests('/users', 'DELETE', '', () => {
 			dispatch(getUser());
 		});
 
 		// Log user out
 		if (response.status === 200) {
-			response = await fetch('http://localhost:3000/users/logout', {
-				method: 'GET',
-				credentials: 'include',
-			});
-
 			// Clear state and redirect to signup
 			if (response.status === 200) {
 				dispatch(clearUser());
@@ -230,7 +225,8 @@ export const Account = ({ user }) => {
 				<div className={`generalText ${styles.text}`}>{t('account.Language')}</div>
 				<LanguagePicker user={user} />
 			</div>
-			<div className={styles.credentials}>
+			{user.google_name && <div className={styles.credentials}>Google profile: {user.google_name}</div>}
+			{user.email && <div className={styles.credentials}>
 				<div className={styles.fieldWrapper}>
 					<div className={`generalText ${styles.text}`}>{t('auth.creds.email')}</div>
 					<Textfield
@@ -281,7 +277,7 @@ export const Account = ({ user }) => {
 						)}
 					</div>
 				)}
-			</div>
+			</div>}
 			<div className={styles.saveDelete}>
 				<Button
 					buttonStyle="filled"
