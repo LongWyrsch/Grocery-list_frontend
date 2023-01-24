@@ -93,7 +93,7 @@ export const Signin = () => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')}/>
 			<div className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>

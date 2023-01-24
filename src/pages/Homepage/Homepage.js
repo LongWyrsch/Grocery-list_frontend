@@ -58,10 +58,20 @@ export const Homepage = () => {
 	const title2 = useParallax({ opacity: [0, 1], startScroll: 1200, endScroll: 1900 });
 	const subtitle2 = useParallax({ opacity: [0, 1], startScroll: 1200, endScroll: 1900 });
 	
+	// const arrow = useParallax({ opacity: [1, 0], startScroll: 5, endScroll: 100 });
+	
     const { ref:stackIconRef, inView } = useInView()
+    const { ref:trigger, inView:triggerInView } = useInView()
 
 	return (
 		<div className={styles.homepageWrapper}>
+			<div className={styles.triggerArrows} ref={trigger}></div>
+			{triggerInView && <div className={styles.arrow}>
+				<svg preserveAspectRatio='none' xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+					<path className={styles.arrow1} d="M18 6.41L16.59 5L12 9.58L7.41 5L6 6.41l6 6z"/>
+					<path className={styles.arrow1} d="m18 13l-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"/>
+				</svg>
+			</div>}
 			<nav className={styles.navbar}>
 				<div className={styles.navGroup1}>
 					<div className={styles.imgContainer}>

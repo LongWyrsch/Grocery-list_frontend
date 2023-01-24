@@ -14,9 +14,11 @@ export const Process = () => {
 
 	return (
 		<div className={styles.processWrapper}>
-      <div className={styles.language}><LanguagePicker/></div>
+			<div className={styles.language}>
+				<LanguagePicker />
+			</div>
 			<div className={styles.textWrapper}>
-        <h1 className={styles.welcome}>{t('process.welcome')}</h1>
+				<h1 className={styles.welcome}>{t('process.welcome')}</h1>
 				<h2 className={styles.thanks}>{t('process.thanks')}</h2>
 				<ul className={styles.libraries}>
 					<h3>Frontend</h3>

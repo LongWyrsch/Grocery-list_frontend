@@ -2,6 +2,44 @@
     /* overflow: hidden; */
 }
 
+.triggerArrows{
+    height: 0;
+    width: 0;
+    visibility:hidden;
+    position: absolute;
+    top: 10rem;
+    left: 0;
+}
+
+.arrow {
+    z-index: 60;
+    height: 4rem;
+    width: 6rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    animation: 2000ms 1000ms infinite ease-in-out downArrow;
+}
+
+.arrow > svg > path {
+    fill: gray;
+}
+
+@keyframes downArrow{
+    0%{
+        translate: 0 -2rem;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        translate: 0 2rem;
+        opacity: 0;
+    }
+}
+
+
 .navbar {
     position: sticky;
     top: 0;
@@ -134,9 +172,9 @@
     margin: 5px;
     animation: 1000ms  backwards riseup;
     animation-timing-function: cubic-bezier(.01,.23,0,1);
-    font-size: 1.5rem;
     text-align: center;
     padding: 30px;
+    font-size: 1.3vw;
     font-family: 'Rock Salt';
 }
 
