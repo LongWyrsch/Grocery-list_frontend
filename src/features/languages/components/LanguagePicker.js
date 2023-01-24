@@ -9,13 +9,13 @@ import styles from './LanguagePicker.module.css';
 
 // libs
 import { useTranslation } from 'react-i18next';
+import { Icon } from '@iconify/react'
 
 // React-icons
 import { IconContext } from 'react-icons';
 import { MdTranslate } from 'react-icons/md';
 import { FaChevronDown } from 'react-icons/fa';
 import { updateUser } from '../../user/state/userSlice';
-import { serverRequests } from '../../../utils/serverRequests';
 
 export const LanguagePicker = ({user}) => {
 	const dispatch = useDispatch()
@@ -69,9 +69,12 @@ export const LanguagePicker = ({user}) => {
 	return (
 		<div className={styles.dropdownContainer}>
 			<button className={styles.button} onClick={handleOnClick}>
-				<IconContext.Provider value={{ size: '1.3rem', color: 'var(--m3--sys--on-surface-variant)' }}>
+				{/* <IconContext.Provider value={{ size: '1.3rem', color: 'var(--m3--sys--on-surface-variant)', backgroundColor: 'none' }}>
 					<div className={styles.langIcon}>{translationIcon}</div>
-				</IconContext.Provider>
+				</IconContext.Provider> */}
+				
+				<div className={styles.langIcon}><Icon icon="ion:language" style={{width: '1.3rem', height: '1.3rem', background: 'none'}}/></div>
+
 				{language}
 				<IconContext.Provider value={{ size: '0.7rem', color: 'var(--m3--sys--on-surface-variant)' }}>
 					<div className={open? styles.upIcon : styles.downIcon}>{arrowIcon}</div>

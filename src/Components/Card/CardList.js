@@ -164,7 +164,7 @@ export const CardList = ({
 			</DragDropContext>
 			<div className={`${styles.smallButton} ${styles.addIngredient}`}>
 				<Button
-					buttonStyle="elevated"
+					buttonStyle="outlined"
 					text={t('home.AddIngredients')}
 					iconInfo={{ iconName: 'BsPlusLg', size: '' }}
 					onClick={addIngredient}

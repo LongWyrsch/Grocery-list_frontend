@@ -1,6 +1,6 @@
 .dropdownContainer {
     /* Fix overall width */
-    width: 70px;
+    width: 90px;
     color: var(); 
     position: relative;
 }
@@ -16,7 +16,7 @@
     background: var(--m3--sys--surface);
     border: 2px solid var(--m3--sys--primary);
     border-radius: 4px;
-    padding: 0 1rem;
+    padding: 0 1rem 0;
     cursor: pointer;
 
     /* Let translation icon absolut positioning */
@@ -24,10 +24,9 @@
 }
 
 .langIcon {
-    position: absolute;
-    top: -12px;
-    left: 9px;
-    background: var(--m3--sys--surface);
+    position: relative;
+    top: -9px;
+    left: -4px;
 }
 
 .downIcon {

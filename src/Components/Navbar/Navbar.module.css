@@ -1,9 +1,12 @@
 .navbar {
 	height: 5rem;
-	background: var(--m3--surfaces--surface2);
+	/* ORIGINAL */
+	/* background: var(--m3--surfaces--surface2); */
 	transition: background-color var(--transition);
 	display: flex;
 	padding: 0px 15px;
+
+	background: var(--m3--sys--primary);
 }
 
 .buttonGroup {
@@ -12,7 +15,6 @@
 	align-items: center;
 	padding: 0 10px;
 	gap: 20px;
-	/* position: relative; */
 }
 
 .imgContainer {
@@ -23,6 +25,10 @@
 .logo {
 	height: 100%;
 	max-width: 40px;
+}
+
+.addButton > * > * {
+	font-size: 1.5rem;
 }
 
 .buttonGroup > [data-show='true'] {
@@ -52,9 +58,9 @@
 	color: var(--m3--sys--on-surface);
 }
 
-.tabs > div:hover {
-	/* font-weight: 700; */
-	text-shadow: 0.25px 0px 0.1px, -0.25px 0px 0.1px;
+.tabs > div:hover  {
+	/* text-shadow: 0px 0px 0.1px, 0.1px 0px 0.1px; */
+	text-decoration: underline;
 }
 
 .tabRecipes {
@@ -65,7 +71,11 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	fill: var(--m3--sys--background);
+
+	/* orinigal */
+	
+	/* fill: var(--m3--sys--background); */
+	fill: var(--theme);
 	opacity: 0.5;
 }
 
@@ -77,6 +87,7 @@
 	z-index: 2;
 	margin: 0 40px;
 	white-space: nowrap;
+	font-size: 1.2rem;
 }
 
 .tabs > div.activeTab > p {

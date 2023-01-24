@@ -1,5 +1,8 @@
 .homePage {
-    background: var(--m3--sys--surface);
+    /* original */
+    /* background: var(--m3--sys--surface); */
+    
+    background: var(--theme);
     transition: background-color var(--transition);
     height: 100vh;
     width: 100vw;
@@ -27,9 +30,15 @@
     color: white;
     font-family: 'Indie Flower';
     font-size: 2rem;
+
+    /* Prevent text highlighting */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .tourMessage > p {
     font-size: 1rem;
     margin-top: 10px;
 }
+

@@ -12,7 +12,7 @@
 }
 
 .arrow {
-    z-index: 60;
+    z-index: 50;
     height: 4rem;
     width: 6rem;
     position: absolute;
@@ -45,8 +45,13 @@
     top: 0;
 	height: 5rem;
     width: 100%;
-	background: var(--m3--ref--primary--primary60);
-	transition: background-color var(--transition);
+
+    /* original */
+	/* background: var(--m3--ref--primary--primary60); */
+	background: var(--m3--ref--primary--primary80);
+
+	
+    transition: background-color var(--transition);
 	display: flex;
     justify-content: space-between;
 	padding: 0px 15px;
@@ -72,6 +77,17 @@
 }
 
 
+.navGroup2 > Button:nth-child(2),
+.navGroup2 > Button:nth-child(3) {
+    background-color: white;
+}
+
+/* .navGroup2 > Button:nth-child(4) svg {
+    background-color: red;
+} */
+
+
+
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HERO ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 
 .hero {
@@ -84,7 +100,6 @@
     position: sticky;
     top: 5rem;
     margin-bottom: 50px;
-    z-index: -1;
 }
 
 .heroText {
@@ -141,6 +156,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    cursor: pointer;
 }
 
 .demoAccount > div {
@@ -151,8 +167,9 @@
 
 .navGroup2 > Button:nth-child(1),
 .demoAccount > Button {
-    background: red !important;
+    background: var(--m3--ref--secondary--secondary70);
     font-size: 1.5rem;
+    color: white;
 }
 
 .heroCards {
@@ -179,16 +196,16 @@
 }
 
 .heroCard:nth-child(4n+1){
-    background: var(--m3--ref--primary--primary70);
+    background: var(--m3--ref--primary--primary95);
 }
 .heroCard:nth-child(4n+2){
-    background: var(--m3--ref--primary--primary60);
+    background: var(--m3--ref--secondary--secondary90);
 }
 .heroCard:nth-child(4n+3){
-    background: var(--m3--ref--primary--primary50);
+    background: var(--m3--ref--primary--primary80);
 }
 .heroCard:nth-child(4n+4){
-    background: var(--m3--ref--primary--primary40);
+    background: var(--m3--ref--tertiary--tertiary90);
 }
 
 .heroCard:nth-child(4),
@@ -226,45 +243,34 @@
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ WAVES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 
-.wave1Container {
+/* .wave1Container {
     height: 0;
     display: flex;
     align-items: center;
-}
 
+    z-index: 10;
+} */
+.wave1Container,
 .wave2Container,
 .wave3Container {
     height: 0;
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 20;
-}
-
-.waves1{
-    /* position: relative; */
-    /* top: 5px */
-}
-.waves2{
-    /* position: relative;
-    top: -70px;
-    z-index: 5; */
+    z-index: 10;
 }
 
 
+/* ~ ~ ~ ~ ~ ~ ~ ~  FIRST WAVES ~ ~ ~ ~ ~ ~  */
 /* light color */
 .wave1,
-.wave4,
-.wave8,
-.wave11 {
+.wave4 {
     fill: var(--m3--ref--primary--primary95);
 }
 
 /* medium color */
 .wave2,
-.wave5,
-.wave7,
-.wave10 {
+.wave5 {
     fill: var(--m3--ref--primary--primary90);
 }
 
@@ -272,28 +278,37 @@
 .wave3,
 .wave6 {
     fill: var(--m3--ref--primary--primary80);
-    /* fill: red; */
 }
 
-/* Layer connected to Lists section */
+
+/* ~ ~ ~ ~ ~ ~ ~ ~  SECOND WAVES ~ ~ ~ ~ ~ ~  */
+.wave7,
+.wave10 {
+    fill: var(--m3--ref--tertiary--tertiary80);
+}
+.wave8,
+.wave11 {
+    fill: var(--m3--ref--tertiary--tertiary90);
+}
+
 .wave9,
 .wave12 {
-    /* fill: var(--m3--ref--primary--primary80); */
-    fill: lightpink
+    fill: var(--m3--ref--tertiary--tertiary95)
 }
 
-/* + + + + + + WAVES 3 + + + + + +  */
+/* ~ ~ ~ ~ ~ ~ ~ ~  THIRD WAVES ~ ~ ~ ~ ~ ~  */
+
 
 /* top layer */
 .wave13,
 .wave16 {
-    fill: lightsalmon
+    fill: var(--m3--ref--secondary--secondary90)
 }
 
 /* middle layer */
 .wave14,
 .wave17 {
-    fill: orange
+    fill: var(--m3--ref--secondary--secondary95)
 }
 
 /* bottom layer connecter to stack section */
@@ -301,11 +316,6 @@
 .wave18 {
     fill: white
 }
-
-
-
-
-
 
 
 
@@ -320,6 +330,8 @@
     align-items: center;
     overflow: hidden;
     padding: 5rem 0 0 0;
+    z-index: 2;
+    position: relative;
 }
 
 
@@ -359,7 +371,7 @@
 }
 
 .card {
-    background-color: lightgray;
+    background-color: white;
     /* border: 1px solid black; */
     box-shadow: 0 0 2px 1px rgb(0, 0, 0, 0.5);
     min-width: 820px;
@@ -466,9 +478,8 @@
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ LISTS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 .lists {
-    background: white;
+    background: var(--m3--ref--tertiary--tertiary95);
     height: 90vh;
-    position: relative;
 }
 
 .lists .card{
@@ -508,7 +519,7 @@
     background-color: white;
     /* margin-bottom: 5rem; */
     position: relative;
-    z-index: 10;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;

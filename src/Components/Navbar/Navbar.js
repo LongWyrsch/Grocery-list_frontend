@@ -60,21 +60,21 @@ export const Navbar = ({targetPage, user}) => {
 				</div>
 			</div>
 			<div className={styles.buttonGroup}>
-				<div id="recipeButton" data-show ref={recipeButtonRef}>
+				<div id="recipeButton" data-show ref={recipeButtonRef} className={styles.addButton}>
 					{homePage && (
 						<Button
 							buttonStyle="elevated"
 							text={t('home.NewRecipe')}
 							iconInfo={{
 								iconName: 'BsPlusLg',
-								size: '1rem',
+								size: '1.5rem',
 							}}
 							width="100%"
 							borderRadius="1rem"
 						/>
 					)}
 				</div>
-				<div id="listButton" data-show ref={listButtonRef}>
+				<div id="listButton" data-show ref={listButtonRef} className={styles.addButton}>
 					<Button
 						buttonStyle="elevated"
 						text={t('home.NewList')}

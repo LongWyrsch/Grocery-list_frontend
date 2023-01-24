@@ -153,6 +153,9 @@ https://www.figma.com/community/plugin/816737626312049592
 
 #light {
     /* Color styles */
+    --theme: white;
+    --not-theme: black;
+
     --m3--sys--primary: hsla(139, 65.2%, 25.9%, 1);
     --m3--sys--on-primary: hsla(0, 0%, 100%, 1);
     --m3--sys--primary-container: hsla(127, 82.4%, 80%, 1);
@@ -290,7 +293,8 @@ https://www.figma.com/community/plugin/816737626312049592
 
 #dark {
     /* Color styles */
-
+    --theme: black;
+    --not-theme: white;
     
     --m3--sys--primary: hsla(128, 51.9%, 69%, 1);
     --m3--sys--on-primary: hsla(141, 100%, 11.2%, 1);

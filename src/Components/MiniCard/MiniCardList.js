@@ -14,7 +14,7 @@ export const MiniCardList = ({ card, focusOnCard }) => {
 	};
 
 	return (
-		<div className={`card-elevated ${styles.cardContainer}`} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
+		<div className={`card-flat ${styles.cardContainer}`} onMouseDown={downListener} onMouseMove={moveListener} onMouseUp={upListener}>
 			<div className={styles.title}>{card[0].title}</div>
 			<ul>
 				{card.slice(0, 15).map((ingredient) => {

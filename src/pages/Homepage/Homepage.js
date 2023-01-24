@@ -120,12 +120,10 @@ export const Homepage = () => {
                     <div className={styles.demoAccount}>
                         <div>{t('homepage.checkoutthe')}</div>
                         <Button
-						buttonStyle="elevated"
-						text={t('homepage.demoAccount')}
-						onClick={() => {
-							navigate('/demo/recipes');
-						}}
-                    />
+							buttonStyle="elevated"
+							text={t('homepage.demoAccount')}
+							onClick={() => navigate('/demo/recipes')}
+                    	/>
                     </div>
 				</div>
 				<div className={styles.heroCards}>
@@ -313,61 +311,61 @@ export const Homepage = () => {
 						<Icon icon="vscode-icons:file-type-html"/>
 						<span>HTML</span>
 					</div>
-                    <div className={styles.css} style={{transitionDelay: '30ms'}}>
+                    <div className={styles.css} style={{transitionDelay: '50ms'}}>
 						<Icon icon="vscode-icons:file-type-css"/>
 						<span>CSS</span>
 					</div>
-                    <div className={styles.js} style={{transitionDelay: '60ms'}}>
+                    <div className={styles.js} style={{transitionDelay: '100ms'}}>
 						<Icon icon="vscode-icons:file-type-js-official"/>
 						<span>JS</span>
 					</div>
-                    <div className={styles.react} style={{transitionDelay: '90ms'}}>
+                    <div className={styles.react} style={{transitionDelay: '150ms'}}>
 						<Icon icon="vscode-icons:file-type-reactjs"/>
 						<span>React</span>
 					</div>
-                    <div className={styles.redux} style={{transitionDelay: '120ms'}}>
+                    <div className={styles.redux} style={{transitionDelay: '200ms'}}>
 						<Icon icon="logos:redux"/>
 						<span>Redux</span>
 					</div>
-                    <div className={styles.node} style={{transitionDelay: '150ms'}}>
+                    <div className={styles.node} style={{transitionDelay: '250ms'}}>
 						<Icon icon="vscode-icons:file-type-node"/>
 						<span>Node</span>
 					</div>
-                    <div className={styles.express} style={{transitionDelay: '180ms'}}>
+                    <div className={styles.express} style={{transitionDelay: '300ms'}}>
 						<Icon icon="logos:express"/>
 						<span>Express</span>
 					</div>
-                    <div className={styles.passport} style={{transitionDelay: '210ms'}}>
+                    <div className={styles.passport} style={{transitionDelay: '350ms'}}>
 						<Icon icon="logos:passport"/>
 						<span>Passport</span>
 					</div>
-                    <div className={styles.postgresql} style={{transitionDelay: '240ms'}}>
+                    <div className={styles.postgresql} style={{transitionDelay: '400ms'}}>
 						<Icon icon="logos:postgresql"/>
 						<span>PostgreSQL</span>
 					</div>
                 </div>
 				<div className={`${inView? styles.show : styles.hidden} ${styles.stackIcons}`}>
-                    <div className={styles.figma} style={{transitionDelay: '0ms'}}>
+                    <div className={styles.figma} style={{transitionDelay: '100ms'}}>
 						<Icon icon="logos:figma"/>
 						<span>Figma</span>
 					</div>
-                    <div className={styles.vscode} style={{transitionDelay: '30ms'}}>
+                    <div className={styles.vscode} style={{transitionDelay: '150ms'}}>
 						<Icon icon="logos:visual-studio-code"/>
 						<span>VScode</span>
 					</div>
-                    <div className={styles.git} style={{transitionDelay: '60ms'}}>
+                    <div className={styles.git} style={{transitionDelay: '200ms'}}>
 						<Icon icon="vscode-icons:file-type-git"/>
 						<span>Git</span>
 					</div>
-                    <div className={styles.github} style={{transitionDelay: '90ms'}}>
+                    <div className={styles.github} style={{transitionDelay: '250ms'}}>
 						<Icon icon="bytesize:github"  color='black' style={{width: '5rem', height: '5rem'}}/>
 						<span>GitHub</span>
 					</div>
-                    <div className={styles.supabase} style={{transitionDelay: '120ms'}}>
+                    <div className={styles.supabase} style={{transitionDelay: '300ms'}}>
 						<Icon icon="logos:supabase-icon"/>
 						<span>Supabase</span>
 					</div>
-                    <div className={styles.netlify} style={{transitionDelay: '150ms'}}>
+                    <div className={styles.netlify} style={{transitionDelay: '350ms'}}>
 						<Icon icon="vscode-icons:file-type-netlify"/>
 						<span>Netlify</span>
 					</div>

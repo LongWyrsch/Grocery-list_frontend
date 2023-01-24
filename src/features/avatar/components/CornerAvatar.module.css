@@ -5,8 +5,17 @@
 .avatar {
     cursor: pointer;
     border-radius: 50%;
-    background: var(--m3--surfaces--surface2);
+    background: var(--theme);
     transition: background-color var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.avatar > * > * {
+    border: 1px solid red;
 }
 
 /* Click on avatar when menu is open closes the menu */
