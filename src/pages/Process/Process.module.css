@@ -2,6 +2,16 @@
     /* position: relative; */
 }
 
+.arrow {
+    position: fixed;
+    top: 3rem;
+    left: 4rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .language {
     position: fixed;
     top: 3rem;

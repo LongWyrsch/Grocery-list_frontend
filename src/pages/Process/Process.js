@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// CSS
 import styles from './Process.module.css';
 
 // components
@@ -8,12 +11,23 @@ import ganttData from './ganttData';
 // libs
 import { useTranslation } from 'react-i18next';
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
+import { Icon } from '@iconify/react';
+
 
 export const Process = () => {
 	const { t } = useTranslation();
+	const navigate=useNavigate()
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<div className={styles.processWrapper}>
+			<div className={styles.arrow} onClick={() => { navigate('/') }}>
+				<Icon icon="mdi:arrow-left-circle-outline" style={{width: '3rem', height: '3rem'}}/>
+				Back
+			</div>
 			<div className={styles.language}>
 				<LanguagePicker />
 			</div>
