@@ -14,7 +14,8 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    animation: 2000ms 1000ms infinite ease-in-out downArrow;
+    translate: -50% 0;
+    animation: 2000ms 1000ms infinite ease-in-out backwards downArrow;
 }
 
 .arrow > svg > path {
@@ -23,14 +24,14 @@
 
 @keyframes downArrow{
     0%{
-        translate: 0 -2rem;
+        translate: -50% -2rem;
         opacity: 0;
     }
     50%{
         opacity: 0.5;
     }
     100%{
-        translate: 0 2rem;
+        translate: -50% 2rem;
         opacity: 0;
     }
 }
@@ -41,7 +42,7 @@
     top: 0;
 	height: 5rem;
     width: 100%;
-	background: var(--m3--ref--primary--primary80);
+	background: var(--m3--ref--primary--primary70);
     transition: background-color var(--transition);
 	display: flex;
     justify-content: space-between;
@@ -71,6 +72,9 @@
 .logo {
 	height: 100%;
 	max-width: 40px;
+    background: white;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 
@@ -80,12 +84,20 @@
 }
 
 @media only screen and (max-width: 760px) {
+    .navbar{
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+
     .navGroup2 > Button:nth-child(1),
-    .navGroup2 > Button:nth-child(2) {
-        background: white;
-        font-size: 1rem;
-        color: var(--3--sys--primary);
-    }   
+    .navGroup2 > Button:nth-child(2),
+    .navGroup2 > Button:nth-child(3) {
+        display: none;
+    }
+    
+
+
 }
 
 
@@ -176,6 +188,10 @@
     color: white;
 }
 
+.authButtons{
+    display: none;
+}
+
 .heroCards {
     flex-grow: 1;
     display: flex;
@@ -219,18 +235,10 @@
 
 @media only screen and (max-width: 760px) {
 
-    .arrow{
-        left: 40%;
-    }
-
     .heroText {
         min-width: 100%;
     }
 
-    * {
-        /* border: 1px solid red; */
-    }
-    
     .heroText1 {
         font-size: 15vw;
         width: 60%;
@@ -249,6 +257,16 @@
 
     .demoAccount > div {
         font-size: 6vw;
+    }
+
+    .authButtons {
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4rem 0;
+        gap: 20px;
     }
 
     .heroCards {
@@ -406,6 +424,7 @@
 
 .text1{
     font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .text2{
@@ -536,7 +555,9 @@
 
     .text{
         width: 80%;
+        margin: 5rem 0rem 2rem;
     }
+    
 
     .text1{
         font-size: 2rem;
@@ -610,7 +631,7 @@
     }
     
     .unit{
-        min-width: 3rem;
+        min-width: 4rem;
         margin-right: 0.5rem;
     }
 
@@ -740,13 +761,11 @@
     justify-content: center;
     gap: 50px;
     margin-top: 4rem;
-}
-
-.stackIcons{
     font-size: 6rem;
 }
 
-.stackIcons:nth-child(3) {
+
+.stackIcons:nth-child(4) {
     font-size: 3.5rem;
 }
 
@@ -784,6 +803,10 @@
 
 
 @media only screen and (max-width: 760px) {
+    .section.stack {
+        padding: 5rem 2rem 3rem;
+    }
+
     .stack > div > Button,
     .stackText {
         font-size: 2rem;
@@ -791,10 +814,16 @@
 
     .stackIcons{
         font-size: 4rem;
+        gap: 15px;
     }
     
-    .stackIcons:nth-child(3) {
+    .stackIcons:nth-child(4) {
         font-size: 3rem;
+    }
+
+    .github > svg {
+        width: 3rem;
+        height: 3rem;
     }
 
     .github > * {
@@ -816,6 +845,12 @@ footer {
     gap: 4rem;
     position: relative;
     z-index: 10;
+}
+
+@media only screen and (max-width: 760px) {
+    footer{
+        gap: 1rem;
+    }
 }
 
 .github,

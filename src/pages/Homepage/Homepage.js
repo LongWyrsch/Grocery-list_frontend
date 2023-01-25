@@ -84,13 +84,13 @@ export const Homepage = () => {
 					</div>
 				</div>
 				<div className={styles.navGroup2}>
-                    {!smallScreen && <Button
+                    <Button
 						buttonStyle="elevated"
 						text={t('homepage.demoAccount')}
 						onClick={() => {
 							navigate('/demo/recipes');
 						}}
-                    />}
+                    />
 					<Button
 						buttonStyle="outlined"
 						text={t('auth.signin')}
@@ -123,6 +123,22 @@ export const Homepage = () => {
 							onClick={() => navigate('/demo/recipes')}
                     	/>
                     </div>
+					<div className={styles.authButtons}>
+						<Button
+							buttonStyle="outlined"
+							text={t('auth.signin')}
+							onClick={() => {
+								navigate('/signin');
+							}}
+						/>
+						<Button
+							buttonStyle="outlined"
+							text={t('auth.signup')}
+							onClick={() => {
+								navigate('/signup');
+							}}
+						/>
+					</div>
 				</div>
 				<div className={styles.heroCards}>
 					<div className={styles.heroCard} style={{ height: '33%' }} ref={card1.ref}>
@@ -342,6 +358,7 @@ export const Homepage = () => {
 						<span>PostgreSQL</span>
 					</div>
                 </div>
+				<hr/>
 				<div className={`${(inView1 || inView2)? styles.show : styles.hidden} ${styles.stackIcons}`}>
                     <div className={styles.figma} style={{transitionDelay: '100ms'}}>
 						<Icon icon="logos:figma"/>
@@ -370,8 +387,8 @@ export const Homepage = () => {
 				</div>  
             </div>
 			<footer>
-				<FaGithub className={styles.github} />
-				<FaLinkedin className={styles.linkedin} />
+				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch?tab=repositories' }}/>
+				<FaLinkedin className={styles.linkedin} onClick={() => { window.location.href='https://de.linkedin.com/in/long-wyrsch-9141a156?original_referer=' }}/>
                 <p>long.nqw@gmail.com</p>
 			</footer>
 		</div>
