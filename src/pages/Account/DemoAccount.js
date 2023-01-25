@@ -1,12 +1,9 @@
 // React
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { clearUser, getUser, updateUser } from '../../features/user/state/userSlice';
-import { clearRecipes } from '../../features/recipes/state/recipesSlice';
-import { clearLists } from '../../features/lists/state/listsSlice';
+import { updateUser } from '../../features/user/state/userSlice';
 
 // CSS
 import styles from './Account.module.css';
@@ -23,11 +20,9 @@ import { t } from 'i18next';
 
 // utils
 import { randomColorsArray } from '../../utils/randomColorsArray';
-import { serverRequests } from '../../utils/serverRequests';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 
 export const DemoAccount = ({ user }) => {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const [avatar_variant, setAvatar_variant] = useState(user.avatar_variant);
 	const [avatar_colors, setAvatar_colors] = useState(user.avatar_colors);

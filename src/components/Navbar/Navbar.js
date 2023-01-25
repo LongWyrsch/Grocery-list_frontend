@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // CSS
 import styles from './Navbar.module.css';

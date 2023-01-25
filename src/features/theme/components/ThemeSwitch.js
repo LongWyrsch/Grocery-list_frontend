@@ -1,6 +1,5 @@
 // React
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 // CSS
 import styles from './ThemeSwitch.module.css';
@@ -18,7 +17,6 @@ import { serverRequests } from '../../../utils/serverRequests';
 
 export const ThemeSwitch = () => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate;
 	const user = useSelector(selectUser);
 
 	const toggleTheme = () => user.theme === 'light' ? 'dark' : 'light'

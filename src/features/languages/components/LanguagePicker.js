@@ -13,7 +13,6 @@ import { Icon } from '@iconify/react'
 
 // React-icons
 import { IconContext } from 'react-icons';
-import { MdTranslate } from 'react-icons/md';
 import { FaChevronDown } from 'react-icons/fa';
 import { updateUser } from '../../user/state/userSlice';
 
@@ -63,7 +62,6 @@ export const LanguagePicker = ({user}) => {
         }
     })
 
-	const translationIcon = React.createElement(MdTranslate)
 	const arrowIcon = React.createElement(FaChevronDown)
 
 	return (

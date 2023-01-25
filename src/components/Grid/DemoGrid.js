@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 // Other libs
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +6,6 @@ import { t } from 'i18next';
 
 // react-grid-layout
 import { WidthProvider, Responsive } from 'react-grid-layout';
-import _ from 'lodash';
 import '/node_modules/react-grid-layout/css/styles.css';
 import '/node_modules/react-resizable/css/styles.css';
 
@@ -53,7 +51,6 @@ import { groupBy } from '../../utils/groupBy';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export const DemoGrid = ({ targetPage, user }) => {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const recipes = useSelector(selectRecipes); //Hook 3
 	const lists = useSelector(selectLists);
@@ -62,8 +59,6 @@ export const DemoGrid = ({ targetPage, user }) => {
 	let deletedRowsRef = useRef([]);
 	const [showWarning, setShowWarning] = useState(false);
 	const [newList, setNewList] = useState(null);
-
-	let layoutsQueueRef = useRef([]); // Queue array to limit layouts update server requests
 
 	// let breakpointRef = useRef('') // No used for now...
 	// let newItemColRef = useRef('') // No used for now...

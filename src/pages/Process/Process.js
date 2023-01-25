@@ -6,7 +6,7 @@ import styles from './Process.module.css';
 
 // components
 import { Mermaid } from './Mermaid';
-import ganttData from './ganttData';
+import { ganttData } from './ganttData';
 
 // libs
 import { useTranslation } from 'react-i18next';

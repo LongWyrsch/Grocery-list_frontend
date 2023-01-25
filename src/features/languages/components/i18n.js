@@ -19,8 +19,13 @@ i18n
   .use(initReactI18next)
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
+
+  
   .init({
+    // Adding   load: 'languageOnly'  fixed the issue of i18next causing http error not found when deploying. 
+    // Checkout: https://github.com/i18next/i18next-http-backend#troubleshooting
     load: 'languageOnly',
+    
     fallbackLng: 'EN',
     debug: true,
     whitelist: ['DE', 'EN', 'FR'],

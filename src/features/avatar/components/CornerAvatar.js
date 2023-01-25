@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CornerAvatar.module.css';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, getUser, updateUser, clearUser } from '../../user/state/userSlice';
-import { clearRecipes, updateRecipe } from '../../recipes/state/recipesSlice';
+import { useDispatch } from 'react-redux';
+import { clearUser } from '../../user/state/userSlice';
+import { clearRecipes } from '../../recipes/state/recipesSlice';
 import { clearLists } from '../../lists/state/listsSlice';
 
 // React-icons

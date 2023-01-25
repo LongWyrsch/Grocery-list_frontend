@@ -31,15 +31,15 @@ export const Homepage = () => {
 	let smallScreen = window.screen.availWidth < 760 ? true : false
 
 	useEffect(() => {
-        const tween1 = KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-		const tween2 = KUTE.fromTo('#wave2', { path: '#wave2' }, { path: '#wave5' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-		const tween3 = KUTE.fromTo('#wave3', { path: '#wave3' }, { path: '#wave6' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-		const tween4 = KUTE.fromTo('#wave7', { path: '#wave7' }, { path: '#wave10' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-		const tween5 = KUTE.fromTo('#wave8', { path: '#wave8' }, { path: '#wave11' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-		const tween6 = KUTE.fromTo('#wave9', { path: '#wave9' }, { path: '#wave12' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-        const tween7 = KUTE.fromTo('#wave13', { path: '#wave13' }, { path: '#wave16' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-        const tween8 = KUTE.fromTo('#wave14', { path: '#wave14' }, { path: '#wave17' }, { repeat: 50, duration: 2000, yoyo: true }).start();
-        const tween9 = KUTE.fromTo('#wave15', { path: '#wave15' }, { path: '#wave18' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+        KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+		KUTE.fromTo('#wave2', { path: '#wave2' }, { path: '#wave5' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+		KUTE.fromTo('#wave3', { path: '#wave3' }, { path: '#wave6' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+		KUTE.fromTo('#wave7', { path: '#wave7' }, { path: '#wave10' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+		KUTE.fromTo('#wave8', { path: '#wave8' }, { path: '#wave11' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+		KUTE.fromTo('#wave9', { path: '#wave9' }, { path: '#wave12' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+        KUTE.fromTo('#wave13', { path: '#wave13' }, { path: '#wave16' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+        KUTE.fromTo('#wave14', { path: '#wave14' }, { path: '#wave17' }, { repeat: 50, duration: 2000, yoyo: true }).start();
+        KUTE.fromTo('#wave15', { path: '#wave15' }, { path: '#wave18' }, { repeat: 50, duration: 2000, yoyo: true }).start();
 	}, []);
 
 	const card1 = useParallax({ translateY: [0, -1000, 'easeIn'], startScroll: 600, endScroll: 900 });

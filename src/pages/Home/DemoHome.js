@@ -1,12 +1,10 @@
 // React
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, getUser, userHasError, initializeDemoUser } from '../../features/user/state/userSlice';
-import { getLists } from '../../features/lists/state/listsSlice';
-import { getRecipes } from '../../features/recipes/state/recipesSlice';
+import { selectUser, userHasError, initializeDemoUser } from '../../features/user/state/userSlice';
 
 // CSS
 import styles from './Home.module.css';
@@ -30,7 +28,7 @@ export const DemoHome = () => {
 
 	const isAuthenticated = user.email || user.google_name ? true : false;
 
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		console.log('Dispatching getUser, getLists, getRecipes');

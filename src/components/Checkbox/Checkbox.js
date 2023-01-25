@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from './Checkbox.module.css';
-import { IconContext } from 'react-icons';
 import { HiCheck } from 'react-icons/hi';
 
 export const Checkbox = ({ checked, handleChange, wrapperSize='2rem', boxSize='1.5rem', checkSize='1.5rem', disabled = false }) => {

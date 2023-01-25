@@ -1,4 +1,4 @@
-export default `
+export const ganttData = `
 gantt
                 title Grocery list
                 dateFormat YYYY-MM-DD

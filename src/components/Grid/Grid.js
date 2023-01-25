@@ -7,7 +7,6 @@ import { t } from 'i18next';
 
 // react-grid-layout
 import { WidthProvider, Responsive } from 'react-grid-layout';
-import _ from 'lodash';
 import '/node_modules/react-grid-layout/css/styles.css';
 import '/node_modules/react-resizable/css/styles.css';
 
