@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Other libs
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +17,7 @@ import './cardShadow.css';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, updateUser } from '../../features/user/state/userSlice';
+import { updateUser } from '../../features/user/state/userSlice';
 import {
 	selectLists,
 	updateList,
@@ -42,8 +42,6 @@ import { ActionWarning } from '../ActionWarning/ActionWarning';
 import { NewList } from '../NewList/NewList';
 
 // Utils
-import { serverRequests } from '../../utils/serverRequests';
-import { queueTask } from '../../utils/queueTask';
 import { adjustCardHeight } from '../../utils/adjustCardHeight';
 import { generateLayouts } from '../../utils/generateLayouts';
 import { ErrorMessage } from '../../pages/Error/ErrorMessage';

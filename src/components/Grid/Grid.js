@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Other libs
 import { v4 as uuidv4 } from 'uuid';
@@ -17,7 +17,7 @@ import './cardShadow.css';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser, getUser, updateUser } from '../../features/user/state/userSlice';
+import { getUser, updateUser } from '../../features/user/state/userSlice';
 import { selectLists, getLists, updateList, deleteList, addList } from '../../features/lists/state/listsSlice';
 import { selectRecipes, getRecipes, updateRecipe, deleteRecipe, addRecipe } from '../../features/recipes/state/recipesSlice';
 
