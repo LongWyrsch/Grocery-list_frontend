@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Other libs
+// libs
 import { v4 as uuidv4 } from 'uuid';
 import { t } from 'i18next';
+import { Icon } from '@iconify/react';
+
 
 // react-grid-layout
 import { WidthProvider, Responsive } from 'react-grid-layout';
@@ -141,11 +143,13 @@ export const Grid = ({ targetPage, user }) => {
 			isBounded: true,
 		};
 
-		// Update layouts with new card's grid position
+		// Update layouts with new card's grid position IF layoutsRef.current is not empty
 		let updatedLayouts = {};
-		for (const [key, value] of Object.entries(layoutsRef.current)) {
-			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
-			updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
+		if (layoutsRef.current !== null) {
+			for (const [key, value] of Object.entries(layoutsRef.current)) {
+				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
+				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
+			}
 		}
 		layoutsRef.current = updatedLayouts;
 
@@ -199,9 +203,11 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Update layouts with new card's grid position
 		let updatedLayouts = {};
-		for (const [key, value] of Object.entries(layoutsRef.current)) {
-			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
-			updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
+		if (layoutsRef.current !== null) {
+			for (const [key, value] of Object.entries(layoutsRef.current)) {
+				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
+				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
+			}
 		}
 		layoutsRef.current = updatedLayouts;
 
@@ -352,7 +358,7 @@ export const Grid = ({ targetPage, user }) => {
 
 	useEffect(() => {
 		console.log('useEffect to bind add button');
-		const recipeButton = document.querySelector('#recipeButton>Button');
+		const recipeButton = document.querySelector('#recipeButton>button');
 		recipeButton.onclick = createRecipe;
 
 		const listButton = document.querySelector('#listButton>button');
@@ -366,6 +372,11 @@ export const Grid = ({ targetPage, user }) => {
 
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
+			<div className={styles.fab}>
+				<div className={styles.fabMask} onClick={targetPage==='recipes'?createRecipe:settingNewList}>
+					<Icon icon="ic:baseline-plus" style={{width: '3rem', height: '3rem'}}/>
+				</div>
+			</div>
 			{showWarning && (
 				<ActionWarning
 					action={t('general.Delete')}

@@ -1,13 +1,11 @@
 .navbar {
 	height: 5rem;
-	/* ORIGINAL */
-	/* background: var(--m3--surfaces--surface2); */
 	transition: background-color var(--transition);
 	display: flex;
 	padding: 0px 15px;
-
 	background: var(--m3--sys--primary);
 }
+
 
 .buttonGroup {
 	width: 33.33%;
@@ -15,6 +13,18 @@
 	align-items: center;
 	padding: 0 10px;
 	gap: 20px;
+}
+
+.buttonGroup:nth-child(1) {
+	min-width: 370px;
+}
+
+.buttonGroup:nth-child(2) {
+	justify-content: center;
+}
+
+.buttonGroup:nth-child(3) {
+	min-width: 150px;
 }
 
 .imgContainer {
@@ -25,6 +35,12 @@
 .logo {
 	height: 100%;
 	max-width: 40px;
+}
+
+.addButton {
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .addButton > * > * {
@@ -71,10 +87,6 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-
-	/* orinigal */
-	
-	/* fill: var(--m3--sys--background); */
 	fill: var(--theme);
 	opacity: 0.5;
 }
@@ -93,4 +105,15 @@
 .tabs > div.activeTab > p {
 	color: var(--m3--sys--primary);
 	/* font-weight: 700; */
+}
+
+@media only screen and (max-width: 740px) {
+	.buttonGroup:nth-child(2) {
+		min-width: 10px;
+	}
+
+	.addButton {
+		display: none;
+	}	
+
 }

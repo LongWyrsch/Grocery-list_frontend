@@ -69,7 +69,7 @@ export const Navbar = ({targetPage, user}) => {
 								iconName: 'BsPlusLg',
 								size: '1.5rem',
 							}}
-							width="100%"
+							width="80%"
 							borderRadius="1rem"
 						/>
 					)}
