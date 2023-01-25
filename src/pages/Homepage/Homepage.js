@@ -77,15 +77,7 @@ export const Homepage = () => {
 					<path className={styles.arrow1} d="m18 13l-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"/>
 				</svg>
 			</div>}
-			{/* { smallScreen && <nav className={styles.navbar}>
-				<div className={styles.navGroup1}>
-					<div className={styles.imgContainer}>
-						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
-					</div>
-				</div>
-			
-			</nav>} */}
-			{ smallScreen && <nav className={styles.navbar}>
+			<nav className={styles.navbar}>
 				<div className={styles.navGroup1}>
 					<div className={styles.imgContainer}>
 						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
@@ -99,13 +91,6 @@ export const Homepage = () => {
 							navigate('/demo/recipes');
 						}}
                     />}
-					{/* <Button
-						buttonStyle="text"
-						text="about the stack"
-						onClick={() => {
-							navigate('/aboutthestack');
-						}}
-					/> */}
 					<Button
 						buttonStyle="outlined"
 						text={t('auth.signin')}
@@ -122,7 +107,7 @@ export const Homepage = () => {
 					/>
 					<LanguagePicker />
 				</div>
-			</nav>}
+			</nav>
 			<div className={`${styles.section} ${styles.hero}`}>
 				<div className={styles.heroText}>
                     <div className={styles.heroTitle}>
