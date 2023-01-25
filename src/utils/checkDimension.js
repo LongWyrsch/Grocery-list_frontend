@@ -10,7 +10,7 @@ export const checkDimension = (layouts) => {
         };
 	};
 
-	for (var [value] of Object.entries(layouts)) {
+	for (var value of Object.values(layouts)) {
 		value.forEach((position) => checkPosition(position));
 	}
 
