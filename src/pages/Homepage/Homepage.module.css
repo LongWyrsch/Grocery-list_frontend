@@ -1,7 +1,3 @@
-.homepageWrapper {
-    /* overflow: hidden; */
-}
-
 .triggerArrows{
     height: 0;
     width: 0;
@@ -45,17 +41,18 @@
     top: 0;
 	height: 5rem;
     width: 100%;
-
-    /* original */
-	/* background: var(--m3--ref--primary--primary60); */
 	background: var(--m3--ref--primary--primary80);
-
-	
     transition: background-color var(--transition);
 	display: flex;
     justify-content: space-between;
 	padding: 0px 15px;
     z-index: 50;
+}
+
+.navGroup2 > Button:nth-child(1) {
+    background: var(--m3--ref--secondary--secondary70);
+    font-size: 1.5rem;
+    color: white;
 }
 
 .navGroup1,
@@ -82,10 +79,14 @@
     background-color: white;
 }
 
-/* .navGroup2 > Button:nth-child(4) svg {
-    background-color: red;
-} */
-
+@media only screen and (max-width: 760px) {
+    .navGroup2 > Button:nth-child(1),
+    .navGroup2 > Button:nth-child(2) {
+        background: white;
+        font-size: 1rem;
+        color: var(--3--sys--primary);
+    }   
+}
 
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ HERO ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
@@ -102,25 +103,28 @@
     margin-bottom: 50px;
 }
 
+
 .heroText {
     width: 40vw;
-    padding: 10rem 2rem 2rem 2rem;
+    min-width: 720px;
+    
+    margin: 15vh 2rem 2rem 2rem;
     display: flex;
     flex-wrap: wrap;
     transition: opacity 2000ms;
     animation: 4000ms 500ms backwards fadetitlein;
-    /* border: 1px solid red; */
 }
 
 .heroTitle {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /* border: 1px solid blue; */
     align-items: flex-end;
     justify-content: center;
     text-align: center;
     font-family: 'Solitreo';
+    /* border: 1px solid red; */
+
 }
 
 
@@ -138,6 +142,7 @@
     font-size: 13rem;
     font-weight:900;
     width: 100%;
+    /* border: 1px solid red; */
 }
 
 .heroText2 {
@@ -165,7 +170,6 @@
     font-size: 2rem;
 }
 
-.navGroup2 > Button:nth-child(1),
 .demoAccount > Button {
     background: var(--m3--ref--secondary--secondary70);
     font-size: 1.5rem;
@@ -179,6 +183,7 @@
     align-content: flex-start;
     flex-wrap: wrap;
     height: 100%;
+    min-width: 630px;
 }
 
 .heroCard {
@@ -190,10 +195,73 @@
     animation: 1000ms  backwards riseup;
     animation-timing-function: cubic-bezier(.01,.23,0,1);
     text-align: center;
-    padding: 30px;
+    padding: 30px 0;
     font-size: 1.3vw;
     font-family: 'Rock Salt';
 }
+
+@media only screen and (max-width: 1473px) {
+
+    .heroText {
+    --whiteMask: rgb(255,255,255,1);
+    background-color: var(--whiteMask);
+    box-shadow: 0 0 150px 150px var(--whiteMask);
+    padding-bottom: 3rem;
+    }
+
+    .heroCards {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+
+    .arrow{
+        left: 40%;
+    }
+
+    .heroText {
+        min-width: 100%;
+    }
+
+    * {
+        /* border: 1px solid red; */
+    }
+    
+    .heroText1 {
+        font-size: 15vw;
+        width: 60%;
+    }
+    
+    .heroText2 {
+        font-size: 15vw;
+        width: 40%;
+        text-align: left;
+    }
+
+    .heroText3 {
+        font-size: 8vw;
+        padding: 0 0 3rem ;
+    }
+
+    .demoAccount > div {
+        font-size: 6vw;
+    }
+
+    .heroCards {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        height: 100%;
+        min-width: 100%;
+    }
+}
+
 
 .heroCard:nth-child(4n+1){
     background: var(--m3--ref--primary--primary95);
@@ -243,13 +311,7 @@
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ WAVES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 
-/* .wave1Container {
-    height: 0;
-    display: flex;
-    align-items: center;
 
-    z-index: 10;
-} */
 .wave1Container,
 .wave2Container,
 .wave3Container {
@@ -337,7 +399,7 @@
 
 .text{
     width: 100%;
-    margin: 5rem 0 6rem;
+    margin: 5rem 0rem 6rem;
     text-align: center;
 }
 
@@ -353,14 +415,15 @@
 .example {
     height: 100%;
     position: relative;
-    min-width: 60%;
+    width: 60%;
+    min-width: 720px;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 }
 
 .shadow,
 .card {
-    /* margin: 0 auto; */
     padding: 3rem 4rem;
     width: 100%;
     max-width: 1060px;
@@ -372,10 +435,10 @@
 
 .card {
     background-color: white;
-    /* border: 1px solid black; */
     box-shadow: 0 0 2px 1px rgb(0, 0, 0, 0.5);
-    min-width: 820px;
+    min-width: 850px;
 }
+
 
 .shadow {
     background-color: black;
@@ -386,26 +449,25 @@
 }
 
 .recipes .card:nth-child(1) {
-    left:25%;
+    left:20%;
     z-index: 4;
 }
 
 .recipes .shadow:nth-child(2) {
     top: 3rem;
-    left: 19%;
+    left: 22%;
     rotate: -5deg;
     z-index: 3;
 }
 
 .recipes .card:nth-child(3) {
     top: 4rem;
-    left: 3%;
+    left: -5%;
     rotate: -5deg;
     z-index: 2;
 }
 
 .recipes .shadow:nth-child(4) {
-    /* background-color: blue !important; */
     top: 6rem;
     left: 0;
     rotate: -8deg
@@ -415,13 +477,6 @@
     font-size: 3rem;
     margin-bottom: 1rem;
 }
-
-/* .close {
-    position: absolute;
-    font-size: 2rem;
-    top: 2rem;
-    right: 3rem;
-} */
 
 .headings {
     font-size: 2rem;
@@ -443,7 +498,6 @@
 }
 
 .row>div {
-    /* border: 1px solid blue; */
     white-space: nowrap;
 } 
 
@@ -474,6 +528,104 @@
     width: 5rem;
 }
 
+@media only screen and (max-width: 760px) {
+
+    * {
+        /* border: 1px solid red; */
+    }
+
+    .text{
+        width: 80%;
+    }
+
+    .text1{
+        font-size: 2rem;
+    }
+    
+    .text2{
+        font-size: 1.5rem;
+    }
+
+    .example {
+        width: 80%;
+        min-width: 470px;
+    }
+
+    .shadow,
+    .card {
+        padding: 1rem 2rem;
+    }
+    
+    .card {
+        min-width: 360px;
+    }
+    
+    .recipes .shadow:nth-child(2) {
+        top: 3rem;
+        left: 38%;
+        rotate: -5deg;
+        z-index: 3;
+    }
+
+    .shadow {
+        min-width: 360px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .headings {
+        font-size: 1.2rem;
+        gap: 0.3rem;
+    }
+    
+
+    
+    .row {
+        font-size: 1.2rem;
+        margin: 0.7rem 0;
+    }
+    
+    .ingredient{
+        min-width: 9rem;
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .headings > .ingredient {
+        min-width: 9rem;
+        flex-grow: 1;
+    }
+    
+    .quantity{
+        min-width: 3rem;
+        text-align: right;
+        margin-right: 0.3rem;
+    }
+
+    .headings > .quantity {
+        margin-right: 0rem !important;
+    }
+    
+    .unit{
+        min-width: 3rem;
+        margin-right: 0.5rem;
+    }
+
+    .lists .section,
+    .recipes .section {
+        min-width: 7rem;
+    }
+
+    .headings > .section {
+        min-width: 5rem;
+    }
+    
+    
+
+}
 
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ LISTS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
@@ -508,43 +660,71 @@
     color: gray;
     font-size: 2rem;
     padding: 5px;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 760px) {
+    /* *{border: solid 1px red;} */
+
+    .lists .card{
+        left:25%;
+    }
+    
+    .lists .shadow{
+        left: 30%;
+    }
+
+    .recipeNames{
+        gap: 5px;
+    }
+    
+    .recipeNames > div {
+        font-size: 1rem;
+    }
+
+    .lists .example,
+    .lists .card {
+        max-width: 500px !important;
+    }
+
+    .lists .section {
+        width: 7rem;
+    }
+    .lists .headings .ingredient {
+        min-width: 11rem;
+    }
 }
 
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ StACK ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 
 .section.stack {
-    height: 60vh;
+    min-height: 60vh;
     width: 100%;
     background-color: white;
-    /* margin-bottom: 5rem; */
+    padding: 8rem 5rem 5rem;
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* From https://css.glass */
-    /* background: rgba(255, 255, 255, 0.49);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-
-    bottom: 0;
-    display: flex;     */
 }
 
 .stack>div{
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
 }
 
 .stackText {
     font-size: 3rem;
-    margin-right: 1rem;
+    margin: 1rem;
+    text-align: center;
 }
+
 
 .stack > div > Button {
     font-size: 3rem;
@@ -553,6 +733,7 @@
 
 .stackIcons {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     display: flex;
     align-items: center;
@@ -566,9 +747,12 @@
 }
 
 .stackIcons:nth-child(3) {
-    font-size: 4rem;
-    /* background-color: red !important;
-    border: 1px solid red !important; */
+    font-size: 3.5rem;
+}
+
+.github > svg {
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .hidden > div {
@@ -599,6 +783,26 @@
 }
 
 
+@media only screen and (max-width: 760px) {
+    .stack > div > Button,
+    .stackText {
+        font-size: 2rem;
+    }
+
+    .stackIcons{
+        font-size: 4rem;
+    }
+    
+    .stackIcons:nth-child(3) {
+        font-size: 3rem;
+    }
+
+    .github > * {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ FOOTER ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~  */
 
@@ -610,6 +814,8 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    position: relative;
+    z-index: 10;
 }
 
 .github,

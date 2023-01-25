@@ -28,6 +28,8 @@ export const Homepage = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 
+	let smallScreen = window.screen.availWidth < 760 ? true : false
+
 	useEffect(() => {
         const tween1 = KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();
 		const tween2 = KUTE.fromTo('#wave2', { path: '#wave2' }, { path: '#wave5' }, { repeat: 50, duration: 2000, yoyo: true }).start();
@@ -53,15 +55,18 @@ export const Homepage = () => {
 	const card11 = useParallax({ translateY: [0, -1000, 'easeIn'], startScroll: 370, endScroll: 900 });
 	const card12 = useParallax({ translateY: [0, -1000, 'easeIn'], startScroll: 50, endScroll: 900 });
 
-	const title1 = useParallax({ opacity: [0, 1], startScroll: 300, endScroll: 900 });
-	const subtitle1 = useParallax({ opacity: [0, 1], startScroll: 300, endScroll: 900 });
-	const title2 = useParallax({ opacity: [0, 1], startScroll: 1200, endScroll: 1900 });
-	const subtitle2 = useParallax({ opacity: [0, 1], startScroll: 1200, endScroll: 1900 });
+	const title1 = useParallax({ opacity: [0, 1], startScroll: 200, endScroll: 1100 });
+	const subtitle1 = useParallax({ opacity: [0, 1], startScroll: 200, endScroll: 1100 });
+	const title2 = useParallax({ opacity: [0, 1], startScroll: 1000, endScroll: 1800 });
+	const subtitle2 = useParallax({ opacity: [0, 1], startScroll: 1000, endScroll: 1800 });
 	
 	// const arrow = useParallax({ opacity: [1, 0], startScroll: 5, endScroll: 100 });
 	
-    const { ref:stackIconRef, inView } = useInView()
+    const { ref:stackButtonIconRef, inView: inView1 } = useInView()
+    const { ref:stackLastIconRef, inView: inView2 } = useInView()
     const { ref:trigger, inView:triggerInView } = useInView()
+
+	console.log(inView1,inView2)
 
 	return (
 		<div className={styles.homepageWrapper}>
@@ -72,20 +77,28 @@ export const Homepage = () => {
 					<path className={styles.arrow1} d="m18 13l-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"/>
 				</svg>
 			</div>}
-			<nav className={styles.navbar}>
+			{/* { smallScreen && <nav className={styles.navbar}>
+				<div className={styles.navGroup1}>
+					<div className={styles.imgContainer}>
+						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
+					</div>
+				</div>
+			
+			</nav>} */}
+			{ smallScreen && <nav className={styles.navbar}>
 				<div className={styles.navGroup1}>
 					<div className={styles.imgContainer}>
 						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 					</div>
 				</div>
 				<div className={styles.navGroup2}>
-                    <Button
+                    {!smallScreen && <Button
 						buttonStyle="elevated"
 						text={t('homepage.demoAccount')}
 						onClick={() => {
 							navigate('/demo/recipes');
 						}}
-                    />
+                    />}
 					{/* <Button
 						buttonStyle="text"
 						text="about the stack"
@@ -109,7 +122,7 @@ export const Homepage = () => {
 					/>
 					<LanguagePicker />
 				</div>
-			</nav>
+			</nav>}
 			<div className={`${styles.section} ${styles.hero}`}>
 				<div className={styles.heroText}>
                     <div className={styles.heroTitle}>
@@ -155,7 +168,7 @@ export const Homepage = () => {
                         Carbonara
 					</div>
 					<div className={styles.heroCard} style={{ height: '32%' }} ref={card10.ref}>
-                        Jajangmyeon
+						Bibimbap
 					</div>
 					<div className={styles.heroCard} style={{ height: '25%' }} ref={card11.ref}>
                     shepherd's Pie
@@ -297,7 +310,7 @@ export const Homepage = () => {
 
             <div className={`${styles.section} ${styles.stack}`}>
                 <div>
-                    <div className={styles.stackText}>{t('homepage.havealook')}</div>
+                    <div ref={stackButtonIconRef}  className={styles.stackText}>{t('homepage.havealook')}</div>
                     <Button 
                     buttonStyle="filled"
                     text={t('homepage.designprocess')}
@@ -306,8 +319,8 @@ export const Homepage = () => {
                     }}
                     />
                 </div>
-                <div className={`${inView? styles.show : styles.hidden} ${styles.stackIcons}`}>
-                    <div ref={stackIconRef} className={styles.html} style={{transitionDelay: '0ms'}}>
+                <div className={`${(inView1 || inView2)? styles.show : styles.hidden} ${styles.stackIcons}`}>
+                    <div className={styles.html} style={{transitionDelay: '0ms'}}>
 						<Icon icon="vscode-icons:file-type-html"/>
 						<span>HTML</span>
 					</div>
@@ -339,12 +352,12 @@ export const Homepage = () => {
 						<Icon icon="logos:passport"/>
 						<span>Passport</span>
 					</div>
-                    <div className={styles.postgresql} style={{transitionDelay: '400ms'}}>
+                    <div ref={stackLastIconRef}  className={styles.postgresql} style={{transitionDelay: '400ms'}}>
 						<Icon icon="logos:postgresql"/>
 						<span>PostgreSQL</span>
 					</div>
                 </div>
-				<div className={`${inView? styles.show : styles.hidden} ${styles.stackIcons}`}>
+				<div className={`${(inView1 || inView2)? styles.show : styles.hidden} ${styles.stackIcons}`}>
                     <div className={styles.figma} style={{transitionDelay: '100ms'}}>
 						<Icon icon="logos:figma"/>
 						<span>Figma</span>
@@ -356,16 +369,16 @@ export const Homepage = () => {
                     <div className={styles.git} style={{transitionDelay: '200ms'}}>
 						<Icon icon="vscode-icons:file-type-git"/>
 						<span>Git</span>
-					</div>
-                    <div className={styles.github} style={{transitionDelay: '250ms'}}>
-						<Icon icon="bytesize:github"  color='black' style={{width: '5rem', height: '5rem'}}/>
+					</div>	
+					<div className={styles.github} style={{transitionDelay: '250ms'}}>
+						<Icon icon="bytesize:github"  color='black'/>
 						<span>GitHub</span>
 					</div>
-                    <div className={styles.supabase} style={{transitionDelay: '300ms'}}>
+					<div className={styles.supabase} style={{transitionDelay: '300ms'}}>
 						<Icon icon="logos:supabase-icon"/>
 						<span>Supabase</span>
 					</div>
-                    <div className={styles.netlify} style={{transitionDelay: '350ms'}}>
+					<div className={styles.netlify} style={{transitionDelay: '350ms'}}>
 						<Icon icon="vscode-icons:file-type-netlify"/>
 						<span>Netlify</span>
 					</div>

@@ -20,6 +20,7 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    load: 'languageOnly',
     fallbackLng: 'EN',
     debug: true,
     whitelist: ['DE', 'EN', 'FR'],
@@ -27,7 +28,6 @@ i18n
         order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
         cache: ['cookie']
     },
-
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     }

@@ -39,7 +39,7 @@ export const DemoHome = () => {
 
 	useEffect(() => {
 		console.log(user.language);
-		i18n.changeLanguage(user.language);
+		// i18n.changeLanguage(user.language);
 	}, [user.language]);
 
 	let { targetPage } = useParams();
