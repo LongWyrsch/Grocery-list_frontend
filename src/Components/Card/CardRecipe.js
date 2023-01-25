@@ -16,18 +16,7 @@ import { IconContext } from 'react-icons';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import { IoMdClose } from 'react-icons/io';
 
-// util
-import { getKcal } from '../../utils/getKcal';
-
-export const CardRecipe = ({
-	focusCard,
-	setFocusCard,
-	updateTitle,
-	updateCard,
-	addIngredient,
-	deleteWarning,
-	deleteIngredient,
-}) => {
+export const CardRecipe = ({ focusCard, setFocusCard, updateTitle, updateCard, addIngredient, deleteWarning, deleteIngredient }) => {
 	// When typing in a field, update focusCard variable in <Grid/>
 	const updatefield = (index, col, newValue) => {
 		let row = focusCard[index];
@@ -37,7 +26,7 @@ export const CardRecipe = ({
 		setFocusCard((prev) => {
 			let updatedRecipe = [...prev];
 			// let kcal = row.kcal ? row.kcal : newkcal;
-			let kcal = row.kcal
+			let kcal = row.kcal;
 			updatedRecipe[index] = {
 				...row,
 				[col]: newValue,
@@ -51,12 +40,7 @@ export const CardRecipe = ({
 		<Draggable key={row.uuid} draggableId={row.uuid} index={index}>
 			{(provided) => {
 				return (
-					<div
-						className={styles.row}
-						{...provided.draggableProps}
-						{...provided.dragHandleProps}
-						ref={provided.innerRef}
-					>
+					<div className={styles.row} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
 						<IconContext.Provider value={{ className: styles.handleIcon }}>
 							<RxDragHandleDots2 />
 						</IconContext.Provider>
@@ -71,40 +55,16 @@ export const CardRecipe = ({
 							/>
 						</div>
 						<div className={styles.quantity}>
-							<Textfield
-								fieldStyle="card"
-								value={row.quantity}
-								fieldType="text"
-								handleOnChange={(e) => updatefield(index, 'quantity', e.target.value)}
-								height="2rem"
-								textAlign="right"
-							/>
+							<Textfield fieldStyle="card" value={row.quantity} fieldType="text" handleOnChange={(e) => updatefield(index, 'quantity', e.target.value)} height="2rem" textAlign="right" />
 						</div>
 						<div className={styles.unit}>
-							<Textfield
-								fieldStyle="card"
-								value={row.unit}
-								fieldType="text"
-								handleOnChange={(e) => updatefield(index, 'unit', e.target.value)}
-								height="2rem"
-							/>
+							<Textfield fieldStyle="card" value={row.unit} fieldType="text" handleOnChange={(e) => updatefield(index, 'unit', e.target.value)} height="2rem" />
 						</div>
 						<div className={styles.section}>
-							<Chip
-								fieldStyle="filled"
-								value={row.section}
-								handleChange={(e) => updatefield(index, 'section', e.target.value)}
-							/>
+							<Chip fieldStyle="filled" value={row.section} handleChange={(e) => updatefield(index, 'section', e.target.value)} />
 						</div>
 						<div className={styles.kcal}>
-							<Textfield
-								fieldStyle="card"
-								value={row.kcal}
-								fieldType="text"
-								handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)}
-								height="2rem"
-								textAlign="right"
-							/>
+							<Textfield fieldStyle="card" value={row.kcal} fieldType="text" handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)} height="2rem" textAlign="right" />
 						</div>
 						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
 							<IoMdClose className={styles.deleteRow} />
@@ -136,15 +96,7 @@ export const CardRecipe = ({
 	return (
 		<div className={`card-elevated  ${styles.cardWrapper}`} onClick={stopPropagation}>
 			<div className={styles.header}>
-				<Textfield
-					fieldStyle="card"
-					fieldType="text"
-					value={focusCard[0].title}
-					handleOnChange={updateTitle}
-					width="100%"
-					height="3.5rem"
-					fontSize="1.5rem"
-				/>
+				<Textfield fieldStyle="card" fieldType="text" value={focusCard[0].title} handleOnChange={updateTitle} width="100%" height="3.5rem" fontSize="1.5rem" />
 				<Button buttonStyle="text" text={t('general.Close')} onClick={updateCard} />
 			</div>
 			{/* <div className={styles.grid}>
@@ -170,12 +122,7 @@ export const CardRecipe = ({
 				</Droppable>
 			</DragDropContext>
 			<div className={`${styles.smallButton} ${styles.addIngredient}`}>
-				<Button
-					buttonStyle="outlined"
-					text={t('home.AddIngredients')}
-					iconInfo={{ iconName: 'BsPlusLg', size: '' }}
-					onClick={addIngredient}
-				/>
+				<Button buttonStyle="outlined" text={t('home.AddIngredients')} iconInfo={{ iconName: 'BsPlusLg', size: '' }} onClick={addIngredient} />
 			</div>
 			<div className={`${styles.smallButton} ${styles.deleteCard}`}>
 				<Button buttonStyle="text" text={t('general.Delete')} onClick={deleteWarning} />

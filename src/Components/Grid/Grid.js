@@ -13,19 +13,13 @@ import '/node_modules/react-resizable/css/styles.css';
 
 // CSS
 import styles from './Grid.module.css';
-import './cardShadow.css'
+import './cardShadow.css';
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, getUser, updateUser } from '../../features/user/state/userSlice';
 import { selectLists, getLists, updateList, deleteList, addList } from '../../features/lists/state/listsSlice';
-import {
-	selectRecipes,
-	getRecipes,
-	updateRecipe,
-	deleteRecipe,
-	addRecipe,
-} from '../../features/recipes/state/recipesSlice';
+import { selectRecipes, getRecipes, updateRecipe, deleteRecipe, addRecipe } from '../../features/recipes/state/recipesSlice';
 
 // Components
 import { MiniCardRecipe } from '../MiniCard/MiniCardRecipe';
@@ -42,7 +36,6 @@ import { adjustCardHeight } from '../../utils/adjustCardHeight';
 import { generateLayouts } from '../../utils/generateLayouts';
 import { ErrorMessage } from '../../pages/Error/ErrorMessage';
 import { checkDimension } from '../../utils/checkDimension';
-import { getKcal } from '../../utils/getKcal';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -65,8 +58,8 @@ export const Grid = ({ targetPage, user }) => {
 	let cardsRef = useRef([]);
 	let layoutsRef = useRef({});
 
-	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR'
-	let dateOptions ={ year: "numeric", month: "short", day: "numeric" }
+	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR';
+	let dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
 
 	// On reach render, update cards and layouts because:
 	//     - User might have toggled between lists or recipes
@@ -178,14 +171,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		let selectedRecipes = newList.filter((r) => r.checked).map((r) => r.card_uuid);
 		const recipeNames = newList.filter((r) => r.checked).map((r) => r.title);
-		const response = await serverRequests(
-			'/recipes/join',
-			'POST',
-			{ selectedRecipes: selectedRecipes },
-			navigate,
-			'/signin',
-			() => {}
-			);
+		const response = await serverRequests('/recipes/join', 'POST', { selectedRecipes: selectedRecipes }, navigate, '/signin', () => {});
 
 		const card_uuid = uuidv4();
 		let newCard = response.map((row, index) => ({
@@ -279,29 +265,13 @@ export const Grid = ({ targetPage, user }) => {
 		let updatedCard = focusCard.map((ingredient) => ({ ...ingredient, last_modified: new Date().toJSON() }));
 		targetPage === 'recipes' ? dispatch(updateRecipe(updatedCard)) : dispatch(updateList(updatedCard));
 
-		// Fetch kcal from USDA API before sending to database
-		if (targetPage==='recipes') {
-			let promiseUpdatedCard = updatedCard.map(async(row) => {
-				const kcal = await getKcal(row.ingredient, row.quantity, row.unit)
-				return row.kcal ? row : { ...row, kcal: kcal };
-			});
-			updatedCard = await Promise.all(promiseUpdatedCard) // return await Promise.all(promiseUpdatedCard)
-		}
-
 		// Send card to database
 		const failureAction = () => setFocusCard(updatedCard);
 		serverRequests(`/${targetPage}`, 'PUT', updatedCard, failureAction);
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {
-			serverRequests(
-				`/${targetPage}`,
-				'DELETE',
-				{ row_uuid: deletedRowsRef.current, card_uuid: null },
-				navigate,
-				'/signin',
-				failureAction
-			);
+			serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: deletedRowsRef.current, card_uuid: null }, navigate, '/signin', failureAction);
 			deletedRowsRef.current.length = 0; // clear array
 		}
 
@@ -316,14 +286,7 @@ export const Grid = ({ targetPage, user }) => {
 		// Wrap dispatch in arrow function, otherwise they will trigger automatically
 		const failureAction = targetPage === 'recipes' ? () => dispatch(getRecipes()) : () => dispatch(getLists());
 
-		serverRequests(
-			`/${targetPage}`,
-			'DELETE',
-			{ row_uuid: null, card_uuid: card_uuid },
-			navigate,
-			'/signin',
-			() => failureAction
-		);
+		serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: null, card_uuid: card_uuid }, navigate, '/signin', () => failureAction);
 
 		closeCard();
 	};
@@ -345,10 +308,7 @@ export const Grid = ({ targetPage, user }) => {
 			last_modified: focusCard[0].last_modified,
 		};
 
-		newIngredient =
-			targetPage === 'recipes'
-				? { ...newIngredient, kcal: null }
-				: { ...newIngredient, checked: false, recipes: focusCard[0].recipes };
+		newIngredient = targetPage === 'recipes' ? { ...newIngredient, kcal: null } : { ...newIngredient, checked: false, recipes: focusCard[0].recipes };
 
 		const updatedRecipe = [...focusCard, newIngredient];
 
@@ -402,16 +362,8 @@ export const Grid = ({ targetPage, user }) => {
 
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
 	const createMiniCard = (card) => {
-		return (
-		<div key={card[0].card_uuid}>
-			{targetPage === 'recipes' ? (
-				<MiniCardRecipe card={card} focusOnCard={focusOnCard} />
-			) : (
-				<MiniCardList card={card} focusOnCard={focusOnCard} />
-			)}
-		</div>
-		
-	)}
+		return <div key={card[0].card_uuid}>{targetPage === 'recipes' ? <MiniCardRecipe card={card} focusOnCard={focusOnCard} /> : <MiniCardList card={card} focusOnCard={focusOnCard} />}</div>;
+	};
 
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
@@ -475,18 +427,9 @@ export const Grid = ({ targetPage, user }) => {
 						stopPropagation={stopPropagation}
 					/>
 				)}
-				{newList && targetPage === 'lists' && (
-					<NewList
-						newList={newList}
-						setNewList={setNewList}
-						createList={createList}
-						stopPropagation={stopPropagation}
-					/>
-				)}
+				{newList && targetPage === 'lists' && <NewList newList={newList} setNewList={setNewList} createList={createList} stopPropagation={stopPropagation} />}
 			</div>
-			{targetPage === 'error' && (
-				<ErrorMessage title={t('warnings.NetworkTitle')} message={t('warnings.NetworkMessage')} />
-			)}
+			{targetPage === 'error' && <ErrorMessage title={t('warnings.NetworkTitle')} message={t('warnings.NetworkMessage')} />}
 		</div>
 	);
 };
