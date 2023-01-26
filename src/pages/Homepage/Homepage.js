@@ -28,8 +28,6 @@ export const Homepage = () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 
-	let smallScreen = window.screen.availWidth < 760 ? true : false
-
 	useEffect(() => {
         KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();
 		KUTE.fromTo('#wave2', { path: '#wave2' }, { path: '#wave5' }, { repeat: 50, duration: 2000, yoyo: true }).start();
@@ -59,8 +57,6 @@ export const Homepage = () => {
 	const subtitle1 = useParallax({ opacity: [0, 1], startScroll: 200, endScroll: 1100 });
 	const title2 = useParallax({ opacity: [0, 1], startScroll: 1000, endScroll: 1800 });
 	const subtitle2 = useParallax({ opacity: [0, 1], startScroll: 1000, endScroll: 1800 });
-	
-	// const arrow = useParallax({ opacity: [1, 0], startScroll: 5, endScroll: 100 });
 	
     const { ref:stackButtonIconRef, inView: inView1 } = useInView()
     const { ref:stackLastIconRef, inView: inView2 } = useInView()

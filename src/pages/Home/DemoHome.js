@@ -18,8 +18,6 @@ import { DemoAccount } from '../Account/DemoAccount';
 // libs
 import { useTranslation } from 'react-i18next';
 
-// svg
-// import arrow1 from '../../assets/quickTour/arrow1.svg'
 
 export const DemoHome = () => {
 	const dispatch = useDispatch();
@@ -43,10 +41,11 @@ export const DemoHome = () => {
 	let { targetPage } = useParams();
 	let accountPage = targetPage === 'account';
 
-	const quickTour = [
+
+	const quickTourLargeScreen = [
 		{
 			message: t('quickTour.tab'),
-			index: 0,
+			arrowNum: 0,
 			textX: '200px',
 			textY: '12rem',
 			width: '27rem',
@@ -58,19 +57,19 @@ export const DemoHome = () => {
 		},
 		{
 			message: t('quickTour.card'),
-			index: 1,
-			textX: '580px',
-			textY: '30vh',
+			arrowNum: 1,
+			textX: '280px',
+			textY: '50vh',
 			width: '20rem',
-			imgX: '250px',
-			imgY: '30vh',
+			imgX: '170px',
+			imgY: '28vh',
 			imgW: '310',
-			imgH: '0152',
-			rotate: '0deg',
+			imgH: '152',
+			rotate: '45deg',
 		},
 		{
 			message: t('quickTour.add'),
-			index: 2,
+			arrowNum: 2,
 			textX: '20vw',
 			textY: '12rem',
 			width: '20rem',
@@ -82,7 +81,7 @@ export const DemoHome = () => {
 		},
 		{
 			message: t('quickTour.theme'),
-			index: 3,
+			arrowNum: 3,
 			textRight: '250px',
 			textY: '3rem',
 			width: '20rem',
@@ -94,7 +93,7 @@ export const DemoHome = () => {
 		},
 		{
 			message: t('quickTour.account'),
-			index: 4,
+			arrowNum: 4,
 			textRight: '50px',
 			textY: '14rem',
 			width: '25rem',
@@ -105,41 +104,102 @@ export const DemoHome = () => {
 			rotate: '20deg',
 		},
 	];
+	
+	const quickTourSmallScreen = [
+		{
+			message: t('quickTour.tab'),
+			arrowNum: 0,
+			textX: '150px',
+			textY: '13rem',
+			width: '70vw',
+			imgX: '100px',
+			imgY: '5rem',
+			imgW: '93',
+			imgH: '109',
+			rotate: '0deg',
+		},
+		{
+			message: t('quickTour.theme'),
+			arrowNum: 3,
+			textX: '8rem',
+			textY: '12rem',
+			width: '20rem',
+			imgX: '4rem',
+			imgY: '4rem',
+			imgW: '150',
+			imgH: '100',
+			rotate: '-135deg',
+		},
+		{
+			message: t('quickTour.account'),
+			arrowNum: 4,
+			textX: '8rem',
+			textY: '14rem',
+			width: '25rem',
+			imgX: '6rem',
+			imgY: '3rem',
+			imgW: '68',
+			imgH: '145',
+			rotate: '-40deg',
+		},
+		{
+			message: t('quickTour.card'),
+			arrowNum: 1,
+			textRight: '1rem',
+			textY: '50vh',
+			width: '20rem',
+			imgX: '27vw',
+			imgY: '33vh',
+			imgW: '200',
+			imgH: '100',
+			rotate: '45deg',
+		},
+		{
+			message: t('quickTour.add'),
+			arrowNum: 2,
+			textRight: '50px',
+			textY: '63vh',
+			width: '20rem',
+			imgRight: '20vw',
+			imgY: '70vh',
+			imgW: '83',
+			imgH: '122',
+			rotate: '90deg',
+		}
+	];
 
-	const [tourMessage, setTourMessage] = useState(quickTour[0]);
+	let smallScreen = window.screen.availWidth < 740 ? true : false
+	const quickTour = smallScreen? quickTourSmallScreen : quickTourLargeScreen
+
+	const [index, setIndex] = useState(0);
 
 	const nextTourMessage = () => {
-		setTourMessage((prev) => {
-			const nextIndex = prev.index + 1;
-			return nextIndex < quickTour.length ? quickTour[nextIndex] : null;
-		});
+		setIndex((prev) => prev+1 )
 	};
-
-	console.log('tourMessage  ', tourMessage);
 
 	return (
 		<div className={styles.homePage}>
-			{tourMessage && (
+			{index < quickTour.length && (
 				<div className={styles.tourBackground} onClick={nextTourMessage}>
 					<Arrows
-						left={tourMessage.imgX}
-						right={tourMessage.imgRight}
-						top={tourMessage.imgY}
-						width={tourMessage.imgW}
-						height={tourMessage.imgH}
-						i={tourMessage.index}
-						rotate={tourMessage.rotate}
+						left={quickTour[index].imgX}
+						right={quickTour[index].imgRight}
+						top={quickTour[index].imgY}
+						width={quickTour[index].imgW}
+						height={quickTour[index].imgH}
+						num={quickTour[index].arrowNum}
+						rotate={quickTour[index].rotate}
 					/>
 					<div
 						className={styles.tourMessage}
 						style={{
-							left: tourMessage.textX,
-							right: tourMessage.textRight,
-							top: tourMessage.textY,
-							width: tourMessage.width,
+							left: quickTour[index].textX,
+							right: quickTour[index].textRight,
+							top: quickTour[index].textY,
+							width: quickTour[index].width,
 						}}
 					>
-						{tourMessage.message} <br /> <p>{t('quickTour.clickContinue')}</p>
+						{quickTour[index].message} <br /> <p>{t('quickTour.clickContinue')}</p>
 					</div>
 				</div>
 			)}
@@ -151,13 +211,13 @@ export const DemoHome = () => {
 	);
 };
 
-const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWidth = '2px', rotate = '0deg' }) => {
+const Arrows = ({ left, right, top, width, height, num, stroke = 'white', strokeWidth = '2px', rotate = '0deg' }) => {
 	return (
 		<div
 			style={{ width: width, height: height, left: left, right: right, top: top, rotate: rotate }}
 			className={styles.tourArrow}
 		>
-			{i === 0 && (
+			{num === 0 && (
 				<svg width={width} height={height} viewBox="0 0 93 109" xmlns="http://www.w3.org/2000/svg">
 					<path
 						id="arrow0"
@@ -168,7 +228,7 @@ const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWi
 					/>
 				</svg>
 			)}
-			{i === 1 && (
+			{num === 1 && (
 				<svg width={width} height={height} viewBox="0 0 310 152" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						id="arrow4"
@@ -179,7 +239,7 @@ const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWi
 					/>
 				</svg>
 			)}
-			{i === 2 && (
+			{num === 2 && (
 				<svg width={width} height={height} viewBox="0 0 83 122" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						id="arrow1"
@@ -190,7 +250,7 @@ const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWi
 					/>
 				</svg>
 			)}
-			{i === 3 && (
+			{num === 3 && (
 				<svg width={width} height={height} viewBox="0 0 244 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						id="arrow3"
@@ -201,7 +261,7 @@ const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWi
 					/>
 				</svg>
 			)}
-			{i === 4 && (
+			{num === 4 && (
 				<svg width={width} height={height} viewBox="0 0 68 145" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						id="arrow2"
@@ -215,3 +275,4 @@ const Arrows = ({ left, right, top, width, height, i, stroke = 'white', strokeWi
 		</div>
 	);
 };
+

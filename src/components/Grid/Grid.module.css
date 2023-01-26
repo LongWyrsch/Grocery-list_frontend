@@ -36,7 +36,7 @@
 		box-shadow: var(--m3---elevation--5);
 		width: 6rem;
 		height: 6rem;
-		border-radius: 20px;
+		border-radius: 30px;
 		position: fixed;
 		bottom: 3rem;
 		right: 4rem;
@@ -50,7 +50,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 20px;
+		border-radius: 30px;
 		color: var(--m3--sys--on-primary);
 	}
 
