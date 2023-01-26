@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './auth.module.css';
 
@@ -11,7 +11,7 @@ import { Button } from '../../components/Button/Button';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 
-export const Signup = ({user}) => {
+export const Signup = ({ user }) => {
 	const navigate = useNavigate();
 
 	const { t, i18n } = useTranslation();
@@ -21,6 +21,7 @@ export const Signup = ({user}) => {
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [credError, setCredError] = useState(false);
 	const [passwordsDifferent, setPasswordsDifferent] = useState(false);
+
 
 	const googleLogin = () => {
 		window.open('http://localhost:3000/auth/google', '_self');
@@ -60,11 +61,7 @@ export const Signup = ({user}) => {
 		const checkConfirmPassword = passwordValidation({ password: confirmPassword });
 
 		//If invalid user input, skip server call. Will Rerender with error message.
-		let isInvalid =
-			checkEmail.error
-			|| checkPassword.error
-			|| checkConfirmPassword.error
-			|| password !== confirmPassword;
+		let isInvalid = checkEmail.error || checkPassword.error || checkConfirmPassword.error || password !== confirmPassword;
 		if (isInvalid) {
 			setCredError(true);
 			return;
@@ -94,11 +91,7 @@ export const Signup = ({user}) => {
 	};
 
 	function credErrorMessage() {
-		return (
-			<div className={styles.errorMessage}>
-				{passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')}
-			</div>
-		);
+		return <div className={styles.errorMessage}>{passwordsDifferent ? t('auth.signupPage.passwordsDifferent') : t('auth.creds.emailPasswordError')}</div>;
 	}
 
 	// Set icon for buttons and textfields
@@ -108,7 +101,7 @@ export const Signup = ({user}) => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo"  onClick={() => navigate('/')}/>
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
 			<div className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>
@@ -124,13 +117,7 @@ export const Signup = ({user}) => {
 					</NavLink>
 				</div>
 
-				<Button
-					buttonStyle="elevated"
-					text={t('auth.continueGoogle')}
-					onClick={googleLogin}
-					iconInfo={googleIcon}
-					width="100%"
-				/>
+				<Button buttonStyle="elevated" text={t('auth.continueGoogle')} onClick={googleLogin} iconInfo={googleIcon} width="100%" />
 
 				<div className={styles.orLine}>
 					<hr className={styles.horizontalLine} />
@@ -171,7 +158,7 @@ export const Signup = ({user}) => {
 						width="100%"
 						validator={passwordValidation}
 						payloadKey="password"
-					required={true}
+						required={true}
 					/>
 				</div>
 				<div style={{ width: '100%' }}>

@@ -118,7 +118,7 @@
 		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
 		"supabase": "hostet die Datenbank.",
 		"git": "CLI wurde für die Versionskontrolle verwendet.",
-		"github": "hostet das Frontend über GitHub-Seiten.",
+		"github": "hostet das Repository für die kontinuierliche Bereitstellung auf Netlify.",
 		"netlify": "hostet den Backend-Server.",
 		"breakdown": "Projektaufschlüsselung",
 		"text": "Nachdem ich im November 2022 einen Online-Full-Stack-Engineering-Kurs abgeschlossen und erklärt hatte, an meinem ersten Full-Stack-Projekt zu arbeiten. Ich war mir nicht sicher, wo ich anfangen sollte. Ich hatte eine klare Vorstellung davon, was ich mit der App machen wollte, aber ich wusste nicht, wie sie aussehen sollte. Deshalb habe ich begonnen, an der Datenbank zu arbeiten. Als die App einige Funktionen übernahm, wurde ich sicherer mit ihrer UI-Richtung."

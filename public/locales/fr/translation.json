@@ -118,7 +118,7 @@
 		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
 		"supabase": "héberge la base de données.",
 		"git": "CLI a été utilisé pour le contrôle de version.",
-		"github": "héberge le frontend via les pages GitHub.",
+		"github": "héberge le référentiel pour un déploiement continu sur Netlify.",
 		"netlify": "héberge le serveur principal.",
 		"breakdown": "Répartition du projet",
 		"text": "Après avoir suivi un cours d'ingénierie full-stack en ligne en novembre 2022, et avoir déclaré travailler sur mon premier projet full-stack. Je ne savais pas par où commencer. J'avais une idée claire de ce que je voulais que l'application fasse, mais je ne savais pas à quoi elle devrait ressembler. J'ai donc commencé à travailler sur la base de données. Au fur et à mesure que l'application prenait certaines fonctionnalités, je suis devenu plus confiant avec sa direction d'interface utilisateur."

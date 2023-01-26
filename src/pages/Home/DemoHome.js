@@ -1,6 +1,6 @@
 // React
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,11 +20,13 @@ import { useTranslation } from 'react-i18next';
 
 
 export const DemoHome = () => {
+	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const userAuthError = useSelector(userHasError);
 
 	const isAuthenticated = user.email || user.google_name ? true : false;
+	!isAuthenticated && navigate('/signin')
 
 	const { t } = useTranslation();
 

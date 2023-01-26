@@ -118,7 +118,7 @@
 		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
 		"supabase": "hosts the database.",
 		"git": "CLI was used for version control.",
-		"github": "hosts the frontend via GitHub pages.",
+		"github": "hosts the repository for continuous deployment to Netlify.",
 		"netlify": "hosts the backend server.",
 		"breakdown": "Project breakdown",
 		"text": "After completing an online full-stack engineering course in November 2022, and stated working on my first full-stack project. I wasn't sure where to begin. I had a clear idea of what I, wanted the app to do, but I didn't know how it should look like. Therefore I started to work on the database. As the app took on some funcitonalities, I got more confident with its UI direction."

@@ -28,6 +28,7 @@ const userSlice = createSlice({
 		},
 		isLoading: false,
 		hasError: false,
+		hasLoaded: false
 	},
 	reducers: {
 		updateUser: (state, action) => {
@@ -59,16 +60,19 @@ const userSlice = createSlice({
 		[getUser.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = false;
+			state.wasRequested = true;
 			state.user = action.payload;
 		},
 		[getUser.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
+			state.wasRequested = true;
 		},
 	},
 });
 
 export const selectUser = (state) => state.user.user;
 export const userHasError = (state) => state.user.hasError;
+export const userWasRequested = (state) => state.user.wasRequested;
 export const { updateUser, clearUser, initializeDemoUser } = userSlice.actions;
 export default userSlice.reducer;

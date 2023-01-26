@@ -1,6 +1,6 @@
 // React
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,28 +19,26 @@ import { Account } from '../Account/Account';
 import { useTranslation } from 'react-i18next';
 
 export const Home = () => {
+	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
 	const userAuthError = useSelector(userHasError);
 
 	const isAuthenticated = user.email || user.google_name ? true : false;
-	
+
 	const { t, i18n } = useTranslation();
-	
-	useEffect(() => {
-		console.log('Dispatching getUser, getLists, getRecipes')
-		dispatch(getUser());
-	}, [dispatch]);
-	
+		
 	useEffect(() => { 
 		console.log(user.language)
 		i18n.changeLanguage(user.language);
 	 }, [user.language])
 
-	let { targetPage } = useParams();
+	let { targetPage } = useParams()
+	if (targetPage === undefined) targetPage = 'lists' // Default to lists
+
 	let accountPage = targetPage === 'account'
 
-
+	 console.log('*********Home rendered')
 
 	return (
 		<div className={styles.homePage}>

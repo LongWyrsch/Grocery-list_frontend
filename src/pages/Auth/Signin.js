@@ -1,6 +1,10 @@
 // React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
+
+// Redux
+import { useDispatch } from 'react-redux';
+import { updateUser } from '../../features/user/state/userSlice';
 
 // CSS
 import styles from './auth.module.css';
@@ -19,12 +23,14 @@ import { emailValidation, passwordValidation } from '../../utils/validator';
 
 export const Signin = () => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch()
 
 	const { t } = useTranslation();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [credError, setCredError] = useState(false);
+	
 
 	const googleLogin = async () => {
 		window.open('http://localhost:3000/auth/google', '_self');
