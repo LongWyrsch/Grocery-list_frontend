@@ -4,7 +4,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { updateUser } from '../../features/user/state/userSlice';
+import { getUser, updateUser } from '../../features/user/state/userSlice';
 
 // CSS
 import styles from './auth.module.css';
@@ -81,7 +81,10 @@ export const Signin = () => {
 		})
 		if (response.status===401) window.alert(t('warnings.ServerError'))
 		if (response.status===403) setCredError(true)
-		if (response.status===200) navigate('/home/lists', { state: null, replace: true })
+		if (response.status===200) {
+			dispatch(getUser())
+			navigate('/home/lists')
+		}
 	};
 
 	function credErrorMessage() {

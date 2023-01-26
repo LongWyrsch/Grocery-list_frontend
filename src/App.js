@@ -39,7 +39,7 @@ function App() {
 	// Check if user is authenticated.
 	let auth = (user.email!==null && user.email!=='demo.account@enjoy.com') || user.google_name!==null? true : false
 
-	console.log('*********App rendered')
+	console.log('auth: ', auth, ', userRequested: ', userRequested)
 
 	return (
 		<div className="App" id={user.theme}>

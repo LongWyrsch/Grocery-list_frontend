@@ -211,8 +211,6 @@ export const Grid = ({ targetPage, user }) => {
 
 		const updatedUser = { ...user, [`layouts_${targetPage}`]: layoutsRef.current };
 
-		console.log('updateduser: ', updatedUser);
-
 		dispatch(updateUser(updatedUser));
 
 		dispatch(addList(newCard));

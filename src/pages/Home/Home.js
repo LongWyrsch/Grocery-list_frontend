@@ -38,7 +38,6 @@ export const Home = () => {
 
 	let accountPage = targetPage === 'account'
 
-	 console.log('*********Home rendered')
 
 	return (
 		<div className={styles.homePage}>
