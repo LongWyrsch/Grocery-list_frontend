@@ -368,6 +368,8 @@ export const Grid = ({ targetPage, user }) => {
 		return <div key={card[0].card_uuid}>{targetPage === 'recipes' ? <MiniCardRecipe card={card} focusOnCard={focusOnCard} /> : <MiniCardList card={card} focusOnCard={focusOnCard} />}</div>;
 	};
 
+	let smallScreen = window.screen.availWidth < 740 ? true : false
+
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
 			<div className={styles.fab}>
@@ -400,6 +402,7 @@ export const Grid = ({ targetPage, user }) => {
 					onLayoutChange={(layout, newLayouts) => onLayoutChange(layout, newLayouts)}
 					layouts={layoutsRef.current}
 					rowHeight={100}
+					isDraggable= {smallScreen? false : true}
 					isResizable={false}
 					isBounded={true}
 					measureBeforeMount={true} // stop card animation on initial rendering

@@ -371,6 +371,8 @@ export const DemoGrid = ({ targetPage, user }) => {
 		);
 	};
 
+	let smallScreen = window.screen.availWidth < 740 ? true : false
+
 	return (
 		<div className={styles.gridWrapper} id="gridWrapper">
 			<div className={styles.fab}>
@@ -403,6 +405,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 					onLayoutChange={(layout, newLayouts) => onLayoutChange(layout, newLayouts)}
 					layouts={layoutsRef.current}
 					rowHeight={100}
+					isDraggable= {smallScreen? false : true}
 					isResizable={false}
 					isBounded={true}
 					measureBeforeMount={true} // stop card animation on initial rendering
