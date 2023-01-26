@@ -62,6 +62,7 @@ export const Grid = ({ targetPage, user }) => {
 	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR';
 	let dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
 
+
 	// On reach render, update cards and layouts because:
 	//     - User might have toggled between lists or recipes
 	//     - Slice value of user, recipes or lists might have changed
@@ -71,11 +72,12 @@ export const Grid = ({ targetPage, user }) => {
 		cardsRef.current = targetPage === 'recipes' ? recipes : lists;
 		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists;
 
+		// Layouts are given {} when creating a user. So they should never by null.
 		// Check if any cards have 1x1 dimensions. If so, clear the object = {}.
 		if (targetLayouts) targetLayouts = checkDimension(targetLayouts);
 
 		if (targetLayouts && Object.keys(targetLayouts).length === 0) {
-			// If empty object, generate layouts
+			// If empty object {}, generate layouts
 			layoutsRef.current = generateLayouts(cardsRef.current);
 		} else {
 			layoutsRef.current = targetLayouts;
@@ -112,7 +114,7 @@ export const Grid = ({ targetPage, user }) => {
 		);
 	}, [recipes]);
 
-	const createRecipe = () => {
+	const createRecipe = useCallback(() => {
 		console.log('createCard called');
 		let newCard = [
 			{
@@ -145,11 +147,9 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Update layouts with new card's grid position IF layoutsRef.current is not empty
 		let updatedLayouts = {};
-		if (layoutsRef.current !== null) {
-			for (const [key, value] of Object.entries(layoutsRef.current)) {
-				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
-				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
-			}
+		for (const [key, value] of Object.entries(layoutsRef.current)) {
+			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
+			updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
 		}
 		layoutsRef.current = updatedLayouts;
 
@@ -162,7 +162,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		const failureAction = () => setFocusCard(null);
 		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
-	};
+	}, [targetPage]);
 
 	const createList = async () => {
 		console.log('createList called');
@@ -203,12 +203,10 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Update layouts with new card's grid position
 		let updatedLayouts = {};
-		if (layoutsRef.current !== null) {
 			for (const [key, value] of Object.entries(layoutsRef.current)) {
 				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
 				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
 			}
-		}
 		layoutsRef.current = updatedLayouts;
 
 		const updatedUser = { ...user, [`layouts_${targetPage}`]: layoutsRef.current };
@@ -363,7 +361,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		const listButton = document.querySelector('#listButton>button');
 		listButton.onclick = settingNewList;
-	}, [settingNewList]);
+	}, [settingNewList, createRecipe]);
 
 	// Moving the below JSX with it's properties into <MiniCardRecipe/> create a warning saying ref shouldn't be passed to components.
 	const createMiniCard = (card) => {

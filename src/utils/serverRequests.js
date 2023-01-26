@@ -10,15 +10,20 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
-			body: reqMethod==='DELETE'? '' : JSON.stringify(reqBody),
+			body: JSON.stringify(reqBody),
 		});
 	} catch (error) {
 		window.location.href = 'http://localhost:3001/home/error'
 		serverFailureAction();
 	} 
 	if (response.status === 200) {
-		if (reqMethod!=='DELETE') {
-			try {return response.json()} catch(e) { return }
+		if (reqPath === '/recipes/join' && reqMethod ==='POST') {
+			try {
+				return await response.json()
+			} catch(e) { 
+				console.log('serverRequest() failed to return response.json()')
+				return 
+			}
 		} else {
 			return response
 		}

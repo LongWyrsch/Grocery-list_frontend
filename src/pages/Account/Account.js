@@ -135,8 +135,24 @@ export const Account = ({ user }) => {
 	};
 
 	const deleteAccount = async () => {
+		// Delete all recipes
+		let response = await serverRequests('/recipes', 'DELETE', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		if (response.status !== 200) {
+			window.alert('Failed to delete all recipes. Please try again.')
+			dispatch(getUser())
+			return
+		}
+
+		// Delete all recipes
+		response = await serverRequests('/lists', 'DELETE', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		if (response.status !== 200) {
+			window.alert('Failed to delete all recipes. Please try again.')
+			dispatch(getUser())
+			return
+		}
+
 		// Delete user on database
-		let response = await serverRequests('/users', 'DELETE', '', () => {
+		response = await serverRequests('/users', 'DELETE', {delete: 'delete'}, () => {
 			dispatch(getUser());
 		});
 

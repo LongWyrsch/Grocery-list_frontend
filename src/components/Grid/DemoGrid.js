@@ -79,6 +79,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 		cardsRef.current = targetPage === 'recipes' ? recipes : lists;
 		let targetLayouts = targetPage === 'recipes' ? user.layouts_recipes : user.layouts_lists; 
 
+		// Layouts are given {} when creating a user. So they should never by null.
 		// Check if any cards have 1x1 dimensions. If so, clear the object = {}.
 		if (targetLayouts) targetLayouts = checkDimension(targetLayouts);
 
@@ -120,7 +121,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 		);
 	}, [recipes]);
 
-	const createRecipe = () => {
+	const createRecipe = useCallback(() => {
 		console.log('createCard called');
 		let newCard = [
 			{
@@ -153,11 +154,9 @@ export const DemoGrid = ({ targetPage, user }) => {
 
 		// Update layouts with new card's grid position
 		let updatedLayouts = {};
-		if (layoutsRef.current !== null) {
-			for (const [key, value] of Object.entries(layoutsRef.current)) {
-				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
-				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
-			}
+		for (const [key, value] of Object.entries(layoutsRef.current)) {
+			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
+			updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
 		}
 		layoutsRef.current = updatedLayouts;
 
@@ -167,7 +166,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 		dispatch(addRecipe(newCard));
 
 		setFocusCard(newCard); // Open newly create card for editing
-	};
+	},[targetPage]);
 
 	const createList = async () => {
 		console.log('createList called');
@@ -213,11 +212,9 @@ export const DemoGrid = ({ targetPage, user }) => {
 		console.log('targetPage: ', targetPage);
 		console.log('layoutsRef.current: ', layoutsRef.current);
 		let updatedLayouts = {};
-		if (layoutsRef.current !== null) {
-			for (const [key, value] of Object.entries(layoutsRef.current)) {
-				updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
-				updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
-			}
+		for (const [key, value] of Object.entries(layoutsRef.current)) {
+			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card
+			updatedLayouts[key] = [...updatedLayouts[key], grid_position]; // Append grid position of newly added card to ALL breakpoints. Otherwise, 1x1 sized box will be assigned to other breakpoints
 		}
 		layoutsRef.current = updatedLayouts;
 
