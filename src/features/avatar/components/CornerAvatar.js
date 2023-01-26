@@ -36,7 +36,7 @@ export const CornerAvatar = ({user}) => {
 			return
 		}
 
-		let response = await fetch('http://localhost:3000/users/logout', {
+		let response = await fetch('https://mygrocerylists.up.railway.app/users/logout', {
 			method: 'GET',
 			credentials: 'include',
 		});

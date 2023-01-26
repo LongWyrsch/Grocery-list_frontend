@@ -33,7 +33,7 @@ export const Signin = () => {
 	
 
 	const googleLogin = async () => {
-		window.open('http://localhost:3000/auth/google', '_self');
+		window.open('https://mygrocerylists.up.railway.app/auth/google', '_self');
 	};
 
 	//Update search term as user types
@@ -70,7 +70,7 @@ export const Signin = () => {
 		}
 
 		// User input was validated. Call server.
-		const response = await fetch('http://localhost:3000/auth/local/signin', {
+		const response = await fetch('https://mygrocerylists.up.railway.app/auth/local/signin', {
 			method: 'POST',
 			credentials: 'include',
 			headers: {

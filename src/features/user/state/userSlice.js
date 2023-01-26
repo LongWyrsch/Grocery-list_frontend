@@ -3,7 +3,7 @@ import { DemoUser } from './DemoUser';
 
 //Middleware fetches current user before saving it to the store
 export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
-	const response = await fetch('http://localhost:3000/users', {
+	const response = await fetch('https://mygrocerylists.up.railway.app/users', {
 		//This allows client to send the session cookie with request.
 		// Without it, CORS will block the request. The request won't make it to deserializeUser().
 		credentials: 'include',

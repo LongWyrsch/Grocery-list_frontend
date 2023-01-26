@@ -24,7 +24,7 @@ export const Signup = ({ user }) => {
 
 
 	const googleLogin = () => {
-		window.open('http://localhost:3000/auth/google', '_self');
+		window.open('https://mygrocerylists.up.railway.app/auth/google', '_self');
 	};
 
 	//Update search term as user types
@@ -67,7 +67,7 @@ export const Signup = ({ user }) => {
 			return;
 		}
 		// User input was validated. Call server.
-		const response = await fetch('http://localhost:3000/auth/local/signup', {
+		const response = await fetch('https://mygrocerylists.up.railway.app/auth/local/signup', {
 			method: 'POST',
 			credentials: 'include',
 			headers: {

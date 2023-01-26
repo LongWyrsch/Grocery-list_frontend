@@ -3,7 +3,7 @@ import {DemoRecipes} from './DemoRecipes'
 
 //Middleware fetches all recipes before saving it to the store
 export const getRecipes = createAsyncThunk('recipes/getRecipes', async (thunkAPI) => {
-	const response = await fetch('http://localhost:3000/recipes', {
+	const response = await fetch('https://mygrocerylists.up.railway.app/recipes', {
 		method: 'GET',
 		credentials: 'include',
 	});
