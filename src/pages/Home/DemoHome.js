@@ -12,7 +12,6 @@ import styles from './Home.module.css';
 // Components
 import { Navbar } from '../../components/Navbar/Navbar';
 import { DemoGrid } from '../../components/Grid/DemoGrid';
-import { ErrorMessage } from '../Error/ErrorMessage';
 import { DemoAccount } from '../Account/DemoAccount';
 
 // libs
@@ -23,7 +22,6 @@ export const DemoHome = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const user = useSelector(selectUser);
-	const userAuthError = useSelector(userHasError);
 
 	const isAuthenticated = user.email || user.google_name ? true : false;
 	!isAuthenticated && navigate('/signin')
@@ -208,7 +206,6 @@ export const DemoHome = () => {
 			{isAuthenticated && <Navbar targetPage={targetPage} user={user} />}
 			{isAuthenticated && !accountPage && <DemoGrid targetPage={targetPage} user={user} />}
 			{isAuthenticated && accountPage && <DemoAccount targetPage={targetPage} user={user} />}
-			{userAuthError && <ErrorMessage title={t('warnings.SignedOut')} message={t('warnings.TryAgain')} />}
 		</div>
 	);
 };
