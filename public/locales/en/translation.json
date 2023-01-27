@@ -97,7 +97,7 @@
 		"other": "other"
 	},
 	"process": {
-		"welcome": "Welcome to my first web app",
+		"welcome": "Welcome to my first full-stack web app",
 		"thanks": "Thanks to the amazing community for the libraries",
 		"iconify": "provides some icons used throughout the app.",
 		"avatar": "generates unique avatars for the users.",
@@ -116,12 +116,24 @@
 		"env": "manages environments variables.",
 		"tools": "Tools and third parties",
 		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
+		"dbdiagram": "was used to schetch the database relationship diagram.",
 		"supabase": "hosts the database.",
 		"git": "CLI was used for version control.",
-		"github": "hosts the repository for continuous deployment to Netlify.",
-		"netlify": "hosts the backend server.",
-		"breakdown": "Project breakdown",
-		"text": "After completing an online full-stack engineering course in November 2022, and stated working on my first full-stack project. I wasn't sure where to begin. I had a clear idea of what I, wanted the app to do, but I didn't know how it should look like. Therefore I started to work on the database. As the app took on some funcitonalities, I got more confident with its UI direction."
+		"github": "hosts the repository for continuous deployment to Netlify and Railway.",
+		"netlify": "hosts the React frontend.",
+		"railway": "hosts the backend server.",
+		"finalthoughts": "Final thoughts",
+		"text": "After completing an online full-stack engineering course in November 2022, I statted working on my first full-stack project. I wasn't sure where to begin. I had a clear idea of what I wanted the app to do, but I didn't know how it should look like. Therefore, I started to work on the database. As the app took on some functionalities, I got more confident with its UI direction but spent a lot of time rewriting the CSS. Spending more time prototyping would have saved time in the later phases.",
+		"projectBreakdown": "Project breakdown",
+		"database": "Database",
+		"databaseText": "Since this app is just a portfolio project, the below schema was chosen to minimize API calls. It leads to a lot of redundancy which doesn't allow it to scale.",
+		"ui1": "Check out all of this project's Figma files ",
+		"ui2": "here",
+		"ui3": "Wireframing and prototyping was done with Figma.",
+		"ui4": " provided all component designs. They were then recreated in CSS from scratch.",
+		"ui5": " helped with the design system.",
+		"ui6": " exported all styles from Figma to CSS."
+
 	}
 }
 

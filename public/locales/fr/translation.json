@@ -97,7 +97,7 @@
 		"other": "autre"
 	},
 	"process": {
-		"welcome": "Bienvenue sur ma première application Web",
+		"welcome": "Bienvenue sur ma première application Web full-stack",
 		"thanks": "Merci à l'incroyable communauté des bibliothèques",
 		"iconify": "fournit quelques icônes utilisées dans l'application.",
 		"avatar": "génère des avatars uniques pour les utilisateurs.",
@@ -116,11 +116,22 @@
 		"env": "gère les variables d'environnements.",
 		"tools": "Outils et tiers",
 		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
+		"dbdiagram": "a été utilisé pour schématiser le diagramme de relation de la base de données.",
 		"supabase": "héberge la base de données.",
 		"git": "CLI a été utilisé pour le contrôle de version.",
-		"github": "héberge le référentiel pour un déploiement continu sur Netlify.",
-		"netlify": "héberge le serveur principal.",
-		"breakdown": "Répartition du projet",
-		"text": "Après avoir suivi un cours d'ingénierie full-stack en ligne en novembre 2022, et avoir déclaré travailler sur mon premier projet full-stack. Je ne savais pas par où commencer. J'avais une idée claire de ce que je voulais que l'application fasse, mais je ne savais pas à quoi elle devrait ressembler. J'ai donc commencé à travailler sur la base de données. Au fur et à mesure que l'application prenait certaines fonctionnalités, je suis devenu plus confiant avec sa direction d'interface utilisateur."
+		"github": "héberge le référentiel pour un déploiement continu sur Netlify et Railway.",
+		"netlify": "héberge le frontend React.",
+		"railway": "héberge le serveur backend.",
+		"finalthoughts": "Réflexions finales",
+		"text": "Après avoir suivi un cours d'ingénierie full-stack en ligne en novembre 2022, j'ai commencé à travailler sur mon premier projet full-stack. Je ne savais pas trop par où commencer. J'avais une idée claire de ce que je voulais que l'application fasse, mais je ne savais pas à quoi elle devait ressembler. J'ai donc commencé à travailler sur la base de données. Au fur et à mesure que l'application a acquis des fonctionnalités, j'ai pris confiance dans l'orientation de l'interface utilisateur, mais j'ai passé beaucoup de temps à réécrire le CSS. En consacrant plus de temps au prototypage, j'aurais gagné du temps dans les phases ultérieures.",
+		"projectBreakdown": "Répartition du projet",
+		"database": "Base de données",
+		"databaseText": "Étant donné que cette application n'est qu'un projet de portefeuille, le schéma ci-dessous a été choisi pour minimiser les appels d'API. Cela conduit à beaucoup de redondance qui ne lui permet pas d'évoluer.",
+		"ui1": "Découvrez tous les fichiers Figma de ce projet ",
+		"ui2": "ici",
+		"ui3": "Le wireframing et le prototypage ont été réalisés avec Figma.",
+		"ui4": " a fourni toutes les conceptions de composants. Ils ont ensuite été recréés en CSS à partir de zéro.",
+		"ui5": " a aidé avec le système de conception.",
+		"ui6": " a exporté tous les styles de Figma vers CSS."
 	}
 }

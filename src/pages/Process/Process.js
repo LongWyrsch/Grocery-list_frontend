@@ -24,12 +24,14 @@ export const Process = () => {
 
 	return (
 		<div className={styles.processWrapper}>
-			<div className={styles.arrow} onClick={() => { navigate('/') }}>
-				<Icon icon="mdi:arrow-left-circle-outline" style={{width: '3rem', height: '3rem'}}/>
-				Back
-			</div>
-			<div className={styles.language}>
-				<LanguagePicker />
+			<div className={styles.buttons}>
+				<div className={styles.arrow} onClick={() => { navigate('/') }}>
+					<Icon icon="mdi:arrow-left-circle-outline" style={{width: '3rem', height: '3rem'}}/>
+					Back
+				</div>
+				<div className={styles.language}>
+					<LanguagePicker />
+				</div>
 			</div>
 			<div className={styles.textWrapper}>
 				<h1 className={styles.welcome}>{t('process.welcome')}</h1>
@@ -148,6 +150,10 @@ export const Process = () => {
 						<p>{t('process.figma')}</p>
 					</li>
 					<li>
+						<a href="https://dbdiagram.io/home">dbdiagram.io</a>
+						<p>{t('process.dbdiagram')}</p>
+					</li>
+					<li>
 						<a href="https://supabase.com/">Supabase</a>
 						<p>{t('process.supabase')}</p>
 					</li>
@@ -166,9 +172,28 @@ export const Process = () => {
 						<a href="https://www.netlify.com/">Netlify</a>
 						<p>{t('process.netlify')}</p>
 					</li>
+					<li>
+						<a href="https://railway.app/">Railway</a>
+						<p>{t('process.railway')}</p>
+					</li>
 				</ul>
-				<h2 className={styles.breakdownTitle}>{t('process.breakdown')}</h2>
+				<h2>UI design</h2>
+				<div className={styles.uiDescription}>{t('process.ui1')}<a href='https://www.figma.com/file/9OlfnA8kMP0qOKD7AdNueG/Grocery-list-test-colors?node-id=49823%3A12141&t=U9DtttpAPiU3KGKu-1'>{t('process.ui2')}</a>.</div>
+				<ul className={styles.ui}>
+					<li>{t('process.ui3')}</li>
+					<li><a href='https://www.figma.com/community/file/1035203688168086460'>Material 3 Design Kit</a>{t('process.ui4')}</li>
+					<li><a href='https://www.figma.com/community/plugin/1034969338659738588/Material-Theme-Builder'>Material Theme Builder</a>{t('process.ui5')}</li>
+					<li><a href='https://www.figma.com/community/plugin/816737626312049592'>Export styles to CSS variables</a>{t('process.ui6')}</li>
+				</ul>
+				<img className={styles.figure} src={require('../../assets/Wireframe.png')} alt="wireframe" />
+				<div className={styles.figureDescription}>Wireframe</div>
+				<h2 className={styles.databaseTitle}>{t('process.database')}</h2>
+				<div className={styles.databaseDescription}>{t('process.databaseText')}</div>
+				<img className={styles.figure} src={require('../../assets/Schema.png')} alt="Schema" />
+				<div className={styles.figureDescription}>Schema</div>
+				<h2 className={styles.breakdownTitle}>{t('process.finalthoughts')}</h2>
 				<div className={styles.breakdownDescription}>{t('process.text')}</div>
+				<h2 className={styles.breakdownTitle}>{t('process.projectBreakdown')}</h2>
 			</div>
 			<div className={styles.gantt}>
 				<Mermaid chart={ganttData} />
