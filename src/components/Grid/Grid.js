@@ -272,7 +272,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {
-			serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: deletedRowsRef.current, card_uuid: null }, navigate, '/signin', failureAction);
+			serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: deletedRowsRef.current, card_uuid: null }, navigate, '/signin', failureAction);
 			deletedRowsRef.current.length = 0; // clear array
 		}
 
@@ -287,7 +287,7 @@ export const Grid = ({ targetPage, user }) => {
 		// Wrap dispatch in arrow function, otherwise they will trigger automatically
 		const failureAction = targetPage === 'recipes' ? () => dispatch(getRecipes()) : () => dispatch(getLists());
 
-		serverRequests(`/${targetPage}`, 'DELETE', { row_uuid: null, card_uuid: card_uuid }, navigate, '/signin', () => failureAction);
+		serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: null, card_uuid: card_uuid }, navigate, '/signin', () => failureAction);
 
 		closeCard();
 	};

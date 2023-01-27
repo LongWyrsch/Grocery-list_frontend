@@ -225,7 +225,7 @@
 	pointer-events: none;
 }
 
-.logout {
+.signout {
 	position: absolute;
 	max-width: 10rem;
 	bottom: 3rem;
@@ -233,7 +233,7 @@
 	justify-content: center !important;
 }
 
-.logout .icon {
+.signout .icon {
 	width: 50px;
 }
 

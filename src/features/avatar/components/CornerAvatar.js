@@ -27,16 +27,16 @@ export const CornerAvatar = ({user}) => {
 	const [open, setOpen] = useState(false);
 
 	const gearIcon = React.createElement(BsFillGearFill);
-	const logoutIcon = React.createElement(MdOutlineLogout);
+	const signoutIcon = React.createElement(MdOutlineLogout);
 
-	const logout = async () => {
+	const signout = async () => {
 		// If demo account, return to homepage
 		if (user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633') {
 			navigate('/')
 			return
 		}
 
-		let response = await fetch('https://mygrocerylists.up.railway.app/users/logout', {
+		let response = await fetch('https://mygrocerylists.up.railway.app/users/signout', {
 			method: 'GET',
 			credentials: 'include',
 		});
@@ -46,7 +46,7 @@ export const CornerAvatar = ({user}) => {
 			dispatch(clearLists())
 			navigate('/signin');
 		} else {
-			window.alert('Failed to logout. Please try again...');
+			window.alert('Failed to signout. Please try again...');
 		}
 	};
 
@@ -86,7 +86,7 @@ export const CornerAvatar = ({user}) => {
 					}}
 				/>
 				<hr />
-				<MenuOption option={t('cornerAvatar.LogOut')} icon={logoutIcon} handleClick={logout} />
+				<MenuOption option={t('cornerAvatar.SignOut')} icon={signoutIcon} handleClick={signout} />
 			</div>
 		</div>
 	);

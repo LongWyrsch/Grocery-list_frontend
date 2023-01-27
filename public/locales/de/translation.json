@@ -47,7 +47,7 @@
 	},
 	"cornerAvatar": {
 		"Account": "Konto",
-		"LogOut": "Abmelden"
+		"SignOut": "Abmelden"
 	},
 	"account": {
 		"AvatarVariantMessage": "Wählen Sie die Variante Ihres Avatars",

@@ -136,7 +136,7 @@ export const Account = ({ user }) => {
 
 	const deleteAccount = async () => {
 		// Delete all recipes
-		let response = await serverRequests('/recipes', 'DELETE', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		let response = await serverRequests('/recipes/delete', 'PUT', {row_uuid: 'all'}, () => {dispatch(getUser());});
 		if (response.status !== 200) {
 			window.alert('Failed to delete all recipes. Please try again.')
 			dispatch(getUser())
@@ -144,7 +144,7 @@ export const Account = ({ user }) => {
 		}
 
 		// Delete all recipes
-		response = await serverRequests('/lists', 'DELETE', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		response = await serverRequests('/lists/delete', 'PUT', {row_uuid: 'all'}, () => {dispatch(getUser());});
 		if (response.status !== 200) {
 			window.alert('Failed to delete all recipes. Please try again.')
 			dispatch(getUser())

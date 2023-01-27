@@ -37,14 +37,14 @@ export const Navbar = ({targetPage, user}) => {
 	// Check if demo account is being used
 	let path = user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633' ? 'demo' : 'home'
 
-	const logout = async () => {
+	const signout = async () => {
 		// If demo account, return to homepage
 		if (user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633') {
 			navigate('/')
 			return
 		}
 
-		let response = await fetch('https://mygrocerylists.up.railway.app/users/logout', {
+		let response = await fetch('https://mygrocerylists.up.railway.app/users/signout', {
 			method: 'GET',
 			credentials: 'include',
 		});
@@ -54,7 +54,7 @@ export const Navbar = ({targetPage, user}) => {
 			dispatch(clearLists())
 			navigate('/signin');
 		} else {
-			window.alert('Failed to logout. Please try again...');
+			window.alert('Failed to sign out. Please try again...');
 		}
 	};
 
@@ -97,9 +97,9 @@ export const Navbar = ({targetPage, user}) => {
 					<div className={styles.icon}><ThemeSwitch/></div>
 					<div className={styles.text}>{t('quickTour.theme')}</div>
 				</div>
-				<div className={styles.logout} onClick={logout}>
+				<div className={styles.signout} onClick={signout}>
 					<div className={styles.icon}><Icon icon="ic:baseline-logout" style={{width: '2rem', height: '2rem'}}/></div>
-						{t('cornerAvatar.LogOut')}
+						{t('cornerAvatar.SignOut')}
 				</div>
 			</div>
 			<div className={styles.smallNav}>
