@@ -740,6 +740,10 @@
     padding: 1rem 0;
 }
 
+.textContainer {
+    margin-bottom: 4rem;
+}
+
 .stackText {
     font-size: 3rem;
     margin: 1rem;
@@ -759,9 +763,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    margin-top: 4rem;
-    font-size: 6rem;
+    gap: 30px;
+    /* margin-top: 4rem; */
+    font-size: 4rem;
 }
 
 
@@ -801,6 +805,9 @@
     visibility: visible;
 }
 
+.stack > hr {
+    margin: 1rem 0;
+}
 
 @media only screen and (max-width: 760px) {
     .section.stack {

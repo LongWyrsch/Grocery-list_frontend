@@ -13,20 +13,38 @@ import { useTranslation } from 'react-i18next';
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
 import { Icon } from '@iconify/react';
 
-
 export const Process = () => {
 	const { t } = useTranslation();
-	const navigate=useNavigate()
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	const links = document.querySelectorAll('.tocHeader');
+	for (const link of links) {
+		link.addEventListener('click', clickHandler);
+	}
+	function clickHandler(e) {
+		e.preventDefault();
+
+		const href = this.getAttribute('href');
+
+		document.querySelector(href).scrollIntoView({
+			behavior: 'smooth',
+		});
+	}
+
 	return (
 		<div className={styles.processWrapper}>
 			<div className={styles.buttons}>
-				<div className={styles.arrow} onClick={() => { navigate('/') }}>
-					<Icon icon="mdi:arrow-left-circle-outline" style={{width: '3rem', height: '3rem'}}/>
+				<div
+					className={styles.arrow}
+					onClick={() => {
+						navigate('/');
+					}}
+				>
+					<Icon icon="mdi:arrow-left-circle-outline" style={{ width: '3rem', height: '3rem' }} />
 					Back
 				</div>
 				<div className={styles.language}>
@@ -34,8 +52,82 @@ export const Process = () => {
 				</div>
 			</div>
 			<div className={styles.textWrapper}>
-				<h1 className={styles.welcome}>{t('process.welcome')}</h1>
-				<h2 className={styles.thanks}>{t('process.thanks')}</h2>
+				<h1 className={styles.title}>{t('process.title')}</h1>
+				<div className={styles.toc}>
+					<ol>
+						<li href="#tocIntro" className="tocHeader">
+							{t('process.tocIntro')}
+						</li>
+						<li href="#tocTechStack" className="tocHeader">
+							{t('process.tocTechStack')}
+						</li>
+						<li href="#tocDependencies" className="tocHeader">
+							{t('process.tocDependencies')}
+						</li>
+						<li href="#tocTools" className="tocHeader">
+							{t('process.tocTools')}
+						</li>
+						<li href="#tocUI" className="tocHeader">
+							{t('process.tocUI')}
+						</li>
+						<li href="#tocAPI" className="tocHeader">
+							{t('process.tocAPI')}
+						</li>
+						<li href="#tocDatabase" className="tocHeader">
+							{t('process.tocDatabase')}
+						</li>
+						<li href="#tocBreakdown" className="tocHeader">
+							{t('process.tocBreakdown')}
+						</li>
+					</ol>
+				</div>
+
+				<h2 id="tocIntro" className="tocIntro">
+					{t('process.tocIntro')}
+				</h2>
+				<span>{t('process.introText1')}</span>
+				<a href="https://www.codecademy.com/learn/paths/full-stack-engineer-career-path">{t('process.introText2')}</a>
+				<span>{t('process.introText3')}</span>
+
+				<h2 id="tocTechStack" className={styles.stackText}>
+					{t('process.tocTechStack')}
+				</h2>
+				<ul className={styles.stack}>
+					<li>
+						<p>HTML</p>
+					</li>
+					<li>
+						<p>CSS</p>
+					</li>
+					<li>
+						<p>JS</p>
+					</li>
+					<li>
+						<p>React ( + react-router-dom)</p>
+					</li>
+					<li>
+						<p>Redux</p>
+					</li>
+					<li>
+						<p>Node.js</p>
+					</li>
+					<ul>
+						<li>
+							<p>Express.js (express-session)</p>
+						</li>
+						<li>
+							<p>Passport.js (passport-local + passport-google-oauth20)</p>
+						</li>
+					</ul>
+					<li>
+						<p>PostgreSQL (via Supabase)</p>
+					</li>
+				</ul>
+
+				<h2 id="tocDependencies" className={styles.thanks}>
+					{t('process.tocDependencies')}
+				</h2>
+				<p className={styles.thanks}>{t('process.thanks')}</p>
 				<ul className={styles.libraries}>
 					<h3>Frontend</h3>
 					<li>
@@ -100,50 +192,10 @@ export const Process = () => {
 						<p>{t('process.env')}</p>
 					</li>
 				</ul>
-				<h2 className={styles.stackText}>Tech stack</h2>
-				<ul className={styles.stack}>
-					<li>
-						<p>HTML</p>
-					</li>
-					<li>
-						<p>CSS</p>
-					</li>
-					<li>
-						<p>JS</p>
-					</li>
-					<li>
-						<p>React</p>
-					</li>
-					<ul>
-						<li>
-							<p>react-router-dom</p>
-						</li>
-						<li>
-							<p>Redux</p>
-						</li>
-					</ul>
-					<li>
-						<p>Redux</p>
-					</li>
-					<li>
-						<p>Node.js</p>
-					</li>
-					<ul>
-						<li>
-							<p>Express.js (express-session)</p>
-						</li>
-						<li>
-							<p>Passport.js (passport-local)</p>
-						</li>
-						<li>
-							<p>Passport.js (passport-google-oauth20)</p>
-						</li>
-					</ul>
-					<li>
-						<p>PostgreSQL (via Supabase)</p>
-					</li>
-				</ul>
-				<h2 className={styles.toolsText}>{t('process.tools')}</h2>
+
+				<h2 id="tocTools" className={styles.toolsText}>
+					{t('process.tocTools')}
+				</h2>
 				<ul className={styles.tools}>
 					<li>
 						<a href="https://www.figma.com/">Figma</a>
@@ -176,24 +228,62 @@ export const Process = () => {
 						<a href="https://railway.app/">Railway</a>
 						<p>{t('process.railway')}</p>
 					</li>
+					<li>
+						<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a>
+						<p>{t('process.swagger')}</p>
+					</li>
 				</ul>
-				<h2>UI design</h2>
-				<div className={styles.uiDescription}>{t('process.ui1')}<a href='https://www.figma.com/file/9OlfnA8kMP0qOKD7AdNueG/Grocery-list-test-colors?node-id=49823%3A12141&t=U9DtttpAPiU3KGKu-1'>{t('process.ui2')}</a>.</div>
+
+				<h2 id="tocUI">{t('process.tocUI')}</h2>
+				<div className={styles.uiDescription}>
+					{t('process.ui1')}
+					<a href="https://www.figma.com/file/9OlfnA8kMP0qOKD7AdNueG/Grocery-list-test-colors?node-id=49823%3A12141&t=U9DtttpAPiU3KGKu-1">{t('process.ui2')}</a>.
+				</div>
 				<ul className={styles.ui}>
 					<li>{t('process.ui3')}</li>
-					<li><a href='https://www.figma.com/community/file/1035203688168086460'>Material 3 Design Kit</a>{t('process.ui4')}</li>
-					<li><a href='https://www.figma.com/community/plugin/1034969338659738588/Material-Theme-Builder'>Material Theme Builder</a>{t('process.ui5')}</li>
-					<li><a href='https://www.figma.com/community/plugin/816737626312049592'>Export styles to CSS variables</a>{t('process.ui6')}</li>
+					<li>
+						<a href="https://www.figma.com/community/file/1035203688168086460">Material 3 Design Kit</a>
+						{t('process.ui4')}
+					</li>
+					<li>
+						<a href="https://www.figma.com/community/plugin/1034969338659738588/Material-Theme-Builder">Material Theme Builder</a>
+						{t('process.ui5')}
+					</li>
+					<li>
+						<a href="https://www.figma.com/community/plugin/816737626312049592">Export styles to CSS variables</a>
+						{t('process.ui6')}
+					</li>
 				</ul>
-				<img className={styles.figure} src={require('../../assets/Wireframe.png')} alt="wireframe" />
+				<iframe
+					title="wireframe"
+					style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+					width="800"
+					height="450"
+					src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9OlfnA8kMP0qOKD7AdNueG%2FGrocery-list-test-colors%3Fnode-id%3D52696%253A23854%26t%3DYErgZuNh3u14Asp6-1"
+					allowFullScreen
+				></iframe>
 				<div className={styles.figureDescription}>Wireframe</div>
-				<h2 className={styles.databaseTitle}>{t('process.database')}</h2>
+
+				<h2 id="tocAPI">{t('process.tocAPI')}</h2>
+				<p>
+					<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">{t('process.api1')}</a>
+					{t('process.api2')}
+				</p>
+
+				<h2 id="tocDatabase" className={styles.databaseTitle}>
+					{t('process.tocDatabase')}
+				</h2>
 				<div className={styles.databaseDescription}>{t('process.databaseText')}</div>
-				<img className={styles.figure} src={require('../../assets/Schema.png')} alt="Schema" />
-				<div className={styles.figureDescription}>Schema</div>
-				<h2 className={styles.breakdownTitle}>{t('process.finalthoughts')}</h2>
-				<div className={styles.breakdownDescription}>{t('process.text')}</div>
-				<h2 className={styles.breakdownTitle}>{t('process.projectBreakdown')}</h2>
+				<div className={styles.dbdiagram}>
+					<iframe title="schema" width="560" height="315" src="https://dbdiagram.io/embed/639da5ca99cb1f3b55a1fb97">
+						{' '}
+					</iframe>
+				</div>
+				<div className={styles.figureDescription}>{t('process.schema')}</div>
+
+				<h2 id="tocBreakdown" className={styles.breakdownTitle}>
+					{t('process.tocBreakdown')}
+				</h2>
 			</div>
 			<div className={styles.gantt}>
 				<Mermaid chart={ganttData} />

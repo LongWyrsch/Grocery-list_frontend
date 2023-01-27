@@ -306,14 +306,14 @@ export const Homepage = () => {
             </div>
 
             <div className={`${styles.section} ${styles.stack}`}>
-                <div>
+                <div className={styles.textContainer}>
                     <div ref={stackButtonIconRef}  className={styles.stackText}>{t('homepage.havealook')}</div>
-                    <Button 
-                    buttonStyle="filled"
-                    text={t('homepage.designprocess')}
-                    onClick={() => {
-                        navigate('/process');
-                    }}
+						<Button 
+						buttonStyle="filled"
+						text={t('homepage.designprocess')}
+						onClick={() => {
+							navigate('/process');
+						}}
                     />
                 </div>
                 <div className={`${(inView1 || inView2)? styles.show : styles.hidden} ${styles.stackIcons}`}>
@@ -354,7 +354,9 @@ export const Homepage = () => {
 						<span>PostgreSQL</span>
 					</div>
                 </div>
+				<span>Stack</span>
 				<hr/>
+				<span>Tools</span>
 				<div className={`${(inView1 || inView2)? styles.show : styles.hidden} ${styles.stackIcons}`}>
                     <div className={styles.figma} style={{transitionDelay: '100ms'}}>
 						<Icon icon="logos:figma"/>
@@ -379,6 +381,14 @@ export const Homepage = () => {
 					<div className={styles.netlify} style={{transitionDelay: '350ms'}}>
 						<Icon icon="vscode-icons:file-type-netlify"/>
 						<span>Netlify</span>
+					</div>
+					<div className={styles.netlify} style={{transitionDelay: '400ms'}}>
+						<Icon icon="simple-icons:railway"/>
+						<span>Railway</span>
+					</div>
+					<div className={styles.netlify} style={{transitionDelay: '400ms'}}>
+						<Icon icon="logos:swagger"/>
+						<span>Swagger</span>
 					</div>
 				</div>  
             </div>

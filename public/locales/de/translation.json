@@ -97,8 +97,23 @@
 		"other": "andere"
 	},
 	"process": {
-		"welcome": "Willkommen bei meiner ersten Full-Stack-Web-App",
-		"thanks": "Danke an die großartige Community für die Bibliotheken",
+		"title": "Willkommen bei meiner ersten Full-Stack-Web-App",
+		
+		"tocIntro": "Einführung",
+		"tocTechStack": "Tech-Stack",
+		"tocDependencies": "Abhängigkeiten",
+		"tocTools": "Tools und Drittanbieter",
+		"tocUI": "UI-Design",
+		"tocAPI": "OpenAPI",
+		"tocDatabase": "Database",
+		"tocBreakdown": "Projektaufschlüsselung",
+		
+
+		"introText1": "Nachdem ich im November 2022 einen Online-Kurs für ",
+		"introText2": "Full-Stack-Software-Ingenieur",
+		"introText3": " abgeschlossen hatte, begann ich mit der Arbeit an meinem ersten Full-Stack-Projekt. Ich war mir nicht sicher, wo ich anfangen sollte. Ich hatte eine klare Vorstellung davon, was ich mit der App erreichen wollte, aber ich wusste nicht, wie sie aussehen sollte. Daher begann ich mit der Arbeit an der Datenbank. Als die App einige Funktionen erhielt, wurde ich mit der Ausrichtung der Benutzeroberfläche sicherer, verbrachte aber viel Zeit damit, das CSS neu zu schreiben. Hätte ich mehr Zeit mit dem Prototyping verbracht, hätte ich in den späteren Phasen Zeit sparen können.",
+		
+		"thanks": "Danke an die großartige Community für die Bibliotheken.",
 		"iconify": "bietet einige Symbole, die in der gesamten App verwendet werden.",
 		"avatar": "generiert einzigartige Avatare für die Benutzer.",
 		"i18next": "vereinfacht die Übersetzung der App ins Englische, Deutsche und Französische.",
@@ -114,7 +129,7 @@
 		"cors": "CORS-Einstellungen für das Back-End konfigurieren.",
 		"bcrypt": "verwaltet die Kennwortverschlüsselung der Benutzer",
 		"env": "verwaltet Umgebungsvariablen.",
-		"tools": "Tools und Drittanbieter",
+		
 		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
 		"dbdiagram": "wurde verwendet, um das Datenbankbeziehungsdiagramm zu skizzieren.",
 		"supabase": "hostet die Datenbank.",
@@ -122,17 +137,20 @@
 		"github": "hostet das Repository für die kontinuierliche Bereitstellung auf Netlify und Railway.",
 		"netlify": "hostet das React-Frontend.",
 		"railway": "hostet den Backend-Server.",
-		"finalthoughts": "Abschließende Gedanken",
-		"text": "Nachdem ich im November 2022 einen Online-Kurs für Full-Stack-Engineering abgeschlossen hatte, begann ich mit der Arbeit an meinem ersten Full-Stack-Projekt. Ich war mir nicht sicher, wo ich anfangen sollte. Ich hatte eine klare Vorstellung davon, was ich mit der App erreichen wollte, aber ich wusste nicht, wie sie aussehen sollte. Daher begann ich mit der Arbeit an der Datenbank. Als die App einige Funktionen erhielt, wurde ich mit der Ausrichtung der Benutzeroberfläche sicherer, verbrachte aber viel Zeit damit, das CSS neu zu schreiben. Hätte ich mehr Zeit mit dem Prototyping verbracht, hätte ich in den späteren Phasen Zeit sparen können.",
-		"projectBreakdown": "Projektaufschlüsselung",
-		"database": "Datenbank",
-		"databaseText": "Da es sich bei dieser App nur um ein Portfolioprojekt handelt, wurde das folgende Schema gewählt, um API-Aufrufe zu minimieren. Dies führt zu einer Menge Redundanz, die eine Skalierung nicht zulässt.",
+		"swagger": "wurde verwendet, um den Endpunkt des Servers gemäß OpenAPI aufzulisten.",
+		
 		"ui1": "Schauen Sie sich alle Figma-Dateien dieses Projekts an ",
 		"ui2": "hier",
 		"ui3": "Wireframing und Prototyping wurden mit Figma durchgeführt.",
 		"ui4": "  lieferte alle Komponentendesigns. Sie wurden dann in CSS von Grund auf neu erstellt.",
 		"ui5": "  hat mit dem Designsystem geholfen.",
-		"ui6": "  exportierte alle Stile von Figma nach CSS."
+		"ui6": "  exportierte alle Stile von Figma nach CSS.",
+
+		"api1": "Sehen Sie sich die API-Endpunkte des Servers",
+		"api2": " gemäß den OpenAPI-Spezifikationen im Swagger-Editor an.",
+
+		"databaseText": "Da es sich bei dieser App nur um ein Portfolioprojekt handelt, wurde das folgende Schema gewählt, um API-Aufrufe zu minimieren. Dies führt zu einer Menge Redundanz, die eine Skalierung nicht zulässt.",
+		"schema": "Schéma"
 	}
 }
 

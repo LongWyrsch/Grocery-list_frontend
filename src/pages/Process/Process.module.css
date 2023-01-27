@@ -22,9 +22,22 @@
     margin: 0 auto;
 }
 
-.processWrapper .welcome {
+.processWrapper .title {
     font-size: 4rem;
     padding-top: 0rem;
+}
+
+.toc > ol > li {
+    display: list-item;
+    list-style:decimal;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: blue;
+} 
+
+.toc > ol > li:hover {
+    text-decoration: underline;
 }
 
 .processWrapper  h1 {
@@ -33,6 +46,11 @@
 
 .processWrapper  h2 {
     margin: 4rem 0 1rem;
+    font-size: 2rem;
+    scroll-margin-top: 5rem;
+}
+.processWrapper  h3 {
+    margin-top: 1rem;
 }
 
 .processWrapper  ul {
@@ -84,4 +102,9 @@ ul.ui > li {
     width: 100%;
     text-align: center;
     margin: 0 auto;
+}
+
+iframe {
+    width: 100%;
+    height: 50vh;
 }
