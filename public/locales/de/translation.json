@@ -85,7 +85,10 @@
 		"subtitle2": "Doppelte Zutaten werden kombiniert!",
 		"havealook": "Schauen Sie sich die an",
 		"designprocess": "Designprozesses",
-		"listTitle": "Mahlzeiten am Wochenende"
+		"listTitle": "Mahlzeiten am Wochenende",
+		"rec1": "Spaghetti Bolognese",
+		"rec2": "Carbonara",
+		"rec3": "Tunesischer Couscous"
 	},
 	"section" : {
 		"veggies": "Gemüse",

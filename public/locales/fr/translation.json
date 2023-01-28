@@ -85,7 +85,10 @@
 		"subtitle2": "Les ingrédients en double sont combinés !",
 		"havealook": "Jetez un oeil au",
 		"designprocess": "processus de conceptions",
-		"listTitle": "Repas du week-end"
+		"listTitle": "Repas du week-end",
+		"rec1": "Spaghetti Bolognaise",
+		"rec2": "Carbonara",
+		"rec3": "Couscous tunisien"
 	},
 	"section" : {
 		"veggies": "légumes",

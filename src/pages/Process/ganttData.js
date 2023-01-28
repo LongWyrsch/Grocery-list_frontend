@@ -2,10 +2,10 @@ export const ganttData = `
 gantt
                 title Grocery list
                 dateFormat YYYY-MM-DD
-                axisFormat %m-%d
+                axisFormat %d
                 tickInterval 1day
             
-                %% [Git] --> git commit --> red
+                %% [Git] --> git commit --> blue
                 %% ** --> notes in Obsidian --> bold
 
                 section UI/UX design
@@ -41,6 +41,7 @@ gantt
                     [Git] Add data validation: done, adva, after addlg, 2h
                     [Git] Add organizeIngredients.js: done, aorgi, after acam, 12h
                     [Git] Update user schema, debug signin and signup routes: done, uusdssr, after aorgi, 12h
+                    [Git] Update openapi.yaml: done, urlsapi, after upproin, 12h
 
                 section Front end 
                     Review React: done, rr, after logo, 7d
@@ -81,23 +82,22 @@ gantt
                     [Git] Expand translation to all pages: done, attap, after ausp, 12h
                     [Git] Add kCal from nutrition API: done, fkapi, after ausp, 12h
                     [Git] New card local date format: done, ncldf, after fkapi, 2h
-                    Plan homepage: done, plhp, after ncldf, 12h
+                    Plan homepage: done, plhp, after fkapi, 12h
                     [Git] Add demo account: done, ademoa, after plhp, 12h
                     [Git] Add quickTour feature: done, aqtour, after ademoa, 12h
-                    %% ~ ~ ~ ~ ~ ~ ==> H E R E <== ~ ~ ~ ~ ~ ~ ~ 
-                    [Git] Design homepage sections and buttons: dhomep, after aqtour, 12h
-                    [Git] Add morphing separation to homepage: amorsh, after dhomep, 12h
-                    [Git] Add animated arrow to homepage: asniah, after amorsh, 12h
-                    [Gti] Translate homepage: trhop, after asniah, 12h
-                    [Git] Add behind the scenes: abtsc, after asniah, 12h
-                    [Git] Add loading indicator: aloadi, after abtsc, 12h
-                    [Git] Add password recovery function: aprf, after aloadi, 12h
-                    [Git] Improve accessibility: acce, after aprf, 1d
-                    %% Update schema diagram pdf
-                section Deploy
-                    Deploy on Netlify: dpn, after acce, 12h
-                    Update to HTTPS: uhttps, after dpn, 1d
-                    Update all URLs: uaurl, after uhttps, 12h
-                    Update URLs in openAPI: urlsapi, after uaurl, 12h
+                    Design homepage sections and buttons: done, dhomep, after aqtour, 12h
+                    Add morphing separation to homepage: done, amorsh, after dhomep, 12h
+                    Add scroll animation to homepage: done, scrolla, after dhomep, 12h
+                    Translate homepage: done, trhop, after scrolla, 12h
+                    Add Process page: done, propage, after trhop, 12h
+                    [Git] Add homepage and process page: milestone, done, hopropa, after propage, 0d
+                    [Git] Add animated down arrow to homepage: done, asniah, after hopropa, 3h
+                    [Git] Adjust colors: done, adjco, after hopropa, 12h
+                    Make design responsive: done, mwere, after adjco, 36h
+                    [Git] Update Process page info: done, upproin, after uaurl, 12h
+                    [Git] Improve Introduction on Process page: done, iipp, after urlsapi, 12h
 
+                section Deploy
+                    Deploy on Netlify and Railway: done, dpn, after mwere, 12h
+                    Update all URLs: done, uaurl, after mwere, 12h
 `

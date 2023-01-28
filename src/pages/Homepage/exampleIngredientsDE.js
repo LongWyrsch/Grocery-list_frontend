@@ -1,15 +1,15 @@
 
-export const exampleBolognese =  [
+export const exampleBologneseDE =  [
     {
         "uuid": "3e900d0c-25bb-4587-a42b-432d6a0b8ac5",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 1,
-        "ingredient": "onions",
+        "ingredient": "Zwiebeln",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "44.0"
     },
@@ -17,12 +17,12 @@ export const exampleBolognese =  [
         "uuid": "cc3f1e67-b90e-4cf1-8efe-1da7b3c4cfac",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 2,
-        "ingredient": "zuccinis",
+        "ingredient": "Zucchini",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "54.0"
     },
@@ -30,12 +30,12 @@ export const exampleBolognese =  [
         "uuid": "7df26618-b8ee-493d-a038-aac16e39e367",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 3,
-        "ingredient": "garlic cloves",
+        "ingredient": "Knoblauchzehen",
         "quantity": 2,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "0.0"
     },
@@ -43,12 +43,12 @@ export const exampleBolognese =  [
         "uuid": "1f1b561b-5bb3-4f57-8f53-c76ee7301727",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 4,
-        "ingredient": "cooking oil",
+        "ingredient": "Speiseöl",
         "quantity": 60,
         "unit": "ml",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "503.9"
     },
@@ -56,12 +56,12 @@ export const exampleBolognese =  [
         "uuid": "a697c7ff-f474-41b0-8d25-95096e10c1ea",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 5,
-        "ingredient": "ground beef",
+        "ingredient": "Hackfleisch",
         "quantity": 400,
         "unit": "g",
-        "section": "meat",
+        "section": "Fleisch",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "1328.0"
     },
@@ -69,12 +69,12 @@ export const exampleBolognese =  [
         "uuid": "90593fa3-67c6-4073-b7f6-1bc945072a90",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 6,
-        "ingredient": "tomato paste",
+        "ingredient": "Tomatenmark",
         "quantity": 156,
         "unit": "ml",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "161.2"
     },
@@ -82,12 +82,12 @@ export const exampleBolognese =  [
         "uuid": "173cc389-240f-4793-8980-2dd754f510d8",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 7,
         "ingredient": "chili powder",
         "quantity": 0.25,
         "unit": "tsp",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "1.9"
     },
@@ -95,12 +95,12 @@ export const exampleBolognese =  [
         "uuid": "4417065e-d2a0-4716-bc12-beccb311172e",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 8,
         "ingredient": "nutmeg",
         "quantity": 0.25,
         "unit": "tsp",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "3.0"
     },
@@ -108,7 +108,7 @@ export const exampleBolognese =  [
         "uuid": "f065fc14-d9f2-489b-81f7-f408c199c1ef",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 9,
         "ingredient": "cream",
         "quantity": 60,
@@ -121,7 +121,7 @@ export const exampleBolognese =  [
         "uuid": "3f43504d-4558-4316-ab58-6bed89e7d1ab",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 10,
         "ingredient": "parmesan cheese",
         "quantity": 125,
@@ -134,12 +134,12 @@ export const exampleBolognese =  [
         "uuid": "de894dc6-e8a1-4333-927c-bdf8905a1bef",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 11,
         "ingredient": "salt",
         "quantity": null,
         "unit": "to taste",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "0.0"
     },
@@ -147,12 +147,12 @@ export const exampleBolognese =  [
         "uuid": "b42c0938-be2e-42aa-84a5-ed5c9a48c954",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 12,
         "ingredient": "pepper",
         "quantity": null,
         "unit": "to taste",
-        "section": "seasonings",
+        "section": "Gewürze",
         "last_modified": "2022-12-29T22:01:00+00:00",
         "kcal": "0.0"
     },
@@ -160,7 +160,7 @@ export const exampleBolognese =  [
         "uuid": "f6a1cefc-62a8-403a-98e1-067f7b3ad6b9",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "9d9995e2-ac8a-4f5a-8485-801d17143e4f",
-        "title": "Chili Bolognese",
+        "title": "Bolognese-Chili",
         "index": 13,
         "ingredient": "spaghetti",
         "quantity": 375,
@@ -171,17 +171,17 @@ export const exampleBolognese =  [
     }
 ]
 
-export const exampleCarbonara = [
+export const exampleCarbonaraDE = [
     {
         "uuid": "93a84f2b-7b62-40da-adb3-7f978ff6aa84",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "a6bf5db6-b76b-43af-a963-fab17017d731",
         "title": "Spaghetti Carbonara",
         "index": 1,
-        "ingredient": "bacon",
+        "ingredient": "Speck",
         "quantity": 2,
         "unit": "slices",
-        "section": "meat",
+        "section": "Fleisch",
         "last_modified": "2022-12-26T22:01:00+00:00",
         "kcal": "10.8"
     },
@@ -191,10 +191,10 @@ export const exampleCarbonara = [
         "card_uuid": "a6bf5db6-b76b-43af-a963-fab17017d731",
         "title": "Spaghetti Carbonara",
         "index": 2,
-        "ingredient": "green onions",
+        "ingredient": "Frühlingszwiebeln",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "last_modified": "2022-12-26T22:01:00+00:00",
         "kcal": "5.0"
     },
@@ -204,7 +204,7 @@ export const exampleCarbonara = [
         "card_uuid": "a6bf5db6-b76b-43af-a963-fab17017d731",
         "title": "Spaghetti Carbonara",
         "index": 3,
-        "ingredient": "eggs",
+        "ingredient": "Eier",
         "quantity": 2,
         "unit": null,
         "section": "dairies",
@@ -252,21 +252,21 @@ export const exampleCarbonara = [
     }
 ]
 
-export const exampleList = [
+export const exampleListDE = [
     {
         "uuid": "5604741f-d59b-41c4-abf5-de366c8332f3",
         "user_uuid": "a8eefbb0-9e50-4c00-b18f-798f2b951633",
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 0,
-        "ingredient": "zuccinis",
+        "ingredient": "Zuccinis",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "checked": false,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -277,14 +277,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 1,
-        "ingredient": "green onions",
+        "ingredient": "Frühlingszwiebeln",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -295,14 +295,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 2,
-        "ingredient": "garlic cloves",
+        "ingredient": "Knoblauchzehen",
         "quantity": 2,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -313,14 +313,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 3,
-        "ingredient": "canned diced tomato",
+        "ingredient": "Tomaten Gewürfelt",
         "quantity": 800,
         "unit": "g",
-        "section": "grains",
+        "section": "Saucen",
         "checked": false,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -338,7 +338,7 @@ export const exampleList = [
         "checked": false,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -356,7 +356,7 @@ export const exampleList = [
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -374,7 +374,7 @@ export const exampleList = [
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -392,7 +392,7 @@ export const exampleList = [
         "checked": false,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -410,7 +410,7 @@ export const exampleList = [
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -424,11 +424,11 @@ export const exampleList = [
         "ingredient": "bacon",
         "quantity": 2,
         "unit": "slices",
-        "section": "meat",
+        "section": "Fleisch",
         "checked": false,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -439,14 +439,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 11,
-        "ingredient": "ground beef",
+        "ingredient": "Hackfleisch",
         "quantity": 800,
         "unit": "g",
-        "section": "meat",
+        "section": "Fleisch",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -457,14 +457,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 12,
-        "ingredient": "tomato paste",
+        "ingredient": "Tomatenmark",
         "quantity": 156,
         "unit": "ml",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -478,11 +478,11 @@ export const exampleList = [
         "ingredient": "nutmeg",
         "quantity": 0.25,
         "unit": "tsp",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -493,14 +493,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 14,
-        "ingredient": "lasagna seasonings",
+        "ingredient": "lasagna Gewürze",
         "quantity": 2,
         "unit": "bags",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -511,14 +511,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 15,
-        "ingredient": "cooking oil",
+        "ingredient": "Speiseöl",
         "quantity": 60,
         "unit": "ml",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -532,11 +532,11 @@ export const exampleList = [
         "ingredient": "pepper",
         "quantity": null,
         "unit": "to taste",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -550,11 +550,11 @@ export const exampleList = [
         "ingredient": "salt",
         "quantity": null,
         "unit": "to taste",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -565,14 +565,14 @@ export const exampleList = [
         "card_uuid": "7a62da6c-74f9-4dbd-8991-ace77ba9e2f3",
         "title": "Italian",
         "index": 18,
-        "ingredient": "onions",
+        "ingredient": "Zwiebeln",
         "quantity": 1,
         "unit": null,
-        "section": "veggies",
+        "section": "Gemüse",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -586,11 +586,11 @@ export const exampleList = [
         "ingredient": "chili powder",
         "quantity": 0.25,
         "unit": "tsp",
-        "section": "seasonings",
+        "section": "Gewürze",
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"
@@ -608,7 +608,7 @@ export const exampleList = [
         "checked": true,
         "recipes": [
             "Lasagna",
-            "Chili Bolognese",
+            "Bolognese-Chili",
             "Spaghetti Carbonara"
         ],
         "last_modified": "2023-01-21T19:49:24.113+00:00"

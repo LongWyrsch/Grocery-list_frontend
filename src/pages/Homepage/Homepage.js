@@ -21,12 +21,20 @@ import { useInView } from 'react-intersection-observer';
 
 
 // data
-import { exampleBolognese, exampleCarbonara, exampleList } from './exampleIngredients';
+import { exampleBologneseEN, exampleCarbonaraEN, exampleListEN } from './exampleIngredientsEN';
+import { exampleBologneseDE, exampleCarbonaraDE, exampleListDE } from './exampleIngredientsDE';
+import { exampleBologneseFR, exampleCarbonaraFR, exampleListFR } from './exampleIngredientsFR';
 import { Checkbox } from '../../components/Checkbox/Checkbox';
 
-export const Homepage = () => {
+export const Homepage = ({user}) => {
 	const navigate = useNavigate();
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+
+	console.log('i18n.language: ', i18n.language)
+
+	let exampleBolognese = i18n.language === 'EN'? exampleBologneseEN : i18n.language==='DE'? exampleBologneseDE : exampleBologneseFR
+	let exampleCarbonara = i18n.language === 'EN'? exampleCarbonaraEN : i18n.language==='DE'? exampleCarbonaraDE : exampleCarbonaraFR
+	let exampleList = i18n.language === 'EN'? exampleListEN : i18n.language==='DE'? exampleListDE : exampleListFR
 
 	useEffect(() => {
         KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();
@@ -61,8 +69,6 @@ export const Homepage = () => {
     const { ref:stackButtonIconRef, inView: inView1 } = useInView()
     const { ref:stackLastIconRef, inView: inView2 } = useInView()
     const { ref:trigger, inView:triggerInView } = useInView()
-
-	console.log(inView1,inView2)
 
 	return (
 		<div className={styles.homepageWrapper}>
@@ -197,7 +203,7 @@ export const Homepage = () => {
 				</div>
 				<div className={styles.example}>
 					<div className={styles.card}>
-						<div className={styles.title}>Spaghetti Bolognese</div>
+						<div className={styles.title}>{exampleBolognese[0].title}</div>
 						{/* <div className={styles.close}>Close</div> */}
 						<div className={styles.headings}>
 							<div className={styles.ingredient}>{t('home.Ingredients')}</div>
@@ -220,7 +226,7 @@ export const Homepage = () => {
 					</div>
 					<div className={styles.shadow}></div>
 					<div className={styles.card}>
-						<div className={styles.title}>Carbonara</div>
+						<div className={styles.title}>{exampleCarbonara[0].title}</div>
 						<div className={styles.headings}>
 							<div className={styles.ingredient}>{t('home.Ingredients')}</div>
 							<div className={styles.quantity}>{t('home.Quantity')}</div>
@@ -267,9 +273,9 @@ export const Homepage = () => {
 						<div className={styles.title}>{t('homepage.listTitle')}</div>
 						{/* <div className={styles.close}>Close</div> */}
 						<div className={styles.recipeNames}>
-							<div>Spaghetti Bolognese</div>
-							<div>Carbonara</div>
-							<div>Tunisian couscous</div>
+							<div>{t('homepage.rec1')}</div>
+							<div>{t('homepage.rec2')}</div>
+							<div>{t('homepage.rec3')}</div>
 						</div>
 						<div className={styles.headings}>
 							<div className={styles.ingredient}>{t('home.Ingredients')}</div>

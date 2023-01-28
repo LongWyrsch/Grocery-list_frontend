@@ -85,7 +85,10 @@
 		"subtitle2": "Duplicate ingredients are combined!",
 		"havealook": "Have a look at the",
 		"designprocess": "design process",
-		"listTitle": "Weekend's meals"
+		"listTitle": "Weekend's meals",
+		"rec1": "Spaghetti Bolognese",
+		"rec2": "Carbonara",
+		"rec3": "Tunisian couscous"
 	},
 	"section" : {
 		"veggies": "veggies",

@@ -39,14 +39,12 @@ function App() {
 	// Check if user is authenticated.
 	let auth = (user.email!==null && user.email!=='demo.account@enjoy.com') || user.google_name!==null? true : false
 
-	console.log('auth: ', auth, ', userRequested: ', userRequested)
-
 	return (
 		<div className="App" id={user.theme}>
 			<ParallaxProvider>
 				<Router>
 					<Routes>
-						<Route path="/" exact element={<Homepage />} />
+						<Route path="/" exact element={<Homepage user={user}/>} />
 						<Route path="/process" element={<Process/>} />
 						{userRequested? <Route path="/signin" element={!auth? <Signin/> : <Home />} /> : null}
 						{userRequested? <Route path="/signup" element={!auth? <Signup user={user}/> : <Home />} /> : null}
