@@ -864,6 +864,7 @@ footer {
 .linkedin {
     /* height: 100%; */
     font-size: 3rem;
+    cursor: pointer;
 }
 
 .github {

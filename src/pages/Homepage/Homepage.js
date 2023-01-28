@@ -84,6 +84,7 @@ export const Homepage = ({user}) => {
 					<div className={styles.imgContainer}>
 						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 					</div>
+				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }} style={{color: 'black'}}/>
 				</div>
 				<div className={styles.navGroup2}>
                     <Button
@@ -399,7 +400,7 @@ export const Homepage = ({user}) => {
 				</div>  
             </div>
 			<footer>
-				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch?tab=repositories' }}/>
+				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }}/>
 				<FaLinkedin className={styles.linkedin} onClick={() => { window.location.href='https://de.linkedin.com/in/long-wyrsch-9141a156?original_referer=' }}/>
                 <p>long.nqw@gmail.com</p>
 			</footer>
