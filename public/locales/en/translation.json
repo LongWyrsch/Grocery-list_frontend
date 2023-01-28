@@ -97,6 +97,7 @@
 		"seasonings": "seasonings",
 		"grains": "grains",
 		"meat": "meat",
+		"alcohol": "alcohol",
 		"other": "other"
 	},
 	"process": {
@@ -154,6 +155,7 @@
 		"netlify": "hosts the React frontend.",
 		"railway": "hosts the backend server.",
 		"swagger": "was used to list the server's endpoint according to OpenAPI.",
+		"usda": "provides kCal for the user.",
 		
 		"ui1": "Check out all of this project's Figma files ",
 		"ui2": "here",

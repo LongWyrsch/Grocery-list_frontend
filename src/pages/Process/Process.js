@@ -247,6 +247,10 @@ export const Process = () => {
 							<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a>
 							<span>{t('process.swagger')}</span>
 						</li>
+						<li>
+							<a href="https://fdc.nal.usda.gov/api-guide.html">USDA FoodData Central API</a>
+							<span>{t('process.usda')}</span>
+						</li>
 					</ul>
 				</section>
 

@@ -22,6 +22,7 @@ export const Chip = ({ handleChange, value, height = '2rem' }) => {
 					<option value={t('section.seasonings')}>{t('section.seasonings')}</option>
 					<option value={t('section.grains')}>{t('section.grains')}</option>
 					<option value={t('section.meat')}>{t('section.meat')}</option>
+					<option value={t('section.alcohol')}>{t('section.alcohol')}</option>
 					<option value={t('section.other')}>{t('section.other')}</option>
 				</select>
 			{/* </form> */}

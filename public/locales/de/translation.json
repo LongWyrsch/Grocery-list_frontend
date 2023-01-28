@@ -97,6 +97,7 @@
 		"seasonings": "Gewürze",
 		"grains": "Körner",
 		"meat": "Fleisch",
+		"alcohol": "Alkohol",
 		"other": "andere"
 	},
 	"process": {
@@ -156,6 +157,7 @@
 		"netlify": "hostet das React-Frontend.",
 		"railway": "hostet den Backend-Server.",
 		"swagger": "wurde verwendet, um den Endpunkt des Servers gemäß OpenAPI aufzulisten.",
+		"usda": "stellt kCal für den Benutzer bereit.",
 		
 		"ui1": "Schauen Sie sich alle Figma-Dateien dieses Projekts an ",
 		"ui2": "hier",
