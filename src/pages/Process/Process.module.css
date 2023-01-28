@@ -43,13 +43,13 @@
 }
 
 .processWrapper section {
-    scroll-margin-top: 5rem;
     margin-top: 4rem;
 }
 
 .processWrapper h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    scroll-margin-top: 5rem;
 }
 
 .processWrapper h3 {

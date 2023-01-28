@@ -80,8 +80,8 @@ export const Process = () => {
 					</li>
 				</ol>
 
-				<section id="tocIntro" className={styles.tocIntro}>
-					<h2>{t('process.tocIntro')}</h2>
+				<section  className={styles.tocIntro}>
+					<h2 id="tocIntro">{t('process.tocIntro')}</h2>
 					<p>{t('process.introText1')}<a href="https://www.codecademy.com/learn/paths/full-stack-engineer-career-path">{t('process.introText2')}</a>{t('process.introText3')}</p>
 					
 					
@@ -103,8 +103,8 @@ export const Process = () => {
 					<p>{t('process.endpoints')}</p>
 				</section>
 
-				<section id='tocTechStack' className={styles.tocTechStack}>
-					<h2>{t('process.tocTechStack')}</h2>
+				<section className={styles.tocTechStack}>
+					<h2 id='tocTechStack'>{t('process.tocTechStack')}</h2>
 					<ul>
 						<li>
 							<span>HTML</span>
@@ -139,8 +139,8 @@ export const Process = () => {
 				</section>
 
 				
-				<section id="tocDependencies" className={styles.tocDependencies}>
-					<h2>{t('process.tocDependencies')}</h2>
+				<section className={styles.tocDependencies}>
+					<h2 id="tocDependencies">{t('process.tocDependencies')}</h2>
 					<p>{t('process.thanks')}</p>
 					<ul>
 						<h3>Frontend</h3>
@@ -209,8 +209,8 @@ export const Process = () => {
 				</section>
 
 
-				<section id="tocTools" className={styles.tocTools}>
-					<h2>{t('process.tocTools')}</h2>
+				<section className={styles.tocTools}>
+					<h2 id="tocTools">{t('process.tocTools')}</h2>
 					<ul>
 						<li>
 							<a href="https://www.figma.com/">Figma</a>
@@ -251,8 +251,8 @@ export const Process = () => {
 				</section>
 
 
-				<section id="tocUI" className={styles.tocUI}>
-					<h2>{t('process.tocUI')}</h2>
+				<section className={styles.tocUI}>
+					<h2 id="tocUI">{t('process.tocUI')}</h2>
 					<p>
 						{t('process.ui1')}
 						<a href="https://www.figma.com/file/9OlfnA8kMP0qOKD7AdNueG/Grocery-list-test-colors?node-id=49823%3A12141&t=U9DtttpAPiU3KGKu-1">{t('process.ui2')}</a>.
@@ -276,23 +276,23 @@ export const Process = () => {
 					<div className={styles.figureDescription}>Wireframe</div>
 				</section>
 
-				<section id="tocAPI" className={styles.tocAPI}>
-					<h2>{t('process.tocAPI')}</h2>
+				<section className={styles.tocAPI}>
+					<h2 id="tocAPI">{t('process.tocAPI')}</h2>
 					<p>
 						<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">{t('process.api1')}</a>
 						{t('process.api2')}
 					</p>
 				</section>
 
-				<section id="tocDatabase" className={styles.tocDatabase}>
-					<h2>{t('process.tocDatabase')}</h2>
+				<section className={styles.tocDatabase}>
+					<h2 id="tocDatabase">{t('process.tocDatabase')}</h2>
 					<div>{t('process.databaseText')}</div>
 					<iframe title="schema" width="560" height="315" src="https://dbdiagram.io/embed/639da5ca99cb1f3b55a1fb97"></iframe>
 					<div className={styles.figureDescription}>{t('process.schema')}</div>
 				</section>
 
-				<section id="tocBreakdown" className={styles.tocBreakdown}>
-					<h2>{t('process.tocBreakdown')}</h2>
+				<section className={styles.tocBreakdown}>
+					<h2 id="tocBreakdown">{t('process.tocBreakdown')}</h2>
 				</section>
 			</div>
 			<div className={styles.gantt}>
