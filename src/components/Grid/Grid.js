@@ -268,7 +268,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Send card to database
 		const failureAction = () => setFocusCard(updatedCard);
-		serverRequests(`/${targetPage}`, 'PUT', updatedCard, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {ingredients: updatedCard}, failureAction);
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {

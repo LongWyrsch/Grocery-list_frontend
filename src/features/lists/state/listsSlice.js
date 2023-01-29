@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { config } from '../../../constants';
 import { DemoLists } from './DemoLists';
 
 //Middleware fetches all lists before saving it to the store
 export const getLists = createAsyncThunk('lists/getLists', async (thunkAPI) => {
-	const response = await fetch('https://mygrocerylists.up.railway.app/lists', {
+	const response = await fetch(`${config.server_url}/lists`, {
 		method: 'GET',
 		credentials: 'include',
 	});

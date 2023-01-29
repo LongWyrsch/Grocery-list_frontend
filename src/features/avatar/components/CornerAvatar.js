@@ -19,6 +19,9 @@ import { MdOutlineLogout } from 'react-icons/md';
 import Avatar from 'boring-avatars';
 import { t } from 'i18next';
 
+// config
+import { config } from '../../../constants';
+
 export const CornerAvatar = ({user}) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch()
@@ -35,8 +38,7 @@ export const CornerAvatar = ({user}) => {
 			navigate('/')
 			return
 		}
-
-		let response = await fetch('https://mygrocerylists.up.railway.app/users/signout', {
+		let response = await fetch(`${config.server_url}/users/signout`, {
 			method: 'GET',
 			credentials: 'include',
 		});

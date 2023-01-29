@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react';
+// React
 import { useNavigate, NavLink } from 'react-router-dom';
+
+// Redux
+import React, { useState, useEffect } from 'react';
+
+// CSS
 import styles from './auth.module.css';
 
 import { useTranslation } from 'react-i18next';
 
+// components
 import { LanguagePicker } from '../../features/languages/components/LanguagePicker';
 import { Textfield } from '../../components/Textfield/Textfield';
 import { Button } from '../../components/Button/Button';
-
-import { emailValidation, passwordValidation } from '../../utils/validator';
 import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
+
+// utils
+import { emailValidation, passwordValidation } from '../../utils/validator';
+
+// config
+import { config } from '../../../constants';
 
 export const Signup = ({ user }) => {
 	const navigate = useNavigate();
@@ -24,7 +34,7 @@ export const Signup = ({ user }) => {
 
 
 	const googleLogin = () => {
-		window.open('https://mygrocerylists.up.railway.app/auth/google', '_self');
+		window.open(`${config.server_url}/auth/google`, '_self');
 	};
 
 	//Update search term as user types
@@ -67,7 +77,7 @@ export const Signup = ({ user }) => {
 			return;
 		}
 		// User input was validated. Call server.
-		const response = await fetch('https://mygrocerylists.up.railway.app/auth/local/signup', {
+		const response = await fetch(`${config.server_url}/auth/local/signup`, {
 			method: 'POST',
 			credentials: 'include',
 			headers: {

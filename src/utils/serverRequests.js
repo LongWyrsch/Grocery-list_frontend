@@ -1,9 +1,10 @@
 import { t } from "i18next";
+import { config } from '../../../constants';
 
 export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureAction) => {
 	let response
 	try {
-		response = await fetch(`https://mygrocerylists.up.railway.app${reqPath}`, {
+		response = await fetch(`${config.server_url}${reqPath}`, {
 			method: reqMethod,
 			credentials: 'include',
 			headers: {
@@ -13,7 +14,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 			body: JSON.stringify(reqBody),
 		});
 	} catch (error) {
-		window.location.href = 'https://mygrocerylists.netlify.app/home/error'
+		window.location.href = `${config.client_url}/home/error`
 		serverFailureAction();
 	} 
 	if (response.status === 200) {
@@ -29,7 +30,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 		}
 	} else if (response.status === 401) {
 		window.alert(t('warnings.AuthError'));
-		window.location.href = 'https://mygrocerylists.netlify.app/signin'
+		window.location.href = `${config.client_url}/signin`
 	} else {
 		serverFailureAction();
 		window.alert(t('warnings.ServerError'));

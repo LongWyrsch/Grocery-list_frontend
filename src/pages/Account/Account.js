@@ -121,9 +121,10 @@ export const Account = ({ user }) => {
 			email: email,
 		};
 
-		if (password !== '') updatedUser = { ...updatedUser, hashed_password: password };
-
+		// userslice should not hold password
 		dispatch(updateUser(updatedUser));
+
+		if (password !== '') updatedUser = { ...updatedUser, password: password };
 		serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
 
 		// If you don't clear passwords textfield, modifiedRef will detect a "change".

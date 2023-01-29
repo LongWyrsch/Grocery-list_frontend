@@ -21,6 +21,9 @@ import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 // utils
 import { emailValidation, passwordValidation } from '../../utils/validator';
 
+// config
+import { config } from '../../../constants';
+
 export const Signin = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch()
@@ -33,7 +36,7 @@ export const Signin = () => {
 	
 
 	const googleLogin = async () => {
-		window.open('https://mygrocerylists.up.railway.app/auth/google', '_self');
+		window.open(`${config.server_url}/auth/google`, '_self');
 	};
 
 	//Update search term as user types
@@ -44,18 +47,6 @@ export const Signin = () => {
 	function handleOnChangePassword(e) {
 		setPassword(e.target.value);
 	}
-
-	// const quicklogin = async() => {
-	// 	const response = await fetch('http://localhost:3000/auth/local/signin', {
-	// 		method: 'POST',
-	// 		credentials: 'include',
-	// 		headers: {'Content-type': 'application/json'},
-	// 		body: JSON.stringify({ email: process.env.REACT_APP_ADMINEMAIL, password: process.env.REACT_APP_ADMINPASSWORD }),
-	// 	})
-	// 	if (response.status===401) window.alert(t('warnings.ServerError'))
-	// 	if (response.status===403) setCredError(true)
-	// 	if (response.status===200) navigate('/home/recipes', { state: null, replace: true })
-	// }
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -70,7 +61,7 @@ export const Signin = () => {
 		}
 
 		// User input was validated. Call server.
-		const response = await fetch('https://mygrocerylists.up.railway.app/auth/local/signin', {
+		const response = await fetch(`${config.server_url}/auth/local/signin`, {
 			method: 'POST',
 			credentials: 'include',
 			headers: {

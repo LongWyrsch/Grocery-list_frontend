@@ -20,6 +20,9 @@ import { CornerAvatar } from '../../features/avatar/components/CornerAvatar';
 import { t } from 'i18next';
 import { Icon } from '@iconify/react';
 
+// config
+import { config } from '../../../constants';
+
 export const Navbar = ({targetPage, user}) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch()
@@ -43,8 +46,7 @@ export const Navbar = ({targetPage, user}) => {
 			navigate('/')
 			return
 		}
-
-		let response = await fetch('https://mygrocerylists.up.railway.app/users/signout', {
+		let response = await fetch(`${config.server_url}/users/signout`, {
 			method: 'GET',
 			credentials: 'include',
 		});
