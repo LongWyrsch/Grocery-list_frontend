@@ -161,7 +161,7 @@ export const Grid = ({ targetPage, user }) => {
 		setFocusCard(newCard); // Open newly create card for editing
 
 		const failureAction = () => setFocusCard(null);
-		serverRequests(`/${targetPage}`, 'PUT', {newCard: newCard}, user.CSRF_token, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {ingredients: newCard}, user.CSRF_token, failureAction);
 	}, [targetPage]);
 
 	const createList = async () => {
@@ -219,7 +219,7 @@ export const Grid = ({ targetPage, user }) => {
 		setNewList(null); // Close <NewList/>
 
 		const failureAction = () => settingNewList();
-		serverRequests(`/${targetPage}`, 'PUT', {newCard: newCard}, user.CSRF_token, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {ingredients: newCard}, user.CSRF_token, failureAction);
 	};
 
 	const updateTitle = (e) => {
@@ -268,7 +268,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Send card to database
 		const failureAction = () => setFocusCard(updatedCard);
-		serverRequests(`/${targetPage}`, 'PUT', {updatedCard: updatedCard}, user.CSRF_token, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {ingredients: updatedCard}, user.CSRF_token, failureAction);
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {

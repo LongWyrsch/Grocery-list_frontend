@@ -2,6 +2,7 @@ import { t } from "i18next";
 import { config } from '../constants';
 
 export const serverRequests = async (reqPath, reqMethod, reqBody, CSRF_token, serverFailureAction) => {
+	console.log('front, CSRF_token: ', CSRF_token)
 	let response
 	try {
 		response = await fetch(`${config.server_url}${reqPath}`, {
