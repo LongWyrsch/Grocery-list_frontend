@@ -2,10 +2,12 @@
     max-width: 600px;
     padding: 20px;
     margin: 0 auto;
+    color: var(--m3--sys--on-surface);
 }
 
 .heading {
     margin: 20px 0;
+
 }
 
 .row {
