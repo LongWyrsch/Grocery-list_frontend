@@ -22,18 +22,17 @@ import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 
 // config
-import { config } from '../../../constants';
+import { config } from '../../constants';
 
 export const Signin = () => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	const { t } = useTranslation();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [credError, setCredError] = useState(false);
-	
 
 	const googleLogin = async () => {
 		window.open(`${config.server_url}/auth/google`, '_self');
@@ -65,25 +64,21 @@ export const Signin = () => {
 			method: 'POST',
 			credentials: 'include',
 			headers: {
-				'Content-type': 'application/json'
+				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
 			body: JSON.stringify({ email: email, password: password }),
-		})
-		if (response.status===401) window.alert(t('warnings.ServerError'))
-		if (response.status===403) setCredError(true)
-		if (response.status===200) {
-			dispatch(getUser())
-			navigate('/home/lists')
+		});
+		if (response.status === 401) window.alert(t('warnings.ServerError'));
+		if (response.status === 403) setCredError(true);
+		if (response.status === 200) {
+			dispatch(getUser());
+			navigate('/home/lists');
 		}
 	};
 
 	function credErrorMessage() {
-		return (
-			<div className={styles.errorMessage}>
-				{t('auth.creds.emailPasswordError')}
-			</div>
-		);
+		return <div className={styles.errorMessage}>{t('auth.creds.emailPasswordError')}</div>;
 	}
 
 	// Set icon for buttons and textfields
@@ -93,7 +88,7 @@ export const Signin = () => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')}/>
+			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
 			<div className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>
@@ -109,37 +104,16 @@ export const Signin = () => {
 					</NavLink>
 				</div>
 
-				<Button
-					buttonStyle="elevated"
-					text={t('auth.continueGoogle')}
-					onClick={googleLogin}
-					iconInfo={googleIcon}
-					width="100%"
-				/>
+				<Button buttonStyle="elevated" text={t('auth.continueGoogle')} onClick={googleLogin} iconInfo={googleIcon} width="100%" />
 
 				<div className={styles.orLine}>
 					<hr className={styles.horizontalLine} />
 					<div className={`generalText ${styles.or}`}>{t('auth.or')}</div>
 					<hr className={styles.horizontalLine} />
 				</div>
-				<Textfield
-					value={email}
-					fieldStyle="outlined"
-					label={t('auth.creds.email')}
-					handleOnChange={handleOnChangeEmail}
-					iconInfo={userIcon}
-					width="100%"
-				/>
+				<Textfield value={email} fieldStyle="outlined" label={t('auth.creds.email')} handleOnChange={handleOnChangeEmail} iconInfo={userIcon} width="100%" />
 				<div style={{ width: '100%' }}>
-					<Textfield
-						value={password}
-						fieldStyle="outlined"
-						fieldType="password"
-						label={t('auth.creds.password')}
-						handleOnChange={handleOnChangePassword}
-						iconInfo={lockIcon}
-						width="100%"
-					/>
+					<Textfield value={password} fieldStyle="outlined" fieldType="password" label={t('auth.creds.password')} handleOnChange={handleOnChangePassword} iconInfo={lockIcon} width="100%" />
 					<NavLink to="/signup" className={styles.forgotPassword}>
 						{t('auth.signinPage.forgotPassword')}
 					</NavLink>

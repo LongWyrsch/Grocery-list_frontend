@@ -161,7 +161,7 @@ export const Grid = ({ targetPage, user }) => {
 		setFocusCard(newCard); // Open newly create card for editing
 
 		const failureAction = () => setFocusCard(null);
-		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {newCard: newCard}, user.CSRF_token, failureAction);
 	}, [targetPage]);
 
 	const createList = async () => {
@@ -174,7 +174,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		let selectedRecipes = newList.filter((r) => r.checked).map((r) => r.card_uuid);
 		const recipeNames = newList.filter((r) => r.checked).map((r) => r.title);
-		const response = await serverRequests('/recipes/join', 'POST', { selectedRecipes: selectedRecipes }, navigate, '/signin', () => {});
+		const response = await serverRequests('/recipes/join', 'POST', { selectedRecipes: selectedRecipes }, user.CSRF_token, navigate, '/signin', () => {});
 
 		const card_uuid = uuidv4();
 		let newCard = response.map((row, index) => ({
@@ -219,7 +219,7 @@ export const Grid = ({ targetPage, user }) => {
 		setNewList(null); // Close <NewList/>
 
 		const failureAction = () => settingNewList();
-		serverRequests(`/${targetPage}`, 'PUT', newCard, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {newCard: newCard}, user.CSRF_token, failureAction);
 	};
 
 	const updateTitle = (e) => {
@@ -259,7 +259,7 @@ export const Grid = ({ targetPage, user }) => {
 
 			const updatedUser = { ...user, [`layouts_${targetPage}`]: updatedLayouts };
 			dispatch(updateUser(updatedUser));
-			serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
+			serverRequests('/users', 'PUT', {updatedUser: updatedUser}, user.CSRF_token, () => dispatch(getUser()));
 		}
 
 		// Update last_modified column
@@ -268,11 +268,11 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Send card to database
 		const failureAction = () => setFocusCard(updatedCard);
-		serverRequests(`/${targetPage}`, 'PUT', {ingredients: updatedCard}, failureAction);
+		serverRequests(`/${targetPage}`, 'PUT', {updatedCard: updatedCard}, user.CSRF_token, failureAction);
 
 		// If some rows were delete, update database
 		if (deletedRowsRef.current.length > 0) {
-			serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: deletedRowsRef.current, card_uuid: null }, navigate, '/signin', failureAction);
+			serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: deletedRowsRef.current, card_uuid: null }, user.CSRF_token, navigate, '/signin', failureAction);
 			deletedRowsRef.current.length = 0; // clear array
 		}
 
@@ -287,7 +287,7 @@ export const Grid = ({ targetPage, user }) => {
 		// Wrap dispatch in arrow function, otherwise they will trigger automatically
 		const failureAction = targetPage === 'recipes' ? () => dispatch(getRecipes()) : () => dispatch(getLists());
 
-		serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: null, card_uuid: card_uuid }, navigate, '/signin', () => failureAction);
+		serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: null, card_uuid: card_uuid }, user.CSRF_token, navigate, '/signin', () => failureAction);
 
 		closeCard();
 	};
@@ -335,7 +335,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		dispatch(updateUser(updatedUser));
 
-		const task = () => serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
+		const task = () => serverRequests('/users', 'PUT', {updatedUser: updatedUser}, user.CSRF_token, () => dispatch(getUser()));
 		queueTask(layoutsQueueRef.current, task, 3000);
 	};
 

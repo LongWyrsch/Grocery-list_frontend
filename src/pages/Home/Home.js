@@ -29,7 +29,6 @@ export const Home = () => {
 	const { t, i18n } = useTranslation();
 		
 	useEffect(() => { 
-		console.log(user.language)
 		i18n.changeLanguage(user.language);
 	 }, [user.language])
 

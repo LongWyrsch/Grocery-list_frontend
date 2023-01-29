@@ -19,7 +19,7 @@ import { ThemeSwitch } from '../../features/theme/components/ThemeSwitch';
 import { emailValidation, passwordValidation } from '../../utils/validator';
 
 // config
-import { config } from '../../../constants';
+import { config } from '../../constants';
 
 export const Signup = ({ user }) => {
 	const navigate = useNavigate();
@@ -31,7 +31,6 @@ export const Signup = ({ user }) => {
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [credError, setCredError] = useState(false);
 	const [passwordsDifferent, setPasswordsDifferent] = useState(false);
-
 
 	const googleLogin = () => {
 		window.open(`${config.server_url}/auth/google`, '_self');

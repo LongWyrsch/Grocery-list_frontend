@@ -27,7 +27,7 @@ export const ThemeSwitch = () => {
 		dispatch(updateUser(updatedUser));
 		let isAuthenticated = (user.email || user.google_name) ? true : false;
 		let demo = user.uuid === 'a8eefbb0-9e50-4c00-b18f-798f2b951633' 
-		isAuthenticated && !demo && serverRequests('/users', 'PUT', updatedUser, () => {});
+		isAuthenticated && !demo && serverRequests('/users', 'PUT', {updatedUser: updatedUser}, user.CSRF_token, () => {});
 	}
 
 	const moonIcon = React.createElement(RiMoonClearFill);

@@ -125,7 +125,7 @@ export const Account = ({ user }) => {
 		dispatch(updateUser(updatedUser));
 
 		if (password !== '') updatedUser = { ...updatedUser, password: password };
-		serverRequests('/users', 'PUT', updatedUser, () => dispatch(getUser()));
+		serverRequests('/users', 'PUT', {updatedUser: updatedUser}, user.CSRF_token, () => dispatch(getUser()));
 
 		// If you don't clear passwords textfield, modifiedRef will detect a "change".
 		setPassword('');
@@ -137,7 +137,7 @@ export const Account = ({ user }) => {
 
 	const deleteAccount = async () => {
 		// Delete all recipes
-		let response = await serverRequests('/recipes/delete', 'PUT', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		let response = await serverRequests('/recipes/delete', 'PUT', {row_uuid: 'all'}, user.CSRF_token, () => {dispatch(getUser());});
 		if (response.status !== 200) {
 			window.alert('Failed to delete all recipes. Please try again.')
 			dispatch(getUser())
@@ -145,7 +145,7 @@ export const Account = ({ user }) => {
 		}
 
 		// Delete all recipes
-		response = await serverRequests('/lists/delete', 'PUT', {row_uuid: 'all'}, () => {dispatch(getUser());});
+		response = await serverRequests('/lists/delete', 'PUT', {row_uuid: 'all'}, user.CSRF_token, () => {dispatch(getUser());});
 		if (response.status !== 200) {
 			window.alert('Failed to delete all recipes. Please try again.')
 			dispatch(getUser())
@@ -153,7 +153,7 @@ export const Account = ({ user }) => {
 		}
 
 		// Delete user on database
-		response = await serverRequests('/users', 'DELETE', {delete: 'delete'}, () => {
+		response = await serverRequests('/users', 'DELETE', {delete: 'delete'}, user.CSRF_token, () => {
 			dispatch(getUser());
 		});
 

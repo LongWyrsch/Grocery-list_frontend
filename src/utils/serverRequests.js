@@ -1,7 +1,7 @@
 import { t } from "i18next";
-import { config } from '../../../constants';
+import { config } from '../constants';
 
-export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureAction) => {
+export const serverRequests = async (reqPath, reqMethod, reqBody, CSRF_token, serverFailureAction) => {
 	let response
 	try {
 		response = await fetch(`${config.server_url}${reqPath}`, {
@@ -11,7 +11,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, serverFailureA
 				'Content-type': 'application/json',
 			},
 			// We convert the React state to JSON and send it as the POST body
-			body: JSON.stringify(reqBody),
+			body: JSON.stringify({...reqBody, CSRF_token: CSRF_token}),
 		});
 	} catch (error) {
 		window.location.href = `${config.client_url}/home/error`
