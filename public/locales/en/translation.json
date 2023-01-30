@@ -101,7 +101,8 @@
 		"other": "other"
 	},
 	"process": {
-		"title": "Welcome to my first full-stack web app",
+		"title": "Design Process",
+		"welcome": "Welcome to my first full-stack web app.",
 
 		"tocIntro": "Introduction",
 		"tocTechStack": "Tech Stack",
@@ -110,6 +111,7 @@
 		"tocUI": "UI design",
 		"tocAPI": "OpenAPI",
 		"tocDatabase": "Database",
+		"tocSecurity": "Security",
 		"tocBreakdown": "Project breakdown",
 		
 		"introText1": "After completing an online ",
@@ -146,6 +148,9 @@
 		"cors": "configure CORS settings for the backend.",
 		"bcrypt": "manages users' password encryption",
 		"env": "manages environments variables.",
+		"expval": "validates and sanitizes user inputs.",
+		"helmet": "sets security-related HTTP headers on all responses.",
+		"uuidCSRF": "generates unique UUID for CSRF tokens.",
 		
 		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
 		"dbdiagram": "was used to schetch the database relationship diagram.",
@@ -167,9 +172,21 @@
 		"api1": "See the server's API endpoints",
 		"api2": " according to the OpenAPI specifications in the Swagger Editor.",
 	
-
 		"databaseText": "Since this app is just a portfolio project, the below schema was chosen to minimize API calls. It leads to a lot of redundancy which doesn't allow it to scale.",
-		"schema": "Schema"		
+		"schema": "Schema",		
+
+		"security1": "CORS policy",
+		"security2": " allows only 1 origin: the frontend.",
+		"security3": "Security-related HTTP headers",
+		"security4": " are set by the server on all responses.",
+		"security5": "SQL injections",
+		"security6": " are mitigated by sanitizing user input and avoiding string interpolation.",
+		"security7": "XSS",
+		"security8": " is mitigated by sanitizing/escaping user inputs arriving to the server.",
+		"security9": "CSRF",
+		"security10": " is mitigated using custom CSRF tokens.",
+		"security11": "ReDoS",
+		"security12": " is mitigated by testing any regex used to validate user inputs."
 	}
 }
 

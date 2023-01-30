@@ -53,6 +53,7 @@ export const Process = () => {
 			</div>
 			<div className={styles.textWrapper}>
 				<h1>{t('process.title')}</h1>
+				<p className={styles.welcome}>{t('process.welcome')}</p>
 				<ol className={styles.toc}>
 					<li href="#tocIntro" className="tocHeader">
 						{t('process.tocIntro')}
@@ -74,6 +75,9 @@ export const Process = () => {
 					</li>
 					<li href="#tocDatabase" className="tocHeader">
 						{t('process.tocDatabase')}
+					</li>
+					<li href="#tocSecurity" className="tocHeader">
+						{t('process.tocSecurity')}
 					</li>
 					<li href="#tocBreakdown" className="tocHeader">
 						{t('process.tocBreakdown')}
@@ -144,67 +148,25 @@ export const Process = () => {
 					<p>{t('process.thanks')}</p>
 					<ul>
 						<h3>Frontend</h3>
-						<li>
-							<a href="https://iconify.design/">Iconify for React</a>
-							<span>{t('process.iconify')}</span>
-						</li>
-						<li>
-							<a href="https://boringavatars.com/">Boring Avatars</a>
-							<span>{t('process.avatar')}</span>
-						</li>
-						<li>
-							<a href="https://react.i18next.com/">react-i18next</a>
-							<span>{t('process.i18next')}</span>
-						</li>
-						<li>
-							<a href="https://thednp.github.io/kute.js/">KUTE.js</a>
-							<span>{t('process.kute')}</span>
-						</li>
-						<li>
-							<a href="https://mermaid.js.org/">Mermaid</a>
-							<span>{t('process.mermaid')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/atlassian/react-beautiful-dnd#readme">react-beautiful-dnd</a>
-							<span>{t('process.dnd')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/react-grid-layout/react-grid-layout">react-grid-layout</a>
-							<span>{t('process.grid')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/react-icons/react-icons#readme">React Icons</a>
-							<span>{t('process.icon')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/thebuilder/react-intersection-observer#readme">react-intersection-observer</a>
-							<span>{t('process.observer')}</span>
-						</li>
-						<li>
-							<a href="https://react-scroll-parallax.damnthat.tv/docs/intro">React Scroll Parallax</a>
-							<span>{t('process.parallax')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/uuidjs/uuid">uuid</a>
-							<span>{t('process.uuid')}</span>
-						</li>
+						<li><span><a href="https://iconify.design/">Iconify for React</a> {t('process.iconify')}</span></li>
+						<li><span><a href="https://boringavatars.com/">Boring Avatars</a> {t('process.avatar')}</span></li>
+						<li><span><a href="https://react.i18next.com/">react-i18next</a> {t('process.i18next')}</span></li>
+						<li><span><a href="https://thednp.github.io/kute.js/">KUTE.js</a> {t('process.kute')}</span></li>
+						<li><span><a href="https://mermaid.js.org/">Mermaid</a> {t('process.mermaid')}</span></li>
+						<li><span><a href="https://github.com/atlassian/react-beautiful-dnd#readme">react-beautiful-dnd</a> {t('process.dnd')}</span></li>
+						<li><span><a href="https://github.com/react-grid-layout/react-grid-layout">react-grid-layout</a> {t('process.grid')}</span></li>
+						<li><span><a href="https://github.com/react-icons/react-icons#readme">React Icons</a> {t('process.icon')}</span></li>
+						<li><span><a href="https://github.com/thebuilder/react-intersection-observer#readme">react-intersection-observer</a> {t('process.observer')}</span></li>
+						<li><span><a href="https://react-scroll-parallax.damnthat.tv/docs/intro">React Scroll Parallax</a> {t('process.parallax')}</span></li>
+						<li><span><a href="https://github.com/uuidjs/uuid">uuid</a> {t('process.uuid')}</span></li>
 						<h3>Backend</h3>
-						<li>
-							<a href="https://github.com/hapijs/joi#readme">joi</a>
-							<span>{t('process.joi')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/expressjs/cors">cors</a>
-							<span>{t('process.cors')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/kelektiv/node.bcrypt.js">node.bcrypt.js</a>
-							<span>{t('process.bcrypt')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/motdotla/dotenv">dotenv</a>
-							<span>{t('process.env')}</span>
-						</li>
+						<li><span><a href="https://github.com/hapijs/joi#readme">joi</a> {t('process.joi')}</span></li>
+						<li><span><a href="https://github.com/expressjs/cors">cors</a> {t('process.cors')}</span></li>
+						<li><span><a href="https://github.com/kelektiv/node.bcrypt.js">node.bcrypt.js</a> {t('process.bcrypt')}</span></li>
+						<li><span><a href="https://github.com/motdotla/dotenv">dotenv</a> {t('process.env')}</span></li>
+						<li><span><a href="https://github.com/express-validator/express-validator">express-validator</a> {t('process.expval')}</span></li>
+						<li><span><a href="https://github.com/helmetjs/helmet">helmet</a> {t('process.helmet')}</span></li>
+						<li><span><a href="https://github.com/uuidjs/uuid">uuid</a> {t('process.uuidCSRF')}</span></li>
 					</ul>
 				</section>
 
@@ -212,45 +174,16 @@ export const Process = () => {
 				<section className={styles.tocTools}>
 					<h2 id="tocTools">{t('process.tocTools')}</h2>
 					<ul>
-						<li>
-							<a href="https://www.figma.com/">Figma</a>
-							<span>{t('process.figma')}</span>
-						</li>
-						<li>
-							<a href="https://dbdiagram.io/home">dbdiagram.io</a>
-							<span>{t('process.dbdiagram')}</span>
-						</li>
-						<li>
-							<a href="https://supabase.com/">Supabase</a>
-							<span>{t('process.supabase')}</span>
-						</li>
-						<li>
-							<a href="https://code.visualstudio.com/">Visual Studio Code</a>{' '}
-						</li>
-						<li>
-							<a href="https://git-scm.com/">Git</a>
-							<span>{t('process.git')}</span>
-						</li>
-						<li>
-							<a href="https://github.com/">GitHub</a>
-							<span>{t('process.github')}</span>
-						</li>
-						<li>
-							<a href="https://www.netlify.com/">Netlify</a>
-							<span>{t('process.netlify')}</span>
-						</li>
-						<li>
-							<a href="https://railway.app/">Railway</a>
-							<span>{t('process.railway')}</span>
-						</li>
-						<li>
-							<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a>
-							<span>{t('process.swagger')}</span>
-						</li>
-						<li>
-							<a href="https://fdc.nal.usda.gov/api-guide.html">USDA FoodData Central API</a>
-							<span>{t('process.usda')}</span>
-						</li>
+						<li><span><a href="https://www.figma.com/">Figma</a> {t('process.figma')}</span></li>
+						<li><span><a href="https://dbdiagram.io/home">dbdiagram.io</a> {t('process.dbdiagram')}</span></li>
+						<li><span><a href="https://supabase.com/">Supabase</a> {t('process.supabase')}</span></li>
+						<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> {' '}</li>
+						<li><span><a href="https://git-scm.com/">Git</a> {t('process.git')}</span></li>
+						<li><span><a href="https://github.com/">GitHub</a> {t('process.github')}</span></li>
+						<li><span><a href="https://www.netlify.com/">Netlify</a> {t('process.netlify')}</span></li>
+						<li><span><a href="https://railway.app/">Railway</a> {t('process.railway')}</span></li>
+						<li><span><a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a> {t('process.swagger')}</span></li>
+						<li><span><a href="https://fdc.nal.usda.gov/api-guide.html">USDA FoodData Central API</a> {t('process.usda')}</span></li>
 					</ul>
 				</section>
 
@@ -293,6 +226,18 @@ export const Process = () => {
 					<div>{t('process.databaseText')}</div>
 					<iframe title="schema" width="560" height="315" src="https://dbdiagram.io/embed/639da5ca99cb1f3b55a1fb97"></iframe>
 					<div className={styles.figureDescription}>{t('process.schema')}</div>
+				</section>
+
+				<section className={styles.tocSecurity}>
+					<h2 id="tocSecurity">{t('process.tocSecurity')}</h2>
+					<ul>
+						<li><span><b>{t('process.security1')}</b> {t('process.security2')}</span></li>
+						<li><span><b>{t('process.security3')}</b> {t('process.security4')}</span></li>
+						<li><span><b>{t('process.security5')}</b> {t('process.security6')}</span></li>
+						<li><span><b>{t('process.security7')}</b> {t('process.security8')}</span></li>
+						<li><span><b>{t('process.security9')}</b> {t('process.security10')}</span></li>
+						<li><span><b>{t('process.security11')}</b> {t('process.security12')}</span></li>
+					</ul>
 				</section>
 
 				<section className={styles.tocBreakdown}>

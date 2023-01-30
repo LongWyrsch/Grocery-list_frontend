@@ -101,7 +101,8 @@
 		"other": "andere"
 	},
 	"process": {
-		"title": "Willkommen bei meiner ersten Full-Stack-Web-App",
+		"title": "Designprozess",
+		"welcome": "Willkommen bei meiner ersten Full-Stack-Web-App.",
 		
 		"tocIntro": "Einführung",
 		"tocTechStack": "Tech-Stack",
@@ -148,6 +149,9 @@
 		"cors": "CORS-Einstellungen für das Back-End konfigurieren.",
 		"bcrypt": "verwaltet die Kennwortverschlüsselung der Benutzer",
 		"env": "verwaltet Umgebungsvariablen.",
+		"expval": "validiert und bereinigt Benutzereingaben.",
+		"helmet": "setzt sicherheitsbezogene HTTP-Header für alle Antworten.",
+		"uuidCSRF": "generiert eindeutige UUID für CSRF-Token.",
 		
 		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
 		"dbdiagram": "wurde verwendet, um das Datenbankbeziehungsdiagramm zu skizzieren.",
@@ -170,7 +174,20 @@
 		"api2": " gemäß den OpenAPI-Spezifikationen im Swagger-Editor an.",
 
 		"databaseText": "Da es sich bei dieser App nur um ein Portfolioprojekt handelt, wurde das folgende Schema gewählt, um API-Aufrufe zu minimieren. Dies führt zu einer Menge Redundanz, die eine Skalierung nicht zulässt.",
-		"schema": "Schéma"
+		"schema": "Schéma",		
+
+		"security1": "Die CORS-Richtlinie",
+		"security2": " des Servers lässt nur einen Ursprung zu: das Front-End.",
+		"security3": "Sicherheitsrelevante HTTP-Header",
+		"security4": " werden vom Server für alle Antworten gesetzt.",
+		"security5": "SQL-Injections",
+		"security6": " werden durch das Bereinigen von Benutzereingaben und das Vermeiden von String-Interpolation gemildert.",
+		"security7": "XSS",
+		"security8": " wird durch das Bereinigen/Escapen von Benutzereingaben, die auf dem Server ankommen, gemildert.",
+		"security9": "CSRF",
+		"security10": " wird durch benutzerdefinierte CSRF-Tokens gemindert.",
+		"security11": "ReDoS",
+		"security12": " wird abgemildert, indem alle Regex getestet werden, die zur Validierung von Benutzereingaben verwendet werden."
 	}
 }
 

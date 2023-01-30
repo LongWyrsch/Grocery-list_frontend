@@ -101,7 +101,8 @@
 		"other": "autre"
 	},
 	"process": {
-		"title": "Bienvenue sur ma première application Web full-stack",
+		"title": "Procédé de design",
+		"welcome": "Bienvenue sur ma première application Web full-stack.",
 		
 		"tocIntro": "Introduction",
 		"tocTechStack": "Technologies",
@@ -146,6 +147,9 @@
 		"cors": "configurer les paramètres CORS pour le backend.",
 		"bcrypt": "gère le cryptage des mots de passe des utilisateurs",
 		"env": "gère les variables d'environnements.",
+		"expval": "valide et assainit l'entrée de l'utilisateur.",
+		"helmet": "définit des en-têtes HTTP liés à la sécurité sur toutes les réponses.",
+		"uuidCSRF": "génère un UUID unique pour les jetons CSRF.",
 		
 		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
 		"dbdiagram": "a été utilisé pour schématiser le diagramme de relation de la base de données.",
@@ -168,6 +172,19 @@
 		"api2": " conformément aux spécifications OpenAPI dans l'éditeur Swagger.",
 
 		"databaseText": "Étant donné que cette application n'est qu'un projet de portefeuille, le schéma ci-dessous a été choisi pour minimiser les appels d'API. Cela conduit à beaucoup de redondance qui ne lui permet pas d'évoluer.",
-		"schema": "Schéma"
+		"schema": "Schéma",		
+
+		"security1": "La politique CORS",
+		"security2": " du serveur n'autorise qu'une seule origine : le frontend.",
+		"security3": "Les en-têtes HTTP liés à la sécurité",
+		"security4": " sont définis par le serveur sur toutes les réponses.",
+		"security5": "Les injections SQL",
+		"security6": " sont atténuées en nettoyant les entrées de l'utilisateur et en évitant l'interpolation de chaîne.",
+		"security7": "Les XSS",
+		"security8": " sont atténué en nettoyant/échappant les entrées utilisateur arrivant sur le serveur.",
+		"security9": "Les CSRF",
+		"security10": " sont atténué à l'aide de jetons CSRF personnalisés.",
+		"security11": "Les ReDoS",
+		"security12": " sont atténué en testant toute expression régulière utilisée pour valider les entrées utilisateur."
 	}
 }
