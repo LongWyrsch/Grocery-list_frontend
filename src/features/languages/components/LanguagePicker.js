@@ -20,7 +20,7 @@ export const LanguagePicker = ({user}) => {
 	const dispatch = useDispatch()
 	const { i18n } = useTranslation();
 
-	const [language, setLanguage] = useState(i18n.language.substring(0,2).toUpperCase());
+	const [language, setLanguage] = useState(i18n.language.substring(0,2).toLowerCase());
 	const [open, setOpen] = useState(false);
 
 
@@ -80,11 +80,11 @@ export const LanguagePicker = ({user}) => {
 			</button>
 			<div className={`${open ? styles.activeMenu : styles.inactiveMenu} ${styles.menu}`} ref={menuRef}>
 				{/* <div className={styles.menu}> */}
-				<LanguageOption option='DE' handleClick={pickLanguage}/>
+				<LanguageOption option='de' handleClick={pickLanguage}/>
 				<hr />
-				<LanguageOption option='EN' handleClick={pickLanguage}/>
+				<LanguageOption option='en' handleClick={pickLanguage}/>
 				<hr />
-				<LanguageOption option='FR' handleClick={pickLanguage}/>
+				<LanguageOption option='fr' handleClick={pickLanguage}/>
 			</div>
 		</div>
 	);
@@ -93,7 +93,7 @@ export const LanguagePicker = ({user}) => {
 const LanguageOption =  ({option, handleClick}) => {
     return (
         <div onClick={()=>handleClick(option)}  data-option={option} className={styles.option}>
-            {option}
+            {option.toUpperCase()}
         </div>
     )
 }

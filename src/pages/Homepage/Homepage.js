@@ -32,9 +32,9 @@ export const Homepage = ({user}) => {
 
 	console.log('i18n.language: ', i18n.language)
 
-	let exampleBolognese = i18n.language === 'EN'? exampleBologneseEN : i18n.language==='DE'? exampleBologneseDE : exampleBologneseFR
-	let exampleCarbonara = i18n.language === 'EN'? exampleCarbonaraEN : i18n.language==='DE'? exampleCarbonaraDE : exampleCarbonaraFR
-	let exampleList = i18n.language === 'EN'? exampleListEN : i18n.language==='DE'? exampleListDE : exampleListFR
+	let exampleBolognese = i18n.language === 'en'? exampleBologneseEN : i18n.language==='de'? exampleBologneseDE : exampleBologneseFR
+	let exampleCarbonara = i18n.language === 'en'? exampleCarbonaraEN : i18n.language==='de'? exampleCarbonaraDE : exampleCarbonaraFR
+	let exampleList = i18n.language === 'en'? exampleListEN : i18n.language==='de'? exampleListDE : exampleListFR
 
 	useEffect(() => {
         KUTE.fromTo('#wave1', { path: '#wave1' }, { path: '#wave4' }, { repeat: 50, duration: 2000, yoyo: true }).start();

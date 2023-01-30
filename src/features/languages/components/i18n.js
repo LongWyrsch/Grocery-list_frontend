@@ -26,9 +26,9 @@ i18n
     // Checkout: https://github.com/i18next/i18next-http-backend#troubleshooting
     load: 'languageOnly',
     
-    fallbackLng: 'EN',
+    fallbackLng: 'en',
     debug: true,
-    whitelist: ['DE', 'EN', 'FR'],
+    whitelist: ['de', 'en', 'fr'],
     detection: {
         order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
         cache: ['cookie']

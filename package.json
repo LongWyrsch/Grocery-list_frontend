@@ -53,5 +53,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^27.5.1",
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

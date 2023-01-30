@@ -67,7 +67,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 	let cardsRef = useRef([]);
 	let layoutsRef = useRef({});
 
-	let dateFormat = user.language === 'EN' ? 'en-US' : user.language === 'DE' ? 'de-DE' : 'fr-FR';
+	let dateFormat = user.language === 'en' ? 'en-US' : user.language === 'de' ? 'de-DE' : 'fr-FR';
 	let dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
 
 	// On reach render, update cards and layouts because:
