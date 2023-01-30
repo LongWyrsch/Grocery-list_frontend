@@ -45,21 +45,22 @@ const listsSlice = createSlice({
 			state.lists = DemoLists;
 		},
 	},
-	extraReducers: {
-		[getLists.pending]: (state, action) => {
-			state.isLoading = true;
-			state.hasError = false;
-		},
-		[getLists.fulfilled]: (state, action) => {
-			state.isLoading = false;
-			state.hasError = false;
-			state.lists = action.payload;
-		},
-		[getLists.rejected]: (state, action) => {
-			state.isLoading = false;
-			state.hasError = true;
-		},
-	},
+	extraReducers: builder => {
+		builder
+			.addCase(getLists.pending, (state, action) => {
+				state.isLoading = true;
+				state.hasError = false;
+			})
+			.addCase(getLists.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.hasError = false;
+				state.lists = action.payload;
+			})
+			.addCase(getLists.rejected, (state, action) => {
+				state.isLoading = false;
+				state.hasError = true;
+			})
+	}
 });
 
 export const selectLists = (state) => state.lists.lists;

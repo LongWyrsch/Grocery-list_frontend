@@ -49,22 +49,23 @@ const recipesSlice = createSlice({
 			state.recipes = DemoRecipes;
 		},
 	},
-	extraReducers: {
-		[getRecipes.pending]: (state, action) => {
-			state.isLoading = true;
-			state.hasError = false;
-		},
-		[getRecipes.fulfilled]: (state, action) => {
-			console.log('recipesSlice, getRecipes called');
-			state.isLoading = false;
-			state.hasError = false;
-			state.recipes = action.payload;
-		},
-		[getRecipes.rejected]: (state, action) => {
-			state.isLoading = false;
-			state.hasError = true;
-		},
-	},
+	extraReducers: builder => {
+		builder
+			.addCase(getRecipes.pending, (state, action) => {
+				state.isLoading = true;
+				state.hasError = false;
+			})
+			.addCase(getRecipes.fulfilled, (state, action) => {
+				console.log('recipesSlice, getRecipes called');
+				state.isLoading = false;
+				state.hasError = false;
+				state.recipes = action.payload;
+			})
+			.addCase(getRecipes.rejected, (state, action) => {
+				state.isLoading = false;
+				state.hasError = true;
+			})
+	}
 });
 
 export const selectRecipes = (state) => state.recipes.recipes;

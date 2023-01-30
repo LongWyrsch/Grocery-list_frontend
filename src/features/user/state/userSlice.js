@@ -55,23 +55,24 @@ const userSlice = createSlice({
 			state.user = DemoUser;
 		},
 	},
-	extraReducers: {
-		[getUser.pending]: (state, action) => {
-			state.isLoading = true;
-			state.hasError = false;
-		},
-		[getUser.fulfilled]: (state, action) => {
-			state.isLoading = false;
-			state.hasError = false;
-			state.wasRequested = true;
-			state.user = action.payload;
-		},
-		[getUser.rejected]: (state, action) => {
-			state.isLoading = false;
-			state.hasError = true;
-			state.wasRequested = true;
-		},
-	},
+	extraReducers: builder => {
+		builder
+			.addCase(getUser.pending, (state, action) => {
+				state.isLoading = true;
+				state.hasError = false;
+			})
+			.addCase(getUser.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.hasError = false;
+				state.wasRequested = true;
+				state.user = action.payload;
+			})
+			.addCase(getUser.rejected, (state, action) => {
+				state.isLoading = false;
+				state.hasError = true;
+				state.wasRequested = true;
+			})
+	}
 });
 
 export const selectUser = (state) => state.user.user;
