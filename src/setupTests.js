@@ -13,7 +13,7 @@ global.ResizeObserver = require('resize-observer-polyfill')
 
 
 
-// This takes care of the error "ReferenceError: IntersectionObserver is not defined"
+// This takes care of the error "ReferenceError: IntersectionObserver is not defined" related to the React-parallax
 // https://stackoverflow.com/questions/57008341/jest-testing-react-component-with-react-intersection-observer
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 // Mock IntersectionObserver
