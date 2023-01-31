@@ -1,0 +1,196 @@
+{
+	"general": {
+		"Close": "Close",
+		"Delete": "Delete",
+		"Cancel": "Cancel"
+	},
+	"auth": {
+		"signup": "Sign up",
+		"signin": "Sign in",
+		"creds": {
+			"email": "Email address or username",
+			"password": "Password",
+			"emailPasswordError": "Invalid username or password"
+		},
+		"signinPage": {
+			"welcomeBack": "Welcome back!",
+			"newUser": "New user?",
+			"createAnAccount": "Create an account",
+			"forgotPassword": "I forgot my password"
+		},
+		"signupPage": {
+			"welcome": "Welcome!",
+			"alreadyHaveAccount": "Already have an account?",
+			"createAccount": "Create account",
+			"confirmPassword": "Confirm password",
+			"minimum": "Miminum length is 6",
+			"required": "This field is required",
+			"passwordPattern": "User letters, numbers and special characters except \\",
+			"passwordsDifferent": "Passwords don't match"
+		},
+		"continueGoogle": "Continue with Google",
+		"or": "or"
+	},
+	"home": {
+		"Recipes": "Recipes",
+		"GroceryLists": "Grocery lists",
+		"NewRecipe": "New recipe",
+		"NewList": "New list",
+		"AddIngredients": "Add ingredients",
+		"Ingredients": "Ingredients",
+		"Quantity": "Quantity",
+		"Unit": "Unit",
+		"Section": "Section",
+		"kCal": "kCal",
+		"NewListMessage": "Choose some recipes to add to your list",
+		"Create": "Create"
+	},
+	"cornerAvatar": {
+		"Account": "Account",
+		"SignOut": "Sign out"
+	},
+	"account": {
+		"AvatarVariantMessage": "Choose your avatar's variant",
+		"AvatarColorsMessage": "Choose your avatar's colors",
+		"NewColors": "New colors!",
+		"Reset": "Reset",
+		"Language": "Language",
+		"SaveChanges": "Save changes",
+		"DeleteAccount": "Delete account",
+		"ConfirmDelete": "Delete your account forever?"
+	},
+	"warnings": {
+		"NetworkTitle": "Network error!",
+		"NetworkMessage": "Please check your connection and reload the browser.",
+		"ServerError": "Server error. Please try again.",
+		"AuthError": "We couldn't identify you. Please sign in again.",
+		"SignedOut": "Signed out",
+		"TryAgain": "Please try signing in again."
+	},
+	"quickTour": {
+		"tab": "Change between your recipes and grocery lists.",
+		"card": "Drag to move around or click to edit.",
+		"add": "Add new recipes or create new lists.",
+		"theme": "Toggle the theme",
+		"account": "Log out, or access your accout's details",
+		"clickContinue": "Click anywhere to continue."
+	},
+	"homepage" : {
+		"madeEasy": "made easy.",
+		"checkoutthe": "Check out the",
+		"demoAccount": "Demo account",
+		"title1": "Write your ingredients",
+		"subtitle1": "We'll search the calories for you.",
+		"title2": "Create grocery lists in an instant",
+		"subtitle2": "Duplicate ingredients are combined!",
+		"havealook": "Have a look at the",
+		"designprocess": "design process",
+		"listTitle": "Weekend's meals",
+		"rec1": "Spaghetti Bolognese",
+		"rec2": "Carbonara",
+		"rec3": "Tunisian couscous"
+	},
+	"section" : {
+		"veggies": "veggies",
+		"bread": "bread",
+		"dairies": "dairy",
+		"seasonings": "seasonings",
+		"grains": "grains",
+		"meat": "meat",
+		"alcohol": "alcohol",
+		"other": "other"
+	},
+	"process": {
+		"title": "Design Process",
+		"welcome": "Welcome to my first full-stack web app.",
+
+		"tocIntro": "Introduction",
+		"tocTechStack": "Tech Stack",
+		"tocDependencies": "Dependencies",
+		"tocTools": "Tools and third parties",
+		"tocUI": "UI design",
+		"tocAPI": "OpenAPI",
+		"tocDatabase": "Database",
+		"tocSecurity": "Security",
+		"tocBreakdown": "Project breakdown",
+		
+		"introText1": "After completing an online ",
+		"introText2": "Full-Stack Software Engineer",
+		"introText3": " course in November 2022, I started working on my first full-stack app.",
+		"introText4": "The app should allow users to quickly create grocery lists by combining recipes they previously created. The newly created lists should combine ingredients such that they appear only once. The user should then be able to tick items off as the groceries shopping progresses.",
+		"introText5": "The goal of this project was to put into practice what I learnt in the course. It therefore includes the following:",
+		"version": "Version control",
+		"reactFrontend": "React frontend",
+		"responsiveness": "Responsiveness",
+		"nodeBackend": "Node.js backend",
+		"auth": "Authentication & authorization",
+		"postgresql": "PostgreSQL database",
+		"OpenAPI": "API documentation according to OpenAPI",
+		"security": "Fundamental web security",
+		"introText6": "I wasn't sure where to begin. I had a clear idea of what I wanted the app to do, but I didn't know how it should look like. Therefore, I started to work on the database. As the app took on some functionalities, I got more confident with its UI direction.",
+		"lessons": "Lessons learnt",  
+		"cssdesign": "Because the UI design was not exhaustive, I ended up spending a lot of time rewriting the CSS. Spending more time prototyping would have saved time in the later phases.",
+		"endpoints": "Due to a lack of experience, it was hard to envision how the client and server would communicate. Therefore I ended up changing request methods and request bodies multiple times. I also struggled writing the API specification due to the confusion. For the next project, I will spend considerably more time planning the infrastructure.",
+		
+		"thanks": "Thanks to the amazing community for the libraries.",
+		"iconify": "provides some icons used throughout the app.",
+		"avatar": "generates unique avatars for the users.",
+		"i18next": "simplifies translating the app to English, German and French.",
+		"kute": "manages morphing animations on the homepage.",
+		"mermaid": "renders the below Gantt chart.",
+		"dnd": "manages drag and drop action on ingredients.",
+		"grid": "Manages the card grid.",
+		"icon": "provides some icons used throughout the app.",
+		"observer": "detects when DOM elements are on screen to allows animation on scroll.",
+		"parallax": "manages scroll animations.",
+		"uuid": "generates random uuid.",
+		"joi": "validates user input.",
+		"cors": "configure CORS settings for the backend.",
+		"bcrypt": "manages users' password encryption",
+		"env": "manages environments variables.",
+		"expval": "validates and sanitizes user inputs.",
+		"helmet": "sets security-related HTTP headers on all responses.",
+		"uuidCSRF": "generates unique UUID for CSRF tokens.",
+		
+		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
+		"dbdiagram": "was used to schetch the database relationship diagram.",
+		"supabase": "hosts the database.",
+		"git": "CLI was used for version control.",
+		"github": "hosts the repositories for continuous deployment to Netlify and Railway.",
+		"netlify": "hosts the React frontend.",
+		"railway": "hosts the backend server.",
+		"swagger": "was used to list the server's endpoint according to OpenAPI.",
+		"usda": "provides kCal for the user.",
+		
+		"ui1": "Check out all of this project's Figma files ",
+		"ui2": "here",
+		"ui3": "Wireframing and prototyping was done with Figma.",
+		"ui4": " provided all component designs. They were then recreated in CSS from scratch.",
+		"ui5": " helped with the design system.",
+		"ui6": " exported all styles from Figma to CSS.",
+	
+		"api1": "See the server's API endpoints",
+		"api2": " according to the OpenAPI specifications in the Swagger Editor.",
+	
+		"databaseText": "Since this app is just a portfolio project, the below schema was chosen to minimize API calls. It leads to a lot of redundancy which doesn't allow it to scale.",
+		"schema": "Schema",		
+
+		"security1": "CORS policy",
+		"security2": " allows only 1 origin: the frontend.",
+		"security3": "Security-related HTTP headers",
+		"security4": " are set by the server on all responses.",
+		"security5": "SQL injections",
+		"security6": " are mitigated by sanitizing user input and avoiding string interpolation.",
+		"security7": "XSS",
+		"security8": " is mitigated by sanitizing/escaping user inputs arriving to the server.",
+		"security9": "CSRF",
+		"security10": " is mitigated using custom CSRF tokens.",
+		"security11": "ReDoS",
+		"security12": " is mitigated by testing any regex used to validate user inputs."
+	}
+}
+
+
+
+
+

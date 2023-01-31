@@ -1,0 +1,190 @@
+{
+	"general": {
+		"Close": "Fermer",
+		"Delete": "Supprimer",
+		"Cancel": "Annuler"
+	},
+	"auth": {
+		"signup": "Inscription",
+		"signin": "Se connecter",
+		"creds": {
+			"email": "Email ou nom d'utilisateur",
+			"password": "Mot de passe",
+			"emailPasswordError": "Nom d'utilisateur/e-mail ou mot de passe invalide"
+		},
+		"signinPage": {
+			"welcomeBack": "Content de vous revoir!",
+			"newUser": "Vous n'avez pas de compte?",
+			"createAnAccount": "Inscrivez-vous",
+			"forgotPassword": "J'ai oublié mon mot de passe"
+		},
+		"signupPage": {
+			"welcome": "Bienvenue!",
+			"alreadyHaveAccount": "Déjà un compte?",
+			"createAccount": "Créer un compte",
+			"confirmPassword": "Confirmez le mot de passe",
+			"minimum": "La longueur minimale est de 6",
+			"required": "Ce champ est obligatoire",
+			"passwordPattern": "Utilisez des lettres, des chiffres et des caractères spéciaux sauf \\",
+			"passwordsDifferent": "Les mots de passe ne correspondent pas"
+		},
+		"continueGoogle": "Continuer avec Google",
+		"or": "ou"
+	},
+	"home": {
+		"Recipes": "Recettes",
+		"GroceryLists": "Listes d'épicerie",
+		"NewRecipe": "Nouvelle recette",
+		"NewList": "Nouvelle liste",
+		"AddIngredients": "Ajouter un ingrédients",
+		"Ingredients": "Ingredients",
+		"Quantity": "Quantité",
+		"Unit": "Unité",
+		"Section": "Section",
+		"kCal": "kCal",
+		"NewListMessage": "Choisissez quelques recettes à ajouter à votre liste",
+		"Create": "Créer"
+	},
+	"cornerAvatar": {
+		"Account": "Compte",
+		"SignOut": "Se déconnecter"
+	},
+	"account": {
+		"AvatarVariantMessage": "Choisissez la variante de votre avatar",
+		"AvatarColorsMessage": "Choisissez les couleurs de votre avatar",
+		"NewColors": "Nouvelles couleurs!",
+		"Reset": "Réinitialiser",
+		"Language": "Langue",
+		"SaveChanges": "Enregistrer les changements",
+		"DeleteAccount": "Supprimer mon compte",
+		"ConfirmDelete": "Supprimer définitivement votre compte?"
+	},
+	"warnings": {
+		"NetworkTitle": "Erreur réseau!",
+		"NetworkMessage": "Veuillez vérifier votre connexion et recharger le navigateur.",
+		"ServerError": "Erreur de serveur. Veuillez réessayer.",
+		"AuthError": "Nous n'avons pas pu vous identifier. Veuillez vous reconnecter.",
+		"SignedOut": "Déconnecter",
+		"TryAgain": "Veuillez réessayer de vous connecter."
+	},
+	"quickTour": {
+		"tab": "Alternez entre vos recettes et vos listes d'épicerie.",
+		"card": "Glissez pour déplacer et cliquez pour modifier.",
+		"add": "Ajouter de nouvelles recettes ou créer de nouvelles listes.",
+		"theme": "Alternez le thème",
+		"account": "Déconnectez-vous ou accédez aux détails de votre compte",
+		"clickContinue": "Cliquez sur la page pour continuer."
+	},
+	"homepage" : {
+		"madeEasy": "rendue facile.",
+		"checkoutthe": "Vérifiez",
+		"demoAccount": "Compte démo",
+		"title1": "Écrivez vos ingrédients",
+		"subtitle1": "Nous calculerons les calories pour vous.",
+		"title2": "Créez des listes de courses en un instant",
+		"subtitle2": "Les ingrédients en double sont combinés !",
+		"havealook": "Jetez un oeil au",
+		"designprocess": "processus de conceptions",
+		"listTitle": "Repas du week-end",
+		"rec1": "Spaghetti Bolognaise",
+		"rec2": "Carbonara",
+		"rec3": "Couscous tunisien"
+	},
+	"section" : {
+		"veggies": "légumes",
+		"bread": "pains",
+		"dairies": "produits laitiers",
+		"seasonings": "assaisonnements",
+		"grains": "céréales",
+		"meat": "viandes",
+		"alcohol": "alcool",
+		"other": "autre"
+	},
+	"process": {
+		"title": "Procédé de design",
+		"welcome": "Bienvenue sur ma première application Web full-stack.",
+		
+		"tocIntro": "Introduction",
+		"tocTechStack": "Technologies",
+		"tocDependencies": "Dépendances",
+		"tocTools": "Outils et tiers",
+		"tocUI": "Conception de l'interface utilisateur",
+		"tocAPI": "OpenAPI",
+		"tocDatabase": "Base de données",
+		"tocBreakdown": "Répartition du projet",
+		
+		"introText1": "Après avoir suivi un cours d'",
+		"introText2": "Ingénieur Logiciel Full Stack",
+		"introText3": " en ligne en novembre 2022, j'ai commencé à travailler sur mon premier projet full-stack.",
+		"introText4": "L'application devrait permettre aux utilisateurs de créer rapidement des listes d'épicerie en combinant des recettes qu'ils ont précédemment créées. Les listes nouvellement créées doivent combiner les ingrédients de manière à n'apparaître qu'une seule fois. L'utilisateur devrait alors être en mesure de cocher les articles au fur et à mesure que les courses progressent.",
+		"introText5": "Le but de ce projet était de mettre en pratique ce que j'ai appris dans le cours. Il comprend donc les éléments suivants:",
+		"version": "Contrôle de version",
+		"reactFrontend": "Réagissez l'interface",
+		"responsiveness": "Réactivité",
+		"nodeBackend": "Node.js back-end",
+		"auth": "Autorisation d'authentification",
+		"postgresql": "Base de données PostgreSQL",
+		"OpenAPI": "Documentation API selon OpenAPI",
+		"security": "Sécurité Web fondamentale",
+		"introText6": "Je ne savais pas par où commencer. J'avais une idée claire de ce que je voulais que l'application fasse, mais je ne savais pas à quoi elle devrait ressembler. Par conséquent, j'ai commencé à travailler sur la base de données. Au fur et à mesure que l'application prenait en charge certaines fonctionnalités, je devenais plus confiant avec sa direction d'interface utilisateur",
+		"lessons": "Leçons apprises",  
+		"cssdesign": "Parce que la conception de l'interface utilisateur n'était pas exhaustive, j'ai fini par passer beaucoup de temps à réécrire le CSS. Consacrer plus de temps au prototypage aurait permis de gagner du temps dans les phases ultérieures.",
+		"endpoints": "En raison d'un manque d'expérience, il était difficile d'imaginer comment le client et le serveur communiqueraient. Par conséquent, j'ai fini par changer les méthodes de requête et les corps de requête plusieurs fois. J'ai également eu du mal à écrire la spécification de l'API en raison de la confusion. Pour le prochain projet, je passerai beaucoup plus de temps à planifier l'infrastructure.",
+
+		"thanks": "Merci à l'incroyable communauté des bibliothèques.",
+		"iconify": "fournit quelques icônes utilisées dans l'application.",
+		"avatar": "génère des avatars uniques pour les utilisateurs.",
+		"i18next": "simplifie la traduction de l'application en anglais, allemand et français.",
+		"kute": "gère les animations de morphing sur la page d'accueil.",
+		"mermaid": "affiche le diagramme de Gantt ci-dessous.",
+		"dnd": "gère l'action glisser-déposer sur les ingrédients.",
+		"grid": "Gère la grille des cartes.",
+		"icon": "fournit quelques icônes utilisées dans l'application.",
+		"observer": "détecte quand les éléments DOM sont à l'écran pour permettre l'animation lors du défilement.",
+		"parallax": "gère les animations de défilement.",
+		"uuid": "génère un uuid aléatoire.",
+		"joi": "valide l'entrée de l'utilisateur.",
+		"cors": "configurer les paramètres CORS pour le backend.",
+		"bcrypt": "gère le cryptage des mots de passe des utilisateurs",
+		"env": "gère les variables d'environnements.",
+		"expval": "valide et assainit l'entrée de l'utilisateur.",
+		"helmet": "définit des en-têtes HTTP liés à la sécurité sur toutes les réponses.",
+		"uuidCSRF": "génère un UUID unique pour les jetons CSRF.",
+		
+		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
+		"dbdiagram": "a été utilisé pour schématiser le diagramme de relation de la base de données.",
+		"supabase": "héberge la base de données.",
+		"git": "CLI a été utilisé pour le contrôle de version.",
+		"github": "héberge les référentiels pour un déploiement continu sur Netlify et Railway.",
+		"netlify": "héberge le frontend React.",
+		"railway": "héberge le serveur backend.",
+		"swagger": "a été utilisé pour répertorier le point de terminaison du serveur selon OpenAPI",
+		"usda": "fournit les kCal pour l'utilisateur.",
+		
+		"ui1": "Découvrez tous les fichiers Figma de ce projet ",
+		"ui2": "ici",
+		"ui3": "Le wireframing et le prototypage ont été réalisés avec Figma.",
+		"ui4": " a fourni toutes les conceptions de composants. Ils ont ensuite été recréés en CSS à partir de zéro.",
+		"ui5": " a aidé avec le système de conception.",
+		"ui6": " a exporté tous les styles de Figma vers CSS.",
+
+		"api1": "Consultez les points de terminaison de l'API du serveur",
+		"api2": " conformément aux spécifications OpenAPI dans l'éditeur Swagger.",
+
+		"databaseText": "Étant donné que cette application n'est qu'un projet de portefeuille, le schéma ci-dessous a été choisi pour minimiser les appels d'API. Cela conduit à beaucoup de redondance qui ne lui permet pas d'évoluer.",
+		"schema": "Schéma",		
+
+		"security1": "La politique CORS",
+		"security2": " du serveur n'autorise qu'une seule origine : le frontend.",
+		"security3": "Les en-têtes HTTP liés à la sécurité",
+		"security4": " sont définis par le serveur sur toutes les réponses.",
+		"security5": "Les injections SQL",
+		"security6": " sont atténuées en nettoyant les entrées de l'utilisateur et en évitant l'interpolation de chaîne.",
+		"security7": "Les XSS",
+		"security8": " sont atténué en nettoyant/échappant les entrées utilisateur arrivant sur le serveur.",
+		"security9": "Les CSRF",
+		"security10": " sont atténué à l'aide de jetons CSRF personnalisés.",
+		"security11": "Les ReDoS",
+		"security12": " sont atténué en testant toute expression régulière utilisée pour valider les entrées utilisateur."
+	}
+}
