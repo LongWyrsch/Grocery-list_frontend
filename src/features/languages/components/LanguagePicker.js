@@ -67,13 +67,10 @@ export const LanguagePicker = ({user}) => {
 	return (
 		<div className={styles.dropdownContainer}>
 			<button className={styles.button} onClick={handleOnClick}>
-				{/* <IconContext.Provider value={{ size: '1.3rem', color: 'var(--m3--sys--on-surface-variant)', backgroundColor: 'none' }}>
-					<div className={styles.langIcon}>{translationIcon}</div>
-				</IconContext.Provider> */}
 				
 				<div className={styles.langIcon}><Icon icon="ion:language" style={{width: '1.3rem', height: '1.3rem', background: 'none'}}/></div>
 
-				{language}
+				{language.toUpperCase()}
 				<IconContext.Provider value={{ size: '0.7rem', color: 'var(--m3--sys--on-surface-variant)' }}>
 					<div className={open? styles.upIcon : styles.downIcon}>{arrowIcon}</div>
 				</IconContext.Provider>
