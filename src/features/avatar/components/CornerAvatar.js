@@ -66,7 +66,7 @@ export const CornerAvatar = ({user}) => {
 
 	return (
 		<div className={styles.dropdownContainer}>
-			<button onClick={toggleMenu} className={styles.avatar}>
+			<button data-testid='avatar' onClick={toggleMenu} className={styles.avatar}>
 				<Avatar
 					size={40}
 					name= {user.email || user.google_name}
