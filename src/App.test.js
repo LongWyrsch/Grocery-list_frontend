@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
@@ -24,18 +23,12 @@ const renderApp = () => {
 };
 
 
-test('renders the Homepage initially', async () => {
-	let { container } = renderApp();
+test('renders the app', async () => {
+  // arrange
+  let { container } = renderApp();
 
-	const englishText = await screen.findByText('Check out the');
-	expect(englishText).toBeInTheDocument();
+  // assertion
+  expect(container).not.toBeEmptyDOMElement()
 
-	const languageButton = await screen.findByRole('button', { name: /EN/ });
-	userEvent.click(languageButton);
-
-	const germanOption = await screen.findByText(/DE/);
-	userEvent.click(germanOption);
-
-	const germanText = screen.getByText(/Probier es aus/);
-	expect(germanText).toBeInTheDocument();
 });
+

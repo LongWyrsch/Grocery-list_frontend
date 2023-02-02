@@ -66,7 +66,7 @@ export const CardRecipe = ({ focusCard, setFocusCard, updateTitle, updateCard, a
 						<div className={styles.kcal}>
 							<Textfield fieldStyle="card" value={row.kcal} fieldType="text" handleOnChange={(e) => updatefield(index, 'kcal', e.target.value)} height="2rem" textAlign="right" />
 						</div>
-						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
+						<div data-testid='deleteRecipeIngredient' className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
 							<IoMdClose className={styles.deleteRow} />
 						</div>
 					</div>

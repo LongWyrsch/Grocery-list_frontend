@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { config } from '../../../constants';
 import { DemoUser } from './DemoUser';
 
-//Middleware fetches current user before saving it to the store
+// Middleware fetches current user before saving it to the store
 export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
 	console.log('config.server_url: ', config.server_url)
 	const response = await fetch(`${config.server_url}/users`, {
@@ -13,6 +13,8 @@ export const getUser = createAsyncThunk('user/getUser', async (thunkAPI) => {
 	let user = await response.json();
 	return user;
 });
+// import { getUser } from './thunck';
+
 
 const userSlice = createSlice({
 	name: 'user',

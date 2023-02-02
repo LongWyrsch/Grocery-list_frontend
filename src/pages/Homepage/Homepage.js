@@ -84,7 +84,7 @@ export const Homepage = ({user}) => {
 					<div className={styles.imgContainer}>
 						<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" />
 					</div>
-				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }} style={{color: 'black'}}/>
+				<FaGithub data-testid='github' className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }} style={{color: 'black'}}/>
 				</div>
 				<div className={styles.navGroup2}>
                     <Button

@@ -23,7 +23,7 @@
 			"alreadyHaveAccount": "Already have an account?",
 			"createAccount": "Create account",
 			"confirmPassword": "Confirm password",
-			"minimum": "Miminum length is 6",
+			"minimum": "Minimum length is 6",
 			"required": "This field is required",
 			"passwordPattern": "User letters, numbers and special characters except \\",
 			"passwordsDifferent": "Passwords don't match"

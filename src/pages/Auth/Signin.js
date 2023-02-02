@@ -60,6 +60,7 @@ export const Signin = () => {
 		}
 
 		// User input was validated. Call server.
+		console.log('Signin, fetch at : ', `${config.server_url}/auth/local/signin`)
 		const response = await fetch(`${config.server_url}/auth/local/signin`, {
 			method: 'POST',
 			credentials: 'include',
@@ -88,8 +89,8 @@ export const Signin = () => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
-			<div className={styles.themeSwitch}>
+			<img data-testid='logo' className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
+			<div  data-testid='language' className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>
 			<div className={styles.langPicker}>

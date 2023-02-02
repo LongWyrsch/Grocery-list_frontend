@@ -5,10 +5,22 @@
 import '@testing-library/jest-dom';
 
 
+
+
 // Address the following test error: "Failed to create the resize observer in the ParallaxContoller"
 // Install as dev dependency: npm install -D resize-observer-polyfill
 // This will ensure that the ResizeObserver API is available in your test environment and that the ParallaxController component will work as expected.
 global.ResizeObserver = require('resize-observer-polyfill')
+
+
+
+
+
+// This takes care of the error " ReferenceError: SVGPathElement is not defined"
+// https://stackoverflow.com/questions/74470467/jest-referenceerror-svgpathelement-is-not-defined
+class SVGPathElement extends HTMLElement {}
+window.SVGPathElement = SVGPathElement;
+
 
 
 
@@ -34,3 +46,8 @@ class IntersectionObserver {
     configurable: true,
     value: IntersectionObserver,
   })
+
+
+
+
+  // process.env.DEBUG_PRINT_LIMIT = 300000; 

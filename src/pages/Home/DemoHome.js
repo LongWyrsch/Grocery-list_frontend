@@ -180,7 +180,7 @@ export const DemoHome = () => {
 	return (
 		<div className={styles.homePage}>
 			{index < quickTour.length && (
-				<div className={styles.tourBackground} onClick={nextTourMessage}>
+				<div data-testid='tour' className={styles.tourBackground} onClick={nextTourMessage}>
 					<Arrows
 						left={quickTour[index].imgX}
 						right={quickTour[index].imgRight}
@@ -191,6 +191,7 @@ export const DemoHome = () => {
 						rotate={quickTour[index].rotate}
 					/>
 					<div
+						data-testid='tourMessage'
 						className={styles.tourMessage}
 						style={{
 							left: quickTour[index].textX,

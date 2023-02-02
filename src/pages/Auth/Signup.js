@@ -110,8 +110,8 @@ export const Signup = ({ user }) => {
 
 	return (
 		<div className={styles.authPage}>
-			<img className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
-			<div className={styles.themeSwitch}>
+			<img  data-testid='logo' className={styles.logo} src={require('../../assets/GroceryList_logo.png')} alt="logo" onClick={() => navigate('/')} />
+			<div  data-testid='language' className={styles.themeSwitch}>
 				<ThemeSwitch />
 			</div>
 			<div className={styles.langPicker}>

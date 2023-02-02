@@ -101,7 +101,7 @@ export const Textfield = ({
 				{icondiv()}
 				<div className={styles.inputArea}>
 					{/* Below input has a blank placeholder to taget empty inputs with CSS */}
-					<input type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign, fontSize:fontSize}} placeholder={placeholder}/>
+					<input data-testid='input' type={fieldType} className={styles.input} required onChange={validateInput} value={value || ''} style={{textAlign:textAlign, fontSize:fontSize}} placeholder={placeholder}/>
 					<label htmlFor="" className={styles.label}>
 						{label}
 					</label>
