@@ -167,7 +167,7 @@ export const Grid = ({ targetPage, user }) => {
 	const createList = async () => {
 		console.log('createList called');
 
-		if (newList.length === 0) {
+		if (newList.filter((r) => r.checked).length === 0) {
 			setNewList(null); // Close <NewList/>
 			return;
 		}

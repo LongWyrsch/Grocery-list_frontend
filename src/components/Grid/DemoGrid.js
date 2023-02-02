@@ -171,11 +171,11 @@ export const DemoGrid = ({ targetPage, user }) => {
 	const createList = async () => {
 		console.log('createList called');
 
-		if (newList.length === 0) {
+		if (newList.filter((r) => r.checked).length === 0) {
 			setNewList(null); // Close <NewList/>
 			return;
 		}
-
+		
 		let selectedRecipes = newList.filter((r) => r.checked).map((r) => r.card_uuid);
 		const recipeNames = newList.filter((r) => r.checked).map((r) => r.title);
 
@@ -416,7 +416,7 @@ export const DemoGrid = ({ targetPage, user }) => {
 					{cardsRef.current.map((card) => createMiniCard(card))}
 				</ResponsiveReactGridLayout>
 			)}
-			<div className={styles.blur} data-show={focusCard || newList ? true : false} onClick={updateCard}>
+			<div data-testid='blur' className={styles.blur} data-show={focusCard || newList ? true : false} onClick={updateCard}>
 				{focusCard && targetPage === 'recipes' && (
 					<CardRecipe
 						focusCard={focusCard}
