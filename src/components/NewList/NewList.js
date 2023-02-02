@@ -17,8 +17,8 @@ export const NewList = ({ newList, setNewList, createList, stopPropagation }) =>
 		<div className={`card-flat ${styles.newListWrapper}`} onClick={stopPropagation}>
 			<h3 className={styles.heading}>{t('home.NewListMessage')}</h3>
 			{newList.map((recipe, index) => (
-				<div key={index} className={styles.row}>
-					<Checkbox checked={recipe.checked} handleChange={() => toggleRecipe(index)} />
+				<div key={index} className={styles.row} onClick={() => toggleRecipe(index)}>
+					<Checkbox checked={recipe.checked}/>
 					<div>{recipe.title}</div>
 				</div>
 			))}
