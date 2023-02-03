@@ -3,7 +3,7 @@ import { config } from '../constants';
 
 export const serverRequests = async (reqPath, reqMethod, reqBody, CSRF_token, serverFailureAction) => {
 	console.log('front, CSRF_token: ', CSRF_token)
-	let response
+	let response = {status : null}
 	try {
 		response = await fetch(`${config.server_url}${reqPath}`, {
 			method: reqMethod,
@@ -15,8 +15,10 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, CSRF_token, se
 			body: JSON.stringify({...reqBody, CSRF_token: CSRF_token}),
 		});
 	} catch (error) {
+		console.log('caught error')
 		window.location.href = `${config.client_url}/home/error`
-		serverFailureAction();
+		return serverFailureAction();
+		
 	} 
 	if (response.status === 200) {
 		if (reqPath === '/recipes/join' && reqMethod ==='POST') {
@@ -33,7 +35,7 @@ export const serverRequests = async (reqPath, reqMethod, reqBody, CSRF_token, se
 		window.alert(t('warnings.AuthError'));
 		window.location.href = `${config.client_url}/signin`
 	} else {
-		serverFailureAction();
 		window.alert(t('warnings.ServerError'));
+		return serverFailureAction();
 	}
 };
