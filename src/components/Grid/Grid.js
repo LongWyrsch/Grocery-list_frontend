@@ -411,7 +411,7 @@ export const Grid = ({ targetPage, user }) => {
 					{cardsRef.current.map((card) => createMiniCard(card))}
 				</ResponsiveReactGridLayout>
 			)}
-			<div className={styles.blur} data-show={focusCard || newList ? true : false} onClick={updateCard}>
+			<div data-testid='blur' className={styles.blur} data-show={focusCard || newList ? true : false} onClick={updateCard}>
 				{focusCard && targetPage === 'recipes' && (
 					<CardRecipe
 						focusCard={focusCard}

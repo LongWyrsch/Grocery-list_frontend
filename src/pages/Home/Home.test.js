@@ -1,9 +1,75 @@
+// React
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../../App';
+
+// libs
+import i18n from '../../features/languages/components/i18n';
+
+// Redux
 import { Provider } from 'react-redux';
 import store from '../../state/store';
-import i18n from '../../features/languages/components/i18n';
+
+// components
+import App from '../../App';
+
+// Mocking API requests
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { testuser } from '../../features/user/state/testUser';
+import { DemoRecipes } from '../../features/recipes/state/DemoRecipes';
+import { DemoLists } from '../../features/lists/state/DemoLists';
+import { testJoinRecipe } from '../../features/recipes/state/testJoinRecipe';
+
+// route '/home/list' will only render when user.email is not null and getUser thunk resolves the promise.
+let auth = false 
+
+export const handlers = [
+	// Mocking fetch request at /auth/local/signin
+	rest.post(`http://localhost:3000/auth/local/signin`, async (req, res, ctx) => {
+        let body = await req.json() 
+        if (body.email === 'testRightEmail' && body.password === 'testRightPassword') {
+            auth = true
+            return res(ctx.status(200), ctx.delay(150));
+		} else {
+			return res(ctx.status(403), ctx.delay(150));
+		}
+	}),
+
+	// Mocking fetch request at /users
+	rest.get(`http://localhost:3000/users`, (req, res, ctx) => {
+        if (auth===true)	{
+            return res(ctx.status(200), ctx.json(testuser), ctx.delay(150));
+        }
+	}),
+	
+    // Mocking fetch request at /recipes
+	rest.get(`http://localhost:3000/recipes`, (req, res, ctx) => {
+        if (auth===true)	{
+            return res(ctx.status(200), ctx.json(DemoRecipes), ctx.delay(150));
+        }
+	}),
+    
+    // Mocking fetch request at /lists
+	rest.get(`http://localhost:3000/lists`, (req, res, ctx) => {
+        if (auth===true)	{
+            return res(ctx.status(200), ctx.json(DemoLists), ctx.delay(150));
+        }
+	}),
+    
+    // Mocking fetch request at /recipes/join
+	rest.post(`http://localhost:3000/recipes/join`, (req, res, ctx) => {
+        if (auth===true)	{
+            return res(ctx.status(200), ctx.json(testJoinRecipe), ctx.delay(150));
+        }
+	})
+];
+const server = setupServer(...handlers);
+// Enable API mocking before tests.
+beforeAll(() => server.listen());
+// Reset any runtime request handlers we may add during the tests.
+afterEach(() => server.resetHandlers());
+// Disable API mocking after the tests are done.
+afterAll(() => server.close());
 
 beforeEach(() => {
 	// Reset language otherwise it uses language at the end of last test
@@ -19,46 +85,41 @@ const renderApp = () => {
 	);
 };
 
-it('navigates from homepage to demo page and cycle through instructions', async () => {
-	// arrange
+it('navigates from homepage to the lists page', async () => {
+    renderApp();
 
-	// act
-	renderApp();
+    // Jest will find multiple buttons with the text "Sign in"
+	const signinPageButton = await screen.findAllByRole('button', { name: /Sign in/ });
+	userEvent.click(signinPageButton[0]);
 
-	const signupButton = await screen.findAllByRole('button', { name: /Demo account/ });
-	userEvent.click(signupButton[0]);
+    // Assert we are on signin page
+	const signinText = await screen.findByText(/New user/);
+	expect(signinText).toBeInTheDocument();
 
-	const demoText = await screen.findByTestId('tourMessage');
-	const demoBackground = await screen.findByTestId('tour');
+    // Enter creds
+	const inputs = await screen.findAllByTestId('input');
+	userEvent.type(inputs[0], 'testRightEmail');
+	userEvent.type(inputs[1], 'testRightPassword');
 
-	expect(demoText).toHaveTextContent('Change between your recipes');
-	userEvent.click(demoBackground);
+    // Sign in
+	const signinButton = await screen.findAllByRole('button', { name: /Sign in/ });
+	userEvent.click(signinButton[0]);
 
-	expect(demoText).toHaveTextContent(/Toggle the theme/);
-	userEvent.click(demoBackground);
-
-	expect(demoText).toHaveTextContent(/Log out, or access your/);
-	userEvent.click(demoBackground);
-
-	expect(demoText).toHaveTextContent(/Drag to move around/);
-	userEvent.click(demoBackground);
-
-	expect(demoText).toHaveTextContent(/Add new recipes or/);
-	userEvent.click(demoBackground);
-
-	// assertion
-	expect(demoBackground).not.toBeInTheDocument();
+    // Assert we are on lists page
+	const italianText = await screen.findByText(/Italian/);
+	expect(italianText).toBeInTheDocument();
+    
+    // Navigate to the recipes page
+	const recipesTab = await screen.findAllByText(/Recipes/);
+	userEvent.click(recipesTab[0])
+    
+    // Assert we are on recipes page
+	const lasagnaText = await screen.findByText(/Lasagna/);
+	expect(lasagnaText).toBeInTheDocument();
 });
 
 it('modifies and deletes a recipe ingredient', async () => {
 	renderApp();
-
-	const demoBackground = await screen.findByTestId('tour');
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
 
 	// Check that "lasagna seasonings" exists, and "fieldModText" doesn't exist
 	expect(screen.getByText(/lasagna seasonings/)).toBeInTheDocument();
@@ -82,13 +143,6 @@ it('modifies and deletes a recipe ingredient', async () => {
 it('deletes a recipe', async () => {
 	renderApp();
 
-	const demoBackground = await screen.findByTestId('tour');
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-
 	// Check that Lasagna card exists
 	expect(screen.getByText(/Lasagna/)).toBeInTheDocument();
 
@@ -108,13 +162,6 @@ it('deletes a recipe', async () => {
 it('creates a recipe', async () => {
 	renderApp();
 
-	const demoBackground = await screen.findByTestId('tour');
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-
 	// Check that createdRecipe doesn't yet exist
 	expect(screen.queryByText(/createdRecipe/)).not.toBeInTheDocument();
 
@@ -132,13 +179,6 @@ it('creates a recipe', async () => {
 
 it('creates a list', async () => {
 	renderApp();
-
-	const demoBackground = await screen.findByTestId('tour');
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
 
 	const listsTab = screen.getAllByText(/Grocery lists/);
 	userEvent.click(listsTab[0]);
@@ -159,19 +199,14 @@ it('creates a list', async () => {
 
 	userEvent.click(screen.getByTestId('blur'));
 
-	expect(screen.getByText(/New list \(/)).toBeInTheDocument();
-	expect(screen.getByText(/bitter beer/)).toBeInTheDocument();
+    await waitFor(() => { 
+        expect(screen.getByText(/New list \(/)).toBeInTheDocument();
+    })
+    expect(screen.getByText(/bitter beer/)).toBeInTheDocument();
 });
 
 it('modifies, deletes and checks a list ingredient', async () => {
 	renderApp();
-
-	const demoBackground = await screen.findByTestId('tour');
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
-	userEvent.click(demoBackground);
 
 	// Router already points to demo/lists because of the last test
 
