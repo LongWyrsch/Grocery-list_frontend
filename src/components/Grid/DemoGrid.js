@@ -111,7 +111,6 @@ export const DemoGrid = ({ targetPage, user }) => {
 
 	const settingNewList = useCallback(() => {
 		console.log('settingNewList called');
-		console.log('within settingNewList, recipes: ', recipes);
 		setNewList(
 			recipes.map((recipe) => ({
 				card_uuid: recipe[0].card_uuid,
@@ -209,8 +208,6 @@ export const DemoGrid = ({ targetPage, user }) => {
 		};
 
 		// Update layouts with new card's grid position
-		console.log('targetPage: ', targetPage);
-		console.log('layoutsRef.current: ', layoutsRef.current);
 		let updatedLayouts = {};
 		for (const [key, value] of Object.entries(layoutsRef.current)) {
 			updatedLayouts[key] = value.map((grid_position) => ({ ...grid_position, y: grid_position.y + 1 })); // Shift all cards down by 1 to make room for the newly added card

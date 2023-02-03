@@ -107,7 +107,7 @@ export const CardList = ({
 								handleChange={(e) => updatefield(index, 'section', e.target.value)}
 							/>
 						</div>
-						<div className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
+						<div data-testid='deleteListIngredient' className={styles.deleteRowContainer} onClick={() => deleteIngredient(row.uuid)}>
 							<IoMdClose className={styles.deleteRow} />
 						</div>
 					</div>

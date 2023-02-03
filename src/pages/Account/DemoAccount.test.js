@@ -69,8 +69,8 @@ it('renders the account page and updates changes to userSlice', async () => {
 
     userEvent.click(screen.getByText(/pixel/))
 
-    userEvent.click(screen.getAllByText(/EN/)[0])
-    userEvent.click(screen.getByText(/DE/))
+    userEvent.click(screen.getAllByText(/^EN$/)[0])
+    userEvent.click(screen.getByText(/^DE$/))
 
     const fields = screen.getAllByRole('textbox')
     userEvent.type(fields[0], '{selectall}testNewEmail')
