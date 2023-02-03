@@ -3,7 +3,7 @@ import { DemoLayoutsRecipes } from './DemoLayoutsRecipes';
 import { DemoLayoutsLists } from './DemoLayoutsLists';
 
 export const testuser = {
-	uuid: 'a8eefbb0-9e50-4c00-b18f-798f2b951633',
+	uuid: '5a73309b-6029-4f5e-85e0-69c97cab46f9',
 	email: 'test.account@test.com',
 	language: 'en',
 	theme: 'light',
