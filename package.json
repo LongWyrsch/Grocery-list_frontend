@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --detectOpenHandles --coverage --watchAll --silent --verbose",
-    "longtest": "react-scripts test --detectOpenHandles",
+    "detailedtest": "react-scripts test -- --detectOpenHandles",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
