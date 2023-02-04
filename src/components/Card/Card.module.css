@@ -152,3 +152,39 @@
     color: var(--m3--sys--error);
 }
 
+@media only screen and (max-width: 600px) {
+    .cardWrapper {
+        min-width: 100px;
+
+    }
+    
+    .kcal{
+        display: none;
+    }
+
+    .section { 
+        display: none;
+    }
+
+
+    .deleteRow {
+        visibility: visible;
+    }
+
+    .handleHeader,
+    .handleIcon {
+        display: none;
+    }
+
+    .ingredient{
+     overflow: anywhere;   
+    }
+
+    .unit {
+        width: 50px;
+    }
+
+    .cardWrapper .row * {
+        font-size: 14px !important;
+    }
+}

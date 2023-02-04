@@ -254,12 +254,12 @@ export const Process = () => {
 					<p>{t('process.testing2')}</p>
 					<p>{t('process.testing3')}</p>
 					<ul>
-						<li><a href=''>{t('process.testing6')}</a></li>
+						<li><a href='https://longwyrsch.github.io/Grocery-list_frontend_coverage/'>{t('process.testing6')}</a></li>
 						<li>{t('process.testing4')}</li>
 					</ul>
 					<br/>
 					<ul>
-						<li><a href=''>{t('process.testing7')}</a></li>
+						<li><a href='https://longwyrsch.github.io/Grocery-list_backend_coverage/'>{t('process.testing7')}</a></li>
 						<li>{t('process.testing5')}</li>
 					</ul>
 				</section>
