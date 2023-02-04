@@ -111,6 +111,8 @@
 		"tocUI": "Conception de l'interface utilisateur",
 		"tocAPI": "OpenAPI",
 		"tocDatabase": "Base de données",
+		"tocSecurity": "Securité",
+		"tocTesting": "Tests",
 		"tocBreakdown": "Répartition du projet",
 		
 		"introText1": "Après avoir suivi un cours d'",
@@ -143,6 +145,9 @@
 		"observer": "détecte quand les éléments DOM sont à l'écran pour permettre l'animation lors du défilement.",
 		"parallax": "gère les animations de défilement.",
 		"uuid": "génère un uuid aléatoire.",
+		"jest1": "était le cadre de test choisi.",
+		"RTL": "a fourni les méthodes render() et screen() pour les tests.",
+		"msw": "a été utilisé pour simuler les requêtes de récupération pendant les tests.",
 		"joi": "valide l'entrée de l'utilisateur.",
 		"cors": "configurer les paramètres CORS pour le backend.",
 		"bcrypt": "gère le cryptage des mots de passe des utilisateurs",
@@ -150,6 +155,8 @@
 		"expval": "valide et assainit l'entrée de l'utilisateur.",
 		"helmet": "définit des en-têtes HTTP liés à la sécurité sur toutes les réponses.",
 		"uuidCSRF": "génère un UUID unique pour les jetons CSRF.",
+		"jest2": "était le cadre de test choisi",
+		"supertest": "a autorisé à tester les points de terminaison de l'API",
 		
 		"figma": "a été utilisé pour le wirefrmaing, le prototypage et la création de SVG personnalisés.",
 		"dbdiagram": "a été utilisé pour schématiser le diagramme de relation de la base de données.",
@@ -185,6 +192,14 @@
 		"security9": "Les CSRF",
 		"security10": " sont atténué à l'aide de jetons CSRF personnalisés.",
 		"security11": "Les ReDoS",
-		"security12": " sont atténué en testant toute expression régulière utilisée pour valider les entrées utilisateur."
+		"security12": " sont atténué en testant toute expression régulière utilisée pour valider les entrées utilisateur.",
+
+		"testing1": "Les tests de fonctionnalités frontend et les tests de serveur backend ont été effectués à la fin car c'est le domaine où je suis le moins à l'aise. Avec le recul, cela aurait dû être fait dès le départ. Les tests étaient beaucoup plus rapides et plus fiables que les tests manuels (browser devtool) qui ont été utilisés pour développer l'application. TDD commence à avoir un sens maintenant que je réalise les avantages d'écrire les tests dès le début.",
+		"testing2": "L'application React met à jour son magasin Redux via des demandes d'API asynx thunk. Au lieu de se moquer des thunks, toutes les demandes de récupération ont été moquées à l'aide de msw. Cela a permis de tester les implémentations réelles de thunk.",
+		"testing3": "L'objectif est d'atteindre à terme une couverture de 100 % des succursales.",
+		"testing4": "Outils : Jest, RTL et msw.",
+		"testing5": "Outils : Jest & Supertest.",
+		"testing6": "Voir le rapport de couverture frontale.",
+		"testing7": "Voir le rapport de couverture backend"
 	}
 }

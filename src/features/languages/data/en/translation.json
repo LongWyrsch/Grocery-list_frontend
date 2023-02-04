@@ -112,6 +112,7 @@
 		"tocAPI": "OpenAPI",
 		"tocDatabase": "Database",
 		"tocSecurity": "Security",
+		"tocTesting": "Testing",
 		"tocBreakdown": "Project breakdown",
 		
 		"introText1": "After completing an online ",
@@ -144,6 +145,9 @@
 		"observer": "detects when DOM elements are on screen to allows animation on scroll.",
 		"parallax": "manages scroll animations.",
 		"uuid": "generates random uuid.",
+		"jest1": "was the chosen testing framework.",
+		"RTL": "provided the render() and screen() methods for testing.",
+		"msw": "was used to mock fetch requests during testing.",
 		"joi": "validates user input.",
 		"cors": "configure CORS settings for the backend.",
 		"bcrypt": "manages users' password encryption",
@@ -151,6 +155,8 @@
 		"expval": "validates and sanitizes user inputs.",
 		"helmet": "sets security-related HTTP headers on all responses.",
 		"uuidCSRF": "generates unique UUID for CSRF tokens.",
+		"jest2": "was the chosen testing framework",
+		"supertest": "allowed testing the API endpoints",
 		
 		"figma": "was used for wirefrmaing, prototyping, and creating custom SVGs.",
 		"dbdiagram": "was used to schetch the database relationship diagram.",
@@ -186,7 +192,15 @@
 		"security9": "CSRF",
 		"security10": " is mitigated using custom CSRF tokens.",
 		"security11": "ReDoS",
-		"security12": " is mitigated by testing any regex used to validate user inputs."
+		"security12": " is mitigated by testing any regex used to validate user inputs.",
+		
+		"testing1": "Frontend feature testing and backend server testing were done at the end because it is the area where I am the least comfortable. Looking back, it should have been done from the start. The tests were much faster and more reliable than the manual testing (browser devtool) that was used to develop the app. TDD is starting to make sense now that I realize the benefits of writing the tests from the onset.",
+		"testing2": "The React app updates its Redux store through asynx thunk API requests. Instead of mocking the thunks, all fetch requests were mocked using msw. That allowed to test the actuall thunk implementations.",
+		"testing3": "The goal is to eventually reach 100% branch coverage.",
+		"testing4": "Tools: Jest, RTL & msw.",
+		"testing5": "Tools: Jest & Supertest.",
+		"testing6": "See the frontend coverage report.",
+		"testing7": "See the backend coverage report"
 	}
 }
 

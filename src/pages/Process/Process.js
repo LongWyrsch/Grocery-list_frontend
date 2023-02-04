@@ -79,6 +79,9 @@ export const Process = () => {
 					<li href="#tocSecurity" className="tocHeader">
 						{t('process.tocSecurity')}
 					</li>
+					<li href="#tocTesting" className="tocHeader">
+						{t('process.tocTesting')}
+					</li>
 					<li href="#tocBreakdown" className="tocHeader">
 						{t('process.tocBreakdown')}
 					</li>
@@ -159,6 +162,9 @@ export const Process = () => {
 						<li><span><a href="https://github.com/thebuilder/react-intersection-observer#readme">react-intersection-observer</a> {t('process.observer')}</span></li>
 						<li><span><a href="https://react-scroll-parallax.damnthat.tv/docs/intro">React Scroll Parallax</a> {t('process.parallax')}</span></li>
 						<li><span><a href="https://github.com/uuidjs/uuid">uuid</a> {t('process.uuid')}</span></li>
+						<li><span><a href="https://jestjs.io/">Jest</a> {t('process.jest1')}</span></li>
+						<li><span><a href="https://testing-library.com/docs/react-testing-library/intro/">React Testing Library</a> {t('process.RTL')}</span></li>
+						<li><span><a href="https://mswjs.io/">msw</a> {t('process.msw')}</span></li>
 						<h3>Backend</h3>
 						<li><span><a href="https://github.com/hapijs/joi#readme">joi</a> {t('process.joi')}</span></li>
 						<li><span><a href="https://github.com/expressjs/cors">cors</a> {t('process.cors')}</span></li>
@@ -167,6 +173,8 @@ export const Process = () => {
 						<li><span><a href="https://github.com/express-validator/express-validator">express-validator</a> {t('process.expval')}</span></li>
 						<li><span><a href="https://github.com/helmetjs/helmet">helmet</a> {t('process.helmet')}</span></li>
 						<li><span><a href="https://github.com/uuidjs/uuid">uuid</a> {t('process.uuidCSRF')}</span></li>
+						<li><span><a href="https://jestjs.io/">Jest</a> {t('process.jest2')}</span></li>
+						<li><span><a href="https://github.com/ladjs/supertest">Supertest</a> {t('process.supertest')}</span></li>
 					</ul>
 				</section>
 
@@ -237,6 +245,22 @@ export const Process = () => {
 						<li><span><b>{t('process.security7')}</b> {t('process.security8')}</span></li>
 						<li><span><b>{t('process.security9')}</b> {t('process.security10')}</span></li>
 						<li><span><b>{t('process.security11')}</b> {t('process.security12')}</span></li>
+					</ul>
+				</section>
+
+				<section className={styles.tocTesting}>
+					<h2 id="tocTesting">{t('process.tocTesting')}</h2>
+					<p>{t('process.testing1')}</p>
+					<p>{t('process.testing2')}</p>
+					<p>{t('process.testing3')}</p>
+					<ul>
+						<li><a href=''>{t('process.testing6')}</a></li>
+						<li>{t('process.testing4')}</li>
+					</ul>
+					<br/>
+					<ul>
+						<li><a href=''>{t('process.testing7')}</a></li>
+						<li>{t('process.testing5')}</li>
 					</ul>
 				</section>
 

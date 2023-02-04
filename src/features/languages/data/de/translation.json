@@ -111,6 +111,8 @@
 		"tocUI": "UI-Design",
 		"tocAPI": "OpenAPI",
 		"tocDatabase": "Database",
+		"tocSecurity": "Sicherheit",
+		"tocTesting": "Tests",
 		"tocBreakdown": "Projektaufschlüsselung",
 		
 
@@ -145,6 +147,9 @@
 		"observer": "erkennt, wenn DOM-Elemente auf dem Bildschirm angezeigt werden, um Animationen beim Scrollen zu ermöglichen.",
 		"parallax": "verwaltet Scroll-Animationen.",
 		"uuid": "generiert eine zufällige uuid.",
+		"jest1": "war das gewählte Testframework.",
+		"RTL": "stellte die Methoden render() und screen() zum Testen zur Verfügung.",
+		"msw": "wurde verwendet, um Abrufanfragen während des Testens zu simulieren.",
 		"joi": "validiert Benutzereingaben.",
 		"cors": "CORS-Einstellungen für das Back-End konfigurieren.",
 		"bcrypt": "verwaltet die Kennwortverschlüsselung der Benutzer",
@@ -152,6 +157,8 @@
 		"expval": "validiert und bereinigt Benutzereingaben.",
 		"helmet": "setzt sicherheitsbezogene HTTP-Header für alle Antworten.",
 		"uuidCSRF": "generiert eindeutige UUID für CSRF-Token.",
+		"jest2": "war das gewählte Testframework",
+		"supertest": "erlaubt das Testen der API-Endpunkte",
 		
 		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
 		"dbdiagram": "wurde verwendet, um das Datenbankbeziehungsdiagramm zu skizzieren.",
@@ -187,7 +194,15 @@
 		"security9": "CSRF",
 		"security10": " wird durch benutzerdefinierte CSRF-Tokens gemindert.",
 		"security11": "ReDoS",
-		"security12": " wird abgemildert, indem alle Regex getestet werden, die zur Validierung von Benutzereingaben verwendet werden."
+		"security12": " wird abgemildert, indem alle Regex getestet werden, die zur Validierung von Benutzereingaben verwendet werden.",
+
+		"testing1": "Frontend-Funktionstests und Backend-Servertests wurden am Ende durchgeführt, da dies der Bereich ist, in dem ich mich am wenigsten wohl fühle. Rückblickend hätte man es von Anfang an machen sollen. Die Tests waren viel schneller und zuverlässiger als die manuellen Tests (Browser-Devtool), die zur Entwicklung der App verwendet wurden. TDD macht allmählich Sinn, da ich die Vorteile des Schreibens der Tests von Anfang an erkenne.",
+		"testing2": "Die React-App aktualisiert ihren Redux-Speicher über asynx-Thunk-API-Anforderungen. Anstatt die Thunks zu verspotten, wurden alle Abrufanforderungen mit msw verspottet. Dadurch konnten die aktuellen Thunk-Implementierungen getestet werden.",
+		"testing3": "Ziel ist es, am Ende eine Filialabdeckung von 100 % zu erreichen.",
+		"testing4": "Tools: Jest, RTL & msw.",
+		"testing5": "Werkzeuge: Scherz & Supertest.",
+		"testing6": "Sehen Sie sich den Bericht zur Frontend-Abdeckung an.",
+		"testing7": "Sehen Sie sich den Bericht zur Back-End-Abdeckung an."
 	}
 }
 
