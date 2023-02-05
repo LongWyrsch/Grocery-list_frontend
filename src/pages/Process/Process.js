@@ -45,7 +45,7 @@ export const Process = () => {
 					}}
 				>
 					<Icon icon="mdi:arrow-left-circle-outline" style={{ width: '3rem', height: '3rem' }} />
-					Back
+					{t('general.back')}
 				</div>
 				<div className={styles.language}>
 					<LanguagePicker />
@@ -54,7 +54,7 @@ export const Process = () => {
 			<div className={styles.textWrapper}>
 				<h1>{t('process.title')}</h1>
 				<p className={styles.welcome}>{t('process.welcome')}</p>
-				<ol className={styles.toc}>
+				<ul className={styles.toc}>
 					<li href="#tocIntro" className="tocHeader">
 						{t('process.tocIntro')}
 					</li>
@@ -85,7 +85,7 @@ export const Process = () => {
 					<li href="#tocBreakdown" className="tocHeader">
 						{t('process.tocBreakdown')}
 					</li>
-				</ol>
+				</ul>
 
 				<section  className={styles.tocIntro}>
 					<h2 id="tocIntro">{t('process.tocIntro')}</h2>
@@ -103,11 +103,13 @@ export const Process = () => {
 						<li>{t('process.postgresql')}</li>
 						<li>{t('process.OpenAPI')}</li>
 						<li>{t('process.security')}</li>
+						<li>{t('process.testing')}</li>
 					</ul>
 					<p>{t('process.introText6')}</p>
 					<h3>{t('process.lessons')}</h3>
 					<p>{t('process.cssdesign')}</p>
 					<p>{t('process.endpoints')}</p>
+					<p>{t('process.testing1')}</p>
 				</section>
 
 				<section className={styles.tocTechStack}>
@@ -250,7 +252,6 @@ export const Process = () => {
 
 				<section className={styles.tocTesting}>
 					<h2 id="tocTesting">{t('process.tocTesting')}</h2>
-					<p>{t('process.testing1')}</p>
 					<p>{t('process.testing2')}</p>
 					<p>{t('process.testing3')}</p>
 					<ul>

@@ -2,7 +2,8 @@
 	"general": {
 		"Close": "Schließen",
 		"Delete": "Löschen",
-		"Cancel": "Abbrechen"
+		"Cancel": "Abbrechen",
+		"back": "Zurück"
 	},
 	"auth": {
 		"signup": "Registrieren",
@@ -104,16 +105,16 @@
 		"title": "Designprozess",
 		"welcome": "Willkommen bei meiner ersten Full-Stack-Web-App.",
 		
-		"tocIntro": "Einführung",
-		"tocTechStack": "Tech-Stack",
-		"tocDependencies": "Abhängigkeiten",
-		"tocTools": "Tools und Drittanbieter",
-		"tocUI": "UI-Design",
-		"tocAPI": "OpenAPI",
-		"tocDatabase": "Database",
-		"tocSecurity": "Sicherheit",
-		"tocTesting": "Tests",
-		"tocBreakdown": "Projektaufschlüsselung",
+		"tocIntro": "1. Einführung",
+		"tocTechStack": "2. Tech-Stack",
+		"tocDependencies": "3. Abhängigkeiten",
+		"tocTools": "4. Tools und Drittanbieter",
+		"tocUI": "5. UI-Design",
+		"tocAPI": "6. OpenAPI",
+		"tocDatabase": "7. Database",
+		"tocSecurity": "8. Sicherheit",
+		"tocTesting": "9. Tests",
+		"tocBreakdown": "10. Projektaufschlüsselung",
 		
 
 		"introText1": "Nachdem ich im November 2022 einen Online-Kurs für ",
@@ -129,11 +130,12 @@
 		"postgresql": "PostgreSQL-Datenbank",
 		"OpenAPI": "API-Dokumentation gemäß OpenAPI",
 		"security": "Grundlegende Websicherheit",
+		"testing": "Funktions- und Servertests",
 		"introText6": "Ich war mir nicht sicher, wo ich anfangen sollte. Ich hatte eine klare Vorstellung davon, was ich mit der App machen wollte, aber ich wusste nicht, wie sie aussehen sollte. Deshalb habe ich begonnen, an der Datenbank zu arbeiten. Als die App einige Funktionen übernahm, wurde ich sicherer mit ihrer UI-Richtung",
 		"lessons": "Stunden gelernt",  
 		"cssdesign": "Da das UI-Design nicht vollständig war, verbrachte ich viel Zeit damit, das CSS neu zu schreiben. Mehr Zeit für das Prototyping aufzuwenden hätte in den späteren Phasen Zeit gespart.",
 		"endpoints": "Aufgrund mangelnder Erfahrung war es schwer vorstellbar, wie Client und Server kommunizieren würden. Daher habe ich die Anfragemethoden und Anfragetexte mehrmals geändert. Aufgrund der Verwirrung hatte ich auch Schwierigkeiten, die API-Spezifikation zu schreiben. Für das nächste Projekt werde ich deutlich mehr Zeit in die Planung der Infrastruktur investieren.",
-
+		"testing1": "Frontend-Funktionstests und Backend-Servertests wurden am Ende durchgeführt, da dies der Bereich ist, in dem ich mich am wenigsten wohl fühle. Rückblickend hätte man es von Anfang an machen sollen. Die Tests waren viel schneller und zuverlässiger als die manuellen Tests (Browser-Devtool), die zur Entwicklung der App verwendet wurden. TDD macht allmählich Sinn, da ich die Vorteile des Schreibens der Tests von Anfang an erkenne.",
 
 		"thanks": "Danke an die großartige Community für die Bibliotheken.",
 		"iconify": "bietet einige Symbole, die in der gesamten App verwendet werden.",
@@ -147,9 +149,9 @@
 		"observer": "erkennt, wenn DOM-Elemente auf dem Bildschirm angezeigt werden, um Animationen beim Scrollen zu ermöglichen.",
 		"parallax": "verwaltet Scroll-Animationen.",
 		"uuid": "generiert eine zufällige uuid.",
-		"jest1": "war das gewählte Testframework.",
-		"RTL": "stellte die Methoden render() und screen() zum Testen zur Verfügung.",
-		"msw": "wurde verwendet, um Abrufanfragen während des Testens zu simulieren.",
+		"jest1": "ist das gewählte Testframework.",
+		"RTL": "stellt die Methoden render() und screen() zum Testen zur Verfügung.",
+		"msw": "wird verwendet, um Abrufanfragen während des Testens zu simulieren.",
 		"joi": "validiert Benutzereingaben.",
 		"cors": "CORS-Einstellungen für das Back-End konfigurieren.",
 		"bcrypt": "verwaltet die Kennwortverschlüsselung der Benutzer",
@@ -157,7 +159,7 @@
 		"expval": "validiert und bereinigt Benutzereingaben.",
 		"helmet": "setzt sicherheitsbezogene HTTP-Header für alle Antworten.",
 		"uuidCSRF": "generiert eindeutige UUID für CSRF-Token.",
-		"jest2": "war das gewählte Testframework",
+		"jest2": "ist das gewählte Testframework",
 		"supertest": "erlaubt das Testen der API-Endpunkte",
 		
 		"figma": "wurde für Wireframing, Prototyping und die Erstellung benutzerdefinierter SVGs verwendet.",
@@ -196,9 +198,8 @@
 		"security11": "ReDoS",
 		"security12": " wird abgemildert, indem alle Regex getestet werden, die zur Validierung von Benutzereingaben verwendet werden.",
 
-		"testing1": "Frontend-Funktionstests und Backend-Servertests wurden am Ende durchgeführt, da dies der Bereich ist, in dem ich mich am wenigsten wohl fühle. Rückblickend hätte man es von Anfang an machen sollen. Die Tests waren viel schneller und zuverlässiger als die manuellen Tests (Browser-Devtool), die zur Entwicklung der App verwendet wurden. TDD macht allmählich Sinn, da ich die Vorteile des Schreibens der Tests von Anfang an erkenne.",
 		"testing2": "Die React-App aktualisiert ihren Redux-Speicher über asynx-Thunk-API-Anforderungen. Anstatt die Thunks zu verspotten, wurden alle Abrufanforderungen mit msw verspottet. Dadurch konnten die aktuellen Thunk-Implementierungen getestet werden.",
-		"testing3": "Ziel ist es, am Ende eine Filialabdeckung von 100 % zu erreichen.",
+		"testing3": "Ziel ist es, am Ende eine Pfadüberdeckungstest von 100 % zu erreichen.",
 		"testing4": "Tools: Jest, RTL & msw.",
 		"testing5": "Werkzeuge: Scherz & Supertest.",
 		"testing6": "Sehen Sie sich den Bericht zur Frontend-Abdeckung an.",

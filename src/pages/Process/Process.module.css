@@ -36,8 +36,8 @@
     margin-bottom: 3rem !important;
 }
 
-.processWrapper ol.toc > li {
-    display: list-item;
+.processWrapper .toc > li {
+    /* display: list-item; */
     list-style:decimal;
     margin-left: 1rem;
     font-size: 1.2rem;
@@ -46,7 +46,7 @@
     width: fit-content;
 } 
 
-.processWrapper ol.toc > li:hover {
+.processWrapper .toc > li:hover {
     text-decoration: underline;
 }
 
