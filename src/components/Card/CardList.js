@@ -36,6 +36,7 @@ export const CardList = ({
 		});
 	};
 
+	// When checked/unchecked, reorder ingredients
 	const checkedUpdateAndMove = (index) => { 
 		let updatedList = Array.from(focusCard); // temp array
 
@@ -75,7 +76,7 @@ export const CardList = ({
 							<Textfield
 								fieldStyle="card"
 								value={row.ingredient}
-								placeholder=" " // This shows if input is empty. Shouldn't be empty. CSS picks it up and warns user to fill.
+								placeholder=" " // [1]
 								fieldType="text"
 								handleOnChange={(e) => updatefield(index, 'ingredient', e.target.value)}
 								height="2rem"
@@ -176,3 +177,6 @@ export const CardList = ({
 		</div>
 	);
 };
+
+// [1]
+// When adding a new ingredient, the field is empty, to a space " " placeholder is used. CSS picks it up and colors it red to warns user to fill it.

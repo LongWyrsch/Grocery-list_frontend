@@ -5,17 +5,15 @@ import * as BSicons from 'react-icons/bs';
 import * as MDicons from 'react-icons/md';
 
 export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: '', size:''}, width = '', addclass='', borderRadius='100px'}) => {
-	// Add all imported React-icons library here.
+	// Combine all imported React-icons library here.
 	const ReactIcons = { ...FCicons, ...BSicons, ...MDicons};
 
 	// Check if parent component passed a icon object to include in the textfield.
-	// const iconExists = Object.keys(iconInfo).length === 0 && iconInfo.constructor === Object ? false : true;
-	const iconExists = iconInfo.iconName === '' ?  false : true;
+	const iconExists = iconInfo.iconName === '' ?  false : true; // [1]
 
-	// Define icon <div> if an icon was provided.
+	// If an icon is required, create a div for it. Otherwise the button will not have a dedicated div for the icon.
 	let icon;
 	let icondiv;
-
 	if (iconExists) {
 		icon = React.createElement(ReactIcons[iconInfo.iconName]);
 		icondiv = (
@@ -27,6 +25,7 @@ export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: 
 		icondiv = <div></div>;
 	}
 
+	// Determine the button's classes
 	let setUpClassNames;
 	switch (buttonStyle) {
 		case 'filled':
@@ -52,3 +51,7 @@ export const Button = ({ buttonStyle, text = '', onClick, iconInfo = {iconName: 
 		</button>
 	);
 };
+
+
+// [1] 
+// Another way to check if an object contains a key: const iconExists = Object.keys(iconInfo).length === 0 && iconInfo.constructor === Object ? false : true;
