@@ -7,6 +7,7 @@ import styles from './Process.module.css';
 // components
 import { Mermaid } from './Mermaid';
 import { ganttData } from './ganttData';
+import { flowChartData } from './flowChartData';
 
 // libs
 import { useTranslation } from 'react-i18next';
@@ -105,6 +106,9 @@ export const Process = () => {
 						<li>{t('process.security')}</li>
 						<li>{t('process.testing')}</li>
 					</ul>
+					<div className={styles.flowChart}>
+						<Mermaid chart={flowChartData} />
+					</div>
 					<p>{t('process.introText6')}</p>
 					<h3>{t('process.lessons')}</h3>
 					<p>{t('process.cssdesign')}</p>
