@@ -89,6 +89,13 @@ export const Homepage = ({user}) => {
 				<div className={styles.navGroup2}>
                     <Button
 						buttonStyle="elevated"
+						text={t('process.title')}
+						onClick={() => {
+							navigate('/process');
+						}}
+                    />
+                    <Button
+						buttonStyle="elevated"
 						text={t('homepage.demoAccount')}
 						onClick={() => {
 							navigate('/demo/recipes');

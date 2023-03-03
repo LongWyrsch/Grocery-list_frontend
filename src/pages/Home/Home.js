@@ -37,7 +37,6 @@ export const Home = () => {
 
 	let accountPage = targetPage === 'account'
 
-
 	return (
 		<div className={styles.homePage}>
 			{isAuthenticated && <Navbar targetPage={targetPage} user={user}/>}

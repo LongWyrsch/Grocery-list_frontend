@@ -1,3 +1,5 @@
+
+
 export const flowChartData = `
 flowchart LR
     subgraph "Database (Supabase)"

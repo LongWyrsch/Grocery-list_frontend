@@ -51,6 +51,12 @@
 }
 
 .navGroup2 > Button:nth-child(1) {
+    background: black;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.navGroup2 > Button:nth-child(2) {
     background: var(--m3--ref--secondary--secondary70);
     font-size: 1.5rem;
     color: white;
@@ -78,8 +84,8 @@
 }
 
 
-.navGroup2 > Button:nth-child(2),
-.navGroup2 > Button:nth-child(3) {
+.navGroup2 > Button:nth-child(3),
+.navGroup2 > Button:nth-child(4) {
     background-color: white;
 }
 
@@ -92,7 +98,8 @@
 
     .navGroup2 > Button:nth-child(1),
     .navGroup2 > Button:nth-child(2),
-    .navGroup2 > Button:nth-child(3) {
+    .navGroup2 > Button:nth-child(3),
+    .navGroup2 > Button:nth-child(4) {
         display: none;
     }
     
