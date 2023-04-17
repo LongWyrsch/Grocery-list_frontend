@@ -286,7 +286,7 @@ export const Grid = ({ targetPage, user }) => {
 
 		// Wrap dispatch in arrow function, otherwise they will trigger automatically
 		const failureAction = targetPage === 'recipes' ? () => dispatch(getRecipes()) : () => dispatch(getLists());
-
+		// serverRequests.recipes.delete( { row_uuid: null, card_uuid: card_uuid })
 		serverRequests(`/${targetPage}/delete`, 'PUT', { row_uuid: null, card_uuid: card_uuid }, user.CSRF_token, navigate, '/signin', () => failureAction);
 
 		closeCard();
