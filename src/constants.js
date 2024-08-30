@@ -1,6 +1,6 @@
 const production = {
 	client_url: 'https://mygrocerylists.netlify.app',
-	server_url: 'https://mygrocerylists.up.railway.app'
+	server_url: 'https://grocery-list-backend-chf6hbgrgeh7f3bu.canadaeast-01.azurewebsites.net'
 };
 
 const development = {
