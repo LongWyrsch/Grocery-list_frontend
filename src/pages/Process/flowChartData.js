@@ -5,7 +5,7 @@ flowchart LR
     subgraph "Database (Supabase)"
     db(PostgreSQL)	
     end
-    subgraph "Backend (Railway)"
+    subgraph "Backend (Azure)"
     bk(Express.js)
     end
     subgraph "Frontend (Netlify)"

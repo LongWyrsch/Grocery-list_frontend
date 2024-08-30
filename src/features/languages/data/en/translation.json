@@ -165,9 +165,9 @@
 		"dbdiagram": "was used to schetch the database relationship diagram.",
 		"supabase": "hosts the database.",
 		"git": "CLI was used for version control.",
-		"github": "hosts the repositories for continuous deployment to Netlify and Railway.",
+		"github": "hosts the repositories for continuous deployment to Netlify and Azure.",
 		"netlify": "hosts the React frontend.",
-		"railway": "hosts the backend server.",
+		"azure": "hosts the backend server.",
 		"swagger": "was used to list the server's endpoint according to OpenAPI.",
 		"usda": "provides kCal for the user.",
 		

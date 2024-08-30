@@ -165,9 +165,9 @@
 		"dbdiagram": "a été utilisé pour schématiser le diagramme de relation de la base de données.",
 		"supabase": "héberge la base de données.",
 		"git": "CLI a été utilisé pour le contrôle de version.",
-		"github": "héberge les référentiels pour un déploiement continu sur Netlify et Railway.",
+		"github": "héberge les référentiels pour un déploiement continu sur Netlify et Azure.",
 		"netlify": "héberge le frontend React.",
-		"railway": "héberge le serveur backend.",
+		"azure": "héberge le serveur backend.",
 		"swagger": "a été utilisé pour répertorier le point de terminaison du serveur selon OpenAPI",
 		"usda": "fournit les kCal pour l'utilisateur.",
 		

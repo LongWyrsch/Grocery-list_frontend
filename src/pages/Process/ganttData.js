@@ -103,6 +103,6 @@ section Front end
     Update Process page to include Testing section: done, uppit, after wrtebr, 12h
 
 section Deploy
-    Deploy on Netlify and Railway: done, dpn, after mwere, 12h
+    Deploy on Netlify and Azure: done, dpn, after mwere, 12h
     Update all URLs: done, uaurl, after mwere, 12h
 `

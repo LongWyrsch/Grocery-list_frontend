@@ -195,7 +195,7 @@ export const Process = () => {
 						<li><span><a href="https://git-scm.com/">Git</a> {t('process.git')}</span></li>
 						<li><span><a href="https://github.com/">GitHub</a> {t('process.github')}</span></li>
 						<li><span><a href="https://www.netlify.com/">Netlify</a> {t('process.netlify')}</span></li>
-						<li><span><a href="https://railway.app/">Railway</a> {t('process.railway')}</span></li>
+						<li><span><a href="https://azure.microsoft.com/en-us/">Azure</a> {t('process.azure')}</span></li>
 						<li><span><a href="https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a> {t('process.swagger')}</span></li>
 						<li><span><a href="https://fdc.nal.usda.gov/api-guide.html">USDA FoodData Central API</a> {t('process.usda')}</span></li>
 					</ul>

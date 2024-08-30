@@ -397,8 +397,8 @@ export const Homepage = ({user}) => {
 						<span>Netlify</span>
 					</div>
 					<div className={styles.netlify} style={{transitionDelay: '520ms'}}>
-						<Icon icon="simple-icons:railway"/>
-						<span>Railway</span>
+						<Icon icon="logos:microsoft-azure"/>
+						<span>Azure</span>
 					</div>
 					<div className={styles.netlify} style={{transitionDelay: '590ms'}}>
 						<Icon icon="logos:swagger"/>
