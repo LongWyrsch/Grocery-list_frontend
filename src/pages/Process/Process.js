@@ -223,7 +223,7 @@ export const Process = () => {
 							{t('process.ui6')}
 						</li>
 					</ul>
-					<iframe title="wireframe" style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }} width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9OlfnA8kMP0qOKD7AdNueG%2FGrocery-list-test-colors%3Fnode-id%3D52696%253A23854%26t%3DYErgZuNh3u14Asp6-1" allowFullScreen></iframe>
+					<iframe title="wireframe" style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }} width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F6aEVJnaiMcBJfr4tddpA7v%2FGrocery-list%3Fnode-id%3D52697-23858%26t%3D41x3IVqU1vxIjLNt-1" allowFullScreen></iframe>
 					<div className={styles.figureDescription}>Wireframe</div>
 				</section>
 
