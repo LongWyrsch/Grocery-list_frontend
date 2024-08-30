@@ -196,7 +196,7 @@ export const Process = () => {
 						<li><span><a href="https://github.com/">GitHub</a> {t('process.github')}</span></li>
 						<li><span><a href="https://www.netlify.com/">Netlify</a> {t('process.netlify')}</span></li>
 						<li><span><a href="https://railway.app/">Railway</a> {t('process.railway')}</span></li>
-						<li><span><a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a> {t('process.swagger')}</span></li>
+						<li><span><a href="https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">Swagger Editor</a> {t('process.swagger')}</span></li>
 						<li><span><a href="https://fdc.nal.usda.gov/api-guide.html">USDA FoodData Central API</a> {t('process.usda')}</span></li>
 					</ul>
 				</section>
@@ -230,7 +230,7 @@ export const Process = () => {
 				<section className={styles.tocAPI}>
 					<h2 id="tocAPI">{t('process.tocAPI')}</h2>
 					<p>
-						<a href="https://editor.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">{t('process.api1')}</a>
+						<a href="https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/LongWyrsch/Grocery-list_backend/main/openapi.yaml">{t('process.api1')}</a>
 						{t('process.api2')}
 					</p>
 				</section>
