@@ -407,9 +407,9 @@ export const Homepage = ({user}) => {
 				</div>  
             </div>
 			<footer>
-				{/* <FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }}/> */}
-				<FaLinkedin className={styles.linkedin} onClick={() => { window.location.href='https://de.linkedin.com/in/long-wyrsch-9141a156?original_referer=' }}/>
-                <p>long.nqw@gmail.com</p>
+				<FaGithub className={styles.github} onClick={() => { window.location.href='https://github.com/LongWyrsch/Grocery-list_frontend' }}/>
+				<FaLinkedin className={styles.linkedin} onClick={() => { window.location.href='https://www.linkedin.com/in/wyrsch/' }}/>
+                {/* <p>long.nqw@gmail.com</p> */}
 			</footer>
 		</div>
 	);
