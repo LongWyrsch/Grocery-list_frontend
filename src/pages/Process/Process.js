@@ -238,7 +238,7 @@ export const Process = () => {
 				<section className={styles.tocDatabase}>
 					<h2 id="tocDatabase">{t('process.tocDatabase')}</h2>
 					<div>{t('process.databaseText')}</div>
-					<iframe title="schema" width="560" height="315" src="https://dbdiagram.io/embed/639da5ca99cb1f3b55a1fb97"></iframe>
+					<iframe width="560" height="315" src='https://dbdiagram.io/e/639da5ca99cb1f3b55a1fb97/673aab88e9daa85acac42654'> </iframe>
 					<div className={styles.figureDescription}>{t('process.schema')}</div>
 				</section>
 
